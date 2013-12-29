@@ -6,8 +6,11 @@
 //  Copyright (c) 2013 Dmitry Ivanov. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "RMMapView.h"
 
 @interface DIMapController : UIViewController
+    <RMMapViewDelegate>
+
+@property (nonatomic, strong) IBOutlet RMMapView *mapView;
 
 @end

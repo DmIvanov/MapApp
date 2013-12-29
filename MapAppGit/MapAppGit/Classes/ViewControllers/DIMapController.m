@@ -8,6 +8,12 @@
 
 #import "DIMapController.h"
 
+#import "RMCloudMadeMapSource.h"
+
+
+#define CONST_MAP_KEY_cloud @"a4573beea76a420f8f8b8f941f082492"
+
+
 @interface DIMapController ()
 
 @end
@@ -26,13 +32,21 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    _mapView.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+
+- (void) setMapSourceWithNumber:(int)number
+{
+    _mapView.contents.tileSource = [[RMCloudMadeMapSource alloc] initWithAccessKey:CONST_MAP_KEY_cloud styleNumber:1];
 }
 
 @end

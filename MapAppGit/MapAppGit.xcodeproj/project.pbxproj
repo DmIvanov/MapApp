@@ -24,11 +24,12 @@
 		C4BD883318705EE400128CD1 /* MapAppGitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C4BD883218705EE400128CD1 /* MapAppGitTests.m */; };
 		C4BD88411870612900128CD1 /* DIMapController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4BD883F1870612900128CD1 /* DIMapController.m */; };
 		C4BD88421870612900128CD1 /* DIMapController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4BD88401870612900128CD1 /* DIMapController.xib */; };
-		C4BD884C18706A6B00128CD1 /* libMapBox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C4BD884918706A3F00128CD1 /* libMapBox.a */; };
 		C4BD885318706E9000128CD1 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C4BD885218706E9000128CD1 /* libsqlite3.dylib */; };
 		C4BD885518706E9900128CD1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4BD885418706E9900128CD1 /* CoreLocation.framework */; };
 		C4BD885718706EA300128CD1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4BD885618706EA300128CD1 /* QuartzCore.framework */; };
 		C4BD885A18707A0100128CD1 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C4BD885918707A0100128CD1 /* libz.dylib */; };
+		C4BD88611870822900128CD1 /* DITilesDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = C4BD88601870822900128CD1 /* DITilesDownloader.m */; };
+		C4BD887218708C1D00128CD1 /* libMapView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C4BD887118708C1D00128CD1 /* libMapView.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,23 +40,30 @@
 			remoteGlobalIDString = C4BD880318705EE400128CD1;
 			remoteInfo = MapAppGit;
 		};
-		C4BD884818706A3F00128CD1 /* PBXContainerItemProxy */ = {
+		C4BD887B18708C8300128CD1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = C4BD884318706A3F00128CD1 /* MapView.xcodeproj */;
+			containerPortal = C4BD886218708BCF00128CD1 /* MapView.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 17F31EFA1331050A00122B16;
 			remoteInfo = MapView;
 		};
-		C4BD884A18706A3F00128CD1 /* PBXContainerItemProxy */ = {
+		C4BD887D18708C8300128CD1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = C4BD884318706A3F00128CD1 /* MapView.xcodeproj */;
+			containerPortal = C4BD886218708BCF00128CD1 /* MapView.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = DD6A83751644A20C0097F31F;
-			remoteInfo = Resources;
+			remoteGlobalIDString = 17157D87133BBC8300E28941;
+			remoteInfo = MapViewTests;
 		};
-		C4BD885018706E3F00128CD1 /* PBXContainerItemProxy */ = {
+		C4BD887F18708C8300128CD1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = C4BD884318706A3F00128CD1 /* MapView.xcodeproj */;
+			containerPortal = C4BD886218708BCF00128CD1 /* MapView.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2BF3078F0F8AC5C0007014EE;
+			remoteInfo = "Unit Tests";
+		};
+		C4BD888118708C8C00128CD1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C4BD886218708BCF00128CD1 /* MapView.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = B8C974130E8A19B2007D16AD;
 			remoteInfo = MapView;
@@ -84,11 +92,14 @@
 		C4BD883E1870612900128CD1 /* DIMapController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DIMapController.h; path = Classes/ViewControllers/DIMapController.h; sourceTree = "<group>"; };
 		C4BD883F1870612900128CD1 /* DIMapController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DIMapController.m; path = Classes/ViewControllers/DIMapController.m; sourceTree = "<group>"; };
 		C4BD88401870612900128CD1 /* DIMapController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DIMapController.xib; path = Classes/ViewControllers/DIMapController.xib; sourceTree = "<group>"; };
-		C4BD884318706A3F00128CD1 /* MapView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MapView.xcodeproj; path = "../mapbox-ios-sdk/MapView/MapView.xcodeproj"; sourceTree = "<group>"; };
 		C4BD885218706E9000128CD1 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		C4BD885418706E9900128CD1 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		C4BD885618706EA300128CD1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C4BD885918707A0100128CD1 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		C4BD885F1870822900128CD1 /* DITilesDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DITilesDownloader.h; sourceTree = "<group>"; };
+		C4BD88601870822900128CD1 /* DITilesDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DITilesDownloader.m; sourceTree = "<group>"; };
+		C4BD886218708BCF00128CD1 /* MapView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MapView.xcodeproj; path = ../RouteMeLib/MapView/MapView.xcodeproj; sourceTree = "<group>"; };
+		C4BD887118708C1D00128CD1 /* libMapView.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMapView.a; path = "../RouteMeLib/MapView/build/Debug-iphoneos/libMapView.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,11 +107,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4BD887218708C1D00128CD1 /* libMapView.a in Frameworks */,
 				C4BD885A18707A0100128CD1 /* libz.dylib in Frameworks */,
 				C4BD885718706EA300128CD1 /* QuartzCore.framework in Frameworks */,
 				C4BD885518706E9900128CD1 /* CoreLocation.framework in Frameworks */,
 				C4BD885318706E9000128CD1 /* libsqlite3.dylib in Frameworks */,
-				C4BD884C18706A6B00128CD1 /* libMapBox.a in Frameworks */,
 				C4BD880A18705EE400128CD1 /* CoreGraphics.framework in Frameworks */,
 				C4BD880E18705EE400128CD1 /* CoreData.framework in Frameworks */,
 				C4BD880C18705EE400128CD1 /* UIKit.framework in Frameworks */,
@@ -126,7 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				C4BD880F18705EE400128CD1 /* MapAppGit */,
-				C4BD884318706A3F00128CD1 /* MapView.xcodeproj */,
+				C4BD886218708BCF00128CD1 /* MapView.xcodeproj */,
 				C4BD882C18705EE400128CD1 /* MapAppGitTests */,
 				C4BD880618705EE400128CD1 /* Frameworks */,
 				C4BD880518705EE400128CD1 /* Products */,
@@ -145,6 +156,7 @@
 		C4BD880618705EE400128CD1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C4BD887118708C1D00128CD1 /* libMapView.a */,
 				C4BD885918707A0100128CD1 /* libz.dylib */,
 				C4BD885218706E9000128CD1 /* libsqlite3.dylib */,
 				C4BD885618706EA300128CD1 /* QuartzCore.framework */,
@@ -161,6 +173,7 @@
 		C4BD880F18705EE400128CD1 /* MapAppGit */ = {
 			isa = PBXGroup;
 			children = (
+				C4BD885B187080FD00128CD1 /* Managers */,
 				C4BD883C187060AD00128CD1 /* ViewControllers */,
 				C4BD881818705EE400128CD1 /* DIAppDelegate.h */,
 				C4BD881918705EE400128CD1 /* DIAppDelegate.m */,
@@ -218,11 +231,30 @@
 			name = DIMapController;
 			sourceTree = "<group>";
 		};
-		C4BD884418706A3F00128CD1 /* Products */ = {
+		C4BD885B187080FD00128CD1 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				C4BD884918706A3F00128CD1 /* libMapBox.a */,
-				C4BD884B18706A3F00128CD1 /* MapBox.bundle */,
+				C4BD885E1870822900128CD1 /* TilesDownloader */,
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
+		C4BD885E1870822900128CD1 /* TilesDownloader */ = {
+			isa = PBXGroup;
+			children = (
+				C4BD885F1870822900128CD1 /* DITilesDownloader.h */,
+				C4BD88601870822900128CD1 /* DITilesDownloader.m */,
+			);
+			name = TilesDownloader;
+			path = Classes/Managers/TilesDownloader;
+			sourceTree = "<group>";
+		};
+		C4BD887418708C8300128CD1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C4BD887C18708C8300128CD1 /* libMapView.a */,
+				C4BD887E18708C8300128CD1 /* MapViewTests.octest */,
+				C4BD888018708C8300128CD1 /* RM Unit Tests.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -241,7 +273,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				C4BD885118706E3F00128CD1 /* PBXTargetDependency */,
+				C4BD888218708C8C00128CD1 /* PBXTargetDependency */,
 			);
 			name = MapAppGit;
 			productName = MapAppGit;
@@ -296,8 +328,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = C4BD884418706A3F00128CD1 /* Products */;
-					ProjectRef = C4BD884318706A3F00128CD1 /* MapView.xcodeproj */;
+					ProductGroup = C4BD887418708C8300128CD1 /* Products */;
+					ProjectRef = C4BD886218708BCF00128CD1 /* MapView.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -309,18 +341,25 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		C4BD884918706A3F00128CD1 /* libMapBox.a */ = {
+		C4BD887C18708C8300128CD1 /* libMapView.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
-			path = libMapBox.a;
-			remoteRef = C4BD884818706A3F00128CD1 /* PBXContainerItemProxy */;
+			path = libMapView.a;
+			remoteRef = C4BD887B18708C8300128CD1 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		C4BD884B18706A3F00128CD1 /* MapBox.bundle */ = {
+		C4BD887E18708C8300128CD1 /* MapViewTests.octest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			path = MapBox.bundle;
-			remoteRef = C4BD884A18706A3F00128CD1 /* PBXContainerItemProxy */;
+			path = MapViewTests.octest;
+			remoteRef = C4BD887D18708C8300128CD1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C4BD888018708C8300128CD1 /* RM Unit Tests.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "RM Unit Tests.app";
+			remoteRef = C4BD887F18708C8300128CD1 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -351,6 +390,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4BD88611870822900128CD1 /* DITilesDownloader.m in Sources */,
 				C4BD881D18705EE400128CD1 /* MapAppGit.xcdatamodeld in Sources */,
 				C4BD881618705EE400128CD1 /* main.m in Sources */,
 				C4BD881A18705EE400128CD1 /* DIAppDelegate.m in Sources */,
@@ -374,10 +414,10 @@
 			target = C4BD880318705EE400128CD1 /* MapAppGit */;
 			targetProxy = C4BD882A18705EE400128CD1 /* PBXContainerItemProxy */;
 		};
-		C4BD885118706E3F00128CD1 /* PBXTargetDependency */ = {
+		C4BD888218708C8C00128CD1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = MapView;
-			targetProxy = C4BD885018706E3F00128CD1 /* PBXContainerItemProxy */;
+			targetProxy = C4BD888118708C8C00128CD1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
