@@ -8,6 +8,8 @@
 
 #import "DIAppDelegate.h"
 
+#import "DIMapController.h"
+
 @implementation DIAppDelegate
 
 @synthesize managedObjectContext = _managedObjectContext;
@@ -19,6 +21,8 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+    DIMapController *mapController = [[DIMapController alloc] init];
+    self.window.rootViewController = mapController;
     [self.window makeKeyAndVisible];
     return YES;
 }

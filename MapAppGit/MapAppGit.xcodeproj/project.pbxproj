@@ -22,6 +22,9 @@
 		C4BD882918705EE400128CD1 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4BD880D18705EE400128CD1 /* CoreData.framework */; };
 		C4BD883118705EE400128CD1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C4BD882F18705EE400128CD1 /* InfoPlist.strings */; };
 		C4BD883318705EE400128CD1 /* MapAppGitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C4BD883218705EE400128CD1 /* MapAppGitTests.m */; };
+		C4BD88411870612900128CD1 /* DIMapController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4BD883F1870612900128CD1 /* DIMapController.m */; };
+		C4BD88421870612900128CD1 /* DIMapController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4BD88401870612900128CD1 /* DIMapController.xib */; };
+		C4BD884C18706A6B00128CD1 /* libMapBox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C4BD884918706A3F00128CD1 /* libMapBox.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +34,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = C4BD880318705EE400128CD1;
 			remoteInfo = MapAppGit;
+		};
+		C4BD884818706A3F00128CD1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C4BD884318706A3F00128CD1 /* MapView.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 17F31EFA1331050A00122B16;
+			remoteInfo = MapView;
+		};
+		C4BD884A18706A3F00128CD1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C4BD884318706A3F00128CD1 /* MapView.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DD6A83751644A20C0097F31F;
+			remoteInfo = Resources;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -53,6 +70,10 @@
 		C4BD882E18705EE400128CD1 /* MapAppGitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MapAppGitTests-Info.plist"; sourceTree = "<group>"; };
 		C4BD883018705EE400128CD1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C4BD883218705EE400128CD1 /* MapAppGitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapAppGitTests.m; sourceTree = "<group>"; };
+		C4BD883E1870612900128CD1 /* DIMapController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DIMapController.h; path = Classes/ViewControllers/DIMapController.h; sourceTree = "<group>"; };
+		C4BD883F1870612900128CD1 /* DIMapController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DIMapController.m; path = Classes/ViewControllers/DIMapController.m; sourceTree = "<group>"; };
+		C4BD88401870612900128CD1 /* DIMapController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DIMapController.xib; path = Classes/ViewControllers/DIMapController.xib; sourceTree = "<group>"; };
+		C4BD884318706A3F00128CD1 /* MapView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MapView.xcodeproj; path = "../mapbox-ios-sdk/MapView/MapView.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4BD884C18706A6B00128CD1 /* libMapBox.a in Frameworks */,
 				C4BD880A18705EE400128CD1 /* CoreGraphics.framework in Frameworks */,
 				C4BD880E18705EE400128CD1 /* CoreData.framework in Frameworks */,
 				C4BD880C18705EE400128CD1 /* UIKit.framework in Frameworks */,
@@ -103,6 +125,7 @@
 		C4BD880618705EE400128CD1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C4BD884318706A3F00128CD1 /* MapView.xcodeproj */,
 				C4BD880718705EE400128CD1 /* Foundation.framework */,
 				C4BD880918705EE400128CD1 /* CoreGraphics.framework */,
 				C4BD880B18705EE400128CD1 /* UIKit.framework */,
@@ -115,6 +138,7 @@
 		C4BD880F18705EE400128CD1 /* MapAppGit */ = {
 			isa = PBXGroup;
 			children = (
+				C4BD883C187060AD00128CD1 /* ViewControllers */,
 				C4BD881818705EE400128CD1 /* DIAppDelegate.h */,
 				C4BD881918705EE400128CD1 /* DIAppDelegate.m */,
 				C4BD881E18705EE400128CD1 /* Images.xcassets */,
@@ -151,6 +175,33 @@
 				C4BD882F18705EE400128CD1 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C4BD883C187060AD00128CD1 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C4BD883D187060BF00128CD1 /* DIMapController */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		C4BD883D187060BF00128CD1 /* DIMapController */ = {
+			isa = PBXGroup;
+			children = (
+				C4BD883E1870612900128CD1 /* DIMapController.h */,
+				C4BD883F1870612900128CD1 /* DIMapController.m */,
+				C4BD88401870612900128CD1 /* DIMapController.xib */,
+			);
+			name = DIMapController;
+			sourceTree = "<group>";
+		};
+		C4BD884418706A3F00128CD1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C4BD884918706A3F00128CD1 /* libMapBox.a */,
+				C4BD884B18706A3F00128CD1 /* MapBox.bundle */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,6 +252,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Dmitry Ivanov";
 				TargetAttributes = {
+					C4BD880318705EE400128CD1 = {
+						DevelopmentTeam = 2Y2B5M2TAL;
+					};
 					C4BD882318705EE400128CD1 = {
 						TestTargetID = C4BD880318705EE400128CD1;
 					};
@@ -216,6 +270,12 @@
 			mainGroup = C4BD87FB18705EE400128CD1;
 			productRefGroup = C4BD880518705EE400128CD1 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = C4BD884418706A3F00128CD1 /* Products */;
+					ProjectRef = C4BD884318706A3F00128CD1 /* MapView.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				C4BD880318705EE400128CD1 /* MapAppGit */,
@@ -224,11 +284,29 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		C4BD884918706A3F00128CD1 /* libMapBox.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libMapBox.a;
+			remoteRef = C4BD884818706A3F00128CD1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C4BD884B18706A3F00128CD1 /* MapBox.bundle */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = MapBox.bundle;
+			remoteRef = C4BD884A18706A3F00128CD1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		C4BD880218705EE400128CD1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4BD88421870612900128CD1 /* DIMapController.xib in Resources */,
 				C4BD881418705EE400128CD1 /* InfoPlist.strings in Resources */,
 				C4BD881F18705EE400128CD1 /* Images.xcassets in Resources */,
 			);
@@ -252,6 +330,7 @@
 				C4BD881D18705EE400128CD1 /* MapAppGit.xcdatamodeld in Sources */,
 				C4BD881618705EE400128CD1 /* main.m in Sources */,
 				C4BD881A18705EE400128CD1 /* DIAppDelegate.m in Sources */,
+				C4BD88411870612900128CD1 /* DIMapController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,7 +389,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -349,7 +429,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -370,10 +451,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MapAppGit/MapAppGit-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"\"$(SRCROOT)/..\"",
+				);
 				INFOPLIST_FILE = "MapAppGit/MapAppGit-Info.plist";
+				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/../mapbox-ios-sdk\"";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -383,10 +473,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MapAppGit/MapAppGit-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"\"$(SRCROOT)/..\"",
+				);
 				INFOPLIST_FILE = "MapAppGit/MapAppGit-Info.plist";
+				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/../mapbox-ios-sdk\"";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -452,6 +551,7 @@
 				C4BD883818705EE400128CD1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C4BD883918705EE400128CD1 /* Build configuration list for PBXNativeTarget "MapAppGitTests" */ = {
 			isa = XCConfigurationList;
@@ -460,6 +560,7 @@
 				C4BD883B18705EE400128CD1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
