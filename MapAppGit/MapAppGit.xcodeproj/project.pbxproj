@@ -30,6 +30,7 @@
 		C4BD885A18707A0100128CD1 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C4BD885918707A0100128CD1 /* libz.dylib */; };
 		C4BD88611870822900128CD1 /* DITilesDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = C4BD88601870822900128CD1 /* DITilesDownloader.m */; };
 		C4BD887218708C1D00128CD1 /* libMapView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C4BD887118708C1D00128CD1 /* libMapView.a */; };
+		C4BD888A1870949700128CD1 /* DICloudeMadeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C4BD88891870949700128CD1 /* DICloudeMadeManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +101,9 @@
 		C4BD88601870822900128CD1 /* DITilesDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DITilesDownloader.m; sourceTree = "<group>"; };
 		C4BD886218708BCF00128CD1 /* MapView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MapView.xcodeproj; path = ../RouteMeLib/MapView/MapView.xcodeproj; sourceTree = "<group>"; };
 		C4BD887118708C1D00128CD1 /* libMapView.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMapView.a; path = "../RouteMeLib/MapView/build/Debug-iphoneos/libMapView.a"; sourceTree = "<group>"; };
+		C4BD88881870949700128CD1 /* DICloudeMadeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DICloudeMadeManager.h; path = Classes/Managers/MapSourceManagers/DICloudeMadeManager.h; sourceTree = "<group>"; };
+		C4BD88891870949700128CD1 /* DICloudeMadeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DICloudeMadeManager.m; path = Classes/Managers/MapSourceManagers/DICloudeMadeManager.m; sourceTree = "<group>"; };
+		C4BD888B187094FA00128CD1 /* DIMapSourceManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DIMapSourceManager.h; path = Classes/Managers/MapSourceManagers/DIMapSourceManager.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,6 +238,7 @@
 		C4BD885B187080FD00128CD1 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				C4BD88871870942200128CD1 /* MapSourceManagers */,
 				C4BD885E1870822900128CD1 /* TilesDownloader */,
 			);
 			name = Managers;
@@ -257,6 +262,16 @@
 				C4BD888018708C8300128CD1 /* RM Unit Tests.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		C4BD88871870942200128CD1 /* MapSourceManagers */ = {
+			isa = PBXGroup;
+			children = (
+				C4BD888B187094FA00128CD1 /* DIMapSourceManager.h */,
+				C4BD88881870949700128CD1 /* DICloudeMadeManager.h */,
+				C4BD88891870949700128CD1 /* DICloudeMadeManager.m */,
+			);
+			name = MapSourceManagers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -395,6 +410,7 @@
 				C4BD881618705EE400128CD1 /* main.m in Sources */,
 				C4BD881A18705EE400128CD1 /* DIAppDelegate.m in Sources */,
 				C4BD88411870612900128CD1 /* DIMapController.m in Sources */,
+				C4BD888A1870949700128CD1 /* DICloudeMadeManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,20 +1,19 @@
 //
 //  DIMapController.m
-//  MapAppGit
+//  
 //
 //  Created by Dmitry Ivanov on 29.12.13.
 //  Copyright (c) 2013 Dmitry Ivanov. All rights reserved.
 //
 
 #import "DIMapController.h"
-
-#import "RMCloudMadeMapSource.h"
-
-
-#define CONST_MAP_KEY_cloud @"a4573beea76a420f8f8b8f941f082492"
+#import "DIMapSourceManager.h"
+#import "DICloudeMadeManager.h"
 
 
 @interface DIMapController ()
+
+@property (nonatomic, strong) id <DIMapSourceManager> mapSourceManager;
 
 @end
 
@@ -24,7 +23,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        _mapSourceManager = [[DICloudeMadeManager alloc] init];
     }
     return self;
 }
@@ -33,6 +32,7 @@
 {
     [super viewDidLoad];
     
+    [_mapSourceManager setMapSourceForMapView:_mapView];
     _mapView.delegate = self;
 }
 
@@ -40,13 +40,6 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-
-
-- (void) setMapSourceWithNumber:(int)number
-{
-    _mapView.contents.tileSource = [[RMCloudMadeMapSource alloc] initWithAccessKey:CONST_MAP_KEY_cloud styleNumber:1];
 }
 
 @end
