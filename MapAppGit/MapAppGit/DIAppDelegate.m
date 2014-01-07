@@ -29,15 +29,17 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
-    DIMapController *mapController = [[DIMapController alloc] init];
-    self.window.rootViewController = mapController;
-    [self.window makeKeyAndVisible];
     
-#if 0
-    //download tiles to database
+#if 0   //download tiles to database
     _mapSourceManager = [[DICloudeMadeManager alloc] init];
     [_mapSourceManager makeDatabase];
+    
+#else   //load map controller
+    DIMapController *mapController = [[DIMapController alloc] init];
+    self.window.rootViewController = mapController;
+    
 #endif
+    [self.window makeKeyAndVisible];
     
     return YES;
 }

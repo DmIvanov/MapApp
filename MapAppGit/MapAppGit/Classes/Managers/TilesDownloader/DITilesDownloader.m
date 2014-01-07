@@ -39,44 +39,27 @@
     _minZoom = 10;
     _maxZoom = 16;
     
-    double lat, lon, latStep, lonStep;
-    NSUInteger nZoom, xTile, yTile;
+    NSUInteger nZoom, xTile, yTile, startXTile, startYTile, endXTile, endYTile;
     
     NSUInteger zoom = _minZoom;
     for (; zoom <= _maxZoom; zoom++) {
         nZoom = pow(2, zoom);
-        latStep = [self xStepForNZoom:nZoom];
-        lonStep = [self yStep:nZoom firstLatitude:_startPoint.latitude];
-        lon = _startPoint.longitude;
-        for (; lon < _endPoint.longitude; lon += lonStep) {
-            xTile = [self xTileForNZoom:nZoom longitude:lon];
-            lat = _startPoint.latitude;
-            for (; lat < _endPoint.latitude; lat += latStep) {
-                yTile = [self yTileForNZoom:nZoom latitude:lat];
+        
+        startXTile = [self xTileForNZoom:nZoom longitude:_startPoint.longitude];
+        endXTile = [self xTileForNZoom:nZoom longitude:_endPoint.longitude];
+        xTile = MIN(startXTile, endXTile);
+        endXTile = MAX(startXTile, endXTile);
+        for (; xTile <= endXTile; xTile++) {
+            startYTile = [self yTileForNZoom:nZoom latitude:_startPoint.latitude];
+            endYTile = [self yTileForNZoom:nZoom latitude:_endPoint.latitude];
+            yTile = MIN(startYTile, endYTile);
+            endYTile = MAX(startYTile, endYTile);
+            for (; yTile <= endYTile; yTile++) {
                 RMTile tile = {xTile, yTile, zoom};
                 [_tileCacheManager tileImage:tile];
             }
         }
     }
-}
-
-- (double)xStepForNZoom:(int)nZoom {
-    
-    return 360. / nZoom;
-}
-
-- (double)yStep:(int)nZoom firstLatitude:(int)lat {
-    
-    double yTile = [self yTileForNZoom:nZoom latitude:lat];
-    double yTileNext = yTile;
-    double stepLat = 0.;
-    while (yTile - yTileNext < 1.) {
-        stepLat += 0.0000001;
-        double lat2 = lat + stepLat;
-        yTileNext = [self yTileForNZoom:nZoom latitude:lat2];
-    }
-    
-    return stepLat;
 }
 
 - (int)yTileForNZoom:(int)nZoom latitude:(double)lat {
