@@ -7,15 +7,15 @@
 //
 
 #import "DIMapController.h"
-#import "DIMapSourceManager.h"
 #import "DICloudeMadeManager.h"
 
 
 @interface DIMapController ()
 
-@property (nonatomic, strong) id <DIMapSourceManager> mapSourceManager;
+@property (nonatomic, strong) DIMapSourceManager *mapSourceManager;
 
 @end
+
 
 @implementation DIMapController
 

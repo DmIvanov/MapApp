@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C4BB1A39187AF9910067C041 /* DIMapSourceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C4BB1A38187AF9910067C041 /* DIMapSourceManager.m */; };
 		C4BD880818705EE400128CD1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4BD880718705EE400128CD1 /* Foundation.framework */; };
 		C4BD880A18705EE400128CD1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4BD880918705EE400128CD1 /* CoreGraphics.framework */; };
 		C4BD880C18705EE400128CD1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4BD880B18705EE400128CD1 /* UIKit.framework */; };
@@ -72,6 +73,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C4BB1A38187AF9910067C041 /* DIMapSourceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DIMapSourceManager.m; path = Classes/Managers/MapSourceManagers/DIMapSourceManager.m; sourceTree = "<group>"; };
+		C4BB1A3F187B04320067C041 /* DIDefaults.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DIDefaults.h; sourceTree = "<group>"; };
 		C4BD880418705EE400128CD1 /* MapAppGit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapAppGit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4BD880718705EE400128CD1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C4BD880918705EE400128CD1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -181,6 +184,7 @@
 				C4BD883C187060AD00128CD1 /* ViewControllers */,
 				C4BD881818705EE400128CD1 /* DIAppDelegate.h */,
 				C4BD881918705EE400128CD1 /* DIAppDelegate.m */,
+				C4BB1A3F187B04320067C041 /* DIDefaults.h */,
 				C4BD881E18705EE400128CD1 /* Images.xcassets */,
 				C4BD881B18705EE400128CD1 /* MapAppGit.xcdatamodeld */,
 				C4BD881018705EE400128CD1 /* Supporting Files */,
@@ -268,6 +272,7 @@
 			isa = PBXGroup;
 			children = (
 				C4BD888B187094FA00128CD1 /* DIMapSourceManager.h */,
+				C4BB1A38187AF9910067C041 /* DIMapSourceManager.m */,
 				C4BD88881870949700128CD1 /* DICloudeMadeManager.h */,
 				C4BD88891870949700128CD1 /* DICloudeMadeManager.m */,
 			);
@@ -406,6 +411,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4BD88611870822900128CD1 /* DITilesDownloader.m in Sources */,
+				C4BB1A39187AF9910067C041 /* DIMapSourceManager.m in Sources */,
 				C4BD881D18705EE400128CD1 /* MapAppGit.xcdatamodeld in Sources */,
 				C4BD881618705EE400128CD1 /* main.m in Sources */,
 				C4BD881A18705EE400128CD1 /* DIAppDelegate.m in Sources */,

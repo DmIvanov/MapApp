@@ -7,8 +7,16 @@
 //
 
 #import "DIAppDelegate.h"
-
+#import "DICloudeMadeManager.h"
 #import "DIMapController.h"
+
+
+@interface DIAppDelegate()
+
+@property (nonatomic, strong) DIMapSourceManager *mapSourceManager;
+
+@end
+
 
 @implementation DIAppDelegate
 
@@ -24,6 +32,13 @@
     DIMapController *mapController = [[DIMapController alloc] init];
     self.window.rootViewController = mapController;
     [self.window makeKeyAndVisible];
+    
+#if 0
+    //download tiles to database
+    _mapSourceManager = [[DICloudeMadeManager alloc] init];
+    [_mapSourceManager makeDatabase];
+#endif
+    
     return YES;
 }
 

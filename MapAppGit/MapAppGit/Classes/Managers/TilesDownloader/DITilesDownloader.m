@@ -8,7 +8,6 @@
 
 #import "DITilesDownloader.h"
 
-
 @interface DITilesDownloader()
 
 @property (nonatomic, strong) id<RMTileSource> tileSource;
@@ -37,13 +36,14 @@
     //double lon = 30.3;
     _startPoint = CLLocationCoordinate2DMake(59.8928, 30.1981);
     _endPoint = CLLocationCoordinate2DMake(60.0033, 30.4117);
-    _minZoom = _maxZoom = 12;
+    _minZoom = 10;
+    _maxZoom = 16;
     
     double lat, lon, latStep, lonStep;
     NSUInteger nZoom, xTile, yTile;
     
-    NSUInteger zoom = _maxZoom;
-    for (; zoom <= _minZoom; zoom++) {
+    NSUInteger zoom = _minZoom;
+    for (; zoom <= _maxZoom; zoom++) {
         nZoom = pow(2, zoom);
         latStep = [self xStepForNZoom:nZoom];
         lonStep = [self yStep:nZoom firstLatitude:_startPoint.latitude];

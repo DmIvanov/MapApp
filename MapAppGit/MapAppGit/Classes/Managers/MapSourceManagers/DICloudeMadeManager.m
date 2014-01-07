@@ -9,14 +9,22 @@
 #import "DICloudeMadeManager.h"
 #import "RMCloudMadeMapSource.h"
 
+
 #define APP_KEY                     @"a4573beea76a420f8f8b8f941f082492"
 #define MAP_STYLE_NUMBER            1
 
+
 @implementation DICloudeMadeManager
 
-- (void)setMapSourceForMapView:(RMMapView *)mapView {
+- (id)init {
     
-    mapView.contents.tileSource = [[RMCloudMadeMapSource alloc] initWithAccessKey:APP_KEY styleNumber:MAP_STYLE_NUMBER];
+    self = [super init];
+    if (self) {
+        self.tileSource = [[RMCloudMadeMapSource alloc] initWithAccessKey:APP_KEY styleNumber:MAP_STYLE_NUMBER];
+    }
+    
+    return self;
 }
+
 
 @end
