@@ -9,6 +9,7 @@
 #import "DIAppDelegate.h"
 #import "DICloudeMadeManager.h"
 #import "DIMapController.h"
+#import "DIDefaults.h"
 
 
 @interface DIAppDelegate()

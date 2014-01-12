@@ -9,8 +9,17 @@
 #import "RMMapView.h"
 
 @interface DIMapController : UIViewController
-    <RMMapViewDelegate>
+    <RMMapViewDelegate,
+    RMTilesUpdateDelegate>
 
 @property (nonatomic, strong) IBOutlet RMMapView *mapView;
+
+#pragma mark - RMMapViewDelegate methods
+- (void)beforeMapMove:(RMMapView*)map;
+- (void)afterMapMove:(RMMapView*)map;
+- (void)afterMapTouch:(RMMapView*)map;
+
+#pragma mark - RMTilesUpdateDelegate methods
+- (void)regionUpdate:(RMSphericalTrapezium)region;
 
 @end

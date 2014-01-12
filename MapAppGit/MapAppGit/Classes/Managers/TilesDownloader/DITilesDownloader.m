@@ -12,6 +12,7 @@
 
 @property (nonatomic, strong) id<RMTileSource> tileSource;
 @property (nonatomic, strong) RMCachedTileSource *tileCacheManager;
+@property (nonatomic, strong) NSMutableDictionary *dbDescription;
 
 @end
 
@@ -24,6 +25,7 @@
     if (self) {
         _tileSource = source;
         _tileCacheManager = [[RMCachedTileSource alloc] initWithSource:source];
+        _dbDescription = [NSMutableDictionary dictionary];
     }
 	return self;
 }
@@ -49,17 +51,31 @@
         endXTile = [self xTileForNZoom:nZoom longitude:_endPoint.longitude];
         xTile = MIN(startXTile, endXTile);
         endXTile = MAX(startXTile, endXTile);
+        
+        NSMutableArray *arrayForZoom = [NSMutableArray array];
         for (; xTile <= endXTile; xTile++) {
             startYTile = [self yTileForNZoom:nZoom latitude:_startPoint.latitude];
             endYTile = [self yTileForNZoom:nZoom latitude:_endPoint.latitude];
             yTile = MIN(startYTile, endYTile);
             endYTile = MAX(startYTile, endYTile);
+            
+            NSMutableArray *arrayForX = [NSMutableArray array];
             for (; yTile <= endYTile; yTile++) {
                 RMTile tile = {xTile, yTile, zoom};
                 [_tileCacheManager tileImage:tile];
+                [arrayForX addObject:@(yTile)];
             }
+            NSString *key = [NSString stringWithFormat:@"%d", xTile];
+            NSDictionary *dictForX = @{key : arrayForX};
+            [arrayForZoom addObject:dictForX];
         }
+        NSString *key = [NSString stringWithFormat:@"%d", zoom];
+        _dbDescription[key] = arrayForZoom;
     }
+    
+    NSURL *path = [[[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject] URLByAppendingPathComponent:@"dbDescription.plist"];
+    [_dbDescription writeToURL:path atomically:YES];
+    
 }
 
 - (int)yTileForNZoom:(int)nZoom latitude:(double)lat {

@@ -142,6 +142,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C4BB1A4D18817AF10067C041 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Objects;
+			sourceTree = "<group>";
+		};
 		C4BD87FB18705EE400128CD1 = {
 			isa = PBXGroup;
 			children = (
@@ -183,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				C4BD885B187080FD00128CD1 /* Managers */,
+				C4BB1A4D18817AF10067C041 /* Objects */,
 				C4BD883C187060AD00128CD1 /* ViewControllers */,
 				C4BD881818705EE400128CD1 /* DIAppDelegate.h */,
 				C4BD881918705EE400128CD1 /* DIAppDelegate.m */,
