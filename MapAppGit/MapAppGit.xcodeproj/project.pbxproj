@@ -33,6 +33,9 @@
 		C4BD88611870822900128CD1 /* DITilesDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = C4BD88601870822900128CD1 /* DITilesDownloader.m */; };
 		C4BD887218708C1D00128CD1 /* libMapView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C4BD887118708C1D00128CD1 /* libMapView.a */; };
 		C4BD888A1870949700128CD1 /* DICloudeMadeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C4BD88891870949700128CD1 /* DICloudeMadeManager.m */; };
+		C4CAB3FD188C4E55003CB9CC /* DICell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4CAB3F8188C4E55003CB9CC /* DICell.m */; };
+		C4CAB3FE188C4E55003CB9CC /* ThirdVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C4CAB3FB188C4E55003CB9CC /* ThirdVC.m */; };
+		C4CAB3FF188C4E55003CB9CC /* ThirdVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4CAB3FC188C4E55003CB9CC /* ThirdVC.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,7 +78,6 @@
 
 /* Begin PBXFileReference section */
 		C4BB1A38187AF9910067C041 /* DIMapSourceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DIMapSourceManager.m; path = Classes/Managers/MapSourceManagers/DIMapSourceManager.m; sourceTree = "<group>"; };
-		C4BB1A3F187B04320067C041 /* DIDefaults.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DIDefaults.h; sourceTree = "<group>"; };
 		C4BB1A41187C25E30067C041 /* spb_10_16.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = spb_10_16.sqlite; sourceTree = "<group>"; };
 		C4BD880418705EE400128CD1 /* MapAppGit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapAppGit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4BD880718705EE400128CD1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -95,9 +97,9 @@
 		C4BD882E18705EE400128CD1 /* MapAppGitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MapAppGitTests-Info.plist"; sourceTree = "<group>"; };
 		C4BD883018705EE400128CD1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C4BD883218705EE400128CD1 /* MapAppGitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapAppGitTests.m; sourceTree = "<group>"; };
-		C4BD883E1870612900128CD1 /* DIMapController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DIMapController.h; path = Classes/ViewControllers/DIMapController.h; sourceTree = "<group>"; };
-		C4BD883F1870612900128CD1 /* DIMapController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DIMapController.m; path = Classes/ViewControllers/DIMapController.m; sourceTree = "<group>"; };
-		C4BD88401870612900128CD1 /* DIMapController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DIMapController.xib; path = Classes/ViewControllers/DIMapController.xib; sourceTree = "<group>"; };
+		C4BD883E1870612900128CD1 /* DIMapController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIMapController.h; sourceTree = "<group>"; };
+		C4BD883F1870612900128CD1 /* DIMapController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIMapController.m; sourceTree = "<group>"; };
+		C4BD88401870612900128CD1 /* DIMapController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DIMapController.xib; sourceTree = "<group>"; };
 		C4BD885218706E9000128CD1 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		C4BD885418706E9900128CD1 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		C4BD885618706EA300128CD1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -109,6 +111,12 @@
 		C4BD88881870949700128CD1 /* DICloudeMadeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DICloudeMadeManager.h; path = Classes/Managers/MapSourceManagers/DICloudeMadeManager.h; sourceTree = "<group>"; };
 		C4BD88891870949700128CD1 /* DICloudeMadeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DICloudeMadeManager.m; path = Classes/Managers/MapSourceManagers/DICloudeMadeManager.m; sourceTree = "<group>"; };
 		C4BD888B187094FA00128CD1 /* DIMapSourceManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DIMapSourceManager.h; path = Classes/Managers/MapSourceManagers/DIMapSourceManager.h; sourceTree = "<group>"; };
+		C4CAB3F7188C4E55003CB9CC /* DICell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DICell.h; path = Classes/ViewControllers/ListVC/DICell.h; sourceTree = "<group>"; };
+		C4CAB3F8188C4E55003CB9CC /* DICell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DICell.m; path = Classes/ViewControllers/ListVC/DICell.m; sourceTree = "<group>"; };
+		C4CAB3F9188C4E55003CB9CC /* ListDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListDefaults.h; path = Classes/ViewControllers/ListVC/ListDefaults.h; sourceTree = "<group>"; };
+		C4CAB3FA188C4E55003CB9CC /* ThirdVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThirdVC.h; path = Classes/ViewControllers/ListVC/ThirdVC.h; sourceTree = "<group>"; };
+		C4CAB3FB188C4E55003CB9CC /* ThirdVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThirdVC.m; path = Classes/ViewControllers/ListVC/ThirdVC.m; sourceTree = "<group>"; };
+		C4CAB3FC188C4E55003CB9CC /* ThirdVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ThirdVC.xib; path = Classes/ViewControllers/ListVC/ThirdVC.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,7 +202,6 @@
 				C4BD883C187060AD00128CD1 /* ViewControllers */,
 				C4BD881818705EE400128CD1 /* DIAppDelegate.h */,
 				C4BD881918705EE400128CD1 /* DIAppDelegate.m */,
-				C4BB1A3F187B04320067C041 /* DIDefaults.h */,
 				C4BD881E18705EE400128CD1 /* Images.xcassets */,
 				C4BD881B18705EE400128CD1 /* MapAppGit.xcdatamodeld */,
 				C4BD881018705EE400128CD1 /* Supporting Files */,
@@ -235,19 +242,21 @@
 		C4BD883C187060AD00128CD1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				C4BD883D187060BF00128CD1 /* DIMapController */,
+				C4CAB3F6188C4E1D003CB9CC /* ListVC */,
+				C4BD883D187060BF00128CD1 /* MapVC */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
 		};
-		C4BD883D187060BF00128CD1 /* DIMapController */ = {
+		C4BD883D187060BF00128CD1 /* MapVC */ = {
 			isa = PBXGroup;
 			children = (
 				C4BD883E1870612900128CD1 /* DIMapController.h */,
 				C4BD883F1870612900128CD1 /* DIMapController.m */,
 				C4BD88401870612900128CD1 /* DIMapController.xib */,
 			);
-			name = DIMapController;
+			name = MapVC;
+			path = Classes/ViewControllers/MapVC;
 			sourceTree = "<group>";
 		};
 		C4BD885B187080FD00128CD1 /* Managers */ = {
@@ -288,6 +297,19 @@
 				C4BD88891870949700128CD1 /* DICloudeMadeManager.m */,
 			);
 			name = MapSourceManagers;
+			sourceTree = "<group>";
+		};
+		C4CAB3F6188C4E1D003CB9CC /* ListVC */ = {
+			isa = PBXGroup;
+			children = (
+				C4CAB3F9188C4E55003CB9CC /* ListDefaults.h */,
+				C4CAB3F7188C4E55003CB9CC /* DICell.h */,
+				C4CAB3F8188C4E55003CB9CC /* DICell.m */,
+				C4CAB3FA188C4E55003CB9CC /* ThirdVC.h */,
+				C4CAB3FB188C4E55003CB9CC /* ThirdVC.m */,
+				C4CAB3FC188C4E55003CB9CC /* ThirdVC.xib */,
+			);
+			name = ListVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -404,6 +426,7 @@
 				C4BD881418705EE400128CD1 /* InfoPlist.strings in Resources */,
 				C4BD881F18705EE400128CD1 /* Images.xcassets in Resources */,
 				C4BB1A42187C25E30067C041 /* spb_10_16.sqlite in Resources */,
+				C4CAB3FF188C4E55003CB9CC /* ThirdVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,11 +445,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4CAB3FD188C4E55003CB9CC /* DICell.m in Sources */,
 				C4BD88611870822900128CD1 /* DITilesDownloader.m in Sources */,
 				C4BB1A39187AF9910067C041 /* DIMapSourceManager.m in Sources */,
 				C4BD881D18705EE400128CD1 /* MapAppGit.xcdatamodeld in Sources */,
 				C4BD881618705EE400128CD1 /* main.m in Sources */,
 				C4BD881A18705EE400128CD1 /* DIAppDelegate.m in Sources */,
+				C4CAB3FE188C4E55003CB9CC /* ThirdVC.m in Sources */,
 				C4BD88411870612900128CD1 /* DIMapController.m in Sources */,
 				C4BD888A1870949700128CD1 /* DICloudeMadeManager.m in Sources */,
 			);
