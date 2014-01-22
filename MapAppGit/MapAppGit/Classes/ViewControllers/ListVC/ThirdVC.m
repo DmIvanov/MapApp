@@ -111,29 +111,56 @@
         [self removeBottomCell];
 }
 
+
+double deltaHeight (double origY, double height) {
+    
+    if (origY <= START_TRANSFORM_POSITION) {
+        return CELL_HIGH_BIG - CELL_HIGH;
+    }
+    else if (origY > END_TRANSFORM_POSITION) {
+        return 0.;
+    }
+    else {
+        height = height > 0 ? height : CELL_HIGH;
+        double deltaPath = fabsf(END_TRANSFORM_POSITION - START_TRANSFORM_POSITION);
+        double deltaHeight = CELL_HIGH_BIG - CELL_HIGH;
+        double ratio = deltaHeight / deltaPath;
+        double delta = ratio * (END_TRANSFORM_POSITION - origY) - height;
+        if (height + delta < CELL_HIGH_BIG && height + delta > CELL_HIGH) {
+            NSLog(@"%f", delta);
+        }
+        return delta;
+    }
+}
+
+
+
 - (void)growingCellManaging {
     
-    static float prevOffset = 0;
+    static float prevHeight = 0;
     
     CGRect frameInView = [_growingCell.superview convertRect:_growingCell.frame toView:self.view];
-    float growingCellCoordY = frameInView.origin.y;
+    double growingCellCoordY = frameInView.origin.y;
     
     CGRect frame = _growingCell.frame;
-    float currentHight = frame.size.height;
-    float deltaPath = fabsf(growingCellCoordY - START_TRANSFORM_POSITION);
-    deltaPath = deltaPath > 1 ? deltaPath : 1;
-    float deltaHeight = CELL_HIGH_BIG - currentHight;
-    float deltaOffset = _scrollView.contentOffset.y - prevOffset;
-    float delta = deltaOffset * deltaHeight / deltaPath;
-    delta = delta < deltaPath ? delta : deltaPath;
+    double currentHight = frame.size.height;
+    prevHeight = currentHight;
+    
+    double delta = deltaHeight(growingCellCoordY, currentHight);
+    //float deltaPath = fabsf(growingCellCoordY - START_TRANSFORM_POSITION);
+    //deltaPath = deltaPath > 1 ? deltaPath : 1;
+    //float deltaHeight = CELL_HIGH_BIG - currentHight;
+    //float deltaOffset = _scrollView.contentOffset.y - prevOffset;
+    //float delta = deltaOffset * deltaHeight / deltaPath;
+    //delta = delta < deltaPath ? delta : deltaPath;
 
     //NSLog(@"delta = %.3f * %.3f / %.3f", (_scrollView.contentOffset.y - prevOffset), (CELL_HIGH_BIG - currentHight), (START_TRANSFORM_POSITION - growingCellCoordY));
-    NSLog(@"growingCellCoordY - %.3f", growingCellCoordY);
-    NSLog(@"deltaPath - %.3f", deltaPath);
-    NSLog(@"deltaHeight - %.3f", deltaHeight);
-    NSLog(@"deltaOffset - %.3f", deltaOffset);
-    NSLog(@"delta - %.3f", delta);
-    NSLog(@"hight - %.3f", frame.size.height);
+    //NSLog(@"growingCellCoordY - %.3f", growingCellCoordY);
+    //NSLog(@"deltaPath - %.3f", deltaPath);
+    //NSLog(@"deltaHeight - %.3f", deltaHeight);
+    //NSLog(@"deltaOffset - %.3f", deltaOffset);
+    //NSLog(@"delta - %.3f", delta);
+    //NSLog(@"hight - %.3f", frame.size.height);
     
     if (frame.size.height + delta < CELL_HIGH) {
         //[self setPrevCellAsGrowing];
@@ -145,11 +172,19 @@
         frame.size.height += delta;
         frame.origin.y -= delta;
         _growingCell.frame = frame;
+        
+        for (DICell *cell in _scrollingCells) {
+            if (cell.dataIndex < _growingCell.dataIndex) {
+                CGRect frame = cell.frame;
+                frame.origin.y -= delta;
+                cell.frame = frame;
+            }
+        }
     }
 
 //    float oldHeight = _growingCell.frame.size.height;
     
-    NSLog(@"================");
+    //NSLog(@"================");
     //NSLog(@"coord - %f", growingCellCoordY);
     
     
@@ -185,16 +220,10 @@
 //        frame.size.height += delta;
 //        _previousGrowingCellHight = frame.size.height;
 //        _growingCell.frame = frame;
-        for (DICell *cell in _scrollingCells) {
-            if (cell.dataIndex < _growingCell.dataIndex) {
-                CGRect frame = cell.frame;
-                frame.origin.y -= delta;
-                cell.frame = frame;
-            }
-        }
+
 //    }
     
-    prevOffset = _scrollView.contentOffset.y;
+    //prevOffset = _scrollView.contentOffset.y;
 }
 
 - (void)setNextCellAsGrowing {
@@ -216,13 +245,13 @@
 
 - (void)fillFirstScreen {
     
-    float y = _scrollView.contentOffset.y;
+    double y = _scrollView.contentOffset.y;
     int cellIndex = 0;
     
     //NSLog(@"%f", SCREEN_SIZE.height);
     while (y <= (SCREEN_SIZE.height + HIGHT_LIMIT)) {
         DICell *cell = [self cellForIndex:cellIndex];
-        float cellHight = [self cellHightForYOrigin:y];
+        double cellHight = CELL_HIGH + deltaHeight(y, CELL_HIGH);
         CGRect frame = cell.frame;
         frame.size.height = cellHight;
         frame.origin.y = y;
@@ -234,19 +263,19 @@
         y++;
     }
 }
-
-- (float)cellHightForYOrigin:(float)yOrigin {
-
-    if (yOrigin <= START_TRANSFORM_POSITION) {
-        return CELL_HIGH_BIG;
-    }
-    else if (yOrigin <= END_TRANSFORM_POSITION) {
-        return [self growingCellHightForYPosition:yOrigin];
-    }
-    else {
-        return CELL_HIGH;
-    }
-}
+//
+//- (float)cellHightForYOrigin:(float)yOrigin {
+//
+//    if (yOrigin <= START_TRANSFORM_POSITION) {
+//        return CELL_HIGH_BIG;
+//    }
+//    else if (yOrigin <= END_TRANSFORM_POSITION) {
+//        return [self growingCellHightForYPosition:yOrigin];
+//    }
+//    else {
+//        return CELL_HIGH;
+//    }
+//}
 
 - (DICell *)cellForIndex:(NSUInteger)index {
     
