@@ -38,8 +38,8 @@
     //double lon = 30.3;
     _startPoint = CLLocationCoordinate2DMake(59.8928, 30.1981);
     _endPoint = CLLocationCoordinate2DMake(60.0033, 30.4117);
-    _minZoom = 10;
-    _maxZoom = 16;
+    _minZoom = 18;
+    _maxZoom = 18;
     
     NSUInteger nZoom, xTile, yTile, startXTile, startYTile, endXTile, endYTile;
     

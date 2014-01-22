@@ -10,7 +10,9 @@
 #import "DICloudeMadeManager.h"
 #import "DIMapController.h"
 #import "DIDefaults.h"
+#import "DIHelper.h"
 
+#import "ThirdVC.h"
 
 @interface DIAppDelegate()
 
@@ -28,17 +30,24 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
-    
-#if 0   //download tiles to database
-    _mapSourceManager = [[DICloudeMadeManager alloc] init];
-    [_mapSourceManager makeDatabase];
-    
-#else   //load map controller
-    DIMapController *mapController = [[DIMapController alloc] init];
-    self.window.rootViewController = mapController;
-    
+#if 0
+    if ([DIHelper offlineMode]) {
+        //load map controller, download database from file
+        DLog(@"offline mode");
+        DIMapController *mapController = [[DIMapController alloc] init];
+        self.window.rootViewController = mapController;
+    }
+    else {
+        //download tiles to database
+        DLog(@"downloading mode");
+        _mapSourceManager = [[DICloudeMadeManager alloc] init];
+        [_mapSourceManager makeDatabase];
+    }
+#else
+    ThirdVC *thirdVC = [[ThirdVC alloc] init];
+    UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:thirdVC];
+    self.window.rootViewController = navi;
 #endif
     [self.window makeKeyAndVisible];
     
