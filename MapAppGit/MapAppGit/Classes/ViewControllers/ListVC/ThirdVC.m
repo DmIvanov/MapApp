@@ -112,27 +112,43 @@
 }
 
 
+//double deltaHeight (double origY, double height) {
+//    
+//    if (origY <= START_TRANSFORM_POSITION) {
+//        return CELL_HIGH_BIG - CELL_HIGH;
+//    }
+//    else if (origY > END_TRANSFORM_POSITION) {
+//        return 0.;
+//    }
+//    else {
+//        height = height > 0 ? height : CELL_HIGH;
+//        double deltaPath = fabsf(END_TRANSFORM_POSITION - START_TRANSFORM_POSITION);
+//        double deltaHeight = CELL_HIGH_BIG - CELL_HIGH;
+//        double ratio = deltaHeight / deltaPath;
+//        double arg1 = MAX(ratio * (END_TRANSFORM_POSITION - origY), height);
+//        double arg2 = MIN(ratio * (END_TRANSFORM_POSITION - origY), height);
+//        double delta = arg1 - arg2;
+//        if (height + delta < CELL_HIGH_BIG && height + delta > CELL_HIGH) {
+//            NSLog(@"%f", delta);
+//        }
+//        return delta;
+//    }
+//}
+
 double deltaHeight (double origY, double height) {
     
-    if (origY <= START_TRANSFORM_POSITION) {
+    if (origY <= END_TRANSFORM_POSITION) {
         return CELL_HIGH_BIG - CELL_HIGH;
     }
-    else if (origY > END_TRANSFORM_POSITION) {
+    else if (origY > END_TRANSFORM_POSITION+CELL_HIGH) {
         return 0.;
     }
     else {
-        height = height > 0 ? height : CELL_HIGH;
-        double deltaPath = fabsf(END_TRANSFORM_POSITION - START_TRANSFORM_POSITION);
-        double deltaHeight = CELL_HIGH_BIG - CELL_HIGH;
-        double ratio = deltaHeight / deltaPath;
-        double delta = ratio * (END_TRANSFORM_POSITION - origY) - height;
-        if (height + delta < CELL_HIGH_BIG && height + delta > CELL_HIGH) {
-            NSLog(@"%f", delta);
-        }
+        double y = END_TRANSFORM_POSITION + CELL_HIGH - origY;
+        double delta = y * CELL_HIGH_BIG / CELL_HIGH - height;
         return delta;
     }
 }
-
 
 
 - (void)growingCellManaging {
@@ -144,9 +160,9 @@ double deltaHeight (double origY, double height) {
     
     CGRect frame = _growingCell.frame;
     double currentHight = frame.size.height;
-    prevHeight = currentHight;
+    double origYNextCell = growingCellCoordY + currentHight;
     
-    double delta = deltaHeight(growingCellCoordY, currentHight);
+    double delta = deltaHeight(origYNextCell, currentHight);
     //float deltaPath = fabsf(growingCellCoordY - START_TRANSFORM_POSITION);
     //deltaPath = deltaPath > 1 ? deltaPath : 1;
     //float deltaHeight = CELL_HIGH_BIG - currentHight;
@@ -251,7 +267,14 @@ double deltaHeight (double origY, double height) {
     //NSLog(@"%f", SCREEN_SIZE.height);
     while (y <= (SCREEN_SIZE.height + HIGHT_LIMIT)) {
         DICell *cell = [self cellForIndex:cellIndex];
-        double cellHight = CELL_HIGH + deltaHeight(y, CELL_HIGH);
+        double cellHight;
+        if (cellIndex == 0)
+            cellHight = CELL_HIGH_BIG;
+        else if (cellIndex == 1)
+            cellHight = CELL_HIGH + deltaHeight(END_TRANSFORM_POSITION+CELL_HIGH/2, CELL_HIGH);
+        else
+            cellHight = CELL_HIGH;
+         
         CGRect frame = cell.frame;
         frame.size.height = cellHight;
         frame.origin.y = y;
@@ -260,7 +283,6 @@ double deltaHeight (double origY, double height) {
         _bottomCell = cell;
         cellIndex++;
         y += cellHight;
-        y++;
     }
 }
 //
