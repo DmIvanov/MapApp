@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C49972201895509E00A8DA98 /* ListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C499721F1895509E00A8DA98 /* ListItem.m */; };
 		C4BB1A39187AF9910067C041 /* DIMapSourceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C4BB1A38187AF9910067C041 /* DIMapSourceManager.m */; };
 		C4BB1A42187C25E30067C041 /* spb_10_16.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C4BB1A41187C25E30067C041 /* spb_10_16.sqlite */; };
 		C4BD880818705EE400128CD1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4BD880718705EE400128CD1 /* Foundation.framework */; };
@@ -77,6 +78,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C499721E1895509E00A8DA98 /* ListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListItem.h; path = Classes/Objects/ListItem.h; sourceTree = "<group>"; };
+		C499721F1895509E00A8DA98 /* ListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ListItem.m; path = Classes/Objects/ListItem.m; sourceTree = "<group>"; };
+		C49972421896DFD400A8DA98 /* SomeStuff.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SomeStuff.h; sourceTree = "<group>"; };
 		C4BB1A38187AF9910067C041 /* DIMapSourceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DIMapSourceManager.m; path = Classes/Managers/MapSourceManagers/DIMapSourceManager.m; sourceTree = "<group>"; };
 		C4BB1A41187C25E30067C041 /* spb_10_16.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = spb_10_16.sqlite; sourceTree = "<group>"; };
 		C4BD880418705EE400128CD1 /* MapAppGit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapAppGit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -153,6 +157,8 @@
 		C4BB1A4D18817AF10067C041 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
+				C499721E1895509E00A8DA98 /* ListItem.h */,
+				C499721F1895509E00A8DA98 /* ListItem.m */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -212,6 +218,7 @@
 		C4BD881018705EE400128CD1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C49972421896DFD400A8DA98 /* SomeStuff.h */,
 				C4BB1A41187C25E30067C041 /* spb_10_16.sqlite */,
 				C4BD881118705EE400128CD1 /* MapAppGit-Info.plist */,
 				C4BD881218705EE400128CD1 /* InfoPlist.strings */,
@@ -453,6 +460,7 @@
 				C4BD881A18705EE400128CD1 /* DIAppDelegate.m in Sources */,
 				C4CAB3FE188C4E55003CB9CC /* ThirdVC.m in Sources */,
 				C4BD88411870612900128CD1 /* DIMapController.m in Sources */,
+				C49972201895509E00A8DA98 /* ListItem.m in Sources */,
 				C4BD888A1870949700128CD1 /* DICloudeMadeManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

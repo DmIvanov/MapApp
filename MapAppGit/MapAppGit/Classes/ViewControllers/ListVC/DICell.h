@@ -11,10 +11,9 @@
 @interface DICell : UIView
 
 @property (nonatomic) NSUInteger dataIndex;
-@property (nonatomic, strong) NSString *titleString;
 
-- (void)setCellHight:(float)hight;
-- (void)moveToY:(float)y;
-- (void)moveToDeltaY:(float)deltaY;
+@property (nonatomic, strong) NSString *titleString;
+@property (nonatomic, strong) NSString *description;
+@property (nonatomic, strong) NSData *imageData;
 
 @end

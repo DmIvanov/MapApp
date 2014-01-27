@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ListItem.h"
 
 @interface DIAppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -18,5 +19,8 @@
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
+
+- (ListItem *)createAndSaveItemWithName:(NSString *)name description:(NSString *)description imageData:(NSData *)data;
+- (NSArray *)dataArray;
 
 @end

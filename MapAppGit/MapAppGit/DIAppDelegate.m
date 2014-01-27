@@ -169,6 +169,52 @@
     return _persistentStoreCoordinator;
 }
 
+- (ListItem *)createAndSaveItemWithName:(NSString *)name description:(NSString *)description imageData:(NSData *)data {
+    
+    if (!name.length || !description.length || !data.length) {
+        NSLog(@"AppDelegate: Failed to create ListItem - some fields are empty");
+        return nil;
+    }
+    
+    ListItem *newItem = [NSEntityDescription insertNewObjectForEntityForName:@"ListItem"
+                                                      inManagedObjectContext:self.managedObjectContext];
+    if (newItem) {
+        newItem.name = name;
+        newItem.descriptionString = description;
+        newItem.imageData = data;
+        
+        NSError *error;
+        if ([self.managedObjectContext save:&error]) {
+            NSLog(@"AppDelegate: ListItem %@ successfully saved", newItem.name);
+        }
+        else {
+            NSLog(@"AppDelegate: Failed to save the context. Error = %@", error);
+        }
+    }
+    else {
+        NSLog(@"AppDelegate: Failed to create new ListItem.");
+    }
+    
+    return newItem;
+}
+
+- (NSArray *)dataArray {
+    
+    NSFetchRequest *request = [NSFetchRequest new];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"ListItem"
+                                              inManagedObjectContext:self.managedObjectContext];
+    [request setEntity:entity];
+    NSError *error;
+    NSArray *items = [self.managedObjectContext executeFetchRequest:request
+                                                              error:&error];
+    if (error) {
+         NSLog(@"AppDelegate: Failed to execute NFetchRequest. Error = %@", error);
+    }
+    
+    return items;
+}
+
+
 #pragma mark - Application's Documents directory
 
 // Returns the URL to the application's Documents directory.
