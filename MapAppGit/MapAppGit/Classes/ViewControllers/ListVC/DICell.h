@@ -8,7 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DICell : UIView
+@class DICell;
+
+
+@protocol DICellDelegate <NSObject>
+
+@required
+- (void)cellDidSelect:(DICell *)cell;
+
+@end
+
+
+@interface DICell : UIControl
+
+@property (nonatomic, weak) id <DICellDelegate> delegate;
 
 @property (nonatomic) NSUInteger dataIndex;
 

@@ -11,7 +11,8 @@
 #import "DIAppDelegate.h"
 #import "ListDefaults.h"
 #import "ListItem.h"
-#import "DICell.h"
+
+#import "DIMapController.h"
 
 #define VIEW_FRAME                  self.view.frame
 #define ITEMS_COUNT                 30
@@ -281,6 +282,7 @@ double deltaHeight (double origY, double height) {
     if (index >= _cellsArray.count) {
         cell = [[DICell alloc] init];
         cell.dataIndex = index;
+        cell.delegate = self;
     }
     else {
         cell = _cellsArray[index];
@@ -368,6 +370,15 @@ double deltaHeight (double origY, double height) {
     if (bottomCellIndex > 1) {
         [self removeCell:bottomCell];
     }
+}
+
+
+#pragma mark - DICellDelegate methods
+
+- (void)cellDidSelect:(DICell *)cell {
+    
+    DIMapController *mapController = [[DIMapController alloc] init];
+    [self.navigationController pushViewController:mapController animated:YES];
 }
 
 

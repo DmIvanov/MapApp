@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ThirdVC : UIViewController <UIScrollViewDelegate>
+#import "DICell.h"
+
+@interface ThirdVC : UIViewController <UIScrollViewDelegate, DICellDelegate>
 
 @end

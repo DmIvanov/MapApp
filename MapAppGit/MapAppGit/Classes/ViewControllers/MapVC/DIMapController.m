@@ -164,4 +164,19 @@
     
 }
 
+
+#pragma mark - RMMapViewDelegate methods
+
+- (void)singleTapOnMap:(RMMapView *)map At:(CGPoint)point {
+    
+    if (map != _mapView)
+        return;
+    
+    RMMarker *newMarker = [[RMMarker alloc] initWithUIImage:[UIImage imageNamed:@"marker-blue"]];
+    RMLatLong touchPoint = [map.contents pixelToLatLong:point];
+    //[_routePoints addObject:[DIMapConverter dictionaryFromCoordinate:touchPoint]];
+    [map.markerManager addMarker:newMarker AtLatLong:touchPoint];
+}
+
+
 @end

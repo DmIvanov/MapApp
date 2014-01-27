@@ -42,6 +42,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.clipsToBounds = YES;
+        [self addTarget:self action:@selector(touchedUp:) forControlEvents:UIControlEventTouchUpInside];
     }
     return self;
 }
@@ -131,6 +132,7 @@
 //                                                 attributes:attribute
 //                                                    context:nil];
             _descView = [[UIView alloc] initWithFrame:DESCR_VIEW_FRAME];
+            _descView.userInteractionEnabled = NO;
             [self addSubview:_descView];
             
             _descrLabel = [[UILabel alloc] initWithFrame:DESCR_LABEL_FRAME];
@@ -149,6 +151,13 @@
         _descView.hidden = NO;
     }
 
+}
+
+- (void)touchedUp:(id)sender {
+    
+    if (_delegate) {
+        [_delegate cellDidSelect:self];
+    }
 }
 
 @end

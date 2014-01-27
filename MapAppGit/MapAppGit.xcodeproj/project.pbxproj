@@ -8,8 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		C49972201895509E00A8DA98 /* ListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C499721F1895509E00A8DA98 /* ListItem.m */; };
+		C499724A1896E31300A8DA98 /* MapAppGit.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C49972451896E31300A8DA98 /* MapAppGit.sqlite */; };
+		C499724B1896E31300A8DA98 /* MapAppGit.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = C49972461896E31300A8DA98 /* MapAppGit.sqlite-shm */; };
+		C499724C1896E31300A8DA98 /* MapAppGit.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = C49972471896E31300A8DA98 /* MapAppGit.sqlite-wal */; };
+		C499724D1896E31300A8DA98 /* spb_10_16.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C49972491896E31300A8DA98 /* spb_10_16.sqlite */; };
+		C49972501896E91200A8DA98 /* buildingIcon.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C499724F1896E91200A8DA98 /* buildingIcon.jpeg */; };
+		C49972581896ED0500A8DA98 /* marker-blue-withletter.png in Resources */ = {isa = PBXBuildFile; fileRef = C49972541896ED0500A8DA98 /* marker-blue-withletter.png */; };
+		C49972591896ED0500A8DA98 /* marker-blue.png in Resources */ = {isa = PBXBuildFile; fileRef = C49972551896ED0500A8DA98 /* marker-blue.png */; };
+		C499725A1896ED0500A8DA98 /* marker-red-withletter.png in Resources */ = {isa = PBXBuildFile; fileRef = C49972561896ED0500A8DA98 /* marker-red-withletter.png */; };
+		C499725B1896ED0500A8DA98 /* marker-red.png in Resources */ = {isa = PBXBuildFile; fileRef = C49972571896ED0500A8DA98 /* marker-red.png */; };
 		C4BB1A39187AF9910067C041 /* DIMapSourceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C4BB1A38187AF9910067C041 /* DIMapSourceManager.m */; };
-		C4BB1A42187C25E30067C041 /* spb_10_16.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C4BB1A41187C25E30067C041 /* spb_10_16.sqlite */; };
 		C4BD880818705EE400128CD1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4BD880718705EE400128CD1 /* Foundation.framework */; };
 		C4BD880A18705EE400128CD1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4BD880918705EE400128CD1 /* CoreGraphics.framework */; };
 		C4BD880C18705EE400128CD1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4BD880B18705EE400128CD1 /* UIKit.framework */; };
@@ -81,8 +89,16 @@
 		C499721E1895509E00A8DA98 /* ListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListItem.h; path = Classes/Objects/ListItem.h; sourceTree = "<group>"; };
 		C499721F1895509E00A8DA98 /* ListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ListItem.m; path = Classes/Objects/ListItem.m; sourceTree = "<group>"; };
 		C49972421896DFD400A8DA98 /* SomeStuff.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SomeStuff.h; sourceTree = "<group>"; };
+		C49972451896E31300A8DA98 /* MapAppGit.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = MapAppGit.sqlite; sourceTree = "<group>"; };
+		C49972461896E31300A8DA98 /* MapAppGit.sqlite-shm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MapAppGit.sqlite-shm"; sourceTree = "<group>"; };
+		C49972471896E31300A8DA98 /* MapAppGit.sqlite-wal */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MapAppGit.sqlite-wal"; sourceTree = "<group>"; };
+		C49972491896E31300A8DA98 /* spb_10_16.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = spb_10_16.sqlite; sourceTree = "<group>"; };
+		C499724F1896E91200A8DA98 /* buildingIcon.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = buildingIcon.jpeg; sourceTree = "<group>"; };
+		C49972541896ED0500A8DA98 /* marker-blue-withletter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "marker-blue-withletter.png"; sourceTree = "<group>"; };
+		C49972551896ED0500A8DA98 /* marker-blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "marker-blue.png"; sourceTree = "<group>"; };
+		C49972561896ED0500A8DA98 /* marker-red-withletter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "marker-red-withletter.png"; sourceTree = "<group>"; };
+		C49972571896ED0500A8DA98 /* marker-red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "marker-red.png"; sourceTree = "<group>"; };
 		C4BB1A38187AF9910067C041 /* DIMapSourceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DIMapSourceManager.m; path = Classes/Managers/MapSourceManagers/DIMapSourceManager.m; sourceTree = "<group>"; };
-		C4BB1A41187C25E30067C041 /* spb_10_16.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = spb_10_16.sqlite; sourceTree = "<group>"; };
 		C4BD880418705EE400128CD1 /* MapAppGit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapAppGit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4BD880718705EE400128CD1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C4BD880918705EE400128CD1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -154,6 +170,53 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C49972431896E31300A8DA98 /* Bases */ = {
+			isa = PBXGroup;
+			children = (
+				C49972441896E31300A8DA98 /* Items */,
+				C49972481896E31300A8DA98 /* Map */,
+			);
+			path = Bases;
+			sourceTree = "<group>";
+		};
+		C49972441896E31300A8DA98 /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				C49972451896E31300A8DA98 /* MapAppGit.sqlite */,
+				C49972461896E31300A8DA98 /* MapAppGit.sqlite-shm */,
+				C49972471896E31300A8DA98 /* MapAppGit.sqlite-wal */,
+			);
+			path = Items;
+			sourceTree = "<group>";
+		};
+		C49972481896E31300A8DA98 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				C49972491896E31300A8DA98 /* spb_10_16.sqlite */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		C499724E1896E91200A8DA98 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				C49972531896ED0500A8DA98 /* Markers */,
+				C499724F1896E91200A8DA98 /* buildingIcon.jpeg */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		C49972531896ED0500A8DA98 /* Markers */ = {
+			isa = PBXGroup;
+			children = (
+				C49972541896ED0500A8DA98 /* marker-blue-withletter.png */,
+				C49972551896ED0500A8DA98 /* marker-blue.png */,
+				C49972561896ED0500A8DA98 /* marker-red-withletter.png */,
+				C49972571896ED0500A8DA98 /* marker-red.png */,
+			);
+			path = Markers;
+			sourceTree = "<group>";
+		};
 		C4BB1A4D18817AF10067C041 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
@@ -218,8 +281,9 @@
 		C4BD881018705EE400128CD1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C499724E1896E91200A8DA98 /* Images */,
+				C49972431896E31300A8DA98 /* Bases */,
 				C49972421896DFD400A8DA98 /* SomeStuff.h */,
-				C4BB1A41187C25E30067C041 /* spb_10_16.sqlite */,
 				C4BD881118705EE400128CD1 /* MapAppGit-Info.plist */,
 				C4BD881218705EE400128CD1 /* InfoPlist.strings */,
 				C4BD881518705EE400128CD1 /* main.m */,
@@ -429,10 +493,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C499725B1896ED0500A8DA98 /* marker-red.png in Resources */,
+				C49972501896E91200A8DA98 /* buildingIcon.jpeg in Resources */,
+				C499724C1896E31300A8DA98 /* MapAppGit.sqlite-wal in Resources */,
+				C499724B1896E31300A8DA98 /* MapAppGit.sqlite-shm in Resources */,
+				C499724A1896E31300A8DA98 /* MapAppGit.sqlite in Resources */,
+				C499724D1896E31300A8DA98 /* spb_10_16.sqlite in Resources */,
 				C4BD88421870612900128CD1 /* DIMapController.xib in Resources */,
+				C49972591896ED0500A8DA98 /* marker-blue.png in Resources */,
+				C499725A1896ED0500A8DA98 /* marker-red-withletter.png in Resources */,
 				C4BD881418705EE400128CD1 /* InfoPlist.strings in Resources */,
+				C49972581896ED0500A8DA98 /* marker-blue-withletter.png in Resources */,
 				C4BD881F18705EE400128CD1 /* Images.xcassets in Resources */,
-				C4BB1A42187C25E30067C041 /* spb_10_16.sqlite in Resources */,
 				C4CAB3FF188C4E55003CB9CC /* ThirdVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
