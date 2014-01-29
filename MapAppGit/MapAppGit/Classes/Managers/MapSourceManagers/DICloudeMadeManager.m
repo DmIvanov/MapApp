@@ -11,7 +11,7 @@
 
 
 #define APP_KEY                     @"a4573beea76a420f8f8b8f941f082492"
-#define MAP_STYLE_NUMBER            1
+#define MAP_STYLE_NUMBER            119909
 
 
 @implementation DICloudeMadeManager
