@@ -16,6 +16,8 @@
 
 #define VIEW_FRAME                  self.view.frame
 #define ITEMS_COUNT                 30
+#define NAVIBAR_DELTA               44.
+#define NAVIBAR_FRAME               CGRectMake(0, 20, SCREEN_SIZE.width, NAVIBAR_DELTA);
 
 typedef enum {
     ContentUP   = 1,
@@ -49,7 +51,6 @@ typedef enum {
         DIAppDelegate *appDelegate = (DIAppDelegate *)[UIApplication sharedApplication].delegate;
         _dataArray = [NSMutableArray arrayWithArray:[appDelegate dataArray]];
         
-        
         _cellsArray     = [NSMutableArray array];
         _scrollingCells = [NSMutableArray array];
     }
@@ -79,6 +80,13 @@ typedef enum {
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [[UIApplication sharedApplication] setStatusBarHidden:NO];
+    self.navigationController.navigationBar.frame = NAVIBAR_FRAME;
+    
 }
 
 
@@ -124,11 +132,11 @@ typedef enum {
         _direction = ContentDown;
     
     if (_direction == ContentUP) {
-        if (_naviBar.frame.origin.y <= 20. && _naviBar.frame.origin.y > -44.) {
+        if (_naviBar.frame.origin.y <= 20. && _naviBar.frame.origin.y > -NAVIBAR_DELTA) {
             if (![UIApplication sharedApplication].statusBarHidden)
                 [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
             CGRect frame = _naviBar.frame;
-            deltaOffset = (fabs(-44. - frame.origin.y) >= deltaOffset) ? deltaOffset : fabs(-44. - frame.origin.y);
+            deltaOffset = (fabs(-NAVIBAR_DELTA - frame.origin.y) >= deltaOffset) ? deltaOffset : fabs(-NAVIBAR_DELTA - frame.origin.y);
             frame.origin.y -= deltaOffset;
             _naviBar.frame = frame;
         }

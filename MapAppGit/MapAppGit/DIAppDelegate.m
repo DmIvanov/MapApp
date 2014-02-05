@@ -32,18 +32,17 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
 #if 0
-    if ([DIHelper offlineMode]) {
+    #if 1
         //load map controller, download database from file
-        DLog(@"offline mode");
+        //DLog(@"offline mode");
         DIMapController *mapController = [[DIMapController alloc] init];
         self.window.rootViewController = mapController;
-    }
-    else {
+    #else
         //download tiles to database
-        DLog(@"downloading mode");
+        //DLog(@"downloading mode");
         _mapSourceManager = [[DICloudeMadeManager alloc] init];
         [_mapSourceManager makeDatabase];
-    }
+    #endif
 #else
     ThirdVC *thirdVC = [[ThirdVC alloc] init];
     UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:thirdVC];

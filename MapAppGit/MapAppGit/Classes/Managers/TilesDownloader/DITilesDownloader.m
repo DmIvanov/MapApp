@@ -38,12 +38,27 @@
     //double lon = 30.3;
     _startPoint = CLLocationCoordinate2DMake(59.8928, 30.1981);
     _endPoint = CLLocationCoordinate2DMake(60.0033, 30.4117);
-    _minZoom = 18;
-    _maxZoom = 18;
+    _minZoom = 10;
+    _maxZoom = 10;
     
     NSUInteger nZoom, xTile, yTile, startXTile, startYTile, endXTile, endYTile;
     
     NSUInteger zoom = _minZoom;
+    
+//    RMTile tile = {597, 298, 10};
+//    [_tileCacheManager tileImage:tile];
+//    
+//    RMTile tile2 = {598, 298, 10};
+//    [_tileCacheManager tileImage:tile2];
+//    
+//    RMTile tile3 = {1195, 596, 11};
+//    [_tileCacheManager tileImage:tile3];
+//    
+//    RMTile tile4 = {1196, 596, 11};
+//    [_tileCacheManager tileImage:tile4];
+//    
+//    RMTile tile5 = {1196, 596, 11};
+//    [_tileCacheManager tileImage:tile5];
     for (; zoom <= _maxZoom; zoom++) {
         nZoom = pow(2, zoom);
         
