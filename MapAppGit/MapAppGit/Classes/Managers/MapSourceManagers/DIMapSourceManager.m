@@ -9,6 +9,8 @@
 #import "DIMapSourceManager.h"
 #import "DITilesDownloader.h"
 
+#import "RMMapContents.h"
+
 
 @interface DIMapSourceManager()
 
@@ -22,17 +24,15 @@
 - (id)init {
     
     self = [super init];
-    
     if (self) {
-
     }
     
     return self;
 }
 
-- (void)setMapSourceForMapView:(RMMapView *)mapView {
+- (void)setMapSourceWithMapContents:(RMMapContents *)contents {
     
-    mapView.contents.tileSource = self.tileSource;
+    contents.tileSource = self.tileSource;
 }
 
 - (void)makeDatabase {

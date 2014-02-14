@@ -10,16 +10,10 @@
 
 #import "RouteMe.h"
 #import "DICloudeMadeManager.h"
-#import "DINotificationNames.h"
 #import "DIDefaults.h"
 
 
 @interface DIMapController ()
-{
-    BOOL _userIsInteracting;
-    BOOL _noTilesReceived;
-    BOOL _movingToBounds;
-}
 
 @property (nonatomic, strong) DIMapSourceManager *mapSourceManager;
 
@@ -41,7 +35,7 @@
 {
     [super viewDidLoad];
     
-    [_mapSourceManager setMapSourceForMapView:_mapView];
+    [_mapSourceManager setMapSourceWithMapContents:_mapView.contents];
     _mapView.delegate = self;
 }
 

@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-#define SCREEN_SIZE                 [UIScreen mainScreen].bounds.size
 
 #define CELL_HEIGHT       40.
 #define CELL_HEIGHT_BIG   200.

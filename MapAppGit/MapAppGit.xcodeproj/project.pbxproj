@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C413CB0818A66C2100401E89 /* DIMapScrollVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C413CB0618A66C2100401E89 /* DIMapScrollVC.m */; };
+		C413CB0918A66C2100401E89 /* DIMapScrollVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C413CB0718A66C2100401E89 /* DIMapScrollVC.xib */; };
 		C43BA113189D8688009AC969 /* dbDescription.plist in Resources */ = {isa = PBXBuildFile; fileRef = C43BA112189D8688009AC969 /* dbDescription.plist */; };
 		C49972201895509E00A8DA98 /* ListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C499721F1895509E00A8DA98 /* ListItem.m */; };
 		C499724A1896E31300A8DA98 /* MapAppGit.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C49972451896E31300A8DA98 /* MapAppGit.sqlite */; };
@@ -88,6 +90,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C413CB0518A66C2100401E89 /* DIMapScrollVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DIMapScrollVC.h; path = Classes/ViewControllers/MapScrollVC/DIMapScrollVC.h; sourceTree = "<group>"; };
+		C413CB0618A66C2100401E89 /* DIMapScrollVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DIMapScrollVC.m; path = Classes/ViewControllers/MapScrollVC/DIMapScrollVC.m; sourceTree = "<group>"; };
+		C413CB0718A66C2100401E89 /* DIMapScrollVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DIMapScrollVC.xib; path = Classes/ViewControllers/MapScrollVC/DIMapScrollVC.xib; sourceTree = "<group>"; };
 		C43BA112189D8688009AC969 /* dbDescription.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = dbDescription.plist; sourceTree = "<group>"; };
 		C499721E1895509E00A8DA98 /* ListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListItem.h; path = Classes/Objects/ListItem.h; sourceTree = "<group>"; };
 		C499721F1895509E00A8DA98 /* ListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ListItem.m; path = Classes/Objects/ListItem.m; sourceTree = "<group>"; };
@@ -174,6 +179,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C413CAFD18A66B7700401E89 /* MapScrollVC */ = {
+			isa = PBXGroup;
+			children = (
+				C413CB0518A66C2100401E89 /* DIMapScrollVC.h */,
+				C413CB0618A66C2100401E89 /* DIMapScrollVC.m */,
+				C413CB0718A66C2100401E89 /* DIMapScrollVC.xib */,
+			);
+			name = MapScrollVC;
+			sourceTree = "<group>";
+		};
+		C413CB0E18A6936400401E89 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		C49972431896E31300A8DA98 /* Bases */ = {
 			isa = PBXGroup;
 			children = (
@@ -271,14 +293,15 @@
 		C4BD880F18705EE400128CD1 /* MapAppGit */ = {
 			isa = PBXGroup;
 			children = (
-				C4BD885B187080FD00128CD1 /* Managers */,
-				C4BB1A4D18817AF10067C041 /* Objects */,
-				C4BD883C187060AD00128CD1 /* ViewControllers */,
 				C4BD881818705EE400128CD1 /* DIAppDelegate.h */,
 				C4BD881918705EE400128CD1 /* DIAppDelegate.m */,
 				C4BD881E18705EE400128CD1 /* Images.xcassets */,
 				C4BD881B18705EE400128CD1 /* MapAppGit.xcdatamodeld */,
+				C4BD885B187080FD00128CD1 /* Managers */,
+				C4BB1A4D18817AF10067C041 /* Objects */,
 				C4BD881018705EE400128CD1 /* Supporting Files */,
+				C4BD883C187060AD00128CD1 /* ViewControllers */,
+				C413CB0E18A6936400401E89 /* Views */,
 			);
 			path = MapAppGit;
 			sourceTree = "<group>";
@@ -320,6 +343,7 @@
 			isa = PBXGroup;
 			children = (
 				C4CAB3F6188C4E1D003CB9CC /* ListVC */,
+				C413CAFD18A66B7700401E89 /* MapScrollVC */,
 				C4BD883D187060BF00128CD1 /* MapVC */,
 			);
 			name = ViewControllers;
@@ -504,6 +528,7 @@
 				C499724C1896E31300A8DA98 /* MapAppGit.sqlite-wal in Resources */,
 				C499724B1896E31300A8DA98 /* MapAppGit.sqlite-shm in Resources */,
 				C499724A1896E31300A8DA98 /* MapAppGit.sqlite in Resources */,
+				C413CB0918A66C2100401E89 /* DIMapScrollVC.xib in Resources */,
 				C4997261189D4A3800A8DA98 /* spb_119909_10_17.sqlite in Resources */,
 				C499724D1896E31300A8DA98 /* spb_10_16.sqlite in Resources */,
 				C4BD88421870612900128CD1 /* DIMapController.xib in Resources */,
@@ -538,6 +563,7 @@
 				C4BD881D18705EE400128CD1 /* MapAppGit.xcdatamodeld in Sources */,
 				C4BD881618705EE400128CD1 /* main.m in Sources */,
 				C4BD881A18705EE400128CD1 /* DIAppDelegate.m in Sources */,
+				C413CB0818A66C2100401E89 /* DIMapScrollVC.m in Sources */,
 				C4CAB3FE188C4E55003CB9CC /* ThirdVC.m in Sources */,
 				C4BD88411870612900128CD1 /* DIMapController.m in Sources */,
 				C49972201895509E00A8DA98 /* ListItem.m in Sources */,

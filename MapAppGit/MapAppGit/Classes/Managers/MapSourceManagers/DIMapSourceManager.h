@@ -7,14 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "RMMapView.h"
 
+#import "RMTileSource.h"
+
+@class RMMapContents;
 
 @interface DIMapSourceManager : NSObject
 
 @property (nonatomic, strong) id<RMTileSource> tileSource;
 
-- (void)setMapSourceForMapView:(RMMapView *)mapView;
+- (void)setMapSourceWithMapContents:(RMMapContents *)contents;
 - (void)makeDatabase;
 
 @end

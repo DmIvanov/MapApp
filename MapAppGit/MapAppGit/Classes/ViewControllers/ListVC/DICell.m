@@ -8,6 +8,7 @@
 
 #import "DICell.h"
 
+#import "DIDefaults.h"
 #import "ListDefaults.h"
 
 #define SMALL_SIZE          CGSizeMake(SCREEN_SIZE.width, CELL_HEIGHT)

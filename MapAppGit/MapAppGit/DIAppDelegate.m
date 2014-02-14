@@ -8,11 +8,12 @@
 
 #import "DIAppDelegate.h"
 #import "DICloudeMadeManager.h"
-#import "DIMapController.h"
 #import "DIDefaults.h"
 #import "DIHelper.h"
 
 #import "ThirdVC.h"
+#import "DIMapController.h"
+#import "DIMapScrollVC.h"
 
 @interface DIAppDelegate()
 
@@ -31,11 +32,14 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
-#if 0
-    #if 1
+#if 1
+    #if 0
         //load map controller, download database from file
         //DLog(@"offline mode");
         DIMapController *mapController = [[DIMapController alloc] init];
+        self.window.rootViewController = mapController;
+    #elif 1
+        DIMapScrollVC *mapController = [[DIMapScrollVC alloc] init];
         self.window.rootViewController = mapController;
     #else
         //download tiles to database
