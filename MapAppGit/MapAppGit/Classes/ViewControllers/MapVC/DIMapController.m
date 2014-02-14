@@ -12,14 +12,10 @@
 #import "DICloudeMadeManager.h"
 #import "DINotificationNames.h"
 #import "DIDefaults.h"
+#import "DIHelper.h"
 
 
 @interface DIMapController ()
-{
-    BOOL _userIsInteracting;
-    BOOL _noTilesReceived;
-    BOOL _movingToBounds;
-}
 
 @property (nonatomic, strong) DIMapSourceManager *mapSourceManager;
 
@@ -43,17 +39,15 @@
     
     [_mapSourceManager setMapSourceForMapView:_mapView];
     _mapView.delegate = self;
+    
+    [_mapView setConstraintsSW:[DIHelper SWBorderPoint]
+                            NE:[DIHelper NEBorderPoint]];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (CGSize)checkTilesAvailability:(CGSize)delta {
-    
-    return [_mapView.contents isMovingAvailable:_mapView.frame delta:delta];
 }
 
 
