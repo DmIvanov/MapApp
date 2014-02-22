@@ -8,7 +8,10 @@
 
 #import "DIMapController.h"
 
+#import <CoreLocation/CoreLocation.h>
+
 #import "RouteMe.h"
+
 #import "DICloudeMadeManager.h"
 #import "DINotificationNames.h"
 #import "DIDefaults.h"
@@ -18,6 +21,7 @@
 @interface DIMapController ()
 
 @property (nonatomic, strong) DIMapSourceManager *mapSourceManager;
+@property (nonatomic, strong) CLLocationManager *locationManager;
 
 @end
 
@@ -29,6 +33,8 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         _mapSourceManager = [[DICloudeMadeManager alloc] init];
+        _locationManager = [CLLocationManager new];
+        _locationManager.delegate = self;
     }
     return self;
 }
@@ -40,14 +46,36 @@
     [_mapSourceManager setMapSourceForMapView:_mapView];
     _mapView.delegate = self;
     
-    [_mapView setConstraintsSW:[DIHelper SWBorderPoint]
-                            NE:[DIHelper NEBorderPoint]];
+    if ([DIHelper offlineMode])
+        [_mapView setConstraintsSW:[DIHelper SWBorderPoint]
+                                NE:[DIHelper NEBorderPoint]];
+    
+    UIBarButtonItem *locButton = [[UIBarButtonItem alloc] initWithTitle:@"location"
+                                                                  style:UIBarButtonItemStylePlain
+                                                                 target:self
+                                                                 action:@selector(buttonLocationPressed)];
+    self.navigationItem.rightBarButtonItem = locButton;
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+#pragma mark - Location Service
+
+- (void)buttonLocationPressed {
+    
+    if ([CLLocationManager locationServicesEnabled])
+        [_locationManager startUpdatingLocation];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+    
+    CLLocation *location = locations.lastObject;
+    
 }
 
 

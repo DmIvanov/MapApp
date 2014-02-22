@@ -9,7 +9,8 @@
 #import "RMMapView.h"
 
 @interface DIMapController : UIViewController
-    <RMMapViewDelegate>
+    <RMMapViewDelegate,
+    CLLocationManagerDelegate>
 
 @property (nonatomic, strong) IBOutlet RMMapView *mapView;
 
