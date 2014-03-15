@@ -37,6 +37,8 @@ typedef enum {
     ContentDirection _direction;
     
     UINavigationBar *_naviBar;
+    
+    CGFloat _deltaOffset;
 }
 
 @property (nonatomic, strong) IBOutlet UIScrollView *scrollView;
@@ -125,33 +127,44 @@ typedef enum {
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     
     static double prevOffset = 0.;
-    double deltaOffset = _scrollView.contentOffset.y - prevOffset;
+    _deltaOffset = _scrollView.contentOffset.y - prevOffset;
     
-    if (deltaOffset >= 0)
+    if (_deltaOffset >= 0)
         _direction = ContentUP;
     else
         _direction = ContentDown;
+    
+    [self navibarPositionManaging];
+    
+    [self growingCellManaging];
+    [self checkLimits];
+    
+    prevOffset = _scrollView.contentOffset.y;
+    
+    _deltaOffset = 0.; //_deltaOffset make sence only while view is scrolling
+}
+
+- (void)navibarPositionManaging {
+    
+    CGFloat navibarOffset = 0.;
+    CGRect frame = _naviBar.frame;
     
     if (_direction == ContentUP) {
         if (_naviBar.frame.origin.y <= 20. && _naviBar.frame.origin.y > -NAVIBAR_DELTA) {
             if (![UIApplication sharedApplication].statusBarHidden)
                 [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
-            CGRect frame = _naviBar.frame;
-            deltaOffset = (fabs(-NAVIBAR_DELTA - frame.origin.y) >= deltaOffset) ? deltaOffset : fabs(-NAVIBAR_DELTA - frame.origin.y);
-            frame.origin.y -= deltaOffset;
-            _naviBar.frame = frame;
+            navibarOffset = (fabs(-NAVIBAR_DELTA - frame.origin.y) >= _deltaOffset) ? _deltaOffset : fabs(-NAVIBAR_DELTA - frame.origin.y);
         }
     }
     else { //_direction == ContentDown
         if (_naviBar.frame.origin.y < 20.) {
             if ([UIApplication sharedApplication].statusBarHidden)
                 [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
-            CGRect frame = _naviBar.frame;
-            double naviOffset = (frame.origin.y + fabs(deltaOffset) <= 20.) ? deltaOffset : (20. - frame.origin.y);
-            frame.origin.y -= naviOffset;
-            _naviBar.frame = frame;
+            navibarOffset = (frame.origin.y + fabs(_deltaOffset) <= 20.) ? _deltaOffset : (20. - frame.origin.y);
         }
     }
+    frame.origin.y -= navibarOffset;
+    _naviBar.frame = frame;
     
     double scrollViewDelta = _scrollView.superview.frame.origin.y - (_naviBar.frame.origin.y + _naviBar.frame.size.height);
     if (scrollViewDelta) {
@@ -160,15 +173,6 @@ typedef enum {
         scrollFrame.size.height += scrollViewDelta;
         _scrollView.superview.frame = scrollFrame;
     }
-    
-    [self growingCellManaging];
-    [self checkLimits];
-    
-    //DICell *cell = (DICell *)_scrollingCells.lastObject;
-    //NSLog(@"contentHeight = %f", _scrollView.contentSize.height);
-    //NSLog(@"last cell = %d, orig = %f", cell.dataIndex, cell.frame.origin.y);
-    
-    prevOffset = _scrollView.contentOffset.y;
 }
 
 - (void)checkLimits {
