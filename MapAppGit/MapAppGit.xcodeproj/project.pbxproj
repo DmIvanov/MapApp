@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C43BA113189D8688009AC969 /* dbDescription.plist in Resources */ = {isa = PBXBuildFile; fileRef = C43BA112189D8688009AC969 /* dbDescription.plist */; };
+		C442123518D37B6F00979F96 /* spb_119909_10_18.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C442123418D37B6F00979F96 /* spb_119909_10_18.sqlite */; };
 		C49972201895509E00A8DA98 /* ListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C499721F1895509E00A8DA98 /* ListItem.m */; };
 		C499724A1896E31300A8DA98 /* MapAppGit.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C49972451896E31300A8DA98 /* MapAppGit.sqlite */; };
 		C499724B1896E31300A8DA98 /* MapAppGit.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = C49972461896E31300A8DA98 /* MapAppGit.sqlite-shm */; };
@@ -89,6 +90,7 @@
 
 /* Begin PBXFileReference section */
 		C43BA112189D8688009AC969 /* dbDescription.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = dbDescription.plist; sourceTree = "<group>"; };
+		C442123418D37B6F00979F96 /* spb_119909_10_18.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = spb_119909_10_18.sqlite; path = MapAppGit/Bases/Maps/spb_119909_10_18.sqlite; sourceTree = SOURCE_ROOT; };
 		C499721E1895509E00A8DA98 /* ListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListItem.h; path = Classes/Objects/ListItem.h; sourceTree = "<group>"; };
 		C499721F1895509E00A8DA98 /* ListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ListItem.m; path = Classes/Objects/ListItem.m; sourceTree = "<group>"; };
 		C49972421896DFD400A8DA98 /* SomeStuff.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SomeStuff.h; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 				C4F50D2718B8DC27001EFBE9 /* spb_10_16.sqlite */,
 				C4F50D2818B8DC27001EFBE9 /* spb_119909_10_16.sqlite */,
 				C4F50D2918B8DC27001EFBE9 /* spb_119909_10_17.sqlite */,
+				C442123418D37B6F00979F96 /* spb_119909_10_18.sqlite */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -499,6 +502,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C442123518D37B6F00979F96 /* spb_119909_10_18.sqlite in Resources */,
 				C43BA113189D8688009AC969 /* dbDescription.plist in Resources */,
 				C499725B1896ED0500A8DA98 /* marker-red.png in Resources */,
 				C499724C1896E31300A8DA98 /* MapAppGit.sqlite-wal in Resources */,

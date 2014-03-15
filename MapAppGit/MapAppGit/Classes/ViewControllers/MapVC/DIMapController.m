@@ -22,6 +22,7 @@
 
 @property (nonatomic, strong) DIMapSourceManager *mapSourceManager;
 @property (nonatomic, strong) CLLocationManager *locationManager;
+@property (nonatomic, strong) RMMarker *currentLocationMarker;
 
 @end
 
@@ -46,6 +47,7 @@
     [_mapSourceManager setMapSourceForMapView:_mapView];
     _mapView.delegate = self;
     
+#warning temporary commented
     if ([DIHelper offlineMode])
         [_mapView setConstraintsSW:[DIHelper SWBorderPoint]
                                 NE:[DIHelper NEBorderPoint]];
@@ -75,7 +77,14 @@
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
     
     CLLocation *location = locations.lastObject;
+    CLLocationCoordinate2D coord = location.coordinate;
     
+    if (!_currentLocationMarker) {
+        _currentLocationMarker = [[RMMarker alloc] initWithUIImage:[UIImage imageNamed:@"marker-red"]];
+        [_mapView.markerManager addMarker:_currentLocationMarker AtLatLong:coord];
+    }
+    else
+        [_mapView.markerManager moveMarkerWithAnimation:_currentLocationMarker AtLatLon:coord];
 }
 
 
