@@ -29,4 +29,6 @@
 @property (nonatomic, strong) NSString *description;
 @property (nonatomic, strong) NSData *imageData;
 
+@property (nonatomic) BOOL inScrollView;
+
 @end

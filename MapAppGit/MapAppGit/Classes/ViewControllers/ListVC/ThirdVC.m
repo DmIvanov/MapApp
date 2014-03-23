@@ -25,6 +25,13 @@ typedef enum {
     ContentDown = 2
 } ContentDirection;
 
+typedef enum {
+    PositionWrong           = 0,
+    PositionAboveGrowing    = 1,
+    PositionGgowing         = 2,
+    PositionBelowGrowing    = 3
+} CellGrowingPosition;
+
 @interface ThirdVC ()
 {
     NSMutableArray *_dataArray;
@@ -122,7 +129,12 @@ typedef enum {
 }
 
 
-#pragma mark - ScrollView managing
+#pragma mark - UIScrollViewDelegate methods
+
+- (BOOL)scrollViewShouldScrollToTop:(UIScrollView *)scrollView {
+    
+    return NO;
+}
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     
@@ -135,14 +147,19 @@ typedef enum {
         _direction = ContentDown;
     
     [self navibarPositionManaging];
-    
+    //[self whoIsGrowing];
     [self growingCellManaging];
+    
     [self checkLimits];
     
     prevOffset = _scrollView.contentOffset.y;
     
     _deltaOffset = 0.; //_deltaOffset make sence only while view is scrolling
 }
+
+
+
+#pragma mark - ScrollView managing
 
 - (void)navibarPositionManaging {
     
@@ -270,6 +287,58 @@ double deltaHeight (double origY, double height) {
         [self setNextCellAsGrowing];
 }
 
+#if 0
+- (void)whoIsGrowing {
+    
+    CellGrowingPosition posOfCurrentGrowingCell = [self growingPositionForCell:_growingCell];
+    if (posOfCurrentGrowingCell == PositionGgowing)
+        return;
+    
+    NSUInteger growingDataIndex = [_cellsArray indexOfObject:_growingCell];
+    if (posOfCurrentGrowingCell == PositionAboveGrowing) {
+        NSUInteger nextDataIndex = growingDataIndex + 1;
+        if (!nextDataIndex || nextDataIndex >= _cellsArray.count)
+            return;
+        for (; nextDataIndex < _cellsArray.count; ++nextDataIndex) {
+            DICell *cell = _cellsArray[nextDataIndex];
+            if (!cell.inScrollView)
+                break;
+            if ([self growingPositionForCell:cell] == PositionAboveGrowing) {
+                CGRect frame = cell.frame;
+                CGFloat delta = CELL_HEIGHT_BIG - frame.size.height;
+                if (delta) {
+                    frame.size.height += delta;
+                    frame.origin.y -= delta;
+                    cell.frame = frame;
+                }
+            }
+        }
+    }
+    
+    else if (posOfCurrentGrowingCell == PositionBelowGrowing) {
+        NSUInteger prevDataIndex = growingDataIndex - 1;
+        if (!prevDataIndex || prevDataIndex <= 0)
+            return;
+        for (; prevDataIndex > 0; --prevDataIndex) {
+            DICell *cell = _cellsArray[prevDataIndex];
+            if (!cell.inScrollView)
+                break;
+            if ([self growingPositionForCell:cell] == PositionBelowGrowing) {
+                CGRect frame = cell.frame;
+                CGFloat delta = CELL_HEIGHT - frame.size.height;
+                if (delta) {
+                    frame.size.height += delta;
+                    frame.origin.y -= delta;
+                    cell.frame = frame;
+                }
+            }
+        }
+    }
+
+    //DLog(@"start - %@   end - %@ next - %@  yCoordNext - %@", @(START_TRANSFORM_POSITION), @(END_TRANSFORM_POSITION), @(nextDataIndex), @(frameInView.origin.y));
+}
+#endif
+
 - (void)setNextCellAsGrowing {
     
     int nextIndex = [_scrollingCells indexOfObject:_growingCell] + 1;
@@ -296,6 +365,7 @@ double deltaHeight (double origY, double height) {
         cell = [[DICell alloc] init];
         cell.dataIndex = index;
         cell.delegate = self;
+        [_cellsArray addObject:cell];
     }
     else {
         cell = _cellsArray[index];
@@ -304,12 +374,37 @@ double deltaHeight (double origY, double height) {
     return cell;
 }
 
+- (CellGrowingPosition)growingPositionForCell:(DICell *)cell {
+    
+    if (!cell.inScrollView)
+        return PositionWrong;
+    
+    NSUInteger nextCellIndex = [_scrollingCells indexOfObject:cell] + 1;
+    if (nextCellIndex >= _scrollingCells.count)
+        return  PositionWrong;
+    
+    DICell *nextCell = _scrollingCells[nextCellIndex];
+    CGRect frame = [self frameInView:nextCell];
+    CGFloat yCoord = frame.origin.y;
+    if (yCoord <= START_TRANSFORM_POSITION)
+        return PositionAboveGrowing;
+    else if (yCoord > START_TRANSFORM_POSITION && yCoord <= END_TRANSFORM_POSITION) {
+        _growingCell = cell;
+        return PositionGgowing;
+    }
+    else if (yCoord > END_TRANSFORM_POSITION)
+        return PositionBelowGrowing;
+    
+    return PositionWrong;
+}
+
 
 #pragma mark - Cells adding
 
 - (void)addCell:(DICell *)cell atIndex:(int)index {
     
     [_scrollingCells insertObject:cell atIndex:index];
+    cell.inScrollView = YES;
     //cell.titleString = [NSString stringWithFormat:@"%d", cell.dataIndex];
     int t = cell.dataIndex%5;
     ListItem *item = (ListItem *)_dataArray[t];
@@ -342,7 +437,7 @@ double deltaHeight (double origY, double height) {
     
     DICell *bottomCell = _scrollingCells.lastObject;
     int bottomCellIndex = bottomCell.dataIndex;
-    if (bottomCellIndex < _cellsArray.count-1) {
+    if (bottomCellIndex <= _cellsArray.count-1) {
         int index = bottomCellIndex + 1;
         DICell *cell = [self cellForIndex:index];
         if (cell) {
@@ -364,6 +459,7 @@ double deltaHeight (double origY, double height) {
     //int index = [_scrollingCells indexOfObject:cell];
     [cell removeFromSuperview];
     [_scrollingCells removeObject:cell];
+    cell.inScrollView = NO;
     //NSLog(@"cell removed at index - %d", index);
 }
 
