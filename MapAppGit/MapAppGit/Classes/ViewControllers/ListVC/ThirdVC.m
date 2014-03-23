@@ -166,23 +166,29 @@ typedef enum {
     CGFloat navibarOffset = 0.;
     CGRect frame = _naviBar.frame;
     
+    //navibar frame changing
     if (_direction == ContentUP) {
-        if (_naviBar.frame.origin.y <= 20. && _naviBar.frame.origin.y > -NAVIBAR_DELTA) {
+        if (frame.origin.y <= 20. && _naviBar.frame.origin.y > -NAVIBAR_DELTA) {
             if (![UIApplication sharedApplication].statusBarHidden)
                 [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
             navibarOffset = (fabs(-NAVIBAR_DELTA - frame.origin.y) >= _deltaOffset) ? _deltaOffset : fabs(-NAVIBAR_DELTA - frame.origin.y);
         }
+        else
+            return;
     }
     else { //_direction == ContentDown
-        if (_naviBar.frame.origin.y < 20.) {
+        if (frame.origin.y < 20.) {
             if ([UIApplication sharedApplication].statusBarHidden)
                 [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
-            navibarOffset = (frame.origin.y + fabs(_deltaOffset) <= 20.) ? _deltaOffset : (20. - frame.origin.y);
+            navibarOffset = (frame.origin.y - _deltaOffset <= 20.) ? _deltaOffset : (frame.origin.y - 20.);
         }
+        else
+            return;
     }
     frame.origin.y -= navibarOffset;
     _naviBar.frame = frame;
     
+    //scroll view frame changing
     double scrollViewDelta = _scrollView.superview.frame.origin.y - (_naviBar.frame.origin.y + _naviBar.frame.size.height);
     if (scrollViewDelta) {
         CGRect scrollFrame = _scrollView.superview.frame;
