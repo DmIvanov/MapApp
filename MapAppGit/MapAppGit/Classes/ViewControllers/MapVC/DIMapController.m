@@ -47,7 +47,6 @@
     [_mapSourceManager setMapSourceForMapView:_mapView];
     _mapView.delegate = self;
     
-#warning temporary commented
     if ([DIHelper offlineMode])
         [_mapView setConstraintsSW:[DIHelper SWBorderPoint]
                                 NE:[DIHelper NEBorderPoint]];
@@ -72,6 +71,19 @@
     
     if ([CLLocationManager locationServicesEnabled])
         [_locationManager startUpdatingLocation];
+}
+
+- (IBAction)buttonZoomRoundingPressed:(id)sender {
+    
+    UIButton *button = (UIButton *)sender;
+    if (button.selected) {
+        [DIHelper sharedInstance].mapRoundingCeil = NO;
+        button.selected = NO;
+    }
+    else {
+        [DIHelper sharedInstance].mapRoundingCeil = YES;
+        button.selected = YES;
+    }
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {

@@ -347,7 +347,7 @@ double deltaHeight (double origY, double height) {
 
 - (void)setNextCellAsGrowing {
     
-    int nextIndex = [_scrollingCells indexOfObject:_growingCell] + 1;
+    NSInteger nextIndex = [_scrollingCells indexOfObject:_growingCell] + 1;
     if (_scrollingCells.count > nextIndex) {
         _growingCell = _scrollingCells[nextIndex];
     }
@@ -355,7 +355,7 @@ double deltaHeight (double origY, double height) {
 
 - (void)setPrevCellAsGrowing {
     
-    int prevIndex = [_scrollingCells indexOfObject:_growingCell] - 1;
+    NSInteger prevIndex = [_scrollingCells indexOfObject:_growingCell] - 1;
     if (prevIndex > 0) {
         _growingCell = _scrollingCells[prevIndex];
     }
@@ -407,7 +407,7 @@ double deltaHeight (double origY, double height) {
 
 #pragma mark - Cells adding
 
-- (void)addCell:(DICell *)cell atIndex:(int)index {
+- (void)addCell:(DICell *)cell atIndex:(NSInteger)index {
     
     [_scrollingCells insertObject:cell atIndex:index];
     cell.inScrollView = YES;
@@ -424,9 +424,9 @@ double deltaHeight (double origY, double height) {
 - (void)addTopCell {
     
     DICell *topCell = _scrollingCells.firstObject;
-    int topCellIndex = topCell.dataIndex;
+    NSInteger topCellIndex = topCell.dataIndex;
     if (topCellIndex > 0) {
-        int index = topCellIndex - 1;
+        NSInteger index = topCellIndex - 1;
         DICell *cell = [self cellForIndex:index];
         if (cell) {
             float yOrigin = topCell.frame.origin.y - CELL_HEIGHT_BIG;
@@ -442,9 +442,9 @@ double deltaHeight (double origY, double height) {
 - (void)addBottomCell {
     
     DICell *bottomCell = _scrollingCells.lastObject;
-    int bottomCellIndex = bottomCell.dataIndex;
+    NSInteger bottomCellIndex = bottomCell.dataIndex;
     if (bottomCellIndex <= _cellsArray.count-1) {
-        int index = bottomCellIndex + 1;
+        NSInteger index = bottomCellIndex + 1;
         DICell *cell = [self cellForIndex:index];
         if (cell) {
             float yOrigin = bottomCell.frame.origin.y + CELL_HEIGHT;
@@ -472,7 +472,7 @@ double deltaHeight (double origY, double height) {
 - (void)removeTopCell {
     
     DICell *topCell = _scrollingCells.firstObject;
-    int topCellIndex = topCell.dataIndex;
+    NSInteger topCellIndex = topCell.dataIndex;
     if (topCellIndex < _scrollingCells.count) {
         [self removeCell:topCell];
     }
@@ -481,7 +481,7 @@ double deltaHeight (double origY, double height) {
 - (void)removeBottomCell {
     
     DICell *bottomCell = _scrollingCells.lastObject;
-    int bottomCellIndex = bottomCell.dataIndex;
+    NSInteger bottomCellIndex = bottomCell.dataIndex;
     if (bottomCellIndex > 1) {
         [self removeCell:bottomCell];
     }
