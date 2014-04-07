@@ -16,7 +16,7 @@
 #import "DIMapController.h"
 
 #define VIEW_FRAME                  self.view.frame
-#define ITEMS_COUNT                 30
+#define ITEMS_COUNT                 60
 #define NAVIBAR_DELTA               44.
 #define NAVIBAR_FRAME               CGRectMake(0, 20, SCREEN_SIZE.width, NAVIBAR_DELTA);
 
@@ -83,6 +83,8 @@ typedef enum {
     _growingCell = _scrollingCells[1];
     
     _scrollView.bounces = NO;
+    _scrollView.showsVerticalScrollIndicator = NO;
+    
     _naviBar = self.navigationController.navigationBar;
 }
 
@@ -147,8 +149,8 @@ typedef enum {
         _direction = ContentDown;
     
     [self navibarPositionManaging];
-    //[self whoIsGrowing];
     [self growingCellManaging];
+    [self whoIsGrowing];
     
     [self checkLimits];
     
@@ -165,7 +167,7 @@ typedef enum {
     
     CGFloat navibarOffset = 0.;
     CGRect frame = _naviBar.frame;
-    
+
     //navibar frame changing
     if (_direction == ContentUP) {
         if (frame.origin.y <= 20. && _naviBar.frame.origin.y > -NAVIBAR_DELTA) {
@@ -287,13 +289,12 @@ double deltaHeight (double origY, double height) {
         }
     }
     
-    if (prevCell)
-        [self setPrevCellAsGrowing];
-    else if (nextCell)
-        [self setNextCellAsGrowing];
+//    if (prevCell)
+//        [self setPrevCellAsGrowing];
+//    else if (nextCell)
+//        [self setNextCellAsGrowing];
 }
 
-#if 0
 - (void)whoIsGrowing {
     
     CellGrowingPosition posOfCurrentGrowingCell = [self growingPositionForCell:_growingCell];
@@ -343,7 +344,6 @@ double deltaHeight (double origY, double height) {
 
     //DLog(@"start - %@   end - %@ next - %@  yCoordNext - %@", @(START_TRANSFORM_POSITION), @(END_TRANSFORM_POSITION), @(nextDataIndex), @(frameInView.origin.y));
 }
-#endif
 
 - (void)setNextCellAsGrowing {
     
@@ -386,16 +386,17 @@ double deltaHeight (double origY, double height) {
         return PositionWrong;
     
     NSUInteger nextCellIndex = [_scrollingCells indexOfObject:cell] + 1;
-    if (nextCellIndex >= _scrollingCells.count)
+    if (nextCellIndex > _scrollingCells.count)
         return  PositionWrong;
     
-    DICell *nextCell = _scrollingCells[nextCellIndex];
-    CGRect frame = [self frameInView:nextCell];
-    CGFloat yCoord = frame.origin.y;
+    //DICell *nextCell = _scrollingCells[nextCellIndex];
+    CGRect frame = [self frameInView:cell];
+    CGFloat yCoord = CGRectGetMaxY(frame);
     if (yCoord <= START_TRANSFORM_POSITION)
         return PositionAboveGrowing;
     else if (yCoord > START_TRANSFORM_POSITION && yCoord <= END_TRANSFORM_POSITION) {
-        _growingCell = cell;
+        if (_growingCell != cell)
+            _growingCell = cell;
         return PositionGgowing;
     }
     else if (yCoord > END_TRANSFORM_POSITION)
