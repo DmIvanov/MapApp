@@ -10,6 +10,8 @@
 
 #import "DICell.h"
 
-@interface ThirdVC : UIViewController <UIScrollViewDelegate, DICellDelegate>
+#import "DIGrowingCellTableView.h"
+
+@interface ThirdVC : UIViewController <DIGrowingCellTableViewDelegate, DICellDelegate>
 
 @end

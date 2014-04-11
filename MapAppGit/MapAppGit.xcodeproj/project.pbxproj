@@ -44,10 +44,10 @@
 		C4BD888A1870949700128CD1 /* DICloudeMadeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C4BD88891870949700128CD1 /* DICloudeMadeManager.m */; };
 		C4CAB3FD188C4E55003CB9CC /* DICell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4CAB3F8188C4E55003CB9CC /* DICell.m */; };
 		C4CAB3FE188C4E55003CB9CC /* ThirdVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C4CAB3FB188C4E55003CB9CC /* ThirdVC.m */; };
-		C4CAB3FF188C4E55003CB9CC /* ThirdVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4CAB3FC188C4E55003CB9CC /* ThirdVC.xib */; };
 		C4F50D2A18B8DC27001EFBE9 /* spb_10_16.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C4F50D2718B8DC27001EFBE9 /* spb_10_16.sqlite */; };
 		C4F50D2B18B8DC27001EFBE9 /* spb_119909_10_16.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C4F50D2818B8DC27001EFBE9 /* spb_119909_10_16.sqlite */; };
 		C4F50D2C18B8DC27001EFBE9 /* spb_119909_10_17.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C4F50D2918B8DC27001EFBE9 /* spb_119909_10_17.sqlite */; };
+		C4FAD16F18F18A5A007871B9 /* DIGrowingCellTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FAD16E18F18A5A007871B9 /* DIGrowingCellTableView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,10 +139,11 @@
 		C4CAB3F9188C4E55003CB9CC /* ListDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListDefaults.h; path = Classes/ViewControllers/ListVC/ListDefaults.h; sourceTree = "<group>"; };
 		C4CAB3FA188C4E55003CB9CC /* ThirdVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThirdVC.h; path = Classes/ViewControllers/ListVC/ThirdVC.h; sourceTree = "<group>"; };
 		C4CAB3FB188C4E55003CB9CC /* ThirdVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThirdVC.m; path = Classes/ViewControllers/ListVC/ThirdVC.m; sourceTree = "<group>"; };
-		C4CAB3FC188C4E55003CB9CC /* ThirdVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ThirdVC.xib; path = Classes/ViewControllers/ListVC/ThirdVC.xib; sourceTree = "<group>"; };
 		C4F50D2718B8DC27001EFBE9 /* spb_10_16.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = spb_10_16.sqlite; path = MapAppGit/Bases/Maps/spb_10_16.sqlite; sourceTree = SOURCE_ROOT; };
 		C4F50D2818B8DC27001EFBE9 /* spb_119909_10_16.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = spb_119909_10_16.sqlite; path = MapAppGit/Bases/Maps/spb_119909_10_16.sqlite; sourceTree = SOURCE_ROOT; };
 		C4F50D2918B8DC27001EFBE9 /* spb_119909_10_17.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = spb_119909_10_17.sqlite; path = MapAppGit/Bases/Maps/spb_119909_10_17.sqlite; sourceTree = SOURCE_ROOT; };
+		C4FAD16D18F18A5A007871B9 /* DIGrowingCellTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DIGrowingCellTableView.h; path = Views/DIGrowingCellTableView/DIGrowingCellTableView.h; sourceTree = "<group>"; };
+		C4FAD16E18F18A5A007871B9 /* DIGrowingCellTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DIGrowingCellTableView.m; path = Views/DIGrowingCellTableView/DIGrowingCellTableView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -274,6 +275,7 @@
 		C4BD880F18705EE400128CD1 /* MapAppGit */ = {
 			isa = PBXGroup;
 			children = (
+				C4FAD16818F18A02007871B9 /* Views */,
 				C4BD885B187080FD00128CD1 /* Managers */,
 				C4BB1A4D18817AF10067C041 /* Objects */,
 				C4BD883C187060AD00128CD1 /* ViewControllers */,
@@ -387,9 +389,17 @@
 				C4CAB3F8188C4E55003CB9CC /* DICell.m */,
 				C4CAB3FA188C4E55003CB9CC /* ThirdVC.h */,
 				C4CAB3FB188C4E55003CB9CC /* ThirdVC.m */,
-				C4CAB3FC188C4E55003CB9CC /* ThirdVC.xib */,
 			);
 			name = ListVC;
+			sourceTree = "<group>";
+		};
+		C4FAD16818F18A02007871B9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C4FAD16D18F18A5A007871B9 /* DIGrowingCellTableView.h */,
+				C4FAD16E18F18A5A007871B9 /* DIGrowingCellTableView.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -517,7 +527,6 @@
 				C4BD881418705EE400128CD1 /* InfoPlist.strings in Resources */,
 				C49972581896ED0500A8DA98 /* marker-blue-withletter.png in Resources */,
 				C4BD881F18705EE400128CD1 /* Images.xcassets in Resources */,
-				C4CAB3FF188C4E55003CB9CC /* ThirdVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -541,6 +550,7 @@
 				C4BB1A39187AF9910067C041 /* DIMapSourceManager.m in Sources */,
 				C4BD881D18705EE400128CD1 /* MapAppGit.xcdatamodeld in Sources */,
 				C4BD881618705EE400128CD1 /* main.m in Sources */,
+				C4FAD16F18F18A5A007871B9 /* DIGrowingCellTableView.m in Sources */,
 				C4BD881A18705EE400128CD1 /* DIAppDelegate.m in Sources */,
 				C4CAB3FE188C4E55003CB9CC /* ThirdVC.m in Sources */,
 				C4BD88411870612900128CD1 /* DIMapController.m in Sources */,

@@ -15,6 +15,8 @@
 
 #import "DIMapController.h"
 
+#import "DIGrowingCellTableView.h"
+
 #define VIEW_FRAME                  self.view.frame
 #define ITEMS_COUNT                 60
 #define NAVIBAR_DELTA               44.
@@ -36,10 +38,6 @@ typedef enum {
 {
     NSMutableArray *_dataArray;
     NSMutableArray *_cellsArray;
-    NSMutableArray *_scrollingCells;
-    
-    DICell *_topVisibleCell;
-    DICell *_growingCell;
     
     ContentDirection _direction;
     
@@ -48,21 +46,20 @@ typedef enum {
     CGFloat _deltaOffset;
 }
 
-@property (nonatomic, strong) IBOutlet UIScrollView *scrollView;
+@property (nonatomic, strong) DIGrowingCellTableView *tableView;
 
 @end
 
 @implementation ThirdVC
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+- (id)init {
+    
+    self = [super init];
     if (self) {
         DIAppDelegate *appDelegate = (DIAppDelegate *)[UIApplication sharedApplication].delegate;
         _dataArray = [NSMutableArray arrayWithArray:[appDelegate dataArray]];
         
         _cellsArray     = [NSMutableArray array];
-        _scrollingCells = [NSMutableArray array];
     }
     return self;
 }
@@ -71,21 +68,21 @@ typedef enum {
 {
     [super viewDidLoad];
     
+    _tableView = [[DIGrowingCellTableView alloc] initWithFrame:self.view.frame];
+    _tableView.delegate = self;
+    [self.view addSubview:_tableView];
+    
     self.navigationItem.title = @"Scroll Bands";
     self.edgesForExtendedLayout = UIRectEdgeNone;
-
-    float height = CELL_HEIGHT_BIG + 100 + CELL_HEIGHT*(ITEMS_COUNT-2) + (SCREEN_SIZE.height - CELL_HEIGHT_BIG);
-    _scrollView.contentSize = CGSizeMake(self.view.frame.size.width, height);
     
-    [self fillFirstScreen];
-    
-    _topVisibleCell = _scrollingCells[0];
-    _growingCell = _scrollingCells[1];
-    
-    _scrollView.bounces = NO;
-    _scrollView.showsVerticalScrollIndicator = NO;
+    _tableView.bounces = NO;
+    _tableView.showsVerticalScrollIndicator = NO;
     
     _naviBar = self.navigationController.navigationBar;
+    [_naviBar addObserver:self
+               forKeyPath:@"frame"
+                  options:NSKeyValueObservingOptionNew
+                  context:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -101,34 +98,27 @@ typedef enum {
     
 }
 
+- (void)dealloc {
+    
+    [_naviBar removeObserver:self
+                  forKeyPath:@"frame"];
+}
 
-- (void)fillFirstScreen {
+
+#pragma mark - KVO
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     
-    double y = _scrollView.contentOffset.y;
-    int cellIndex = 0;
-    
-    //NSLog(@"%f", SCREEN_SIZE.height);
-    while (y <= (SCREEN_SIZE.height + HEIGHT_LIMIT)) {
-        DICell *cell = [self cellForIndex:cellIndex];
-        if (cell) {
-            double cellHeight;
-            if (cellIndex == 0)
-                cellHeight = CELL_HEIGHT_BIG;
-            else if (cellIndex == 1)
-                cellHeight = CELL_HEIGHT + deltaHeight(THIRD_CELL_ORIGIN, CELL_HEIGHT);
-            else
-                cellHeight = CELL_HEIGHT;
-            
-            CGRect frame = cell.frame;
-            frame.size.height = cellHeight;
-            frame.origin.y = y;
-            cell.frame = frame;
-            [self addCell:cell atIndex:cellIndex];
-            cellIndex++;
-            y += cellHeight;
+    if (object == _naviBar) {
+        if ([keyPath isEqualToString:@"frame"]) {
+            CGRect newFrame = [change[NSKeyValueChangeNewKey] CGRectValue];
+            [self navibarNewFrame:newFrame];
         }
     }
 }
+
+
+
 
 
 #pragma mark - UIScrollViewDelegate methods
@@ -141,7 +131,7 @@ typedef enum {
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     
     static double prevOffset = 0.;
-    _deltaOffset = _scrollView.contentOffset.y - prevOffset;
+    _deltaOffset = _tableView.contentOffset.y - prevOffset;
     
     if (_deltaOffset >= 0)
         _direction = ContentUP;
@@ -154,7 +144,7 @@ typedef enum {
     
     [self checkLimits];
     
-    prevOffset = _scrollView.contentOffset.y;
+    prevOffset = _tableView.contentOffset.y;
     
     _deltaOffset = 0.; //_deltaOffset make sence only while view is scrolling
 }
@@ -189,15 +179,6 @@ typedef enum {
     }
     frame.origin.y -= navibarOffset;
     _naviBar.frame = frame;
-    
-    //scroll view frame changing
-    double scrollViewDelta = _scrollView.superview.frame.origin.y - (_naviBar.frame.origin.y + _naviBar.frame.size.height);
-    if (scrollViewDelta) {
-        CGRect scrollFrame = _scrollView.superview.frame;
-        scrollFrame.origin.y -= scrollViewDelta;
-        scrollFrame.size.height += scrollViewDelta;
-        _scrollView.superview.frame = scrollFrame;
-    }
 }
 
 - (void)checkLimits {
@@ -206,11 +187,11 @@ typedef enum {
     float cellOriginY;
     float cellHeight;
     
-    //NSLog(@"%f", _scrollView.contentOffset.y);
-    //NSLog(@"%f", _scrollView.frame.size.height);
+    //NSLog(@"%f", _tableView.contentOffset.y);
+    //NSLog(@"%f", _tableView.frame.size.height);
     
     //top limit
-    float topLimitY = _scrollView.contentOffset.y - HEIGHT_LIMIT;
+    float topLimitY = _tableView.contentOffset.y - HEIGHT_LIMIT;
     cell = (DICell *)_scrollingCells.firstObject;
     cellOriginY = cell.frame.origin.y;
     cellHeight = cell.frame.size.height;
@@ -220,7 +201,7 @@ typedef enum {
         [self removeTopCell];
     
     //bottom limit
-    float bottomLimitY = _scrollView.contentOffset.y + _scrollView.frame.size.height + HEIGHT_LIMIT;
+    float bottomLimitY = _tableView.contentOffset.y + _tableView.frame.size.height + HEIGHT_LIMIT;
     cell = (DICell *)_scrollingCells.lastObject;
     cellOriginY = cell.frame.origin.y;
     cellHeight = cell.frame.size.height;
@@ -308,7 +289,7 @@ double deltaHeight (double origY, double height) {
             return;
         for (; nextDataIndex < _cellsArray.count; ++nextDataIndex) {
             DICell *cell = _cellsArray[nextDataIndex];
-            if (!cell.inScrollView)
+            if (!cell.inTableView)
                 break;
             if ([self growingPositionForCell:cell] == PositionAboveGrowing) {
                 CGRect frame = cell.frame;
@@ -328,7 +309,7 @@ double deltaHeight (double origY, double height) {
             return;
         for (; prevDataIndex > 0; --prevDataIndex) {
             DICell *cell = _cellsArray[prevDataIndex];
-            if (!cell.inScrollView)
+            if (!cell.inTableView)
                 break;
             if ([self growingPositionForCell:cell] == PositionBelowGrowing) {
                 CGRect frame = cell.frame;
@@ -382,7 +363,7 @@ double deltaHeight (double origY, double height) {
 
 - (CellGrowingPosition)growingPositionForCell:(DICell *)cell {
     
-    if (!cell.inScrollView)
+    if (!cell.inTableView)
         return PositionWrong;
     
     NSUInteger nextCellIndex = [_scrollingCells indexOfObject:cell] + 1;
@@ -406,88 +387,6 @@ double deltaHeight (double origY, double height) {
 }
 
 
-#pragma mark - Cells adding
-
-- (void)addCell:(DICell *)cell atIndex:(NSInteger)index {
-    
-    [_scrollingCells insertObject:cell atIndex:index];
-    cell.inScrollView = YES;
-    //cell.titleString = [NSString stringWithFormat:@"%d", cell.dataIndex];
-    int t = cell.dataIndex%5;
-    ListItem *item = (ListItem *)_dataArray[t];
-    cell.titleString = item.name;
-    cell.description = item.descriptionString;
-    cell.imageData = item.imageData;
-    [_scrollView addSubview:cell];
-    //NSLog(@"cell added at index - %d", index);
-}
-
-- (void)addTopCell {
-    
-    DICell *topCell = _scrollingCells.firstObject;
-    NSInteger topCellIndex = topCell.dataIndex;
-    if (topCellIndex > 0) {
-        NSInteger index = topCellIndex - 1;
-        DICell *cell = [self cellForIndex:index];
-        if (cell) {
-            float yOrigin = topCell.frame.origin.y - CELL_HEIGHT_BIG;
-            CGRect frame = cell.frame;
-            frame.size.height = CELL_HEIGHT_BIG;
-            frame.origin.y = yOrigin;
-            cell.frame = frame;
-            [self addCell:cell atIndex:0];
-        }
-    }
-}
-
-- (void)addBottomCell {
-    
-    DICell *bottomCell = _scrollingCells.lastObject;
-    NSInteger bottomCellIndex = bottomCell.dataIndex;
-    if (bottomCellIndex <= _cellsArray.count-1) {
-        NSInteger index = bottomCellIndex + 1;
-        DICell *cell = [self cellForIndex:index];
-        if (cell) {
-            float yOrigin = bottomCell.frame.origin.y + CELL_HEIGHT;
-            CGRect frame = cell.frame;
-            frame.size.height = CELL_HEIGHT;
-            frame.origin.y = yOrigin;
-            cell.frame = frame;
-            [self addCell:cell atIndex:_scrollingCells.count];
-        }
-    }
-}
-
-
-#pragma mark - Cells removing
-
-- (void)removeCell:(DICell *)cell {
-    
-    //int index = [_scrollingCells indexOfObject:cell];
-    [cell removeFromSuperview];
-    [_scrollingCells removeObject:cell];
-    cell.inScrollView = NO;
-    //NSLog(@"cell removed at index - %d", index);
-}
-
-- (void)removeTopCell {
-    
-    DICell *topCell = _scrollingCells.firstObject;
-    NSInteger topCellIndex = topCell.dataIndex;
-    if (topCellIndex < _scrollingCells.count) {
-        [self removeCell:topCell];
-    }
-}
-
-- (void)removeBottomCell {
-    
-    DICell *bottomCell = _scrollingCells.lastObject;
-    NSInteger bottomCellIndex = bottomCell.dataIndex;
-    if (bottomCellIndex > 1) {
-        [self removeCell:bottomCell];
-    }
-}
-
 
 #pragma mark - DICellDelegate methods
 
@@ -497,5 +396,27 @@ double deltaHeight (double origY, double height) {
     [self.navigationController pushViewController:mapController animated:YES];
 }
 
+
+#pragma mark - DIGrowingCellTableViewDelegate methods
+
+- (NSUInteger)itemsCount {
+    
+    return _dataArray.count;
+}
+
+
+#pragma mark - Other functions
+
+- (void)navibarNewFrame:(CGRect)frame {
+    
+    //scroll view frame changing
+    double scrollViewDelta = _tableView.superview.frame.origin.y - (_naviBar.frame.origin.y + _naviBar.frame.size.height);
+    if (scrollViewDelta) {
+        CGRect scrollFrame = _tableView.superview.frame;
+        scrollFrame.origin.y -= scrollViewDelta;
+        scrollFrame.size.height += scrollViewDelta;
+        _tableView.superview.frame = scrollFrame;
+    }
+}
 
 @end
