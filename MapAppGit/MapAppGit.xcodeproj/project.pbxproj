@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0ABFD09618F7AF6E002C3DD1 /* DIGrowingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ABFD09518F7AF6E002C3DD1 /* DIGrowingCell.m */; };
 		C43BA113189D8688009AC969 /* dbDescription.plist in Resources */ = {isa = PBXBuildFile; fileRef = C43BA112189D8688009AC969 /* dbDescription.plist */; };
 		C442123518D37B6F00979F96 /* spb_119909_10_18.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C442123418D37B6F00979F96 /* spb_119909_10_18.sqlite */; };
 		C49972201895509E00A8DA98 /* ListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C499721F1895509E00A8DA98 /* ListItem.m */; };
@@ -89,6 +90,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0ABFD09418F7AF6E002C3DD1 /* DIGrowingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DIGrowingCell.h; path = Views/DIGrowingCell/DIGrowingCell.h; sourceTree = "<group>"; };
+		0ABFD09518F7AF6E002C3DD1 /* DIGrowingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DIGrowingCell.m; path = Views/DIGrowingCell/DIGrowingCell.m; sourceTree = "<group>"; };
 		C43BA112189D8688009AC969 /* dbDescription.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = dbDescription.plist; sourceTree = "<group>"; };
 		C442123418D37B6F00979F96 /* spb_119909_10_18.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = spb_119909_10_18.sqlite; path = MapAppGit/Bases/Maps/spb_119909_10_18.sqlite; sourceTree = SOURCE_ROOT; };
 		C499721E1895509E00A8DA98 /* ListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListItem.h; path = Classes/Objects/ListItem.h; sourceTree = "<group>"; };
@@ -177,6 +180,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0ABFD08E18F7AF26002C3DD1 /* DIGrowingCellTableView */ = {
+			isa = PBXGroup;
+			children = (
+				C4FAD16D18F18A5A007871B9 /* DIGrowingCellTableView.h */,
+				C4FAD16E18F18A5A007871B9 /* DIGrowingCellTableView.m */,
+			);
+			name = DIGrowingCellTableView;
+			sourceTree = "<group>";
+		};
+		0ABFD09318F7AF38002C3DD1 /* DIGrowingCell */ = {
+			isa = PBXGroup;
+			children = (
+				0ABFD09418F7AF6E002C3DD1 /* DIGrowingCell.h */,
+				0ABFD09518F7AF6E002C3DD1 /* DIGrowingCell.m */,
+			);
+			name = DIGrowingCell;
+			sourceTree = "<group>";
+		};
 		C49972431896E31300A8DA98 /* Bases */ = {
 			isa = PBXGroup;
 			children = (
@@ -396,8 +417,8 @@
 		C4FAD16818F18A02007871B9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C4FAD16D18F18A5A007871B9 /* DIGrowingCellTableView.h */,
-				C4FAD16E18F18A5A007871B9 /* DIGrowingCellTableView.m */,
+				0ABFD09318F7AF38002C3DD1 /* DIGrowingCell */,
+				0ABFD08E18F7AF26002C3DD1 /* DIGrowingCellTableView */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -553,6 +574,7 @@
 				C4FAD16F18F18A5A007871B9 /* DIGrowingCellTableView.m in Sources */,
 				C4BD881A18705EE400128CD1 /* DIAppDelegate.m in Sources */,
 				C4CAB3FE188C4E55003CB9CC /* ThirdVC.m in Sources */,
+				0ABFD09618F7AF6E002C3DD1 /* DIGrowingCell.m in Sources */,
 				C4BD88411870612900128CD1 /* DIMapController.m in Sources */,
 				C49972201895509E00A8DA98 /* ListItem.m in Sources */,
 				C4BD888A1870949700128CD1 /* DICloudeMadeManager.m in Sources */,

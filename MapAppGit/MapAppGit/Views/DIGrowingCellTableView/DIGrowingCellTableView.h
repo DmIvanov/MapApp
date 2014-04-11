@@ -8,16 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+@class DIGrowingCell;
 
-@protocol DIGrowingCellTableViewDelegate <UIScrollViewDelegate>
+@protocol DIGrowingCellTableViewDelegate <NSObject>
 
 @required
 - (NSUInteger)itemsCount;
+- (DIGrowingCell *)cellForIndex:(NSUInteger)index;
 
 @end
 
 
-@interface DIGrowingCellTableView : UIScrollView
+@interface DIGrowingCellTableView : UIView <UIScrollViewDelegate>
 
 @property (nonatomic, weak) id<DIGrowingCellTableViewDelegate> delegate;
 
