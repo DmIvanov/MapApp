@@ -37,4 +37,6 @@ typedef enum {
 @property (nonatomic) ContentDirection direction;
 @property (nonatomic) CGFloat deltaOffset;
 
+- (void)reload;
+
 @end

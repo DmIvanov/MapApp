@@ -29,6 +29,7 @@ typedef enum {
 {
     NSMutableArray *_scrollingCells;
     DIGrowingCell *_growingCell;
+    CGFloat _prevOffset;
 }
 
 @property (nonatomic, strong) UIScrollView *scrollView;
@@ -69,10 +70,29 @@ typedef enum {
     _scrollView.frame = rect;
     [self addSubview:_scrollView];
     
+    [self load];
+}
+
+- (void)load {
+    
     float height = CELL_HEIGHT_BIG + 100 + CELL_HEIGHT*(ITEMS_COUNT-2) + (SCREEN_SIZE.height - CELL_HEIGHT_BIG);
-    _scrollView.contentSize = CGSizeMake(rect.size.width, height);
+    _scrollView.contentSize = CGSizeMake(self.frame.size.width, height);
+    _prevOffset = 0.;
     
     [self fillFirstScreen];
+}
+
+- (void)reload {
+    
+    for (DIGrowingCell *cell in _scrollingCells) {
+        [cell removeFromSuperview];
+    }
+    [_scrollingCells removeAllObjects];
+    _growingCell = nil;
+    [_scrollView scrollRectToVisible:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)
+                            animated:NO];
+    
+    [self load];
 }
 
 - (void)fillFirstScreen {
@@ -113,7 +133,6 @@ typedef enum {
         frame.size.height = CELL_HEIGHT_BIG;
         frame.origin.y = yOrigin;
         cell.frame = frame;
-        //DLog(@">>>>> add top cell %d to frame %@", cell.dataIndex, NSStringFromCGRect(frame));
         
         cell.inTableView = YES;
         [_scrollView addSubview:cell];
@@ -145,7 +164,6 @@ typedef enum {
         frame.size.height = CELL_HEIGHT;
         frame.origin.y = yOrigin;
         cell.frame = frame;
-        //DLog(@">>>>> add bottom cell");
         
         cell.inTableView = YES;
         [_scrollView addSubview:cell];
@@ -161,7 +179,6 @@ typedef enum {
 
 - (void)removeCell:(DIGrowingCell *)cell {
     
-    //int index = [_scrollingCells indexOfObject:cell];
     [cell removeFromSuperview];
     [_scrollingCells removeObject:cell];
     cell.inTableView = NO;
@@ -170,14 +187,12 @@ typedef enum {
 - (void)removeTopCell {
     
     DIGrowingCell *topCell = _scrollingCells.firstObject;
-    //DLog(@">>>>> remove top cell: %d", topCell.dataIndex);
     [self removeCell:topCell];
 }
 
 - (void)removeBottomCell {
     
     DIGrowingCell *bottomCell = _scrollingCells.lastObject;
-    //DLog(@">>>>> remove bottom cell: %d", bottomCell.dataIndex);
     [self removeCell:bottomCell];
 }
 
@@ -191,8 +206,10 @@ typedef enum {
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     
-    static CGFloat prevOffset = 0.;
-    _deltaOffset = _scrollView.contentOffset.y - prevOffset;
+    if (!_scrollingCells.count)
+        return; //for reload
+    
+    _deltaOffset = _scrollView.contentOffset.y - _prevOffset;
     
     if (_deltaOffset > 0)
         _direction = ContentUP;
@@ -207,11 +224,9 @@ typedef enum {
     
     [self checkLimits];
     
-    prevOffset = _scrollView.contentOffset.y;
+    _prevOffset = _scrollView.contentOffset.y;
     
     _deltaOffset = 0.; //_deltaOffset make sence only while view is scrolling
-    
-    //DLog(@"scrolling cells - %d", _scrollingCells.count);
 }
 
 
@@ -222,9 +237,6 @@ typedef enum {
     DIGrowingCell *cell;
     float cellOriginY;
     float cellHeight;
-    
-    //NSLog(@"%f", _tableView.contentOffset.y);
-    //NSLog(@"%f", _tableView.frame.size.height);
     
     //top limit
     float topLimitY = _scrollView.contentOffset.y - HEIGHT_LIMIT_UP;
@@ -254,8 +266,6 @@ typedef enum {
 
 - (void)growingCellManaging {
     
-    //NSLog(@"cell - %2d %@", _growingCell.dataIndex, _growingCell);
-    
     CGRect frameInView = [self frameInView:_growingCell];
     double growingCellCoordY = frameInView.origin.y;
     
@@ -264,19 +274,11 @@ typedef enum {
     double origYNextCell = growingCellCoordY + currentHeight;
     
     double delta = deltaHeight(origYNextCell, currentHeight);
-    
-    BOOL nextCell = NO;
-    BOOL prevCell = NO;
+
     if (frame.size.height + delta < CELL_HEIGHT) {
-        if (_direction == ContentDown) {
-            prevCell = YES;
-        }
         delta = CELL_HEIGHT - frame.size.height;
     }
     else if (frame.size.height + delta > CELL_HEIGHT_BIG) {
-        if (_direction == ContentUP) {
-            nextCell = YES;
-        }
         delta = CELL_HEIGHT_BIG - frame.size.height;
     }
     

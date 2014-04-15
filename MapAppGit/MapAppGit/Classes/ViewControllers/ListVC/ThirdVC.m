@@ -57,6 +57,11 @@
     [self.view addSubview:_tableView];
     
     self.navigationItem.title = @"Scroll Bands";
+    UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction
+                                                                                    target:self
+                                                                                    action:@selector(barButtonActionTapped:)];
+    [self.navigationItem setRightBarButtonItem:rightBarButton];
+    
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
     _naviBar = self.navigationController.navigationBar;
@@ -135,6 +140,14 @@
 - (void)tableViewIsScrolling:(DIGrowingCellTableView *)tableView {
     
     [self navibarPositionManaging];
+}
+
+
+#pragma mark - Actions
+
+- (void)barButtonActionTapped:(id)sender {
+    
+    [_tableView reload];
 }
 
 
