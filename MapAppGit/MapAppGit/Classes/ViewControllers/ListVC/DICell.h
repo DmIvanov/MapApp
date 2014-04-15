@@ -24,7 +24,7 @@
 @property (nonatomic, weak) id <DICellDelegate> delegate;
 
 @property (nonatomic, strong) NSString *titleString;
-@property (nonatomic, strong) NSString *description;
+@property (nonatomic, strong) NSString *descriptionString;
 @property (nonatomic, strong) NSData *imageData;
 
 @end

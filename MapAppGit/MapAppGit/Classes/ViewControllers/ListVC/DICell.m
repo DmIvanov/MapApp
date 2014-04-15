@@ -1,4 +1,4 @@
-//
+ //
 //  Cell.m
 //  TableV
 //
@@ -56,13 +56,17 @@
     return self;
 }
 
+- (void)dealloc {
+
+}
+
 
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
     UIColor *color;
-    int i = _dataIndex%7;
+    int i = self.dataIndex%7;
     switch (i) {
         case 0:
             color = COLOR1;
@@ -121,37 +125,41 @@
     
     if (self.frame.size.height == CELL_HEIGHT) {
         if (_descView) {
-            _descView.hidden = YES;
+            [self deleteDescrView];
         }
     }
     else if (self.frame.size.height > CELL_HEIGHT) {
-        if (!_descView) {
-//            NSDictionary *attribute = @{NSFontAttributeName : [UIFont fontWithName:@"Helvetica" size:16],
-//                                        NSParagraphStyleAttributeName : [NSParagraphStyle defaultParagraphStyle]};
-//            descrFrame = [_description boundingRectWithSize:DESCR_LABEL_FRAME.size
-//                                                    options:NSStringDrawingUsesFontLeading|NSStringDrawingUsesLineFragmentOrigin
-//                                                 attributes:attribute
-//                                                    context:nil];
-            _descView = [[UIView alloc] initWithFrame:DESCR_VIEW_FRAME];
-            _descView.userInteractionEnabled = NO;
-            [self addSubview:_descView];
-            
-            _descrLabel = [[UILabel alloc] initWithFrame:DESCR_LABEL_FRAME];
-            _descrLabel.font = [UIFont fontWithName:@"Helvetica" size:14];
-            _descrLabel.lineBreakMode = NSLineBreakByWordWrapping;
-            _descrLabel.numberOfLines = 10;
-            _descrLabel.text = _description;
-            [_descView addSubview:_descrLabel];
-            
-            UIImage *image = [UIImage imageWithData:_imageData];
-            _imageView = [[UIImageView alloc] initWithFrame:IMAGE_FRAME];
-            _imageView.contentMode = UIViewContentModeScaleAspectFit;
-            _imageView.image = image;
-            [_descView addSubview:_imageView];
-        }
-        _descView.hidden = NO;
+        if (!_descView)
+            [self createDescrView];
     }
+}
 
+- (void)createDescrView {
+    
+    _descView = [[UIView alloc] initWithFrame:DESCR_VIEW_FRAME];
+    _descView.userInteractionEnabled = NO;
+    [self addSubview:_descView];
+    
+    _descrLabel = [[UILabel alloc] initWithFrame:DESCR_LABEL_FRAME];
+    _descrLabel.font = [UIFont fontWithName:@"Helvetica" size:14];
+    _descrLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    _descrLabel.numberOfLines = 10;
+    _descrLabel.text = _descriptionString;
+    [_descView addSubview:_descrLabel];
+    
+    UIImage *image = [UIImage imageWithData:_imageData];
+    _imageView = [[UIImageView alloc] initWithFrame:IMAGE_FRAME];
+    _imageView.contentMode = UIViewContentModeScaleAspectFit;
+    _imageView.image = image;
+    [_descView addSubview:_imageView];
+}
+
+- (void)deleteDescrView {
+    
+    [_descView removeFromSuperview];
+    _descView = nil;
+    _descrLabel = nil;
+    _imageView = nil;
 }
 
 - (void)touchedUp:(id)sender {

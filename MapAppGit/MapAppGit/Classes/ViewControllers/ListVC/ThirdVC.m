@@ -26,11 +26,7 @@
 @interface ThirdVC ()
 {
     NSMutableArray *_dataArray;
-    NSMutableArray *_cellsArray;
-    
     UINavigationBar *_naviBar;
-    
-    
 }
 
 @property (nonatomic, strong) DIGrowingCellTableView *tableView;
@@ -39,14 +35,15 @@
 
 @implementation ThirdVC
 
+
+#pragma mark - Controller life cycle
+
 - (id)init {
     
     self = [super init];
     if (self) {
         DIAppDelegate *appDelegate = (DIAppDelegate *)[UIApplication sharedApplication].delegate;
         _dataArray = [NSMutableArray arrayWithArray:[appDelegate dataArray]];
-        
-        _cellsArray     = [NSMutableArray array];
     }
     return self;
 }
@@ -78,7 +75,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     
     [[UIApplication sharedApplication] setStatusBarHidden:NO];
-    self.navigationController.navigationBar.frame = NAVIBAR_FRAME;
+    _naviBar.frame = NAVIBAR_FRAME;
     
 }
 
@@ -102,9 +99,6 @@
 }
 
 
-
-
-
 #pragma mark - DICellDelegate methods
 
 - (void)cellDidSelect:(DICell *)cell {
@@ -118,7 +112,7 @@
 
 - (NSUInteger)itemsCount {
     
-    return _dataArray.count;
+    return ITEMS_COUNT;
 }
 
 - (DIGrowingCell *)cellForIndex:(NSUInteger)index {
@@ -132,13 +126,48 @@
     int t = cell.dataIndex%5;
     ListItem *item = (ListItem *)_dataArray[t];
     cell.titleString = item.name;
-    cell.description = item.descriptionString;
+    cell.descriptionString = item.descriptionString;
     cell.imageData = item.imageData;
     
     return cell;
 }
 
+- (void)tableViewIsScrolling:(DIGrowingCellTableView *)tableView {
+    
+    [self navibarPositionManaging];
+}
+
+
 #pragma mark - Other functions
+
+- (void)navibarPositionManaging {
+    
+    CGFloat navibarOffset = 0.;
+    CGRect frame = _naviBar.frame;
+    CGFloat offset = _tableView.deltaOffset;
+    
+    //navibar frame changing
+    if (_tableView.direction == ContentUP) {
+        if (frame.origin.y <= 20. && _naviBar.frame.origin.y > -NAVIBAR_DELTA) {
+            if (![UIApplication sharedApplication].statusBarHidden)
+                [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
+            navibarOffset = (fabs(-NAVIBAR_DELTA - frame.origin.y) >= offset) ? offset : fabs(-NAVIBAR_DELTA - frame.origin.y);
+        }
+        else
+            return;
+    }
+    else { //_direction == ContentDown
+        if (frame.origin.y < 20.) {
+            if ([UIApplication sharedApplication].statusBarHidden)
+                [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
+            navibarOffset = (frame.origin.y - offset <= 20.) ? offset : (frame.origin.y - 20.);
+        }
+        else
+            return;
+    }
+    frame.origin.y -= navibarOffset;
+    _naviBar.frame = frame;
+}
 
 - (void)navibarNewFrame:(CGRect)frame {
     

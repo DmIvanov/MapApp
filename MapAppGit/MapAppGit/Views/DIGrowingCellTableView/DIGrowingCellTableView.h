@@ -9,6 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @class DIGrowingCell;
+@class DIGrowingCellTableView;
+
+typedef enum {
+    ContentUP   = 1,
+    ContentDown = 2
+} ContentDirection;
+
 
 @protocol DIGrowingCellTableViewDelegate <NSObject>
 
@@ -16,11 +23,18 @@
 - (NSUInteger)itemsCount;
 - (DIGrowingCell *)cellForIndex:(NSUInteger)index;
 
+@optional
+- (void)tableViewIsScrolling:(DIGrowingCellTableView *)tableView;
+
 @end
 
 
 @interface DIGrowingCellTableView : UIView <UIScrollViewDelegate>
 
 @property (nonatomic, weak) id<DIGrowingCellTableViewDelegate> delegate;
+
+//scrolling properties
+@property (nonatomic) ContentDirection direction;
+@property (nonatomic) CGFloat deltaOffset;
 
 @end
