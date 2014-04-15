@@ -44,11 +44,12 @@
 		C4BD887218708C1D00128CD1 /* libMapView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C4BD887118708C1D00128CD1 /* libMapView.a */; };
 		C4BD888A1870949700128CD1 /* DICloudeMadeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C4BD88891870949700128CD1 /* DICloudeMadeManager.m */; };
 		C4CAB3FD188C4E55003CB9CC /* DICell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4CAB3F8188C4E55003CB9CC /* DICell.m */; };
-		C4CAB3FE188C4E55003CB9CC /* ThirdVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C4CAB3FB188C4E55003CB9CC /* ThirdVC.m */; };
+		C4CAB3FE188C4E55003CB9CC /* ListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C4CAB3FB188C4E55003CB9CC /* ListVC.m */; };
 		C4F50D2A18B8DC27001EFBE9 /* spb_10_16.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C4F50D2718B8DC27001EFBE9 /* spb_10_16.sqlite */; };
 		C4F50D2B18B8DC27001EFBE9 /* spb_119909_10_16.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C4F50D2818B8DC27001EFBE9 /* spb_119909_10_16.sqlite */; };
 		C4F50D2C18B8DC27001EFBE9 /* spb_119909_10_17.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C4F50D2918B8DC27001EFBE9 /* spb_119909_10_17.sqlite */; };
 		C4FAD16F18F18A5A007871B9 /* DIGrowingCellTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FAD16E18F18A5A007871B9 /* DIGrowingCellTableView.m */; };
+		C4FAD17E18FD924F007871B9 /* DISightsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FAD17D18FD924F007871B9 /* DISightsManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,13 +141,15 @@
 		C4CAB3F7188C4E55003CB9CC /* DICell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DICell.h; path = Classes/ViewControllers/ListVC/DICell.h; sourceTree = "<group>"; };
 		C4CAB3F8188C4E55003CB9CC /* DICell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DICell.m; path = Classes/ViewControllers/ListVC/DICell.m; sourceTree = "<group>"; };
 		C4CAB3F9188C4E55003CB9CC /* ListDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListDefaults.h; path = Classes/ViewControllers/ListVC/ListDefaults.h; sourceTree = "<group>"; };
-		C4CAB3FA188C4E55003CB9CC /* ThirdVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThirdVC.h; path = Classes/ViewControllers/ListVC/ThirdVC.h; sourceTree = "<group>"; };
-		C4CAB3FB188C4E55003CB9CC /* ThirdVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThirdVC.m; path = Classes/ViewControllers/ListVC/ThirdVC.m; sourceTree = "<group>"; };
+		C4CAB3FA188C4E55003CB9CC /* ListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListVC.h; path = Classes/ViewControllers/ListVC/ListVC.h; sourceTree = "<group>"; };
+		C4CAB3FB188C4E55003CB9CC /* ListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ListVC.m; path = Classes/ViewControllers/ListVC/ListVC.m; sourceTree = "<group>"; };
 		C4F50D2718B8DC27001EFBE9 /* spb_10_16.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = spb_10_16.sqlite; path = MapAppGit/Bases/Maps/spb_10_16.sqlite; sourceTree = SOURCE_ROOT; };
 		C4F50D2818B8DC27001EFBE9 /* spb_119909_10_16.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = spb_119909_10_16.sqlite; path = MapAppGit/Bases/Maps/spb_119909_10_16.sqlite; sourceTree = SOURCE_ROOT; };
 		C4F50D2918B8DC27001EFBE9 /* spb_119909_10_17.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = spb_119909_10_17.sqlite; path = MapAppGit/Bases/Maps/spb_119909_10_17.sqlite; sourceTree = SOURCE_ROOT; };
 		C4FAD16D18F18A5A007871B9 /* DIGrowingCellTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DIGrowingCellTableView.h; path = Views/DIGrowingCellTableView/DIGrowingCellTableView.h; sourceTree = "<group>"; };
 		C4FAD16E18F18A5A007871B9 /* DIGrowingCellTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DIGrowingCellTableView.m; path = Views/DIGrowingCellTableView/DIGrowingCellTableView.m; sourceTree = "<group>"; };
+		C4FAD17C18FD924F007871B9 /* DISightsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DISightsManager.h; path = Classes/Managers/SightsManager/DISightsManager.h; sourceTree = "<group>"; };
+		C4FAD17D18FD924F007871B9 /* DISightsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DISightsManager.m; path = Classes/Managers/SightsManager/DISightsManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -365,6 +368,7 @@
 		C4BD885B187080FD00128CD1 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				C4FAD17718FD9212007871B9 /* SightsManager */,
 				C4BD88871870942200128CD1 /* MapSourceManagers */,
 				C4BD885E1870822900128CD1 /* TilesDownloader */,
 			);
@@ -408,8 +412,8 @@
 				C4CAB3F9188C4E55003CB9CC /* ListDefaults.h */,
 				C4CAB3F7188C4E55003CB9CC /* DICell.h */,
 				C4CAB3F8188C4E55003CB9CC /* DICell.m */,
-				C4CAB3FA188C4E55003CB9CC /* ThirdVC.h */,
-				C4CAB3FB188C4E55003CB9CC /* ThirdVC.m */,
+				C4CAB3FA188C4E55003CB9CC /* ListVC.h */,
+				C4CAB3FB188C4E55003CB9CC /* ListVC.m */,
 			);
 			name = ListVC;
 			sourceTree = "<group>";
@@ -421,6 +425,15 @@
 				0ABFD08E18F7AF26002C3DD1 /* DIGrowingCellTableView */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		C4FAD17718FD9212007871B9 /* SightsManager */ = {
+			isa = PBXGroup;
+			children = (
+				C4FAD17C18FD924F007871B9 /* DISightsManager.h */,
+				C4FAD17D18FD924F007871B9 /* DISightsManager.m */,
+			);
+			name = SightsManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -570,10 +583,11 @@
 				C4BD88611870822900128CD1 /* DITilesDownloader.m in Sources */,
 				C4BB1A39187AF9910067C041 /* DIMapSourceManager.m in Sources */,
 				C4BD881D18705EE400128CD1 /* MapAppGit.xcdatamodeld in Sources */,
+				C4FAD17E18FD924F007871B9 /* DISightsManager.m in Sources */,
 				C4BD881618705EE400128CD1 /* main.m in Sources */,
 				C4FAD16F18F18A5A007871B9 /* DIGrowingCellTableView.m in Sources */,
 				C4BD881A18705EE400128CD1 /* DIAppDelegate.m in Sources */,
-				C4CAB3FE188C4E55003CB9CC /* ThirdVC.m in Sources */,
+				C4CAB3FE188C4E55003CB9CC /* ListVC.m in Sources */,
 				0ABFD09618F7AF6E002C3DD1 /* DIGrowingCell.m in Sources */,
 				C4BD88411870612900128CD1 /* DIMapController.m in Sources */,
 				C49972201895509E00A8DA98 /* ListItem.m in Sources */,

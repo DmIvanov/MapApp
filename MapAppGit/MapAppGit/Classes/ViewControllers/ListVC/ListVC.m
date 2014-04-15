@@ -1,17 +1,17 @@
 //
-//  ThirdVC.m
-//  TableV
+//  ListVC.m
+//
 //
 //  Created by Dmitry Ivanov on 19.01.14.
 //  Copyright (c) 2014 Dmitry Ivanov. All rights reserved.
 //
 
-#import "ThirdVC.h"
+#import "ListVC.h"
 
-#import "DIAppDelegate.h"
 #import "DIDefaults.h"
 #import "ListDefaults.h"
 #import "ListItem.h"
+#import "DISightsManager.h"
 
 #import "DIMapController.h"
 
@@ -23,7 +23,7 @@
 #define NAVIBAR_FRAME               CGRectMake(0, 20, SCREEN_SIZE.width, NAVIBAR_DELTA);
 
 
-@interface ThirdVC ()
+@interface ListVC ()
 {
     NSMutableArray *_dataArray;
     UINavigationBar *_naviBar;
@@ -33,7 +33,7 @@
 
 @end
 
-@implementation ThirdVC
+@implementation ListVC
 
 
 #pragma mark - Controller life cycle
@@ -42,8 +42,7 @@
     
     self = [super init];
     if (self) {
-        DIAppDelegate *appDelegate = (DIAppDelegate *)[UIApplication sharedApplication].delegate;
-        _dataArray = [NSMutableArray arrayWithArray:[appDelegate dataArray]];
+        _dataArray = [NSMutableArray arrayWithArray:[[DISightsManager sharedInstance] dataArray]];
     }
     return self;
 }
