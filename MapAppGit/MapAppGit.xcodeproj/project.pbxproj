@@ -50,6 +50,7 @@
 		C4F50D2C18B8DC27001EFBE9 /* spb_119909_10_17.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C4F50D2918B8DC27001EFBE9 /* spb_119909_10_17.sqlite */; };
 		C4FAD16F18F18A5A007871B9 /* DIGrowingCellTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FAD16E18F18A5A007871B9 /* DIGrowingCellTableView.m */; };
 		C4FAD17E18FD924F007871B9 /* DISightsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FAD17D18FD924F007871B9 /* DISightsManager.m */; };
+		C4FAD18418FEF69E007871B9 /* arrow.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C4FAD18318FEF69E007871B9 /* arrow.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -150,6 +151,7 @@
 		C4FAD16E18F18A5A007871B9 /* DIGrowingCellTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DIGrowingCellTableView.m; path = Views/DIGrowingCellTableView/DIGrowingCellTableView.m; sourceTree = "<group>"; };
 		C4FAD17C18FD924F007871B9 /* DISightsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DISightsManager.h; path = Classes/Managers/SightsManager/DISightsManager.h; sourceTree = "<group>"; };
 		C4FAD17D18FD924F007871B9 /* DISightsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DISightsManager.m; path = Classes/Managers/SightsManager/DISightsManager.m; sourceTree = "<group>"; };
+		C4FAD18318FEF69E007871B9 /* arrow.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = arrow.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,6 +244,7 @@
 		C49972531896ED0500A8DA98 /* Markers */ = {
 			isa = PBXGroup;
 			children = (
+				C4FAD18318FEF69E007871B9 /* arrow.jpeg */,
 				C49972541896ED0500A8DA98 /* marker-blue-withletter.png */,
 				C49972551896ED0500A8DA98 /* marker-blue.png */,
 				C49972561896ED0500A8DA98 /* marker-red-withletter.png */,
@@ -555,6 +558,7 @@
 				C4F50D2C18B8DC27001EFBE9 /* spb_119909_10_17.sqlite in Resources */,
 				C4BD88421870612900128CD1 /* DIMapController.xib in Resources */,
 				C49972591896ED0500A8DA98 /* marker-blue.png in Resources */,
+				C4FAD18418FEF69E007871B9 /* arrow.jpeg in Resources */,
 				C4F50D2A18B8DC27001EFBE9 /* spb_10_16.sqlite in Resources */,
 				C4F50D2B18B8DC27001EFBE9 /* spb_119909_10_16.sqlite in Resources */,
 				C499725A1896ED0500A8DA98 /* marker-red-withletter.png in Resources */,

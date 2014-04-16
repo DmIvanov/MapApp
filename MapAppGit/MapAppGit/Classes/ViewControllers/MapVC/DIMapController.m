@@ -69,8 +69,10 @@
 
 - (void)buttonLocationPressed {
     
-    if ([CLLocationManager locationServicesEnabled])
+    if ([CLLocationManager locationServicesEnabled]) {
         [_locationManager startUpdatingLocation];
+        [_locationManager startUpdatingHeading];
+    }
 }
 
 - (IBAction)buttonZoomRoundingPressed:(id)sender {
@@ -92,18 +94,28 @@
     CLLocationCoordinate2D coord = location.coordinate;
     
     if (!_currentLocationMarker) {
-        _currentLocationMarker = [[RMMarker alloc] initWithUIImage:[UIImage imageNamed:@"marker-red"]];
+        _currentLocationMarker = [[RMMarker alloc] initWithUIImage:[UIImage imageNamed:@"arrow.jpeg"]];
         [_mapView.markerManager addMarker:_currentLocationMarker AtLatLong:coord];
+        [_mapView moveToLatLong:coord];
     }
-    else
+    else {
         [_mapView.markerManager moveMarkerWithAnimation:_currentLocationMarker AtLatLon:coord];
+    }
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateHeading:(CLHeading *)newHeading {
+    
+    CLLocationDirection direction = newHeading.trueHeading;
+    CGFloat angle = 2*M_PI*(direction/360);
+    
+    _currentLocationMarker.transform = CATransform3DMakeRotation(angle, 0, 0, 1);
 }
 
 
 #pragma mark - RMMapViewDelegate methods
 
 - (void)singleTapOnMap:(RMMapView *)map At:(CGPoint)point {
-    
+/*
     if (map != _mapView)
         return;
     
@@ -111,6 +123,7 @@
     RMLatLong touchPoint = [map.contents pixelToLatLong:point];
     //[_routePoints addObject:[DIMapConverter dictionaryFromCoordinate:touchPoint]];
     [map.markerManager addMarker:newMarker AtLatLong:touchPoint];
+ */
 }
 
 
