@@ -15,6 +15,7 @@
 #import "DICloudeMadeManager.h"
 #import "DINotificationNames.h"
 #import "DIDefaults.h"
+#import "DISettingsManager.h"
 #import "DIHelper.h"
 
 
@@ -47,9 +48,9 @@
     [_mapSourceManager setMapSourceForMapView:_mapView];
     _mapView.delegate = self;
     
-    if ([DIHelper offlineMode])
-        [_mapView setConstraintsSW:[DIHelper SWBorderPoint]
-                                NE:[DIHelper NEBorderPoint]];
+    if ([DISettingsManager offlineMode])
+        [_mapView setConstraintsSW:[DISettingsManager sharedInstance].SWBorderPoint
+                                NE:[DISettingsManager sharedInstance].NEBorderPoint];
     
     UIBarButtonItem *locButton = [[UIBarButtonItem alloc] initWithTitle:@"location"
                                                                   style:UIBarButtonItemStylePlain
@@ -120,10 +121,16 @@
         return;
     
     RMMarker *newMarker = [[RMMarker alloc] initWithUIImage:[UIImage imageNamed:@"marker-blue"]];
+    newMarker.anchorPoint = CGPointMake(0.5, 1.);
     RMLatLong touchPoint = [map.contents pixelToLatLong:point];
     //[_routePoints addObject:[DIMapConverter dictionaryFromCoordinate:touchPoint]];
     [map.markerManager addMarker:newMarker AtLatLong:touchPoint];
- */
+*/ 
+}
+
+- (void)afterMapZoom:(RMMapView *)map byFactor:(float)zoomFactor near:(CGPoint)center {
+    
+    //DLog(@"zoom - %f", _mapView.contents.zoom);
 }
 
 

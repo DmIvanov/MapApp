@@ -7,6 +7,8 @@
 //
 
 #import "DITilesDownloader.h"
+
+#import "DISettingsManager.h"
 #import "DIHelper.h"
 
 @interface DITilesDownloader()
@@ -33,7 +35,7 @@
 
 - (void)makeDatabase {
     
-    if ([DIHelper downloadingTilesFromFileSystem])
+    if ([DISettingsManager downloadingTilesFromFileSystem])
         [self makeDBFromFolder];
     else
         [self makeDBFromRemoteSource];
