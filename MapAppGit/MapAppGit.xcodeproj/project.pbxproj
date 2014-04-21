@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0ABFD09618F7AF6E002C3DD1 /* DIGrowingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ABFD09518F7AF6E002C3DD1 /* DIGrowingCell.m */; };
+		C43741E31902C8590095D51E /* rus_spb_10_15.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C43741E21902C8590095D51E /* rus_spb_10_15.sqlite */; };
 		C43BA113189D8688009AC969 /* dbDescription.plist in Resources */ = {isa = PBXBuildFile; fileRef = C43BA112189D8688009AC969 /* dbDescription.plist */; };
-		C442123518D37B6F00979F96 /* spb_119909_10_18.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C442123418D37B6F00979F96 /* spb_119909_10_18.sqlite */; };
 		C49972201895509E00A8DA98 /* ListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C499721F1895509E00A8DA98 /* ListItem.m */; };
 		C499724A1896E31300A8DA98 /* MapAppGit.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C49972451896E31300A8DA98 /* MapAppGit.sqlite */; };
 		C499724B1896E31300A8DA98 /* MapAppGit.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = C49972461896E31300A8DA98 /* MapAppGit.sqlite-shm */; };
@@ -45,9 +45,6 @@
 		C4BD888A1870949700128CD1 /* DICloudeMadeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C4BD88891870949700128CD1 /* DICloudeMadeManager.m */; };
 		C4CAB3FD188C4E55003CB9CC /* DICell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4CAB3F8188C4E55003CB9CC /* DICell.m */; };
 		C4CAB3FE188C4E55003CB9CC /* ListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C4CAB3FB188C4E55003CB9CC /* ListVC.m */; };
-		C4F50D2A18B8DC27001EFBE9 /* spb_10_16.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C4F50D2718B8DC27001EFBE9 /* spb_10_16.sqlite */; };
-		C4F50D2B18B8DC27001EFBE9 /* spb_119909_10_16.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C4F50D2818B8DC27001EFBE9 /* spb_119909_10_16.sqlite */; };
-		C4F50D2C18B8DC27001EFBE9 /* spb_119909_10_17.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C4F50D2918B8DC27001EFBE9 /* spb_119909_10_17.sqlite */; };
 		C4FAD16F18F18A5A007871B9 /* DIGrowingCellTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FAD16E18F18A5A007871B9 /* DIGrowingCellTableView.m */; };
 		C4FAD17E18FD924F007871B9 /* DISightsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FAD17D18FD924F007871B9 /* DISightsManager.m */; };
 		C4FAD18418FEF69E007871B9 /* arrow.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C4FAD18318FEF69E007871B9 /* arrow.jpeg */; };
@@ -94,8 +91,8 @@
 /* Begin PBXFileReference section */
 		0ABFD09418F7AF6E002C3DD1 /* DIGrowingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DIGrowingCell.h; path = Views/DIGrowingCell/DIGrowingCell.h; sourceTree = "<group>"; };
 		0ABFD09518F7AF6E002C3DD1 /* DIGrowingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DIGrowingCell.m; path = Views/DIGrowingCell/DIGrowingCell.m; sourceTree = "<group>"; };
+		C43741E21902C8590095D51E /* rus_spb_10_15.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = rus_spb_10_15.sqlite; path = MapAppGit/Bases/Maps/rus_spb_10_15.sqlite; sourceTree = SOURCE_ROOT; };
 		C43BA112189D8688009AC969 /* dbDescription.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = dbDescription.plist; sourceTree = "<group>"; };
-		C442123418D37B6F00979F96 /* spb_119909_10_18.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = spb_119909_10_18.sqlite; path = MapAppGit/Bases/Maps/spb_119909_10_18.sqlite; sourceTree = SOURCE_ROOT; };
 		C499721E1895509E00A8DA98 /* ListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListItem.h; path = Classes/Objects/ListItem.h; sourceTree = "<group>"; };
 		C499721F1895509E00A8DA98 /* ListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ListItem.m; path = Classes/Objects/ListItem.m; sourceTree = "<group>"; };
 		C49972421896DFD400A8DA98 /* SomeStuff.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SomeStuff.h; sourceTree = "<group>"; };
@@ -144,9 +141,6 @@
 		C4CAB3F9188C4E55003CB9CC /* ListDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListDefaults.h; path = Classes/ViewControllers/ListVC/ListDefaults.h; sourceTree = "<group>"; };
 		C4CAB3FA188C4E55003CB9CC /* ListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListVC.h; path = Classes/ViewControllers/ListVC/ListVC.h; sourceTree = "<group>"; };
 		C4CAB3FB188C4E55003CB9CC /* ListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ListVC.m; path = Classes/ViewControllers/ListVC/ListVC.m; sourceTree = "<group>"; };
-		C4F50D2718B8DC27001EFBE9 /* spb_10_16.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = spb_10_16.sqlite; path = MapAppGit/Bases/Maps/spb_10_16.sqlite; sourceTree = SOURCE_ROOT; };
-		C4F50D2818B8DC27001EFBE9 /* spb_119909_10_16.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = spb_119909_10_16.sqlite; path = MapAppGit/Bases/Maps/spb_119909_10_16.sqlite; sourceTree = SOURCE_ROOT; };
-		C4F50D2918B8DC27001EFBE9 /* spb_119909_10_17.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = spb_119909_10_17.sqlite; path = MapAppGit/Bases/Maps/spb_119909_10_17.sqlite; sourceTree = SOURCE_ROOT; };
 		C4FAD16D18F18A5A007871B9 /* DIGrowingCellTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DIGrowingCellTableView.h; path = Views/DIGrowingCellTableView/DIGrowingCellTableView.h; sourceTree = "<group>"; };
 		C4FAD16E18F18A5A007871B9 /* DIGrowingCellTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DIGrowingCellTableView.m; path = Views/DIGrowingCellTableView/DIGrowingCellTableView.m; sourceTree = "<group>"; };
 		C4FAD17C18FD924F007871B9 /* DISightsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DISightsManager.h; path = Classes/Managers/SightsManager/DISightsManager.h; sourceTree = "<group>"; };
@@ -225,10 +219,7 @@
 		C49972481896E31300A8DA98 /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				C4F50D2718B8DC27001EFBE9 /* spb_10_16.sqlite */,
-				C4F50D2818B8DC27001EFBE9 /* spb_119909_10_16.sqlite */,
-				C4F50D2918B8DC27001EFBE9 /* spb_119909_10_17.sqlite */,
-				C442123418D37B6F00979F96 /* spb_119909_10_18.sqlite */,
+				C43741E21902C8590095D51E /* rus_spb_10_15.sqlite */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -549,20 +540,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C442123518D37B6F00979F96 /* spb_119909_10_18.sqlite in Resources */,
 				C43BA113189D8688009AC969 /* dbDescription.plist in Resources */,
 				C499725B1896ED0500A8DA98 /* marker-red.png in Resources */,
 				C499724C1896E31300A8DA98 /* MapAppGit.sqlite-wal in Resources */,
 				C499724B1896E31300A8DA98 /* MapAppGit.sqlite-shm in Resources */,
 				C499724A1896E31300A8DA98 /* MapAppGit.sqlite in Resources */,
-				C4F50D2C18B8DC27001EFBE9 /* spb_119909_10_17.sqlite in Resources */,
 				C4BD88421870612900128CD1 /* DIMapController.xib in Resources */,
 				C49972591896ED0500A8DA98 /* marker-blue.png in Resources */,
 				C4FAD18418FEF69E007871B9 /* arrow.jpeg in Resources */,
-				C4F50D2A18B8DC27001EFBE9 /* spb_10_16.sqlite in Resources */,
-				C4F50D2B18B8DC27001EFBE9 /* spb_119909_10_16.sqlite in Resources */,
 				C499725A1896ED0500A8DA98 /* marker-red-withletter.png in Resources */,
 				C4BD881418705EE400128CD1 /* InfoPlist.strings in Resources */,
+				C43741E31902C8590095D51E /* rus_spb_10_15.sqlite in Resources */,
 				C49972581896ED0500A8DA98 /* marker-blue-withletter.png in Resources */,
 				C4BD881F18705EE400128CD1 /* Images.xcassets in Resources */,
 			);

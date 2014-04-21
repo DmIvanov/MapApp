@@ -71,7 +71,7 @@
 - (void)buttonLocationPressed {
     
     if ([CLLocationManager locationServicesEnabled]) {
-        [_locationManager startUpdatingLocation];
+        [_locationManager startMonitoringSignificantLocationChanges];
         [_locationManager startUpdatingHeading];
     }
 }
