@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0ABFD09618F7AF6E002C3DD1 /* DIGrowingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ABFD09518F7AF6E002C3DD1 /* DIGrowingCell.m */; };
 		C43741E31902C8590095D51E /* rus_spb_10_15.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C43741E21902C8590095D51E /* rus_spb_10_15.sqlite */; };
+		C43741F01906E81C0095D51E /* DILocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C43741EF1906E81C0095D51E /* DILocationManager.m */; };
 		C43BA113189D8688009AC969 /* dbDescription.plist in Resources */ = {isa = PBXBuildFile; fileRef = C43BA112189D8688009AC969 /* dbDescription.plist */; };
 		C49972201895509E00A8DA98 /* ListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C499721F1895509E00A8DA98 /* ListItem.m */; };
 		C499724A1896E31300A8DA98 /* MapAppGit.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C49972451896E31300A8DA98 /* MapAppGit.sqlite */; };
@@ -92,6 +93,8 @@
 		0ABFD09418F7AF6E002C3DD1 /* DIGrowingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DIGrowingCell.h; path = Views/DIGrowingCell/DIGrowingCell.h; sourceTree = "<group>"; };
 		0ABFD09518F7AF6E002C3DD1 /* DIGrowingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DIGrowingCell.m; path = Views/DIGrowingCell/DIGrowingCell.m; sourceTree = "<group>"; };
 		C43741E21902C8590095D51E /* rus_spb_10_15.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = rus_spb_10_15.sqlite; path = MapAppGit/Bases/Maps/rus_spb_10_15.sqlite; sourceTree = SOURCE_ROOT; };
+		C43741EE1906E81C0095D51E /* DILocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DILocationManager.h; path = Classes/Managers/LocationManager/DILocationManager.h; sourceTree = "<group>"; };
+		C43741EF1906E81C0095D51E /* DILocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DILocationManager.m; path = Classes/Managers/LocationManager/DILocationManager.m; sourceTree = "<group>"; };
 		C43BA112189D8688009AC969 /* dbDescription.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = dbDescription.plist; sourceTree = "<group>"; };
 		C499721E1895509E00A8DA98 /* ListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListItem.h; path = Classes/Objects/ListItem.h; sourceTree = "<group>"; };
 		C499721F1895509E00A8DA98 /* ListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ListItem.m; path = Classes/Objects/ListItem.m; sourceTree = "<group>"; };
@@ -195,6 +198,15 @@
 				0ABFD09518F7AF6E002C3DD1 /* DIGrowingCell.m */,
 			);
 			name = DIGrowingCell;
+			sourceTree = "<group>";
+		};
+		C43741E91906E7D60095D51E /* LocationManager */ = {
+			isa = PBXGroup;
+			children = (
+				C43741EE1906E81C0095D51E /* DILocationManager.h */,
+				C43741EF1906E81C0095D51E /* DILocationManager.m */,
+			);
+			name = LocationManager;
 			sourceTree = "<group>";
 		};
 		C49972431896E31300A8DA98 /* Bases */ = {
@@ -362,6 +374,7 @@
 		C4BD885B187080FD00128CD1 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				C43741E91906E7D60095D51E /* LocationManager */,
 				C4FAD17718FD9212007871B9 /* SightsManager */,
 				C4BD88871870942200128CD1 /* MapSourceManagers */,
 				C4BD885E1870822900128CD1 /* TilesDownloader */,
@@ -580,6 +593,7 @@
 				C4FAD16F18F18A5A007871B9 /* DIGrowingCellTableView.m in Sources */,
 				C4BD881A18705EE400128CD1 /* DIAppDelegate.m in Sources */,
 				C4CAB3FE188C4E55003CB9CC /* ListVC.m in Sources */,
+				C43741F01906E81C0095D51E /* DILocationManager.m in Sources */,
 				0ABFD09618F7AF6E002C3DD1 /* DIGrowingCell.m in Sources */,
 				C4BD88411870612900128CD1 /* DIMapController.m in Sources */,
 				C49972201895509E00A8DA98 /* ListItem.m in Sources */,

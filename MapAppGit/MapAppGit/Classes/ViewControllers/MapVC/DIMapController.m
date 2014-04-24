@@ -65,15 +65,21 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)dealloc {
+    
+    [_locationManager stopMonitoringSignificantLocationChanges];
+    [_locationManager stopUpdatingHeading];
+}
+
 
 #pragma mark - Location Service
 
 - (void)buttonLocationPressed {
     
-    if ([CLLocationManager locationServicesEnabled]) {
+    if ([CLLocationManager significantLocationChangeMonitoringAvailable])
         [_locationManager startMonitoringSignificantLocationChanges];
+    if ([CLLocationManager headingAvailable])
         [_locationManager startUpdatingHeading];
-    }
 }
 
 - (IBAction)buttonZoomRoundingPressed:(id)sender {
