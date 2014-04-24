@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A872A00190968C400552932 /* DIHintManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A8729FF190968C400552932 /* DIHintManager.m */; };
+		0A872A0419096D3D00552932 /* DIHint.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A872A0319096D3D00552932 /* DIHint.m */; };
 		0ABFD09618F7AF6E002C3DD1 /* DIGrowingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ABFD09518F7AF6E002C3DD1 /* DIGrowingCell.m */; };
 		C43741E31902C8590095D51E /* rus_spb_10_15.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C43741E21902C8590095D51E /* rus_spb_10_15.sqlite */; };
 		C43741F01906E81C0095D51E /* DILocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C43741EF1906E81C0095D51E /* DILocationManager.m */; };
@@ -90,6 +92,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A8729FE190968C400552932 /* DIHintManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DIHintManager.h; path = Classes/Managers/HintManager/DIHintManager.h; sourceTree = "<group>"; };
+		0A8729FF190968C400552932 /* DIHintManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DIHintManager.m; path = Classes/Managers/HintManager/DIHintManager.m; sourceTree = "<group>"; };
+		0A872A0219096D3D00552932 /* DIHint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DIHint.h; path = Classes/Objects/Hint/DIHint.h; sourceTree = "<group>"; };
+		0A872A0319096D3D00552932 /* DIHint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DIHint.m; path = Classes/Objects/Hint/DIHint.m; sourceTree = "<group>"; };
 		0ABFD09418F7AF6E002C3DD1 /* DIGrowingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DIGrowingCell.h; path = Views/DIGrowingCell/DIGrowingCell.h; sourceTree = "<group>"; };
 		0ABFD09518F7AF6E002C3DD1 /* DIGrowingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DIGrowingCell.m; path = Views/DIGrowingCell/DIGrowingCell.m; sourceTree = "<group>"; };
 		C43741E21902C8590095D51E /* rus_spb_10_15.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = rus_spb_10_15.sqlite; path = MapAppGit/Bases/Maps/rus_spb_10_15.sqlite; sourceTree = SOURCE_ROOT; };
@@ -182,6 +188,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A8729F91909688500552932 /* HintManager */ = {
+			isa = PBXGroup;
+			children = (
+				0A8729FE190968C400552932 /* DIHintManager.h */,
+				0A8729FF190968C400552932 /* DIHintManager.m */,
+			);
+			name = HintManager;
+			sourceTree = "<group>";
+		};
+		0A872A0119096D0500552932 /* Hint */ = {
+			isa = PBXGroup;
+			children = (
+				0A872A0219096D3D00552932 /* DIHint.h */,
+				0A872A0319096D3D00552932 /* DIHint.m */,
+			);
+			name = Hint;
+			sourceTree = "<group>";
+		};
 		0ABFD08E18F7AF26002C3DD1 /* DIGrowingCellTableView */ = {
 			isa = PBXGroup;
 			children = (
@@ -259,6 +283,7 @@
 		C4BB1A4D18817AF10067C041 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
+				0A872A0119096D0500552932 /* Hint */,
 				C499721E1895509E00A8DA98 /* ListItem.h */,
 				C499721F1895509E00A8DA98 /* ListItem.m */,
 			);
@@ -375,6 +400,7 @@
 			isa = PBXGroup;
 			children = (
 				C43741E91906E7D60095D51E /* LocationManager */,
+				0A8729F91909688500552932 /* HintManager */,
 				C4FAD17718FD9212007871B9 /* SightsManager */,
 				C4BD88871870942200128CD1 /* MapSourceManagers */,
 				C4BD885E1870822900128CD1 /* TilesDownloader */,
@@ -596,8 +622,10 @@
 				C43741F01906E81C0095D51E /* DILocationManager.m in Sources */,
 				0ABFD09618F7AF6E002C3DD1 /* DIGrowingCell.m in Sources */,
 				C4BD88411870612900128CD1 /* DIMapController.m in Sources */,
+				0A872A00190968C400552932 /* DIHintManager.m in Sources */,
 				C49972201895509E00A8DA98 /* ListItem.m in Sources */,
 				C4BD888A1870949700128CD1 /* DICloudeMadeManager.m in Sources */,
+				0A872A0419096D3D00552932 /* DIHint.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
