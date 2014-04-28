@@ -10,6 +10,7 @@
 
 
 @class ListItem;
+@class DISight;
 
 
 @interface DISightsManager : NSObject
@@ -24,5 +25,7 @@
 
 - (ListItem *)createAndSaveItemWithName:(NSString *)name description:(NSString *)description imageData:(NSData *)data;
 - (NSArray *)dataArray;
+
+- (NSArray *)recognizedSights;
 
 @end

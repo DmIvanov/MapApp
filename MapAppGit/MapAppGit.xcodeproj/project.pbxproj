@@ -12,6 +12,9 @@
 		0ABFD09618F7AF6E002C3DD1 /* DIGrowingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ABFD09518F7AF6E002C3DD1 /* DIGrowingCell.m */; };
 		C43741E31902C8590095D51E /* rus_spb_10_15.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C43741E21902C8590095D51E /* rus_spb_10_15.sqlite */; };
 		C43741F01906E81C0095D51E /* DILocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C43741EF1906E81C0095D51E /* DILocationManager.m */; };
+		C43741FD190BAB020095D51E /* DISightCardVCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C43741FB190BAB020095D51E /* DISightCardVCViewController.m */; };
+		C43741FE190BAB020095D51E /* DISightCardVCViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C43741FC190BAB020095D51E /* DISightCardVCViewController.xib */; };
+		C4374202190BAC440095D51E /* DISight.m in Sources */ = {isa = PBXBuildFile; fileRef = C4374201190BAC440095D51E /* DISight.m */; };
 		C43BA113189D8688009AC969 /* dbDescription.plist in Resources */ = {isa = PBXBuildFile; fileRef = C43BA112189D8688009AC969 /* dbDescription.plist */; };
 		C49972201895509E00A8DA98 /* ListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C499721F1895509E00A8DA98 /* ListItem.m */; };
 		C499724A1896E31300A8DA98 /* MapAppGit.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C49972451896E31300A8DA98 /* MapAppGit.sqlite */; };
@@ -101,6 +104,11 @@
 		C43741E21902C8590095D51E /* rus_spb_10_15.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = rus_spb_10_15.sqlite; path = MapAppGit/Bases/Maps/rus_spb_10_15.sqlite; sourceTree = SOURCE_ROOT; };
 		C43741EE1906E81C0095D51E /* DILocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DILocationManager.h; path = Classes/Managers/LocationManager/DILocationManager.h; sourceTree = "<group>"; };
 		C43741EF1906E81C0095D51E /* DILocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DILocationManager.m; path = Classes/Managers/LocationManager/DILocationManager.m; sourceTree = "<group>"; };
+		C43741FA190BAB020095D51E /* DISightCardVCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DISightCardVCViewController.h; path = Classes/ViewControllers/SightCardVC/DISightCardVCViewController.h; sourceTree = "<group>"; };
+		C43741FB190BAB020095D51E /* DISightCardVCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DISightCardVCViewController.m; path = Classes/ViewControllers/SightCardVC/DISightCardVCViewController.m; sourceTree = "<group>"; };
+		C43741FC190BAB020095D51E /* DISightCardVCViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DISightCardVCViewController.xib; path = Classes/ViewControllers/SightCardVC/DISightCardVCViewController.xib; sourceTree = "<group>"; };
+		C4374200190BAC440095D51E /* DISight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DISight.h; sourceTree = "<group>"; };
+		C4374201190BAC440095D51E /* DISight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DISight.m; sourceTree = "<group>"; };
 		C43BA112189D8688009AC969 /* dbDescription.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = dbDescription.plist; sourceTree = "<group>"; };
 		C499721E1895509E00A8DA98 /* ListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListItem.h; path = Classes/Objects/ListItem.h; sourceTree = "<group>"; };
 		C499721F1895509E00A8DA98 /* ListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ListItem.m; path = Classes/Objects/ListItem.m; sourceTree = "<group>"; };
@@ -233,6 +241,25 @@
 			name = LocationManager;
 			sourceTree = "<group>";
 		};
+		C43741F9190BAAC20095D51E /* SightCard */ = {
+			isa = PBXGroup;
+			children = (
+				C43741FA190BAB020095D51E /* DISightCardVCViewController.h */,
+				C43741FB190BAB020095D51E /* DISightCardVCViewController.m */,
+				C43741FC190BAB020095D51E /* DISightCardVCViewController.xib */,
+			);
+			name = SightCard;
+			sourceTree = "<group>";
+		};
+		C43741FF190BAC270095D51E /* Sight */ = {
+			isa = PBXGroup;
+			children = (
+				C4374200190BAC440095D51E /* DISight.h */,
+				C4374201190BAC440095D51E /* DISight.m */,
+			);
+			name = Sight;
+			sourceTree = "<group>";
+		};
 		C49972431896E31300A8DA98 /* Bases */ = {
 			isa = PBXGroup;
 			children = (
@@ -283,6 +310,7 @@
 		C4BB1A4D18817AF10067C041 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
+				C43741FF190BAC270095D51E /* Sight */,
 				0A872A0119096D0500552932 /* Hint */,
 				C499721E1895509E00A8DA98 /* ListItem.h */,
 				C499721F1895509E00A8DA98 /* ListItem.m */,
@@ -294,7 +322,6 @@
 			isa = PBXGroup;
 			children = (
 				C4BD880F18705EE400128CD1 /* MapAppGit */,
-				C4BD886218708BCF00128CD1 /* MapView.xcodeproj */,
 				C4BD882C18705EE400128CD1 /* MapAppGitTests */,
 				C4BD880618705EE400128CD1 /* Frameworks */,
 				C4BD880518705EE400128CD1 /* Products */,
@@ -313,6 +340,7 @@
 		C4BD880618705EE400128CD1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C4BD886218708BCF00128CD1 /* MapView.xcodeproj */,
 				C4BD887118708C1D00128CD1 /* libMapView.a */,
 				C4BD885918707A0100128CD1 /* libz.dylib */,
 				C4BD885218706E9000128CD1 /* libsqlite3.dylib */,
@@ -379,6 +407,7 @@
 		C4BD883C187060AD00128CD1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				C43741F9190BAAC20095D51E /* SightCard */,
 				C4CAB3F6188C4E1D003CB9CC /* ListVC */,
 				C4BD883D187060BF00128CD1 /* MapVC */,
 			);
@@ -399,10 +428,10 @@
 		C4BD885B187080FD00128CD1 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				C43741E91906E7D60095D51E /* LocationManager */,
 				0A8729F91909688500552932 /* HintManager */,
-				C4FAD17718FD9212007871B9 /* SightsManager */,
+				C43741E91906E7D60095D51E /* LocationManager */,
 				C4BD88871870942200128CD1 /* MapSourceManagers */,
+				C4FAD17718FD9212007871B9 /* SightsManager */,
 				C4BD885E1870822900128CD1 /* TilesDownloader */,
 			);
 			name = Managers;
@@ -591,6 +620,7 @@
 				C4BD881418705EE400128CD1 /* InfoPlist.strings in Resources */,
 				C43741E31902C8590095D51E /* rus_spb_10_15.sqlite in Resources */,
 				C49972581896ED0500A8DA98 /* marker-blue-withletter.png in Resources */,
+				C43741FE190BAB020095D51E /* DISightCardVCViewController.xib in Resources */,
 				C4BD881F18705EE400128CD1 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -616,11 +646,13 @@
 				C4BD881D18705EE400128CD1 /* MapAppGit.xcdatamodeld in Sources */,
 				C4FAD17E18FD924F007871B9 /* DISightsManager.m in Sources */,
 				C4BD881618705EE400128CD1 /* main.m in Sources */,
+				C43741FD190BAB020095D51E /* DISightCardVCViewController.m in Sources */,
 				C4FAD16F18F18A5A007871B9 /* DIGrowingCellTableView.m in Sources */,
 				C4BD881A18705EE400128CD1 /* DIAppDelegate.m in Sources */,
 				C4CAB3FE188C4E55003CB9CC /* ListVC.m in Sources */,
 				C43741F01906E81C0095D51E /* DILocationManager.m in Sources */,
 				0ABFD09618F7AF6E002C3DD1 /* DIGrowingCell.m in Sources */,
+				C4374202190BAC440095D51E /* DISight.m in Sources */,
 				C4BD88411870612900128CD1 /* DIMapController.m in Sources */,
 				0A872A00190968C400552932 /* DIHintManager.m in Sources */,
 				C49972201895509E00A8DA98 /* ListItem.m in Sources */,
