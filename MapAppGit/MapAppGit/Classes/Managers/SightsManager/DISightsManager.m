@@ -181,5 +181,14 @@
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
+- (NSString *)pathForObjectsFolder {
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = paths.firstObject; // Get documents folder
+    NSString *tilesFolderPath = [documentsDirectory stringByAppendingPathComponent:@"/Objects"];
+    
+    return tilesFolderPath;
+}
+
 
 @end
