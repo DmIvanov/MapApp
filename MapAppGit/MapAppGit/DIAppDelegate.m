@@ -41,12 +41,12 @@
     //download tiles to database
     _mapSourceManager = [[DICloudeMadeManager alloc] init];
     [_mapSourceManager makeDatabase];
-#elif 1
-    DISightCardVCViewController *sightCard = [DISightCardVCViewController new];
-    NSArray *sights = [DISightsManager sharedInstance].recognizedSights;
-    if (sights.count)
-        sightCard.sight = sights[0];
-    self.window.rootViewController = sightCard;
+//#elif 1
+//    DISightCardVCViewController *sightCard = [DISightCardVCViewController new];
+//    NSArray *sights = [DISightsManager sharedInstance].recognizedSights;
+//    if (sights.count)
+//        sightCard.sight = sights[0];
+//    self.window.rootViewController = sightCard;
 #else
     ListVC *listVC = [[ListVC alloc] init];
     UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:listVC];
