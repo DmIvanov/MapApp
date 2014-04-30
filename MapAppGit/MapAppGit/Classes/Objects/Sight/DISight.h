@@ -10,10 +10,23 @@
 
 @interface DISight : NSObject
 
-@property (nonatomic) CGFloat coordLatitude;
-@property (nonatomic) CGFloat coordLongitude;
+@property (nonatomic) NSNumber *latitudeNumber;
+@property (nonatomic) NSNumber *longitudeNumber;
 @property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) NSString *shortDescription;
+@property (nonatomic, strong) NSString *shortDescriptionString;
 @property (nonatomic, strong) NSString *history;
+@property (nonatomic, strong) NSString *scheduleString;
+@property (nonatomic, strong) NSArray *scheduleArray;
+@property (nonatomic, strong) NSArray *scheduleArrayString;
+@property (nonatomic, strong) NSString *priceString;
+@property (nonatomic) NSNumber *priceNumber;
+@property (nonatomic, strong) NSString *about;
+@property (nonatomic, strong) NSString *now;
+@property (nonatomic, strong) NSString *contacts;
+@property (nonatomic, strong) NSString *direction;
+@property (nonatomic, strong) NSString *interesting;
+@property (nonatomic, strong) NSString *mustSee;
+
+@property (nonatomic, strong) NSData *avatarData;
 
 @end

@@ -10,9 +10,8 @@
 
 #import "DIDefaults.h"
 #import "ListDefaults.h"
-#import "ListItem.h"
 #import "DISightsManager.h"
-
+#import "DISight.h"
 #import "DIMapController.h"
 
 #import "DIGrowingCellTableView.h"
@@ -127,11 +126,11 @@
     cell.delegate = self;
     
     //fill
-    int t = cell.dataIndex%5;
-    ListItem *item = (ListItem *)_dataArray[t];
+    int t = cell.dataIndex%_dataArray.count;
+    DISight *item = (DISight *)_dataArray[t];
     cell.titleString = item.name;
-    cell.descriptionString = item.descriptionString;
-    cell.imageData = item.imageData;
+    cell.descriptionString = item.shortDescriptionString;
+    //cell.imageData = item.imageData;
     
     return cell;
 }
