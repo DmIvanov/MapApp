@@ -139,6 +139,10 @@
         NSLog(@"AppDelegate: Failed to execute NFetchRequest. Error = %@", error);
     }
     
+    for (NSUInteger i=0; i<5; i++) {
+        items = [items arrayByAddingObjectsFromArray:items];
+    }
+    
     return items;
 }
 

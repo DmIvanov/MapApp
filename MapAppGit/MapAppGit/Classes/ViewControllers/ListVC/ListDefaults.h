@@ -8,12 +8,21 @@
 
 #import <Foundation/Foundation.h>
 
-#define CELL_HEIGHT       40.
-#define CELL_HEIGHT_BIG   200.
+#define COLOR1              [UIColor colorWithRed:218./255. green:165./255. blue:32./255. alpha:1.]
+#define COLOR2              [UIColor colorWithRed:184./255. green:134./255. blue:11./255. alpha:1.]
+#define COLOR3              [UIColor colorWithRed:139./255. green:69./255. blue:19./255. alpha:1.]
+#define COLOR4              [UIColor colorWithRed:205./255. green:133./255. blue:63./255. alpha:1.]
+#define COLOR5              [UIColor colorWithRed:244./255. green:164./255. blue:96./255. alpha:1.]
+#define COLOR6              [UIColor colorWithRed:255./255. green:165./255. blue:0. alpha:1.]
+#define COLOR0              [UIColor colorWithRed:255./255. green:215./255. blue:0. alpha:1.]
 
-#define START_TRANSFORM_POSITION    CELL_HEIGHT_BIG + 0.5*CELL_HEIGHT_BIG - 0.5*CELL_HEIGHT //280
-#define END_TRANSFORM_POSITION      START_TRANSFORM_POSITION + CELL_HEIGHT                  //320
-#define THIRD_CELL_ORIGIN           CELL_HEIGHT_BIG + 0.5*CELL_HEIGHT_BIG
+#define CELL_ID                     @"cellId"
 
-#define HEIGHT_LIMIT_UP     600.
-#define HEIGHT_LIMIT_DOWN   200.
+#define DEFAULT_GROWING_INDEX       1
+#define CELL_HEIGHT                 40.
+#define CELL_HEIGHT_BIG             300.
+#define CELL_HEIGHT_SECOND          70.
+
+#define START_RATIO                 ((CELL_HEIGHT_SECOND - CELL_HEIGHT)/(CELL_HEIGHT_BIG - CELL_HEIGHT))
+#define BOTTOM_START                ((CELL_HEIGHT_BIG + CELL_HEIGHT_SECOND) + START_RATIO*CELL_HEIGHT)
+#define BOTTOM_STOP                 ((CELL_HEIGHT_BIG + CELL_HEIGHT_SECOND) - (1 - START_RATIO)*CELL_HEIGHT)

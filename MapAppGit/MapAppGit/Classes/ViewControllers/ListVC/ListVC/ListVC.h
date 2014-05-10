@@ -10,8 +10,9 @@
 
 #import "DICell.h"
 
-#import "DIGrowingCellTableView.h"
 
-@interface ListVC : UIViewController <DIGrowingCellTableViewDelegate, DICellDelegate>
+@interface ListVC : UIViewController
+    <UICollectionViewDelegate,
+    UICollectionViewDataSource>
 
 @end
