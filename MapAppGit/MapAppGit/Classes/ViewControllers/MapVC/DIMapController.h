@@ -8,10 +8,13 @@
 
 #import "RMMapView.h"
 
+@class DIListMapVC;
+
 @interface DIMapController : UIViewController
     <RMMapViewDelegate,
     CLLocationManagerDelegate>
 
 @property (nonatomic, strong) IBOutlet RMMapView *mapView;
+@property (nonatomic, strong) DIListMapVC *listMapController;
 
 @end

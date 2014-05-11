@@ -12,11 +12,11 @@
 #import "DIHelper.h"
 #import "DICloudeMadeManager.h"
 #import "DILocationManager.h"
-#include "DISightsManager.h"
+#import "DISightsManager.h"
 
 #import "DIMapController.h"
-#import "DISightCardVCViewController.h"
 #import "ListVC.h"
+#import "DIListMapVC.h"
 
 
 
@@ -41,12 +41,11 @@
     //download tiles to database
     _mapSourceManager = [[DICloudeMadeManager alloc] init];
     [_mapSourceManager makeDatabase];
-//#elif 1
-//    DISightCardVCViewController *sightCard = [DISightCardVCViewController new];
-//    NSArray *sights = [DISightsManager sharedInstance].recognizedSights;
-//    if (sights.count)
-//        sightCard.sight = sights[0];
-//    self.window.rootViewController = sightCard;
+#elif 1
+    DIListMapVC *listMapController = [DIListMapVC new];
+    UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:listMapController];
+    self.window.rootViewController = navi;
+
 #else
     ListVC *listVC = [[ListVC alloc] init];
     UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:listVC];

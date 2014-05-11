@@ -10,9 +10,12 @@
 
 #import "DICell.h"
 
+@class DIListMapVC;
 
 @interface ListVC : UIViewController
     <UICollectionViewDelegate,
     UICollectionViewDataSource>
+
+@property (nonatomic, strong) DIListMapVC *listMapController;
 
 @end

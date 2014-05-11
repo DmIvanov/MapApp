@@ -1,5 +1,5 @@
 //
-//  DISightCardVCViewController.h
+//  DISightCardVC.h
 //  
 //
 //  Created by Dmitry Ivanov on 26.04.14.
@@ -10,8 +10,9 @@
 
 @class DISight;
 
-@interface DISightCardVCViewController : UIViewController <UITextViewDelegate>
+@interface DISightCardVC : UIViewController <UITextViewDelegate>
 
 @property (nonatomic, strong) DISight *sight;
+@property (nonatomic, strong) UIImage *image;
 
 @end

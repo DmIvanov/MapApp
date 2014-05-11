@@ -16,18 +16,13 @@
 #import "DILayout.h"
 #import "DIHelper.h"
 
-#import "DIMapController.h"
-
-
-#define VIEW_FRAME                  self.view.frame
-#define NAVIBAR_DELTA               44.
-#define NAVIBAR_FRAME               CGRectMake(0, 20, SCREEN_SIZE.width, NAVIBAR_DELTA);
+#import "DIListMapVC.h"
+#import "DISightCardVC.h"
 
 
 @interface ListVC ()
 {
     NSMutableArray *_dataArray;
-    UINavigationBar *_naviBar;
     CGFloat _tableViewDeltaOffset;
 }
 
@@ -54,20 +49,6 @@
     [super viewDidLoad];
     
     [self tableViewAdd];
-    
-    self.navigationItem.title = @"Scroll Bands";
-    UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction
-                                                                                    target:self
-                                                                                    action:@selector(barButtonActionTapped:)];
-    [self.navigationItem setRightBarButtonItem:rightBarButton];
-    
-    self.edgesForExtendedLayout = UIRectEdgeNone;
-    
-    _naviBar = self.navigationController.navigationBar;
-    [_naviBar addObserver:self
-               forKeyPath:@"frame"
-                  options:NSKeyValueObservingOptionNew
-                  context:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -76,18 +57,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    
-    [[UIApplication sharedApplication] setStatusBarHidden:NO];
-    _naviBar.frame = NAVIBAR_FRAME;
-    
-}
 
-- (void)dealloc {
-    
-    [_naviBar removeObserver:self
-                  forKeyPath:@"frame"];
-}
 
 
 #pragma mark - UICollectionView interation
@@ -137,6 +107,18 @@
     return cell;
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSUInteger index = indexPath.item;
+    DISight *object = _dataArray[index];
+    DISightCardVC *sightCard = [DISightCardVC new];
+    sightCard.sight = object;
+    DICell *cell = (DICell *)[collectionView cellForItemAtIndexPath:indexPath];
+    sightCard.image = cell.imageView.image;
+    [self.listMapController.navigationController pushViewController:sightCard
+                                                           animated:YES];
+}
+
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     
     static CGFloat lastOffset = 0.;
@@ -144,87 +126,15 @@
     _tableViewDeltaOffset = contentOffset - lastOffset;
     
     if (contentOffset > 0)
-        [self navibarPositionManaging];
+        [_listMapController navibarPositionManagingWithOffset:_tableViewDeltaOffset];
     
     _tableViewDeltaOffset = 0.;
     lastOffset = contentOffset;
 }
 
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
-    
-}
-
-
-#pragma mark - KVO
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    
-    if (object == _naviBar) {
-        if ([keyPath isEqualToString:@"frame"]) {
-            CGRect newFrame = [change[NSKeyValueChangeNewKey] CGRectValue];
-            [self navibarNewFrame:newFrame];
-        }
-    }
-}
-
-
-#pragma mark - DICellDelegate methods
-
-- (void)cellDidSelect:(DICell *)cell {
-    
-    DIMapController *mapController = [[DIMapController alloc] init];
-    [self.navigationController pushViewController:mapController animated:YES];
-}
-
-
-#pragma mark - Actions
-
-- (void)barButtonActionTapped:(id)sender {
-    
-    BOOL hidden = [UIApplication sharedApplication].statusBarHidden;
-    [self setStatusBarHiddenWithStaticFrames:!hidden];
-}
 
 
 #pragma mark - Other functions
-
-- (void)navibarPositionManaging {
-    
-    CGFloat navibarOffset = 0.;
-    CGRect frame = _naviBar.frame;
-    
-    //navibar frame changing
-    if (_tableViewDeltaOffset > 0) {
-        if (frame.origin.y <= 20. && _naviBar.frame.origin.y > -NAVIBAR_DELTA) {
-            [self setStatusBarHiddenWithStaticFrames:YES];
-            navibarOffset = (fabs(-NAVIBAR_DELTA - frame.origin.y) >= _tableViewDeltaOffset) ? _tableViewDeltaOffset : fabs(-NAVIBAR_DELTA - frame.origin.y);
-        }
-        else
-            return;
-    }
-    else {
-        if (frame.origin.y < 20.) {
-            [self setStatusBarHiddenWithStaticFrames:NO];
-            navibarOffset = (frame.origin.y - _tableViewDeltaOffset <= 20.) ? _tableViewDeltaOffset : (frame.origin.y - 20.);
-        }
-        else
-            return;
-    }
-    frame.origin.y -= navibarOffset;
-    _naviBar.frame = frame;
-}
-
-- (void)navibarNewFrame:(CGRect)frame {
-    
-    double scrollViewDelta = self.view.frame.origin.y - (_naviBar.frame.origin.y + _naviBar.frame.size.height);
-    if (scrollViewDelta) {
-        CGRect scrollFrame = self.view.frame;
-        scrollFrame.origin.y -= scrollViewDelta;
-        scrollFrame.size.height += scrollViewDelta;
-        self.view.frame = scrollFrame;
-    }
-}
 
 - (UICollectionViewLayout *)collectionViewLayout {
     
@@ -267,16 +177,6 @@
     return UIEdgeInsetsMake(0, 0, yInset, 0);
 }
 
-- (void)setStatusBarHiddenWithStaticFrames:(BOOL)hidden {
-    
-    if ([UIApplication sharedApplication].statusBarHidden == hidden)
-        return;
-    
-    CGRect frame = self.view.frame;
-    [[UIApplication sharedApplication] setStatusBarHidden:hidden withAnimation:UIStatusBarAnimationNone];
-    self.view.frame = frame;
-    _naviBar.frame = NAVIBAR_FRAME;
-}
 
 - (UIImage *)randomSpbImage {
     
