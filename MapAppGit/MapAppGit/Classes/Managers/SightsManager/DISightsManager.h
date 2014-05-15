@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 
 
-@class ListItem;
 @class DISight;
 
 
@@ -23,7 +22,6 @@
 - (id)init __attribute__((unavailable("init is not available, use class methods 'sharedInstance' instead!")));
 - (id)copy __attribute__((unavailable("copy is not available, use class methods 'sharedInstance' instead!")));
 
-- (ListItem *)createAndSaveItemWithName:(NSString *)name description:(NSString *)description imageData:(NSData *)data;
 - (NSArray *)dataArray;
 
 @end

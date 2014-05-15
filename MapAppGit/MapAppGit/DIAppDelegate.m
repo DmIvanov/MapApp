@@ -52,8 +52,7 @@
     self.window.rootViewController = navi;
 #endif
     [self.window makeKeyAndVisible];
-    
-    //[DILocationManager sharedInstance];
+
     
     return YES;
 }

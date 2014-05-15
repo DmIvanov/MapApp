@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A1A04341924BA2500B81664 /* DIBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A04331924BA2500B81664 /* DIBarButton.m */; };
+		0A2C1B3D1923C66F0041CECF /* DIBaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A2C1B3C1923C66F0041CECF /* DIBaseVC.m */; };
+		0A2C1B411923C7CC0041CECF /* list_buttonBar_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A2C1B401923C7CC0041CECF /* list_buttonBar_background.png */; };
+		0A2C1B431923D5140041CECF /* info_buttonbar_bottom_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A2C1B421923D5140041CECF /* info_buttonbar_bottom_background.png */; };
+		0A2C1B471923DEB50041CECF /* list_button_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A2C1B451923DEB50041CECF /* list_button_menu.png */; };
+		0A2C1B481923DEB50041CECF /* list_button_toMap.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A2C1B461923DEB50041CECF /* list_button_toMap.png */; };
 		0A872A00190968C400552932 /* DIHintManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A8729FF190968C400552932 /* DIHintManager.m */; };
 		0A872A0419096D3D00552932 /* DIHint.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A872A0319096D3D00552932 /* DIHint.m */; };
 		C43741E31902C8590095D51E /* rus_spb_10_15.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C43741E21902C8590095D51E /* rus_spb_10_15.sqlite */; };
@@ -15,7 +21,6 @@
 		C43741FE190BAB020095D51E /* DISightCardVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C43741FC190BAB020095D51E /* DISightCardVC.xib */; };
 		C4374202190BAC440095D51E /* DISight.m in Sources */ = {isa = PBXBuildFile; fileRef = C4374201190BAC440095D51E /* DISight.m */; };
 		C43BA113189D8688009AC969 /* dbDescription.plist in Resources */ = {isa = PBXBuildFile; fileRef = C43BA112189D8688009AC969 /* dbDescription.plist */; };
-		C495643E191E145B00612A00 /* rus_spb_10_18.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C495643D191E145B00612A00 /* rus_spb_10_18.sqlite */; };
 		C4956450191E1E3900612A00 /* spb1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C495644B191E1E3900612A00 /* spb1.jpg */; };
 		C4956451191E1E3900612A00 /* spb2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C495644C191E1E3900612A00 /* spb2.jpg */; };
 		C4956452191E1E3900612A00 /* spb3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C495644D191E1E3900612A00 /* spb3.jpg */; };
@@ -102,6 +107,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A1A04321924BA2500B81664 /* DIBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DIBarButton.h; path = Classes/Views/Buttons/BarButton/DIBarButton.h; sourceTree = "<group>"; };
+		0A1A04331924BA2500B81664 /* DIBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DIBarButton.m; path = Classes/Views/Buttons/BarButton/DIBarButton.m; sourceTree = "<group>"; };
+		0A2C1B3B1923C66F0041CECF /* DIBaseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DIBaseVC.h; path = Classes/ViewControllers/BaseVC/DIBaseVC.h; sourceTree = "<group>"; };
+		0A2C1B3C1923C66F0041CECF /* DIBaseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DIBaseVC.m; path = Classes/ViewControllers/BaseVC/DIBaseVC.m; sourceTree = "<group>"; };
+		0A2C1B401923C7CC0041CECF /* list_buttonBar_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = list_buttonBar_background.png; path = Backgrounds/list_buttonBar_background.png; sourceTree = "<group>"; };
+		0A2C1B421923D5140041CECF /* info_buttonbar_bottom_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = info_buttonbar_bottom_background.png; path = Backgrounds/info_buttonbar_bottom_background.png; sourceTree = "<group>"; };
+		0A2C1B451923DEB50041CECF /* list_button_menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list_button_menu.png; sourceTree = "<group>"; };
+		0A2C1B461923DEB50041CECF /* list_button_toMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list_button_toMap.png; sourceTree = "<group>"; };
 		0A8729FE190968C400552932 /* DIHintManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DIHintManager.h; path = Classes/Managers/HintManager/DIHintManager.h; sourceTree = "<group>"; };
 		0A8729FF190968C400552932 /* DIHintManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DIHintManager.m; path = Classes/Managers/HintManager/DIHintManager.m; sourceTree = "<group>"; };
 		0A872A0219096D3D00552932 /* DIHint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DIHint.h; path = Classes/Objects/Hint/DIHint.h; sourceTree = "<group>"; };
@@ -115,7 +128,6 @@
 		C4374200190BAC440095D51E /* DISight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DISight.h; path = Classes/Objects/Sight/DISight.h; sourceTree = "<group>"; };
 		C4374201190BAC440095D51E /* DISight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DISight.m; path = Classes/Objects/Sight/DISight.m; sourceTree = "<group>"; };
 		C43BA112189D8688009AC969 /* dbDescription.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = dbDescription.plist; sourceTree = "<group>"; };
-		C495643D191E145B00612A00 /* rus_spb_10_18.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = rus_spb_10_18.sqlite; path = MapAppGit/Bases/Maps/rus_spb_10_18.sqlite; sourceTree = SOURCE_ROOT; };
 		C495644B191E1E3900612A00 /* spb1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = spb1.jpg; sourceTree = "<group>"; };
 		C495644C191E1E3900612A00 /* spb2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = spb2.jpg; sourceTree = "<group>"; };
 		C495644D191E1E3900612A00 /* spb3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = spb3.jpg; sourceTree = "<group>"; };
@@ -210,6 +222,50 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A1A042C1924B98500B81664 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				0A1A04311924B98C00B81664 /* BarButton */,
+			);
+			name = Buttons;
+			sourceTree = "<group>";
+		};
+		0A1A04311924B98C00B81664 /* BarButton */ = {
+			isa = PBXGroup;
+			children = (
+				0A1A04321924BA2500B81664 /* DIBarButton.h */,
+				0A1A04331924BA2500B81664 /* DIBarButton.m */,
+			);
+			name = BarButton;
+			sourceTree = "<group>";
+		};
+		0A2C1B3A1923C6340041CECF /* BaseVC */ = {
+			isa = PBXGroup;
+			children = (
+				0A2C1B3B1923C66F0041CECF /* DIBaseVC.h */,
+				0A2C1B3C1923C66F0041CECF /* DIBaseVC.m */,
+			);
+			name = BaseVC;
+			sourceTree = "<group>";
+		};
+		0A2C1B3F1923C7170041CECF /* Backgrounds */ = {
+			isa = PBXGroup;
+			children = (
+				0A2C1B421923D5140041CECF /* info_buttonbar_bottom_background.png */,
+				0A2C1B401923C7CC0041CECF /* list_buttonBar_background.png */,
+			);
+			name = Backgrounds;
+			sourceTree = "<group>";
+		};
+		0A2C1B441923DEB50041CECF /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				0A2C1B451923DEB50041CECF /* list_button_menu.png */,
+				0A2C1B461923DEB50041CECF /* list_button_toMap.png */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
 		0A8729F91909688500552932 /* HintManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -308,7 +364,6 @@
 		C49972481896E31300A8DA98 /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				C495643D191E145B00612A00 /* rus_spb_10_18.sqlite */,
 				C43741E21902C8590095D51E /* rus_spb_10_15.sqlite */,
 			);
 			path = Map;
@@ -317,6 +372,8 @@
 		C499724E1896E91200A8DA98 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				0A2C1B441923DEB50041CECF /* Buttons */,
+				0A2C1B3F1923C7170041CECF /* Backgrounds */,
 				C495644A191E1E3900612A00 /* RandomSpb */,
 				C49972531896ED0500A8DA98 /* Markers */,
 			);
@@ -464,6 +521,7 @@
 		C4BD883C187060AD00128CD1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				0A2C1B3A1923C6340041CECF /* BaseVC */,
 				C4956458191E253100612A00 /* ListMapVC */,
 				C43741F9190BAAC20095D51E /* SightCard */,
 				C4CAB3F6188C4E1D003CB9CC /* ListVC */,
@@ -540,6 +598,7 @@
 		C4FAD16818F18A02007871B9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0A1A042C1924B98500B81664 /* Buttons */,
 				C4956467191EB6A100612A00 /* DoubleSwipeView */,
 			);
 			name = Views;
@@ -671,17 +730,20 @@
 				C4956451191E1E3900612A00 /* spb2.jpg in Resources */,
 				C499724A1896E31300A8DA98 /* MapAppGit.sqlite in Resources */,
 				C4BD88421870612900128CD1 /* DIMapController.xib in Resources */,
+				0A2C1B471923DEB50041CECF /* list_button_menu.png in Resources */,
 				C4956452191E1E3900612A00 /* spb3.jpg in Resources */,
 				C49972591896ED0500A8DA98 /* marker-blue.png in Resources */,
 				C4FAD18418FEF69E007871B9 /* arrow.jpeg in Resources */,
 				C4956454191E1E3900612A00 /* spb5.jpg in Resources */,
 				C499725A1896ED0500A8DA98 /* marker-red-withletter.png in Resources */,
 				C4BD881418705EE400128CD1 /* InfoPlist.strings in Resources */,
-				C495643E191E145B00612A00 /* rus_spb_10_18.sqlite in Resources */,
 				C43741E31902C8590095D51E /* rus_spb_10_15.sqlite in Resources */,
+				0A2C1B481923DEB50041CECF /* list_button_toMap.png in Resources */,
 				C49972581896ED0500A8DA98 /* marker-blue-withletter.png in Resources */,
+				0A2C1B411923C7CC0041CECF /* list_buttonBar_background.png in Resources */,
 				C4956450191E1E3900612A00 /* spb1.jpg in Resources */,
 				C4956453191E1E3900612A00 /* spb4.jpg in Resources */,
+				0A2C1B431923D5140041CECF /* info_buttonbar_bottom_background.png in Resources */,
 				C4A7144B191CFEED0056EB30 /* DICell.xib in Resources */,
 				C43741FE190BAB020095D51E /* DISightCardVC.xib in Resources */,
 				C4BD881F18705EE400128CD1 /* Images.xcassets in Resources */,
@@ -710,12 +772,14 @@
 				C4FAD17E18FD924F007871B9 /* DISightsManager.m in Sources */,
 				C495646A191EB6DF00612A00 /* DIDoubleSwipeView.m in Sources */,
 				C4BD881618705EE400128CD1 /* main.m in Sources */,
+				0A2C1B3D1923C66F0041CECF /* DIBaseVC.m in Sources */,
 				C43741FD190BAB020095D51E /* DISightCardVC.m in Sources */,
 				C4BD881A18705EE400128CD1 /* DIAppDelegate.m in Sources */,
 				C43741F01906E81C0095D51E /* DILocationManager.m in Sources */,
 				C4374202190BAC440095D51E /* DISight.m in Sources */,
 				C4A7144C191CFEED0056EB30 /* ListVC.m in Sources */,
 				C4956461191E260C00612A00 /* DIListMapVC.m in Sources */,
+				0A1A04341924BA2500B81664 /* DIBarButton.m in Sources */,
 				C4BD88411870612900128CD1 /* DIMapController.m in Sources */,
 				0A872A00190968C400552932 /* DIHintManager.m in Sources */,
 				C4A7144A191CFEED0056EB30 /* DICell.m in Sources */,

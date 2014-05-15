@@ -48,4 +48,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (UIImage *)imageForNavibar {
+    
+    return [[UIImage imageNamed:@"info_buttonbar_bottom_background"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 20, 0)];
+}
+
 @end

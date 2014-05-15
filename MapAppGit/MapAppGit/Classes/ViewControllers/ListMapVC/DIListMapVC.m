@@ -12,6 +12,7 @@
 #import "DIDoubleSwipeView.h"
 #import "ListVC.h"
 #import "DIMapController.h"
+#import "DIBarButton.h"
 
 #define VIEW_FRAME                  self.view.frame
 #define NAVIBAR_DELTA               44.
@@ -57,10 +58,6 @@
     self.view = view;
     
     self.navigationItem.title = @"Awesome Title!!";
-    UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction
-                                                                                    target:self
-                                                                                    action:@selector(barButtonActionTapped:)];
-    [self.navigationItem setRightBarButtonItem:rightBarButton];
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
@@ -86,7 +83,13 @@
 
 #pragma mark - Actions
 
-- (void)barButtonActionTapped:(id)sender {
+- (void)barButtonRightTapped:(id)sender {
+    
+    BOOL hidden = [UIApplication sharedApplication].statusBarHidden;
+    [self setStatusBarHiddenWithStaticFrames:!hidden];
+}
+
+- (void)barButtonLeftTapped:(id)sender {
     
     BOOL hidden = [UIApplication sharedApplication].statusBarHidden;
     [self setStatusBarHiddenWithStaticFrames:!hidden];
@@ -106,6 +109,8 @@
 }
 
 
+#pragma mark - Navibar/Statusbar cutomization
+
 - (void)setStatusBarHiddenWithStaticFrames:(BOOL)hidden {
     
     if ([UIApplication sharedApplication].statusBarHidden == hidden)
@@ -116,8 +121,6 @@
     self.view.frame = frame;
     _naviBar.frame = NAVIBAR_FRAME;
 }
-
-
 
 - (void)navibarPositionManagingWithOffset:(CGFloat)offset {
     
@@ -154,6 +157,26 @@
         scrollFrame.size.height += scrollViewDelta;
         self.view.frame = scrollFrame;
     }
+}
+
+- (DIBarButton *)customizeBarButton:(DIBarButton *)button {
+    
+    if (button.sideMode == SideModeLeft) {
+        [button setImage:[UIImage imageNamed:@"list_button_toMap"] forState:UIControlStateNormal];
+    }
+    else if (button.sideMode == SideModeRight) {
+        [button setImage:[UIImage imageNamed:@"list_button_menu"] forState:UIControlStateNormal];
+    }
+    
+    return nil;
+}
+
+- (void)barButtonLeftPressed {
+    
+}
+
+- (void)barButtonRightPressed {
+    
 }
 
 @end

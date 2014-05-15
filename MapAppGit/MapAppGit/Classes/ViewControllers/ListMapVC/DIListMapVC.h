@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Dmitry Ivanov. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "DIBaseVC.h"
 
-@interface DIListMapVC : UIViewController
+@interface DIListMapVC : DIBaseVC
 
 - (void)navibarPositionManagingWithOffset:(CGFloat)offset;
 
