@@ -9,6 +9,7 @@
 #import "DISightCardVC.h"
 
 #import "DISight.h"
+#import "DIBarButton.h"
 
 @interface DISightCardVC ()
 
@@ -51,6 +52,29 @@
 - (UIImage *)imageForNavibar {
     
     return [[UIImage imageNamed:@"info_buttonbar_bottom_background"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 20, 0)];
+}
+
+- (DIBarButton *)customizeBarButton:(DIBarButton *)button {
+    
+    if (button.sideMode == SideModeLeft) {
+        [button setImage:[UIImage imageNamed:@"info_tittlebar_button_back"] forState:UIControlStateNormal];
+        return button;
+    }
+    else if (button.sideMode == SideModeRight) {
+        [button setImage:[UIImage imageNamed:@"info_tittlebar_button_add_unpressed"] forState:UIControlStateNormal];
+        return button;
+    }
+    
+    return nil;
+}
+
+- (void)barButtonLeftPressed {
+    
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)barButtonRightPressed {
+    
 }
 
 @end

@@ -17,4 +17,6 @@
 - (void)barButtonLeftPressed;
 - (void)barButtonRightPressed;
 
+- (void)setStatusBarHiddenWithStaticFrames:(BOOL)hidden;
+
 @end

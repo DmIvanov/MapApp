@@ -16,7 +16,7 @@
 
 #define VIEW_FRAME                  self.view.frame
 #define NAVIBAR_DELTA               44.
-#define NAVIBAR_FRAME               CGRectMake(0, 20, SCREEN_SIZE.width, NAVIBAR_DELTA);
+
 
 @interface DIListMapVC ()
 {
@@ -163,9 +163,11 @@
     
     if (button.sideMode == SideModeLeft) {
         [button setImage:[UIImage imageNamed:@"list_button_toMap"] forState:UIControlStateNormal];
+        return button;
     }
     else if (button.sideMode == SideModeRight) {
         [button setImage:[UIImage imageNamed:@"list_button_menu"] forState:UIControlStateNormal];
+        return button;
     }
     
     return nil;

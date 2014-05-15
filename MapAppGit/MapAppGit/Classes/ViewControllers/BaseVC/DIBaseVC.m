@@ -30,7 +30,7 @@
 {
     [super viewDidLoad];
     
-    
+    [self customizeNavibar];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -39,11 +39,12 @@
     
     [self.navigationController.navigationBar setBackgroundImage:[self imageForNavibar]
                                                   forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.frame = NAVIBAR_FRAME;
 }
 
 - (UIImage *)imageForNavibar {
     
-    return [[UIImage imageNamed:@"list_buttonBar_background"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 20, 0)];
+    return [[UIImage imageNamed:@"list_buttonBar_background"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 10, 0)];
 }
 
 - (void)customizeNavibar {
@@ -53,16 +54,22 @@
     [buttonLeft addTarget:self
                     action:@selector(barButtonLeftPressed)
           forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *barButtonLeft = [[UIBarButtonItem alloc] initWithCustomView:[self customizeBarButton:buttonLeft]];
-    [self.navigationItem setLeftBarButtonItem:barButtonLeft];
+    buttonLeft = [self customizeBarButton:buttonLeft];
+    if (buttonLeft) {
+        UIBarButtonItem *barButtonLeft = [[UIBarButtonItem alloc] initWithCustomView:buttonLeft];
+        [self.navigationItem setLeftBarButtonItem:barButtonLeft];
+    }
     
     DIBarButton *buttonRight = [[DIBarButton alloc] initWithFrame:CGRectMake(SCREEN_SIZE.width - 44, 0, 44, 44)];
     buttonRight.sideMode = SideModeRight;
     [buttonRight addTarget:self
                     action:@selector(barButtonRightPressed)
           forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *barButtonRight = [[UIBarButtonItem alloc] initWithCustomView:[self customizeBarButton:buttonRight]];
-    [self.navigationItem setRightBarButtonItem:barButtonRight];
+    buttonRight = [self customizeBarButton:buttonRight];
+    if (buttonRight) {
+        UIBarButtonItem *barButtonRight = [[UIBarButtonItem alloc] initWithCustomView:buttonRight];
+        [self.navigationItem setRightBarButtonItem:barButtonRight];
+    }
 }
 
 //redefine in children

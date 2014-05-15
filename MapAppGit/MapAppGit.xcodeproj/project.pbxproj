@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		0A1A04341924BA2500B81664 /* DIBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A04331924BA2500B81664 /* DIBarButton.m */; };
 		0A2C1B3D1923C66F0041CECF /* DIBaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A2C1B3C1923C66F0041CECF /* DIBaseVC.m */; };
-		0A2C1B411923C7CC0041CECF /* list_buttonBar_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A2C1B401923C7CC0041CECF /* list_buttonBar_background.png */; };
-		0A2C1B431923D5140041CECF /* info_buttonbar_bottom_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A2C1B421923D5140041CECF /* info_buttonbar_bottom_background.png */; };
 		0A2C1B471923DEB50041CECF /* list_button_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A2C1B451923DEB50041CECF /* list_button_menu.png */; };
 		0A2C1B481923DEB50041CECF /* list_button_toMap.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A2C1B461923DEB50041CECF /* list_button_toMap.png */; };
 		0A872A00190968C400552932 /* DIHintManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A8729FF190968C400552932 /* DIHintManager.m */; };
@@ -28,6 +26,11 @@
 		C4956454191E1E3900612A00 /* spb5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C495644F191E1E3900612A00 /* spb5.jpg */; };
 		C4956461191E260C00612A00 /* DIListMapVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C495645F191E260C00612A00 /* DIListMapVC.m */; };
 		C495646A191EB6DF00612A00 /* DIDoubleSwipeView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4956469191EB6DF00612A00 /* DIDoubleSwipeView.m */; };
+		C495647719255BA300612A00 /* info_tittlebar_button_add_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = C495647419255BA300612A00 /* info_tittlebar_button_add_pressed.png */; };
+		C495647819255BA300612A00 /* info_tittlebar_button_add_unpressed.png in Resources */ = {isa = PBXBuildFile; fileRef = C495647519255BA300612A00 /* info_tittlebar_button_add_unpressed.png */; };
+		C495647919255BA300612A00 /* info_tittlebar_button_back.png in Resources */ = {isa = PBXBuildFile; fileRef = C495647619255BA300612A00 /* info_tittlebar_button_back.png */; };
+		C49564881925608400612A00 /* info_buttonbar_bottom_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C49564861925608400612A00 /* info_buttonbar_bottom_background@2x.png */; };
+		C49564891925608400612A00 /* list_buttonBar_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C49564871925608400612A00 /* list_buttonBar_background@2x.png */; };
 		C499724A1896E31300A8DA98 /* MapAppGit.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C49972451896E31300A8DA98 /* MapAppGit.sqlite */; };
 		C499724B1896E31300A8DA98 /* MapAppGit.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = C49972461896E31300A8DA98 /* MapAppGit.sqlite-shm */; };
 		C499724C1896E31300A8DA98 /* MapAppGit.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = C49972471896E31300A8DA98 /* MapAppGit.sqlite-wal */; };
@@ -111,8 +114,6 @@
 		0A1A04331924BA2500B81664 /* DIBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DIBarButton.m; path = Classes/Views/Buttons/BarButton/DIBarButton.m; sourceTree = "<group>"; };
 		0A2C1B3B1923C66F0041CECF /* DIBaseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DIBaseVC.h; path = Classes/ViewControllers/BaseVC/DIBaseVC.h; sourceTree = "<group>"; };
 		0A2C1B3C1923C66F0041CECF /* DIBaseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DIBaseVC.m; path = Classes/ViewControllers/BaseVC/DIBaseVC.m; sourceTree = "<group>"; };
-		0A2C1B401923C7CC0041CECF /* list_buttonBar_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = list_buttonBar_background.png; path = Backgrounds/list_buttonBar_background.png; sourceTree = "<group>"; };
-		0A2C1B421923D5140041CECF /* info_buttonbar_bottom_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = info_buttonbar_bottom_background.png; path = Backgrounds/info_buttonbar_bottom_background.png; sourceTree = "<group>"; };
 		0A2C1B451923DEB50041CECF /* list_button_menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list_button_menu.png; sourceTree = "<group>"; };
 		0A2C1B461923DEB50041CECF /* list_button_toMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list_button_toMap.png; sourceTree = "<group>"; };
 		0A8729FE190968C400552932 /* DIHintManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DIHintManager.h; path = Classes/Managers/HintManager/DIHintManager.h; sourceTree = "<group>"; };
@@ -137,6 +138,11 @@
 		C495645F191E260C00612A00 /* DIListMapVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DIListMapVC.m; path = Classes/ViewControllers/ListMapVC/DIListMapVC.m; sourceTree = "<group>"; };
 		C4956468191EB6DF00612A00 /* DIDoubleSwipeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DIDoubleSwipeView.h; path = Classes/Views/DIDoubleSwipeView.h; sourceTree = "<group>"; };
 		C4956469191EB6DF00612A00 /* DIDoubleSwipeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DIDoubleSwipeView.m; path = Classes/Views/DIDoubleSwipeView.m; sourceTree = "<group>"; };
+		C495647419255BA300612A00 /* info_tittlebar_button_add_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_tittlebar_button_add_pressed.png; sourceTree = "<group>"; };
+		C495647519255BA300612A00 /* info_tittlebar_button_add_unpressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_tittlebar_button_add_unpressed.png; sourceTree = "<group>"; };
+		C495647619255BA300612A00 /* info_tittlebar_button_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_tittlebar_button_back.png; sourceTree = "<group>"; };
+		C49564861925608400612A00 /* info_buttonbar_bottom_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "info_buttonbar_bottom_background@2x.png"; path = "Backgrounds/info_buttonbar_bottom_background@2x.png"; sourceTree = "<group>"; };
+		C49564871925608400612A00 /* list_buttonBar_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "list_buttonBar_background@2x.png"; path = "Backgrounds/list_buttonBar_background@2x.png"; sourceTree = "<group>"; };
 		C49972421896DFD400A8DA98 /* SomeStuff.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SomeStuff.h; sourceTree = "<group>"; };
 		C49972451896E31300A8DA98 /* MapAppGit.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = MapAppGit.sqlite; sourceTree = "<group>"; };
 		C49972461896E31300A8DA98 /* MapAppGit.sqlite-shm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MapAppGit.sqlite-shm"; sourceTree = "<group>"; };
@@ -251,8 +257,8 @@
 		0A2C1B3F1923C7170041CECF /* Backgrounds */ = {
 			isa = PBXGroup;
 			children = (
-				0A2C1B421923D5140041CECF /* info_buttonbar_bottom_background.png */,
-				0A2C1B401923C7CC0041CECF /* list_buttonBar_background.png */,
+				C49564861925608400612A00 /* info_buttonbar_bottom_background@2x.png */,
+				C49564871925608400612A00 /* list_buttonBar_background@2x.png */,
 			);
 			name = Backgrounds;
 			sourceTree = "<group>";
@@ -260,6 +266,9 @@
 		0A2C1B441923DEB50041CECF /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
+				C495647419255BA300612A00 /* info_tittlebar_button_add_pressed.png */,
+				C495647519255BA300612A00 /* info_tittlebar_button_add_unpressed.png */,
+				C495647619255BA300612A00 /* info_tittlebar_button_back.png */,
 				0A2C1B451923DEB50041CECF /* list_button_menu.png */,
 				0A2C1B461923DEB50041CECF /* list_button_toMap.png */,
 			);
@@ -726,6 +735,7 @@
 				C43BA113189D8688009AC969 /* dbDescription.plist in Resources */,
 				C499725B1896ED0500A8DA98 /* marker-red.png in Resources */,
 				C499724C1896E31300A8DA98 /* MapAppGit.sqlite-wal in Resources */,
+				C495647819255BA300612A00 /* info_tittlebar_button_add_unpressed.png in Resources */,
 				C499724B1896E31300A8DA98 /* MapAppGit.sqlite-shm in Resources */,
 				C4956451191E1E3900612A00 /* spb2.jpg in Resources */,
 				C499724A1896E31300A8DA98 /* MapAppGit.sqlite in Resources */,
@@ -735,15 +745,17 @@
 				C49972591896ED0500A8DA98 /* marker-blue.png in Resources */,
 				C4FAD18418FEF69E007871B9 /* arrow.jpeg in Resources */,
 				C4956454191E1E3900612A00 /* spb5.jpg in Resources */,
+				C49564881925608400612A00 /* info_buttonbar_bottom_background@2x.png in Resources */,
 				C499725A1896ED0500A8DA98 /* marker-red-withletter.png in Resources */,
 				C4BD881418705EE400128CD1 /* InfoPlist.strings in Resources */,
 				C43741E31902C8590095D51E /* rus_spb_10_15.sqlite in Resources */,
+				C49564891925608400612A00 /* list_buttonBar_background@2x.png in Resources */,
 				0A2C1B481923DEB50041CECF /* list_button_toMap.png in Resources */,
 				C49972581896ED0500A8DA98 /* marker-blue-withletter.png in Resources */,
-				0A2C1B411923C7CC0041CECF /* list_buttonBar_background.png in Resources */,
 				C4956450191E1E3900612A00 /* spb1.jpg in Resources */,
+				C495647919255BA300612A00 /* info_tittlebar_button_back.png in Resources */,
 				C4956453191E1E3900612A00 /* spb4.jpg in Resources */,
-				0A2C1B431923D5140041CECF /* info_buttonbar_bottom_background.png in Resources */,
+				C495647719255BA300612A00 /* info_tittlebar_button_add_pressed.png in Resources */,
 				C4A7144B191CFEED0056EB30 /* DICell.xib in Resources */,
 				C43741FE190BAB020095D51E /* DISightCardVC.xib in Resources */,
 				C4BD881F18705EE400128CD1 /* Images.xcassets in Resources */,
