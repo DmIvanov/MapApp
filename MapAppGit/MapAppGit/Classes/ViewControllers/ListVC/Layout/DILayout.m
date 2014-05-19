@@ -44,6 +44,9 @@
 
     CGRect visibleRect = CGRectMake(self.collectionView.contentOffset.x, self.collectionView.contentOffset.y, CGRectGetWidth(self.collectionView.bounds), CGRectGetHeight(self.collectionView.bounds));
 
+    UICollectionViewLayoutAttributes *attr = layoutAttributesArray.lastObject;
+    NSLog(@"vis = %@, last = %@", NSStringFromCGRect(visibleRect), NSStringFromCGRect(attr.frame));
+    
     CGFloat offset = self.collectionView.contentOffset.y;
     if (offset < 0) {
         _bottomStart = BOTTOM_START;
@@ -59,12 +62,21 @@
     
     [self modifyGrowingItemsFrame];
     
+    NSUInteger lastObjectIndex = [self.collectionView.dataSource collectionView:self.collectionView numberOfItemsInSection:0] - 1;
+    NSUInteger helpCellIndex = lastObjectIndex + 1;
     for (UICollectionViewLayoutAttributes* attributes in layoutAttributesArray)
     {
-        if (CGRectIntersectsRect(attributes.frame, rect))
-        {
-            [self applyLayoutAttributes:attributes forVisibleRect:visibleRect];
+        if (attributes.indexPath.item == helpCellIndex) {
+            
         }
+        else {
+            BOOL lastObj = attributes.indexPath.item == lastObjectIndex;
+            if (CGRectIntersectsRect(attributes.frame, rect) || lastObj)
+            {
+                [self applyLayoutAttributes:attributes forVisibleRect:visibleRect];
+            }
+        }
+        
     }
     [self whoIsGrowingWithAttributesAfter:layoutAttributesArray];
     
@@ -85,7 +97,7 @@
 - (void)whoIsGrowingWithAttributesAfter:(NSArray *)attributesArray {
     
     UICollectionViewLayoutAttributes *attributes;
-    
+
     for (NSInteger idx = attributesArray.count-1; idx >= 0; idx--) {
         UICollectionViewLayoutAttributes *nextAttr;
         if (idx != attributesArray.count-1 )
@@ -95,6 +107,7 @@
         if (attributes)
             break;
     }
+
     if (attributes)
         _growingItemAttributes = attributes;
     else

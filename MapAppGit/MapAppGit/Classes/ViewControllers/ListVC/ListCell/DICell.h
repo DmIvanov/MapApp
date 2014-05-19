@@ -8,9 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@class DISight;
+
 @interface DICell : UICollectionViewCell
 
-@property (nonatomic, strong) IBOutlet UILabel *label;
-@property (nonatomic, strong) IBOutlet UIImageView *imageView;
+@property (nonatomic, strong) DISight *sight;
+@property (nonatomic, strong) UIImage *image;
+@property (nonatomic) NSUInteger index;
+
+- (void)refreshContent;
 
 @end

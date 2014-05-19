@@ -64,45 +64,25 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     
-    return _dataArray.count;
+    return _dataArray.count+1;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     NSUInteger index = indexPath.item;
-    DICell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CELL_ID forIndexPath:indexPath];
-    UIColor *color;
-    int i = index%7;
-    switch (i) {
-        case 0:
-            color = COLOR1;
-            break;
-        case 1:
-            color = COLOR2;
-            break;
-        case 2:
-            color = COLOR3;
-            break;
-        case 3:
-            color = COLOR4;
-            break;
-        case 4:
-            color = COLOR5;
-            break;
-        case 5:
-            color = COLOR6;
-            break;
-        case 6:
-            color = COLOR0;
-            break;
-        default:
-            color = [UIColor lightGrayColor];
-            break;
+    
+    if (index >= _dataArray.count) {
+        DICell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CELL_ID_2 forIndexPath:indexPath];
+        return cell;
     }
-    cell.backgroundColor = color;
+    
+    DICell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CELL_ID forIndexPath:indexPath];
+
     DISight *object = _dataArray[index];
-    cell.label.text = [NSString stringWithFormat:@"%ld - %@", (unsigned long)index, object.name];
-    cell.imageView.image = [self randomSpbImage];
+    cell.sight = object;
+    cell.index = index;
+    cell.image = [self randomSpbImage];
+    [cell refreshContent];
     
     return cell;
 }
@@ -113,11 +93,12 @@
     DISight *object = _dataArray[index];
     DISightCardVC *sightCard = [DISightCardVC new];
     sightCard.sight = object;
-    DICell *cell = (DICell *)[collectionView cellForItemAtIndexPath:indexPath];
-    sightCard.image = cell.imageView.image;
+    //DICell *cell = (DICell *)[collectionView cellForItemAtIndexPath:indexPath];
+    sightCard.image = [self randomSpbImage];
     [self.listMapController.navigationController pushViewController:sightCard
                                                            animated:YES];
 }
+
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     
@@ -130,6 +111,9 @@
     
     _tableViewDeltaOffset = 0.;
     lastOffset = contentOffset;
+    
+    NSLog(@"----");
+    //[_tableView.collectionViewLayout invalidateLayout];
 }
 
 
@@ -143,7 +127,7 @@
     [layout setScrollDirection:UICollectionViewScrollDirectionVertical];
     [layout setMinimumInteritemSpacing:0.];
     [layout setMinimumLineSpacing:0.];
-    [layout setItemSize:CGSizeMake(320, 40)];
+    [layout setItemSize:CGSizeMake(SCREEN_SIZE.width, CELL_HEIGHT)];
     
     return layout;
 }
@@ -155,12 +139,14 @@
     _tableView.delegate     = self;
     _tableView.dataSource   = self;
     _tableView.contentInset = [self tableViewInset];
-    _tableView.backgroundColor = [UIColor clearColor];
+    _tableView.backgroundColor = [UIColor whiteColor];
     _tableView.bounces = NO;
     
     [_tableView registerClass:[DICell class] forCellWithReuseIdentifier:CELL_ID];
     UINib *nib = [UINib nibWithNibName:@"DICell" bundle:nil];
     [_tableView registerNib:nib forCellWithReuseIdentifier:CELL_ID];
+    nib = [UINib nibWithNibName:@"DICell2" bundle:nil];
+    [_tableView registerNib:nib forCellWithReuseIdentifier:CELL_ID_2];
     
     [self.view addSubview:_tableView];
 }

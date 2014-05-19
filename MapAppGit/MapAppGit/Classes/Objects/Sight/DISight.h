@@ -8,6 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
+
+typedef NS_ENUM(NSUInteger, SightType) {
+    SightTypeChosen,        //выбранные
+    SightTypeInteresting,   //интересные
+    SightTypeDone,          //посещённые
+    SightTypeOther,         //прочие
+    SightTypeLocal          //локальные
+};
+
+
 @interface DISight : NSObject
 
 @property (nonatomic) NSNumber *latitudeNumber;
@@ -28,5 +38,7 @@
 @property (nonatomic, strong) NSString *mustSee;
 
 @property (nonatomic, strong) NSData *avatarData;
+
+@property (nonatomic) SightType sightType;
 
 @end
