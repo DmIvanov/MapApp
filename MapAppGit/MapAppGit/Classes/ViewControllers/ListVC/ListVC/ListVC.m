@@ -77,7 +77,7 @@
     }
     
     DICell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CELL_ID forIndexPath:indexPath];
-
+    cell.listVC = self;
     DISight *object = _dataArray[index];
     cell.sight = object;
     cell.index = index;
@@ -116,6 +116,16 @@
     //[_tableView.collectionViewLayout invalidateLayout];
 }
 
+
+#pragma mark - DICell actions
+
+- (void)cellButtonAddPressed:(DICell *)cell {
+    
+    NSUInteger index = [_tableView indexPathForCell:cell].item;
+    DISight *sight = _dataArray[index];
+    sight.sightType = SightTypeChosen;
+    [cell refreshContent];
+}
 
 
 #pragma mark - Other functions

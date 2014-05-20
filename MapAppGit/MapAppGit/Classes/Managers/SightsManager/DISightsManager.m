@@ -90,7 +90,7 @@
     }
     
     //NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"MapAppGit.sqlite"];
-    NSURL *storeURL = [[NSBundle mainBundle] URLForResource:@"MapAppGit" withExtension:@"sqlite"];
+    NSURL *storeURL = [[NSBundle mainBundle] URLForResource:@"SightsBase" withExtension:@"sqlite"];
     
     NSError *error = nil;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];

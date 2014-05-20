@@ -10,10 +10,10 @@
 
 
 typedef NS_ENUM(NSUInteger, SightType) {
+    SightTypeOther,         //прочие
     SightTypeChosen,        //выбранные
     SightTypeInteresting,   //интересные
     SightTypeDone,          //посещённые
-    SightTypeOther,         //прочие
     SightTypeLocal          //локальные
 };
 
@@ -28,17 +28,20 @@ typedef NS_ENUM(NSUInteger, SightType) {
 @property (nonatomic, strong) NSString *scheduleString;
 @property (nonatomic, strong) NSArray *scheduleArray;
 @property (nonatomic, strong) NSArray *scheduleArrayString;
-@property (nonatomic, strong) NSString *priceString;
 @property (nonatomic) NSNumber *priceNumber;
+@property (nonatomic, strong) NSString *priceAdditional;
+@property (nonatomic, strong) NSString *priceCategories;
 @property (nonatomic, strong) NSString *about;
 @property (nonatomic, strong) NSString *now;
-@property (nonatomic, strong) NSString *contacts;
 @property (nonatomic, strong) NSString *direction;
 @property (nonatomic, strong) NSString *interesting;
 @property (nonatomic, strong) NSString *mustSee;
-
-@property (nonatomic, strong) NSData *avatarData;
+@property (nonatomic, strong) NSString *address;
+@property (nonatomic, strong) NSString *metro;
+@property (nonatomic, strong) NSString *phones;
 
 @property (nonatomic) SightType sightType;
+
+@property (nonatomic, strong) NSData *avatarData;
 
 @end

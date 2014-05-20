@@ -14,6 +14,7 @@
 @interface DISightCardVC ()
 
 @property (nonatomic, strong) IBOutlet UITextView *textView;
+@property (nonatomic, strong) IBOutlet UIWebView *webView;
 @property (nonatomic, strong) IBOutlet UIImageView *imageView;
 @property (nonatomic, strong) IBOutlet UIScrollView *scroll;
 
@@ -40,7 +41,18 @@
     }
     _scroll.contentSize = CGSizeMake(320, 1000);
     _imageView.image = _image;
+    
+    NSString *htmlFile = [[NSBundle mainBundle] pathForResource:@"html" ofType:@"txt"];
+    NSString *string = [NSString stringWithContentsOfFile:htmlFile encoding:NSUTF8StringEncoding error:nil];
+    [_webView loadHTMLString:string baseURL:[[NSBundle mainBundle] bundleURL]];
+    _webView.delegate = self;
+    
     //self.edgesForExtendedLayout = UIRectEdgeNone;
+}
+
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+    
+    return YES;
 }
 
 - (void)didReceiveMemoryWarning

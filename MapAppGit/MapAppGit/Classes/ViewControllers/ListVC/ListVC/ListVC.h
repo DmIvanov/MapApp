@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "DICell.h"
+@class DICell;
 
 @class DIListMapVC;
 
@@ -17,5 +17,8 @@
     UICollectionViewDataSource>
 
 @property (nonatomic, strong) DIListMapVC *listMapController;
+
+//for DICell
+- (void)cellButtonAddPressed:(DICell *)cell;
 
 @end

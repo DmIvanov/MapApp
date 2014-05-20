@@ -9,6 +9,7 @@
 #import "DICell.h"
 
 #import "DISight.h"
+#import "ListVC.h"
 
 @interface DICell ()
 
@@ -47,16 +48,16 @@
     NSString *imageName;
     switch (_sight.sightType) {
         case SightTypeChosen:
-            imageName = @"list_button_add_pressed";
+            imageName = @"";
             break;
         case SightTypeInteresting:
-            imageName = @"";
+            imageName = @"list_button_add_pressed";
             break;
         case SightTypeDone:
             imageName = @"";
             break;
         case SightTypeOther:
-            imageName = @"";
+            imageName = @"list_button_add_released";
             break;
         case SightTypeLocal:
             imageName = @"";
@@ -66,7 +67,15 @@
             break;
     }
     UIImage *buttonAddImage = [UIImage imageNamed:imageName];
-    _buttonAdd.backgroundColor = [UIColor colorWithPatternImage:buttonAddImage];
+    [_buttonAdd setImage:buttonAddImage forState:UIControlStateNormal];
+}
+
+
+#pragma mark - Actions
+
+- (IBAction)buttonAddPressed:(id)sender {
+    
+    //[_listVC cellButtonAddPressed:self];
 }
 
 

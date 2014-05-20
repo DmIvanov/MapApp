@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class ListVC;
+
 @class DISight;
 
 @interface DICell : UICollectionViewCell
+
+@property (nonatomic, weak) ListVC *listVC;
 
 @property (nonatomic, strong) DISight *sight;
 @property (nonatomic, strong) UIImage *image;
