@@ -10,7 +10,7 @@
 
 @class DISight;
 
-@interface DISightCardVC : DIBaseVC <UITextViewDelegate, UIWebViewDelegate>
+@interface DISightCardVC : DIBaseVC <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) DISight *sight;
 @property (nonatomic, strong) UIImage *image;

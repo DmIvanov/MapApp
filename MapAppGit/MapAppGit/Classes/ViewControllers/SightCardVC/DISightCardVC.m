@@ -8,15 +8,21 @@
 
 #import "DISightCardVC.h"
 
+#import "DIDefaults.h"
+
 #import "DISight.h"
 #import "DIBarButton.h"
 
-@interface DISightCardVC ()
+#define CELL_ID     @"cellID"
 
-@property (nonatomic, strong) IBOutlet UITextView *textView;
-@property (nonatomic, strong) IBOutlet UIWebView *webView;
-@property (nonatomic, strong) IBOutlet UIImageView *imageView;
-@property (nonatomic, strong) IBOutlet UIScrollView *scroll;
+
+@interface DISightCardVC ()
+{
+    NSArray *_datasource;
+}
+
+@property (nonatomic, strong) IBOutlet UIView *mainInfoView;
+@property (nonatomic, strong) IBOutlet UITableView *tableView;
 
 @end
 
@@ -26,7 +32,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        _textView.delegate = self;
+        
     }
     return self;
 }
@@ -35,19 +41,13 @@
 {
     [super viewDidLoad];
     
-    if (_sight) {
-        _textView.text = [NSString stringWithFormat:@"HISTORY\n%@", _sight.history];
-        self.navigationItem.title = _sight.name;
-    }
-    _scroll.contentSize = CGSizeMake(320, 1000);
-    _imageView.image = _image;
-    
-    NSString *htmlFile = [[NSBundle mainBundle] pathForResource:@"html" ofType:@"txt"];
-    NSString *string = [NSString stringWithContentsOfFile:htmlFile encoding:NSUTF8StringEncoding error:nil];
-    [_webView loadHTMLString:string baseURL:[[NSBundle mainBundle] bundleURL]];
-    _webView.delegate = self;
+//    NSString *htmlFile = [[NSBundle mainBundle] pathForResource:@"html" ofType:@"txt"];
+//    NSString *string = [NSString stringWithContentsOfFile:htmlFile encoding:NSUTF8StringEncoding error:nil];
+//    [_webView loadHTMLString:string baseURL:[[NSBundle mainBundle] bundleURL]];
+//    _webView.delegate = self;
     
     //self.edgesForExtendedLayout = UIRectEdgeNone;
+
 }
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
@@ -60,6 +60,9 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+#pragma mark - Navibar customizing
 
 - (UIImage *)imageForNavibar {
     
@@ -88,5 +91,64 @@
 - (void)barButtonRightPressed {
     
 }
+
+
+#pragma mark - TableView affairs
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    
+    return 10;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    return 1;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    
+    switch (section) {
+        case 0:
+            return 0.1;
+            break;
+            
+        default:
+            return 30;
+            break;
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSUInteger section = indexPath.section;
+    switch (section) {
+        case 0:
+            return _mainInfoView.frame.size.height;
+            break;
+            
+        default:
+            return 0.1;
+            break;
+    }
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSUInteger section = indexPath.section;
+    UITableViewCell *cell;
+    if (section == 0) {
+        cell = [UITableViewCell new];
+        [cell.contentView addSubview:_mainInfoView];
+    }
+    else {
+        cell = [tableView dequeueReusableCellWithIdentifier:CELL_ID];
+        if (!cell)
+            cell = [UITableViewCell new];
+    }
+    
+    return cell;
+}
+
+
 
 @end
