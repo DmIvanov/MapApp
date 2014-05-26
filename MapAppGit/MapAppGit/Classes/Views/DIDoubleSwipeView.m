@@ -8,8 +8,7 @@
 
 #import "DIDoubleSwipeView.h"
 
-#import "DIDefaults.h"
-
+#define FIRST_VIEW_ON_SCREEN        SecondView
 #define SWAP_VELOCITY_LIMIT         500
 #define SLIDE_LIMIT                 SCREEN_SIZE.width/2
 #define SWIPE_ZONE                  40.
@@ -45,7 +44,14 @@
     if (!self)
         return nil;
     
-    CGRect bigRect = CGRectMake(0, 0, frame.size.width*2, frame.size.height);
+    CGFloat xOrigBigFrame;
+    if (FIRST_VIEW_ON_SCREEN == FirstViev)
+        xOrigBigFrame = 0.;
+    else    //FIRST_VIEW_ON_SCREEN == SecondView
+        xOrigBigFrame = -SCREEN_SIZE.width;
+    _currentView = FIRST_VIEW_ON_SCREEN;
+    CGRect bigRect = CGRectMake(xOrigBigFrame, 0, frame.size.width*2, frame.size.height);
+    
     _bigView = [[UIView alloc] initWithFrame:bigRect];
     _firstView = first;
     _firstView.frame = frame;
@@ -66,8 +72,6 @@
     [_bigView addSubview:_firstView];
     [_bigView addSubview:_secondView];
     [_bigView addGestureRecognizer:_panRecognizer];
-    
-    _currentView = FirstViev;
 }
 
 
@@ -151,6 +155,38 @@
         default:
             break;
     }
+}
+
+- (void)switchViewsWithComplition:(void (^)(BOOL finished))completion {
+    
+    _viewIsSwitching = YES;
+    
+    CGRect newFrame = _bigView.frame;
+    CurrentView newView;
+    if (_currentView == FirstViev) {
+        newFrame.origin.x = -SCREEN_SIZE.width;
+        newView = SecondView;
+    }
+    else {
+        newFrame.origin.x = 0.;
+        newView = FirstViev;
+    }
+    
+    void (^newComplition)(BOOL finished) = ^(BOOL finished){
+        if (completion)
+            completion(finished);
+        _viewIsSwitching = NO;
+        _currentView = newView;
+    };
+    
+    [UIView animateWithDuration:SWITCH_ANIMATION_TIME
+                          delay:0
+                        options:UIViewAnimationOptionCurveEaseOut
+                     animations:^ {
+                         _bigView.frame = newFrame;
+                     }
+                     completion:newComplition
+     ];
 }
 
 

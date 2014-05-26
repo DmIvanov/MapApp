@@ -8,7 +8,6 @@
 
 #import "ListVC.h"
 
-#import "DIDefaults.h"
 #import "ListDefaults.h"
 #import "DISightsManager.h"
 #import "DISight.h"
@@ -111,9 +110,6 @@
     
     _tableViewDeltaOffset = 0.;
     lastOffset = contentOffset;
-    
-    NSLog(@"----");
-    //[_tableView.collectionViewLayout invalidateLayout];
 }
 
 

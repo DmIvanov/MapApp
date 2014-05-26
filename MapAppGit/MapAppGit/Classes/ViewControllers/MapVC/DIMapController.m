@@ -14,7 +14,6 @@
 
 #import "DICloudeMadeManager.h"
 #import "DINotificationNames.h"
-#import "DIDefaults.h"
 #import "DISettingsManager.h"
 #import "DIHelper.h"
 
@@ -34,7 +33,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        _mapSourceManager = [[DICloudeMadeManager alloc] init];
+        //_mapSourceManager = [[DICloudeMadeManager alloc] init];
         _locationManager = [CLLocationManager new];
         _locationManager.delegate = self;
     }
@@ -45,7 +44,7 @@
 {
     [super viewDidLoad];
     
-    [_mapSourceManager setMapSourceForMapView:_mapView];
+    //[_mapSourceManager setMapSourceForMapView:_mapView];
     _mapView.delegate = self;
     
     if ([DISettingsManager offlineMode])

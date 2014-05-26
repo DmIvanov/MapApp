@@ -8,6 +8,7 @@
 
 #import "DIBaseVC.h"
 
+
 @interface DIListMapVC : DIBaseVC
 
 - (void)navibarPositionManagingWithOffset:(CGFloat)offset;

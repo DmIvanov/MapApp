@@ -8,7 +8,6 @@
 
 #import "DIBaseVC.h"
 
-#import "DIDefaults.h"
 #import "DIBarButton.h"
 
 @interface DIBaseVC ()

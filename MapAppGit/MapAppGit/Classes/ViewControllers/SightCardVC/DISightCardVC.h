@@ -8,9 +8,15 @@
 
 #import "DIBaseVC.h"
 
+#import "DIHeaderView.h"
+
 @class DISight;
 
-@interface DISightCardVC : DIBaseVC <UITableViewDelegate, UITableViewDataSource>
+@interface DISightCardVC : DIBaseVC
+    <UITableViewDelegate,
+    UITableViewDataSource,
+    UIWebViewDelegate,
+    DIHeaderViewDelegate>
 
 @property (nonatomic, strong) DISight *sight;
 @property (nonatomic, strong) UIImage *image;

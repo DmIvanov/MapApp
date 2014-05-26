@@ -8,7 +8,6 @@
 
 #import "DIAppDelegate.h"
 
-#import "DIDefaults.h"
 #import "DIHelper.h"
 #import "DICloudeMadeManager.h"
 #import "DILocationManager.h"

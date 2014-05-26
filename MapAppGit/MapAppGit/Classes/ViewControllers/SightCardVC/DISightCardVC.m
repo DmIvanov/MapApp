@@ -8,17 +8,21 @@
 
 #import "DISightCardVC.h"
 
-#import "DIDefaults.h"
-
 #import "DISight.h"
 #import "DIBarButton.h"
+#import "DIHeaderView.h"
+#import "DICardTVItem.h"
 
-#define CELL_ID     @"cellID"
+#define CELL_ID             @"cellID"
+#define HEADER_ID           @"headerID"
+#define HEADER_HEIGHT       76.
 
 
 @interface DISightCardVC ()
 {
-    NSArray *_datasource;
+    NSMutableArray *_datasource;
+    CGFloat _height;
+    UIWebView *_webView;
 }
 
 @property (nonatomic, strong) IBOutlet UIView *mainInfoView;
@@ -32,7 +36,12 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        
+        _datasource = [NSMutableArray arrayWithCapacity:20];
+        for (NSUInteger i=0; i < 10; i++) {
+            DICardTVItem *item = [DICardTVItem new];
+            [_datasource addObject:item];
+        }
+        _height = 400;
     }
     return self;
 }
@@ -41,13 +50,11 @@
 {
     [super viewDidLoad];
     
-//    NSString *htmlFile = [[NSBundle mainBundle] pathForResource:@"html" ofType:@"txt"];
-//    NSString *string = [NSString stringWithContentsOfFile:htmlFile encoding:NSUTF8StringEncoding error:nil];
-//    [_webView loadHTMLString:string baseURL:[[NSBundle mainBundle] bundleURL]];
-//    _webView.delegate = self;
     
     //self.edgesForExtendedLayout = UIRectEdgeNone;
-
+    
+    UINib *header = [UINib nibWithNibName:@"DIHeaderView" bundle:nil];
+    [_tableView registerNib:header forHeaderFooterViewReuseIdentifier:HEADER_ID];
 }
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
@@ -97,12 +104,22 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
-    return 10;
+    return _datasource.count + 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 1;
+    switch (section) {
+        case 0:
+            return 1;
+            break;
+            
+        default: {
+            DICardTVItem *item = _datasource[section-1];
+            return item.opened ? 1 : 0;
+        }
+            break;
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -113,7 +130,7 @@
             break;
             
         default:
-            return 30;
+            return HEADER_HEIGHT;
             break;
     }
 }
@@ -126,8 +143,10 @@
             return _mainInfoView.frame.size.height;
             break;
             
-        default:
-            return 0.1;
+        default: {
+            CGFloat ret = _webView ? _webView.frame.size.height : 400;
+            return ret;
+        }
             break;
     }
 }
@@ -142,11 +161,76 @@
     }
     else {
         cell = [tableView dequeueReusableCellWithIdentifier:CELL_ID];
-        if (!cell)
+        if (!cell) {
             cell = [UITableViewCell new];
+            if (!_webView) {
+                _webView = [UIWebView new];
+                _webView.frame = CGRectMake(0, 0, 320, _height);
+                _webView.scrollView.scrollEnabled = NO;
+                NSString *htmlFile = [[NSBundle mainBundle] pathForResource:@"html" ofType:@"txt"];
+                NSString *string = [NSString stringWithContentsOfFile:htmlFile encoding:NSUTF8StringEncoding error:nil];
+                [_webView loadHTMLString:string baseURL:[[NSBundle mainBundle] bundleURL]];
+                _webView.delegate = self;
+            }
+            [cell.contentView addSubview:_webView];
+
+            cell.contentView.backgroundColor = [UIColor yellowColor];
+        }
     }
+    cell.userInteractionEnabled = NO;
     
     return cell;
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+    
+    CGRect frame = webView.frame;
+    frame.size.height = 1;
+    webView.frame = frame;
+    CGSize fittingSize = [webView sizeThatFits:CGSizeZero];
+    frame.size = fittingSize;
+    _height = frame.size.height;
+    webView.frame = frame;
+    
+    [_tableView reloadData];
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    
+    if (section == 0) {
+        UIView *header = [[UIView alloc] init];
+        return header;
+    }
+    
+    else {
+        DIHeaderView *header = [_tableView dequeueReusableHeaderFooterViewWithIdentifier:HEADER_ID];
+        header.delegate = self;
+        header.section = section;
+        DICardTVItem *item = _datasource[section-1];
+        header.item = item;
+        return header;
+    }
+}
+
+
+#pragma mark - DIHeaderView delegate
+
+- (void)headerTapped:(DIHeaderView *)header {
+    
+    NSUInteger section = header.section;
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:section];
+    NSArray *indexes = @[indexPath];
+    DICardTVItem *item = header.item;
+    
+    [_tableView beginUpdates];
+    if (item.opened) {
+        [_tableView deleteRowsAtIndexPaths:indexes withRowAnimation:UITableViewRowAnimationTop];
+    }
+    else {
+        [_tableView insertRowsAtIndexPaths:indexes withRowAnimation:UITableViewRowAnimationTop];
+    }
+    item.opened = !item.opened;
+    [_tableView endUpdates];
 }
 
 

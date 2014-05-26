@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#define SWITCH_ANIMATION_TIME   0.3
+
 
 typedef NS_ENUM(NSInteger, CurrentView) {
     FirstViev,
@@ -22,5 +24,7 @@ typedef NS_ENUM(NSInteger, CurrentView) {
 @property (nonatomic, readonly) CurrentView currentView;
 
 - (id)initWithFrame:(CGRect)frame firstView:(UIView *)first secondView:(UIView *)second;
+
+- (void)switchViewsWithComplition:(void (^)(BOOL finished))completion;
 
 @end

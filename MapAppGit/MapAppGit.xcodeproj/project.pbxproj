@@ -22,7 +22,11 @@
 		0A2C1B3D1923C66F0041CECF /* DIBaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A2C1B3C1923C66F0041CECF /* DIBaseVC.m */; };
 		0A872A00190968C400552932 /* DIHintManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A8729FF190968C400552932 /* DIHintManager.m */; };
 		0A872A0419096D3D00552932 /* DIHint.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A872A0319096D3D00552932 /* DIHint.m */; };
-		0AC549BE192A71D7003F1AF7 /* html.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0AC549BD192A71D7003F1AF7 /* html.txt */; };
+		C411E2581930F81F00C9A8EF /* DIHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C411E2571930F81F00C9A8EF /* DIHeaderView.m */; };
+		C411E25A1930F97D00C9A8EF /* DIHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C411E2591930F97D00C9A8EF /* DIHeaderView.xib */; };
+		C411E25C1930FC2500C9A8EF /* info_closure@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C411E25B1930FC2500C9A8EF /* info_closure@2x.png */; };
+		C411E25F19310AF800C9A8EF /* DICardTVItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C411E25E19310AF800C9A8EF /* DICardTVItem.m */; };
+		C411E2641932359700C9A8EF /* html.txt in Resources */ = {isa = PBXBuildFile; fileRef = C411E2631932359700C9A8EF /* html.txt */; };
 		C43741E31902C8590095D51E /* rus_spb_10_15.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C43741E21902C8590095D51E /* rus_spb_10_15.sqlite */; };
 		C43741F01906E81C0095D51E /* DILocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C43741EF1906E81C0095D51E /* DILocationManager.m */; };
 		C43741FD190BAB020095D51E /* DISightCardVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C43741FB190BAB020095D51E /* DISightCardVC.m */; };
@@ -135,7 +139,13 @@
 		0A8729FF190968C400552932 /* DIHintManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DIHintManager.m; path = Classes/Managers/HintManager/DIHintManager.m; sourceTree = "<group>"; };
 		0A872A0219096D3D00552932 /* DIHint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DIHint.h; path = Classes/Objects/Hint/DIHint.h; sourceTree = "<group>"; };
 		0A872A0319096D3D00552932 /* DIHint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DIHint.m; path = Classes/Objects/Hint/DIHint.m; sourceTree = "<group>"; };
-		0AC549BD192A71D7003F1AF7 /* html.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = html.txt; path = ../../../../Documents/html.txt; sourceTree = "<group>"; };
+		C411E2561930F81F00C9A8EF /* DIHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DIHeaderView.h; path = Classes/ViewControllers/SightCardVC/CardHeaderView/DIHeaderView.h; sourceTree = "<group>"; };
+		C411E2571930F81F00C9A8EF /* DIHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DIHeaderView.m; path = Classes/ViewControllers/SightCardVC/CardHeaderView/DIHeaderView.m; sourceTree = "<group>"; };
+		C411E2591930F97D00C9A8EF /* DIHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DIHeaderView.xib; path = Classes/ViewControllers/SightCardVC/CardHeaderView/DIHeaderView.xib; sourceTree = "<group>"; };
+		C411E25B1930FC2500C9A8EF /* info_closure@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "info_closure@2x.png"; path = "Backgrounds/info_closure@2x.png"; sourceTree = "<group>"; };
+		C411E25D19310AF800C9A8EF /* DICardTVItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DICardTVItem.h; path = Classes/ViewControllers/SightCardVC/CardTVItem/DICardTVItem.h; sourceTree = "<group>"; };
+		C411E25E19310AF800C9A8EF /* DICardTVItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DICardTVItem.m; path = Classes/ViewControllers/SightCardVC/CardTVItem/DICardTVItem.m; sourceTree = "<group>"; };
+		C411E2631932359700C9A8EF /* html.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = html.txt; path = ../../../../Documents/html.txt; sourceTree = "<group>"; };
 		C43741E21902C8590095D51E /* rus_spb_10_15.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = rus_spb_10_15.sqlite; path = MapAppGit/Bases/Maps/rus_spb_10_15.sqlite; sourceTree = SOURCE_ROOT; };
 		C43741EE1906E81C0095D51E /* DILocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DILocationManager.h; path = Classes/Managers/LocationManager/DILocationManager.h; sourceTree = "<group>"; };
 		C43741EF1906E81C0095D51E /* DILocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DILocationManager.m; path = Classes/Managers/LocationManager/DILocationManager.m; sourceTree = "<group>"; };
@@ -269,6 +279,7 @@
 		0A2C1B3F1923C7170041CECF /* Backgrounds */ = {
 			isa = PBXGroup;
 			children = (
+				C411E25B1930FC2500C9A8EF /* info_closure@2x.png */,
 				C49564981928B78700612A00 /* list_cell_background@2x.png */,
 				C49564861925608400612A00 /* info_buttonbar_bottom_background@2x.png */,
 				C49564871925608400612A00 /* list_buttonBar_background@2x.png */,
@@ -309,6 +320,35 @@
 			name = Hint;
 			sourceTree = "<group>";
 		};
+		C411E2511930D2BE00C9A8EF /* CardVC */ = {
+			isa = PBXGroup;
+			children = (
+				C43741FA190BAB020095D51E /* DISightCardVC.h */,
+				C43741FB190BAB020095D51E /* DISightCardVC.m */,
+				C43741FC190BAB020095D51E /* DISightCardVC.xib */,
+			);
+			name = CardVC;
+			sourceTree = "<group>";
+		};
+		C411E2551930F7C600C9A8EF /* CardHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				C411E2561930F81F00C9A8EF /* DIHeaderView.h */,
+				C411E2571930F81F00C9A8EF /* DIHeaderView.m */,
+				C411E2591930F97D00C9A8EF /* DIHeaderView.xib */,
+			);
+			name = CardHeaderView;
+			sourceTree = "<group>";
+		};
+		C411E26019310BC900C9A8EF /* CardTVItem */ = {
+			isa = PBXGroup;
+			children = (
+				C411E25D19310AF800C9A8EF /* DICardTVItem.h */,
+				C411E25E19310AF800C9A8EF /* DICardTVItem.m */,
+			);
+			name = CardTVItem;
+			sourceTree = "<group>";
+		};
 		C43741E91906E7D60095D51E /* LocationManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -321,9 +361,9 @@
 		C43741F9190BAAC20095D51E /* SightCard */ = {
 			isa = PBXGroup;
 			children = (
-				C43741FA190BAB020095D51E /* DISightCardVC.h */,
-				C43741FB190BAB020095D51E /* DISightCardVC.m */,
-				C43741FC190BAB020095D51E /* DISightCardVC.xib */,
+				C411E2511930D2BE00C9A8EF /* CardVC */,
+				C411E26019310BC900C9A8EF /* CardTVItem */,
+				C411E2551930F7C600C9A8EF /* CardHeaderView */,
 			);
 			name = SightCard;
 			sourceTree = "<group>";
@@ -514,7 +554,7 @@
 		C4BD881018705EE400128CD1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				0AC549BD192A71D7003F1AF7 /* html.txt */,
+				C411E2631932359700C9A8EF /* html.txt */,
 				C499724E1896E91200A8DA98 /* Images */,
 				C49972431896E31300A8DA98 /* Bases */,
 				C49972421896DFD400A8DA98 /* SomeStuff.h */,
@@ -751,12 +791,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C43BA113189D8688009AC969 /* dbDescription.plist in Resources */,
-				0AC549BE192A71D7003F1AF7 /* html.txt in Resources */,
 				C499725B1896ED0500A8DA98 /* marker-red.png in Resources */,
 				C4956451191E1E3900612A00 /* spb2.jpg in Resources */,
 				C4BD88421870612900128CD1 /* DIMapController.xib in Resources */,
 				C49564991928B78700612A00 /* list_cell_background@2x.png in Resources */,
 				0A1A044E1929D1F100B81664 /* list_button_menu@2x.png in Resources */,
+				C411E25A1930F97D00C9A8EF /* DIHeaderView.xib in Resources */,
 				0A1A044D1929D1F100B81664 /* list_button_toMap@2x.png in Resources */,
 				0A1A044F1929D1F100B81664 /* list_button_info@2x.png in Resources */,
 				C4956452191E1E3900612A00 /* spb3.jpg in Resources */,
@@ -779,9 +819,11 @@
 				C495649B1928EACF00612A00 /* DICell2.xib in Resources */,
 				C4A7144B191CFEED0056EB30 /* DICell.xib in Resources */,
 				C43741FE190BAB020095D51E /* DISightCardVC.xib in Resources */,
+				C411E2641932359700C9A8EF /* html.txt in Resources */,
 				C4BD881F18705EE400128CD1 /* Images.xcassets in Resources */,
 				0A1A04531929D1F100B81664 /* info_tittlebar_button_add_unpressed@2x.png in Resources */,
 				0A1A04501929D1F100B81664 /* list_button_add_released@2x.png in Resources */,
+				C411E25C1930FC2500C9A8EF /* info_closure@2x.png in Resources */,
 				0A1A04521929D1F100B81664 /* info_tittlebar_button_back@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -803,6 +845,7 @@
 			files = (
 				C4A71449191CFEED0056EB30 /* DILayout.m in Sources */,
 				C4BD88611870822900128CD1 /* DITilesDownloader.m in Sources */,
+				C411E2581930F81F00C9A8EF /* DIHeaderView.m in Sources */,
 				C4BB1A39187AF9910067C041 /* DIMapSourceManager.m in Sources */,
 				C4BD881D18705EE400128CD1 /* MapAppGit.xcdatamodeld in Sources */,
 				C4FAD17E18FD924F007871B9 /* DISightsManager.m in Sources */,
@@ -811,6 +854,7 @@
 				0A2C1B3D1923C66F0041CECF /* DIBaseVC.m in Sources */,
 				C43741FD190BAB020095D51E /* DISightCardVC.m in Sources */,
 				C4BD881A18705EE400128CD1 /* DIAppDelegate.m in Sources */,
+				C411E25F19310AF800C9A8EF /* DICardTVItem.m in Sources */,
 				C43741F01906E81C0095D51E /* DILocationManager.m in Sources */,
 				C4374202190BAC440095D51E /* DISight.m in Sources */,
 				C4A7144C191CFEED0056EB30 /* ListVC.m in Sources */,

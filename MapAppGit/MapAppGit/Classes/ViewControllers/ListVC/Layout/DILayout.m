@@ -44,8 +44,8 @@
 
     CGRect visibleRect = CGRectMake(self.collectionView.contentOffset.x, self.collectionView.contentOffset.y, CGRectGetWidth(self.collectionView.bounds), CGRectGetHeight(self.collectionView.bounds));
 
-    UICollectionViewLayoutAttributes *attr = layoutAttributesArray.lastObject;
-    NSLog(@"vis = %@, last = %@", NSStringFromCGRect(visibleRect), NSStringFromCGRect(attr.frame));
+    //UICollectionViewLayoutAttributes *attr = layoutAttributesArray.lastObject;
+    //NSLog(@"vis = %@, last = %@", NSStringFromCGRect(visibleRect), NSStringFromCGRect(attr.frame));
     
     CGFloat offset = self.collectionView.contentOffset.y;
     if (offset < 0) {
@@ -111,7 +111,7 @@
     if (attributes)
         _growingItemAttributes = attributes;
     else
-         NSLog(@"Nope!");
+         DLog(@"No attributes for growing cell!");
 }
 
 - (UICollectionViewLayoutAttributes *)growingCellsAttributesForAttributes:(UICollectionViewLayoutAttributes *)attr andNextAttributes:(UICollectionViewLayoutAttributes *)nextAttr{

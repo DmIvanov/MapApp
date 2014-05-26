@@ -8,7 +8,6 @@
 
 #import "DIListMapVC.h"
 
-#import "DIDefaults.h"
 #import "DIDoubleSwipeView.h"
 #import "ListVC.h"
 #import "DIMapController.h"
@@ -23,8 +22,10 @@
     UINavigationBar *_naviBar;
 }
 
-@property (nonatomic, strong) ListVC *firstController;
-@property (nonatomic, strong) DIMapController *secondController;
+@property (nonatomic, strong) DIMapController *firstController;
+@property (nonatomic, strong) ListVC *secondController;
+
+@property (nonatomic, strong) DIDoubleSwipeView *bigView;
 
 @end
 
@@ -44,18 +45,18 @@
 {
     [super viewDidLoad];
     
-    _firstController = [ListVC new];
+    _firstController = [DIMapController new];
     _firstController.listMapController = self;
     [[_firstController view] setFrame:[[self view] bounds]];
     
-    _secondController = [DIMapController new];
+    _secondController = [ListVC new];
     _secondController.listMapController = self;
     [[_secondController view] setFrame:[[self view] bounds]];
     
-    DIDoubleSwipeView *view = [[DIDoubleSwipeView alloc] initWithFrame:self.view.frame
-                                                             firstView:_firstController.view
-                                                            secondView:_secondController.view];
-    self.view = view;
+    _bigView = [[DIDoubleSwipeView alloc] initWithFrame:self.view.frame
+                                              firstView:_firstController.view
+                                             secondView:_secondController.view];
+    self.view = _bigView;
     
     self.navigationItem.title = @"Awesome Title!!";
     
@@ -83,16 +84,22 @@
 
 #pragma mark - Actions
 
-- (void)barButtonRightTapped:(id)sender {
+- (void)barButtonRightPressed {
     
-    BOOL hidden = [UIApplication sharedApplication].statusBarHidden;
-    [self setStatusBarHiddenWithStaticFrames:!hidden];
 }
 
-- (void)barButtonLeftTapped:(id)sender {
+- (void)barButtonLeftPressed {
+
+    [_bigView switchViewsWithComplition:^(BOOL finished) {
+        [self setStatusBarHiddenWithStaticFrames:YES];
+    }];
     
-    BOOL hidden = [UIApplication sharedApplication].statusBarHidden;
-    [self setStatusBarHiddenWithStaticFrames:!hidden];
+    CGRect frame = _naviBar.frame;
+    frame.origin.y = -NAVIBAR_DELTA;
+    [UIView animateWithDuration:SWITCH_ANIMATION_TIME
+                     animations:^{
+                         _naviBar.frame = frame;
+                     }];
 }
 
 
@@ -117,9 +124,10 @@
         return;
     
     CGRect frame = self.view.frame;
+    CGRect navibarFrame = _naviBar.frame;
     [[UIApplication sharedApplication] setStatusBarHidden:hidden withAnimation:UIStatusBarAnimationNone];
     self.view.frame = frame;
-    _naviBar.frame = NAVIBAR_FRAME;
+    _naviBar.frame = navibarFrame;
 }
 
 - (void)navibarPositionManagingWithOffset:(CGFloat)offset {
@@ -173,12 +181,5 @@
     return nil;
 }
 
-- (void)barButtonLeftPressed {
-    
-}
-
-- (void)barButtonRightPressed {
-    
-}
 
 @end
