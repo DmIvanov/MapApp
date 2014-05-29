@@ -39,7 +39,7 @@
     
     _titleLabel.text = [NSString stringWithFormat:@"%ld - %@", (unsigned long)_index, _sight.name];
     _imageView.image = _image;
-    _bottomLabel.text = _sight.history;
+    //_bottomLabel.text = _sight.history;
     [self fillButtonAddImage];
 }
 

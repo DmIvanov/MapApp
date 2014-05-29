@@ -92,7 +92,6 @@
     DISight *object = _dataArray[index];
     DISightCardVC *sightCard = [DISightCardVC new];
     sightCard.sight = object;
-    //DICell *cell = (DICell *)[collectionView cellForItemAtIndexPath:indexPath];
     sightCard.image = [self randomSpbImage];
     [self.listMapController.navigationController pushViewController:sightCard
                                                            animated:YES];

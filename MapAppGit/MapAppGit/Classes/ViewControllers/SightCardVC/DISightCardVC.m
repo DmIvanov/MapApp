@@ -8,6 +8,8 @@
 
 #import "DISightCardVC.h"
 
+#import <objc/runtime.h>
+
 #import "DISight.h"
 #import "DIBarButton.h"
 #import "DIHeaderView.h"
@@ -21,12 +23,15 @@
 @interface DISightCardVC ()
 {
     NSMutableArray *_datasource;
-    CGFloat _height;
+    NSMutableDictionary *_tvDataDict;
     UIWebView *_webView;
 }
 
 @property (nonatomic, strong) IBOutlet UIView *mainInfoView;
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) IBOutlet UIImageView *imageView;
+
+@property (nonatomic, strong) NSDictionary *tvProperties;
 
 @end
 
@@ -41,7 +46,6 @@
             DICardTVItem *item = [DICardTVItem new];
             [_datasource addObject:item];
         }
-        _height = 400;
     }
     return self;
 }
@@ -50,16 +54,10 @@
 {
     [super viewDidLoad];
     
-    
-    //self.edgesForExtendedLayout = UIRectEdgeNone;
+    _imageView.image = _image;
     
     UINib *header = [UINib nibWithNibName:@"DIHeaderView" bundle:nil];
     [_tableView registerNib:header forHeaderFooterViewReuseIdentifier:HEADER_ID];
-}
-
-- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
-    
-    return YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -165,7 +163,7 @@
             cell = [UITableViewCell new];
             if (!_webView) {
                 _webView = [UIWebView new];
-                _webView.frame = CGRectMake(0, 0, 320, _height);
+                _webView.frame = CGRectMake(0, 0, 320, 1);
                 _webView.scrollView.scrollEnabled = NO;
                 NSString *htmlFile = [[NSBundle mainBundle] pathForResource:@"html" ofType:@"txt"];
                 NSString *string = [NSString stringWithContentsOfFile:htmlFile encoding:NSUTF8StringEncoding error:nil];
@@ -189,7 +187,6 @@
     webView.frame = frame;
     CGSize fittingSize = [webView sizeThatFits:CGSizeZero];
     frame.size = fittingSize;
-    _height = frame.size.height;
     webView.frame = frame;
     
     [_tableView reloadData];
@@ -213,6 +210,11 @@
 }
 
 
+#pragma mark - Other functions
+
+
+
+
 #pragma mark - DIHeaderView delegate
 
 - (void)headerTapped:(DIHeaderView *)header {
@@ -232,6 +234,9 @@
     item.opened = !item.opened;
     [_tableView endUpdates];
 }
+
+
+#pragma mark - Setters & getters
 
 
 

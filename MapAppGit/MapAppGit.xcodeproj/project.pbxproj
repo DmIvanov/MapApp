@@ -20,6 +20,7 @@
 		0A1A04531929D1F100B81664 /* info_tittlebar_button_add_unpressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A1A044B1929D1F100B81664 /* info_tittlebar_button_add_unpressed@2x.png */; };
 		0A1A04541929D1F100B81664 /* info_tittlebar_button_add_pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A1A044C1929D1F100B81664 /* info_tittlebar_button_add_pressed@2x.png */; };
 		0A2C1B3D1923C66F0041CECF /* DIBaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A2C1B3C1923C66F0041CECF /* DIBaseVC.m */; };
+		0A2E63531933B54C00942BBF /* DISightList.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A2E63521933B54C00942BBF /* DISightList.m */; };
 		0A872A00190968C400552932 /* DIHintManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A8729FF190968C400552932 /* DIHintManager.m */; };
 		0A872A0419096D3D00552932 /* DIHint.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A872A0319096D3D00552932 /* DIHint.m */; };
 		C411E2581930F81F00C9A8EF /* DIHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C411E2571930F81F00C9A8EF /* DIHeaderView.m */; };
@@ -135,6 +136,8 @@
 		0A1A044C1929D1F100B81664 /* info_tittlebar_button_add_pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info_tittlebar_button_add_pressed@2x.png"; sourceTree = "<group>"; };
 		0A2C1B3B1923C66F0041CECF /* DIBaseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DIBaseVC.h; path = Classes/ViewControllers/BaseVC/DIBaseVC.h; sourceTree = "<group>"; };
 		0A2C1B3C1923C66F0041CECF /* DIBaseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DIBaseVC.m; path = Classes/ViewControllers/BaseVC/DIBaseVC.m; sourceTree = "<group>"; };
+		0A2E63511933B54C00942BBF /* DISightList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DISightList.h; path = Classes/Objects/Sight/DISightList.h; sourceTree = "<group>"; };
+		0A2E63521933B54C00942BBF /* DISightList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DISightList.m; path = Classes/Objects/Sight/DISightList.m; sourceTree = "<group>"; };
 		0A8729FE190968C400552932 /* DIHintManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DIHintManager.h; path = Classes/Managers/HintManager/DIHintManager.h; sourceTree = "<group>"; };
 		0A8729FF190968C400552932 /* DIHintManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DIHintManager.m; path = Classes/Managers/HintManager/DIHintManager.m; sourceTree = "<group>"; };
 		0A872A0219096D3D00552932 /* DIHint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DIHint.h; path = Classes/Objects/Hint/DIHint.h; sourceTree = "<group>"; };
@@ -373,6 +376,8 @@
 			children = (
 				C4374200190BAC440095D51E /* DISight.h */,
 				C4374201190BAC440095D51E /* DISight.m */,
+				0A2E63511933B54C00942BBF /* DISightList.h */,
+				0A2E63521933B54C00942BBF /* DISightList.m */,
 			);
 			name = Sight;
 			sourceTree = "<group>";
@@ -861,6 +866,7 @@
 				C4956461191E260C00612A00 /* DIListMapVC.m in Sources */,
 				0A1A04341924BA2500B81664 /* DIBarButton.m in Sources */,
 				C4BD88411870612900128CD1 /* DIMapController.m in Sources */,
+				0A2E63531933B54C00942BBF /* DISightList.m in Sources */,
 				0A872A00190968C400552932 /* DIHintManager.m in Sources */,
 				C4A7144A191CFEED0056EB30 /* DICell.m in Sources */,
 				C4BD888A1870949700128CD1 /* DICloudeMadeManager.m in Sources */,
