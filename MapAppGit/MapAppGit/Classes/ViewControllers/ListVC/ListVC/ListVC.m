@@ -17,6 +17,7 @@
 
 #import "DIListMapVC.h"
 #import "DISightCardVC.h"
+#import "DIDoubleSwipeView.h"   //for SWIPE_ZONE only
 
 
 @interface ListVC ()
@@ -59,7 +60,7 @@
 
 
 
-#pragma mark - UICollectionView interation
+#pragma mark - UICollectionView interaction
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     
@@ -111,6 +112,18 @@
     lastOffset = contentOffset;
 }
 
+- (void)tableViewReload {
+    
+    _tableView.contentInset = [self tableViewInset];
+    [_tableView reloadData];
+}
+
+- (UIEdgeInsets)tableViewInset {
+    
+    CGFloat yInset = (CELL_HEIGHT_BIG + CELL_HEIGHT_SECOND - 2*CELL_HEIGHT) + (SCREEN_SIZE.height - CELL_HEIGHT_BIG);
+    return UIEdgeInsetsMake(0, 0, yInset, 0);
+}
+
 
 #pragma mark - DICell actions
 
@@ -126,14 +139,20 @@
 #pragma mark - Other functions
 
 - (UICollectionViewLayout *)collectionViewLayout {
-    
+#if 1
     DILayout *layout = [DILayout new];
     //UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
     [layout setScrollDirection:UICollectionViewScrollDirectionVertical];
     [layout setMinimumInteritemSpacing:0.];
     [layout setMinimumLineSpacing:0.];
     [layout setItemSize:CGSizeMake(SCREEN_SIZE.width, CELL_HEIGHT)];
-    
+#else
+    DISlowLayout *layout = [DISlowLayout new];
+    [layout setScrollDirection:UICollectionViewScrollDirectionVertical];
+    [layout setMinimumInteritemSpacing:0.];
+    [layout setMinimumLineSpacing:0.];
+    [layout setItemSize:CGSizeMake(SCREEN_SIZE.width, CELL_HEIGHT)];
+#endif
     return layout;
 }
 
@@ -154,20 +173,17 @@
     [_tableView registerNib:nib forCellWithReuseIdentifier:CELL_ID_2];
     
     [self.view addSubview:_tableView];
-}
-
-- (void)tableViewReload {
     
-    _tableView.contentInset = [self tableViewInset];
-    [_tableView reloadData];
+    //custom recognizer instead of native scrollView's one
+#if 1
+    _tableView.userInteractionEnabled = NO;
+    UIView *gestView = [[UIView alloc] initWithFrame:self.view.frame];
+    [self.view addSubview:gestView];
+    UIPanGestureRecognizer *recognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(recognized:)];
+    recognizer.delegate = self;
+    [gestView addGestureRecognizer:recognizer];
+#endif 
 }
-
-- (UIEdgeInsets)tableViewInset {
-    
-    CGFloat yInset = (CELL_HEIGHT_BIG + CELL_HEIGHT_SECOND - 2*CELL_HEIGHT) + (SCREEN_SIZE.height - CELL_HEIGHT_BIG);
-    return UIEdgeInsetsMake(0, 0, yInset, 0);
-}
-
 
 - (UIImage *)randomSpbImage {
     
@@ -175,5 +191,61 @@
     UIImage *image = [UIImage imageNamed:name];
     return image;
 }
+
+
+#pragma mark - UIGestureRecognizer delegate
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+    
+    CGFloat xLoc = [touch locationInView:self.view].x;
+    if (xLoc < SWIPE_ZONE)
+        return NO;
+    else
+        return YES;
+
+}
+
+- (void)recognized:(UIPanGestureRecognizer *)recognizer {
+    
+    static CGPoint point;
+    CGFloat coef = 0.2;
+    CGPoint currentPoint = [recognizer translationInView:self.view];
+    CGPoint offset = _tableView.contentOffset;
+    static CGFloat delta;
+    //CGFloat velocity;
+    
+    switch (recognizer.state) {
+        case UIGestureRecognizerStateBegan:
+            point = currentPoint;
+            break;
+         
+        case UIGestureRecognizerStateChanged:
+            
+            //DLog(NSStringFromCGPoint(currentPoint));
+            delta = currentPoint.y - point.y;
+            delta *= coef;
+            //if (fabs(delta) >= 0.5) {
+                offset.y -= delta;
+                if (offset.y < 0)
+                    offset.y = 0;
+                _tableView.contentOffset = offset;
+                point = currentPoint;
+            //}
+            break;
+            
+        case UIGestureRecognizerStateEnded:
+        {
+            //CGFloat dist = 300;
+            //velocity = [recognizer velocityInView:_tableView].y;
+            
+            //offset.y += delta*10;
+            //DLog(@"velocity - %f", [recognizer velocityInView:_tableView].y);
+            //_tableView.contentOffset = offset;
+        }
+        default:
+            break;
+    }
+}
+
 
 @end

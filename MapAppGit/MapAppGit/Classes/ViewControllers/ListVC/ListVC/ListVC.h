@@ -14,7 +14,8 @@
 
 @interface ListVC : UIViewController
     <UICollectionViewDelegate,
-    UICollectionViewDataSource>
+    UICollectionViewDataSource,
+    UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) DIListMapVC *listMapController;
 

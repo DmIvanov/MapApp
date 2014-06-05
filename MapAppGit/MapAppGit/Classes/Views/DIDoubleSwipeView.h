@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #define SWITCH_ANIMATION_TIME   0.3
-
+#define SWIPE_ZONE              40.
 
 typedef NS_ENUM(NSInteger, CurrentView) {
     FirstViev,

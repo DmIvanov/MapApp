@@ -11,7 +11,6 @@
 #define FIRST_VIEW_ON_SCREEN        SecondView
 #define SWAP_VELOCITY_LIMIT         500
 #define SLIDE_LIMIT                 SCREEN_SIZE.width/2
-#define SWIPE_ZONE                  40.
 
 
 @interface DIDoubleSwipeView ()
