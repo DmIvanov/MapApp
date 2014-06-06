@@ -176,13 +176,17 @@
     
     //custom recognizer instead of native scrollView's one
 #if 1
-    _tableView.userInteractionEnabled = NO;
+    _tableView.scrollEnabled = NO;
     UIView *gestView = [[UIView alloc] initWithFrame:self.view.frame];
     [self.view addSubview:gestView];
     UIPanGestureRecognizer *recognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(recognized:)];
     recognizer.delegate = self;
     [gestView addGestureRecognizer:recognizer];
-#endif 
+    
+//    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapRecognized:)];
+//    tapRecognizer.delegate = self;
+//    [gestView addGestureRecognizer:tapRecognizer];
+#endif
 }
 
 - (UIImage *)randomSpbImage {
@@ -208,7 +212,7 @@
 - (void)recognized:(UIPanGestureRecognizer *)recognizer {
     
     static CGPoint point;
-    CGFloat coef = 0.2;
+    CGFloat coef = 0.6;
     CGPoint currentPoint = [recognizer translationInView:self.view];
     CGPoint offset = _tableView.contentOffset;
     static CGFloat delta;

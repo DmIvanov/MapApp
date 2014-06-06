@@ -166,7 +166,8 @@
                 _webView.frame = CGRectMake(0, 0, 320, 1);
                 _webView.scrollView.scrollEnabled = NO;
                 NSString *htmlFile = [[NSBundle mainBundle] pathForResource:@"html" ofType:@"txt"];
-                NSString *string = [NSString stringWithContentsOfFile:htmlFile encoding:NSUTF8StringEncoding error:nil];
+                NSError *error = nil;
+                NSString *string = [NSString stringWithContentsOfFile:htmlFile encoding:NSUTF8StringEncoding error:&error];
                 [_webView loadHTMLString:string baseURL:[[NSBundle mainBundle] bundleURL]];
                 _webView.delegate = self;
             }
