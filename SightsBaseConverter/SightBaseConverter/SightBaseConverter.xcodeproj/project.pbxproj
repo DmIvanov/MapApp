@@ -1,0 +1,564 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0A21C2F3190EB1D600EEBCF3 /* DISight.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A21C2F2190EB1D600EEBCF3 /* DISight.m */; };
+		0A21C2F7190F75F800EEBCF3 /* DIHint.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A21C2F6190F75F800EEBCF3 /* DIHint.m */; };
+		C4374210190D3C390095D51E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C437420F190D3C390095D51E /* Cocoa.framework */; };
+		C437421A190D3C390095D51E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C4374218190D3C390095D51E /* InfoPlist.strings */; };
+		C437421C190D3C390095D51E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C437421B190D3C390095D51E /* main.m */; };
+		C4374220190D3C390095D51E /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = C437421E190D3C390095D51E /* Credits.rtf */; };
+		C4374223190D3C390095D51E /* DIAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C4374222190D3C390095D51E /* DIAppDelegate.m */; };
+		C4374226190D3C390095D51E /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4374224190D3C390095D51E /* MainMenu.xib */; };
+		C4374229190D3C390095D51E /* SightBaseConverter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C4374227190D3C390095D51E /* SightBaseConverter.xcdatamodeld */; };
+		C437422B190D3C390095D51E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C437422A190D3C390095D51E /* Images.xcassets */; };
+		C4374232190D3C390095D51E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4374231190D3C390095D51E /* XCTest.framework */; };
+		C4374233190D3C390095D51E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C437420F190D3C390095D51E /* Cocoa.framework */; };
+		C437423B190D3C390095D51E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C4374239190D3C390095D51E /* InfoPlist.strings */; };
+		C437423D190D3C390095D51E /* SightBaseConverterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C437423C190D3C390095D51E /* SightBaseConverterTests.m */; };
+		C437424E190D408C0095D51E /* DIMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C437424C190D408C0095D51E /* DIMainVC.m */; };
+		C437424F190D408C0095D51E /* DIMainVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C437424D190D408C0095D51E /* DIMainVC.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C4374234190D3C390095D51E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C4374204190D3C390095D51E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C437420B190D3C390095D51E;
+			remoteInfo = SightBaseConverter;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0A21C2F1190EB1D600EEBCF3 /* DISight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DISight.h; sourceTree = "<group>"; };
+		0A21C2F2190EB1D600EEBCF3 /* DISight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DISight.m; sourceTree = "<group>"; };
+		0A21C2F5190F75F800EEBCF3 /* DIHint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DIHint.h; path = Objects/Hint/DIHint.h; sourceTree = "<group>"; };
+		0A21C2F6190F75F800EEBCF3 /* DIHint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DIHint.m; path = Objects/Hint/DIHint.m; sourceTree = "<group>"; };
+		C437420C190D3C390095D51E /* SightBaseConverter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SightBaseConverter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C437420F190D3C390095D51E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		C4374212190D3C390095D51E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		C4374213190D3C390095D51E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		C4374214190D3C390095D51E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C4374217190D3C390095D51E /* SightBaseConverter-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SightBaseConverter-Info.plist"; sourceTree = "<group>"; };
+		C4374219190D3C390095D51E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C437421B190D3C390095D51E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C437421D190D3C390095D51E /* SightBaseConverter-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SightBaseConverter-Prefix.pch"; sourceTree = "<group>"; };
+		C437421F190D3C390095D51E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		C4374221190D3C390095D51E /* DIAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DIAppDelegate.h; sourceTree = "<group>"; };
+		C4374222190D3C390095D51E /* DIAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DIAppDelegate.m; sourceTree = "<group>"; };
+		C4374225190D3C390095D51E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		C4374228190D3C390095D51E /* SightBaseConverter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SightBaseConverter.xcdatamodel; sourceTree = "<group>"; };
+		C437422A190D3C390095D51E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		C4374230190D3C390095D51E /* SightBaseConverterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SightBaseConverterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4374231190D3C390095D51E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		C4374238190D3C390095D51E /* SightBaseConverterTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SightBaseConverterTests-Info.plist"; sourceTree = "<group>"; };
+		C437423A190D3C390095D51E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C437423C190D3C390095D51E /* SightBaseConverterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SightBaseConverterTests.m; sourceTree = "<group>"; };
+		C437424B190D408C0095D51E /* DIMainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DIMainVC.h; path = Controllers/MainVC/DIMainVC.h; sourceTree = "<group>"; };
+		C437424C190D408C0095D51E /* DIMainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DIMainVC.m; path = Controllers/MainVC/DIMainVC.m; sourceTree = "<group>"; };
+		C437424D190D408C0095D51E /* DIMainVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DIMainVC.xib; path = Controllers/MainVC/DIMainVC.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C4374209190D3C390095D51E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4374210190D3C390095D51E /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C437422D190D3C390095D51E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4374233190D3C390095D51E /* Cocoa.framework in Frameworks */,
+				C4374232190D3C390095D51E /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0A21C2EF190EB1BE00EEBCF3 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				0A21C2F4190F75D500EEBCF3 /* Hint */,
+				0A21C2F0190EB1D600EEBCF3 /* Sights */,
+			);
+			name = Objects;
+			sourceTree = "<group>";
+		};
+		0A21C2F0190EB1D600EEBCF3 /* Sights */ = {
+			isa = PBXGroup;
+			children = (
+				0A21C2F1190EB1D600EEBCF3 /* DISight.h */,
+				0A21C2F2190EB1D600EEBCF3 /* DISight.m */,
+			);
+			name = Sights;
+			path = Objects/Sights;
+			sourceTree = "<group>";
+		};
+		0A21C2F4190F75D500EEBCF3 /* Hint */ = {
+			isa = PBXGroup;
+			children = (
+				0A21C2F5190F75F800EEBCF3 /* DIHint.h */,
+				0A21C2F6190F75F800EEBCF3 /* DIHint.m */,
+			);
+			name = Hint;
+			sourceTree = "<group>";
+		};
+		C4374203190D3C390095D51E = {
+			isa = PBXGroup;
+			children = (
+				C4374215190D3C390095D51E /* SightBaseConverter */,
+				C4374236190D3C390095D51E /* SightBaseConverterTests */,
+				C437420E190D3C390095D51E /* Frameworks */,
+				C437420D190D3C390095D51E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C437420D190D3C390095D51E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C437420C190D3C390095D51E /* SightBaseConverter.app */,
+				C4374230190D3C390095D51E /* SightBaseConverterTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C437420E190D3C390095D51E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C437420F190D3C390095D51E /* Cocoa.framework */,
+				C4374231190D3C390095D51E /* XCTest.framework */,
+				C4374211190D3C390095D51E /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C4374211190D3C390095D51E /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C4374212190D3C390095D51E /* AppKit.framework */,
+				C4374213190D3C390095D51E /* CoreData.framework */,
+				C4374214190D3C390095D51E /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		C4374215190D3C390095D51E /* SightBaseConverter */ = {
+			isa = PBXGroup;
+			children = (
+				0A21C2EF190EB1BE00EEBCF3 /* Objects */,
+				C4374249190D402C0095D51E /* Controllers */,
+				C4374221190D3C390095D51E /* DIAppDelegate.h */,
+				C4374222190D3C390095D51E /* DIAppDelegate.m */,
+				C4374224190D3C390095D51E /* MainMenu.xib */,
+				C437422A190D3C390095D51E /* Images.xcassets */,
+				C4374227190D3C390095D51E /* SightBaseConverter.xcdatamodeld */,
+				C4374216190D3C390095D51E /* Supporting Files */,
+			);
+			path = SightBaseConverter;
+			sourceTree = "<group>";
+		};
+		C4374216190D3C390095D51E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C4374217190D3C390095D51E /* SightBaseConverter-Info.plist */,
+				C4374218190D3C390095D51E /* InfoPlist.strings */,
+				C437421B190D3C390095D51E /* main.m */,
+				C437421D190D3C390095D51E /* SightBaseConverter-Prefix.pch */,
+				C437421E190D3C390095D51E /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C4374236190D3C390095D51E /* SightBaseConverterTests */ = {
+			isa = PBXGroup;
+			children = (
+				C437423C190D3C390095D51E /* SightBaseConverterTests.m */,
+				C4374237190D3C390095D51E /* Supporting Files */,
+			);
+			path = SightBaseConverterTests;
+			sourceTree = "<group>";
+		};
+		C4374237190D3C390095D51E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C4374238190D3C390095D51E /* SightBaseConverterTests-Info.plist */,
+				C4374239190D3C390095D51E /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C4374249190D402C0095D51E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C437424A190D40370095D51E /* MainVC */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		C437424A190D40370095D51E /* MainVC */ = {
+			isa = PBXGroup;
+			children = (
+				C437424B190D408C0095D51E /* DIMainVC.h */,
+				C437424C190D408C0095D51E /* DIMainVC.m */,
+				C437424D190D408C0095D51E /* DIMainVC.xib */,
+			);
+			name = MainVC;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C437420B190D3C390095D51E /* SightBaseConverter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C4374240190D3C390095D51E /* Build configuration list for PBXNativeTarget "SightBaseConverter" */;
+			buildPhases = (
+				C4374208190D3C390095D51E /* Sources */,
+				C4374209190D3C390095D51E /* Frameworks */,
+				C437420A190D3C390095D51E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SightBaseConverter;
+			productName = SightBaseConverter;
+			productReference = C437420C190D3C390095D51E /* SightBaseConverter.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C437422F190D3C390095D51E /* SightBaseConverterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C4374243190D3C390095D51E /* Build configuration list for PBXNativeTarget "SightBaseConverterTests" */;
+			buildPhases = (
+				C437422C190D3C390095D51E /* Sources */,
+				C437422D190D3C390095D51E /* Frameworks */,
+				C437422E190D3C390095D51E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C4374235190D3C390095D51E /* PBXTargetDependency */,
+			);
+			name = SightBaseConverterTests;
+			productName = SightBaseConverterTests;
+			productReference = C4374230190D3C390095D51E /* SightBaseConverterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C4374204190D3C390095D51E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = DI;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Dmitry Ivanov";
+				TargetAttributes = {
+					C437422F190D3C390095D51E = {
+						TestTargetID = C437420B190D3C390095D51E;
+					};
+				};
+			};
+			buildConfigurationList = C4374207190D3C390095D51E /* Build configuration list for PBXProject "SightBaseConverter" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C4374203190D3C390095D51E;
+			productRefGroup = C437420D190D3C390095D51E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C437420B190D3C390095D51E /* SightBaseConverter */,
+				C437422F190D3C390095D51E /* SightBaseConverterTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C437420A190D3C390095D51E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C437421A190D3C390095D51E /* InfoPlist.strings in Resources */,
+				C437422B190D3C390095D51E /* Images.xcassets in Resources */,
+				C4374220190D3C390095D51E /* Credits.rtf in Resources */,
+				C4374226190D3C390095D51E /* MainMenu.xib in Resources */,
+				C437424F190D408C0095D51E /* DIMainVC.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C437422E190D3C390095D51E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C437423B190D3C390095D51E /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C4374208190D3C390095D51E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C437424E190D408C0095D51E /* DIMainVC.m in Sources */,
+				C4374229190D3C390095D51E /* SightBaseConverter.xcdatamodeld in Sources */,
+				C437421C190D3C390095D51E /* main.m in Sources */,
+				0A21C2F3190EB1D600EEBCF3 /* DISight.m in Sources */,
+				C4374223190D3C390095D51E /* DIAppDelegate.m in Sources */,
+				0A21C2F7190F75F800EEBCF3 /* DIHint.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C437422C190D3C390095D51E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C437423D190D3C390095D51E /* SightBaseConverterTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C4374235190D3C390095D51E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C437420B190D3C390095D51E /* SightBaseConverter */;
+			targetProxy = C4374234190D3C390095D51E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C4374218190D3C390095D51E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C4374219190D3C390095D51E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		C437421E190D3C390095D51E /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C437421F190D3C390095D51E /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		C4374224190D3C390095D51E /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C4374225190D3C390095D51E /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		C4374239190D3C390095D51E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C437423A190D3C390095D51E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C437423E190D3C390095D51E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		C437423F190D3C390095D51E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		C4374241190D3C390095D51E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SightBaseConverter/SightBaseConverter-Prefix.pch";
+				INFOPLIST_FILE = "SightBaseConverter/SightBaseConverter-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		C4374242190D3C390095D51E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SightBaseConverter/SightBaseConverter-Prefix.pch";
+				INFOPLIST_FILE = "SightBaseConverter/SightBaseConverter-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		C4374244190D3C390095D51E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SightBaseConverter.app/Contents/MacOS/SightBaseConverter";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SightBaseConverter/SightBaseConverter-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "SightBaseConverterTests/SightBaseConverterTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		C4374245190D3C390095D51E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SightBaseConverter.app/Contents/MacOS/SightBaseConverter";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SightBaseConverter/SightBaseConverter-Prefix.pch";
+				INFOPLIST_FILE = "SightBaseConverterTests/SightBaseConverterTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C4374207190D3C390095D51E /* Build configuration list for PBXProject "SightBaseConverter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C437423E190D3C390095D51E /* Debug */,
+				C437423F190D3C390095D51E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C4374240190D3C390095D51E /* Build configuration list for PBXNativeTarget "SightBaseConverter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C4374241190D3C390095D51E /* Debug */,
+				C4374242190D3C390095D51E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C4374243190D3C390095D51E /* Build configuration list for PBXNativeTarget "SightBaseConverterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C4374244190D3C390095D51E /* Debug */,
+				C4374245190D3C390095D51E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C4374227190D3C390095D51E /* SightBaseConverter.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C4374228190D3C390095D51E /* SightBaseConverter.xcdatamodel */,
+			);
+			currentVersion = C4374228190D3C390095D51E /* SightBaseConverter.xcdatamodel */;
+			path = SightBaseConverter.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = C4374204190D3C390095D51E /* Project object */;
+}

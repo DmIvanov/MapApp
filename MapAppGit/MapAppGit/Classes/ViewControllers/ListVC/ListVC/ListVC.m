@@ -175,13 +175,14 @@
     [self.view addSubview:_tableView];
     
     //custom recognizer instead of native scrollView's one
-#if 1
+
     _tableView.scrollEnabled = NO;
-    UIView *gestView = [[UIView alloc] initWithFrame:self.view.frame];
-    [self.view addSubview:gestView];
+#if 1
+//    UIView *gestView = [[UIView alloc] initWithFrame:self.view.frame];
+//    [self.view addSubview:gestView];
     UIPanGestureRecognizer *recognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(recognized:)];
     recognizer.delegate = self;
-    [gestView addGestureRecognizer:recognizer];
+    [_tableView addGestureRecognizer:recognizer];
     
 //    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapRecognized:)];
 //    tapRecognizer.delegate = self;
@@ -212,7 +213,7 @@
 - (void)recognized:(UIPanGestureRecognizer *)recognizer {
     
     static CGPoint point;
-    CGFloat coef = 0.6;
+    CGFloat coef = 0.2;
     CGPoint currentPoint = [recognizer translationInView:self.view];
     CGPoint offset = _tableView.contentOffset;
     static CGFloat delta;
