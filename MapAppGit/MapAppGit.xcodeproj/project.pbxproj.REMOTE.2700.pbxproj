@@ -454,6 +454,7 @@
 		C49972481896E31300A8DA98 /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				C46D1E5B1938E1EA0063CFB4 /* rus_spb_10_18.sqlite */,
 				C43741E21902C8590095D51E /* rus_spb_10_15.sqlite */,
 			);
 			path = Map;
@@ -580,7 +581,6 @@
 		C4BD881018705EE400128CD1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				C411E2631932359700C9A8EF /* html.txt */,
 				C46D1E6A19432BF20063CFB4 /* Files */,
 				C499724E1896E91200A8DA98 /* Images */,
 				C49972431896E31300A8DA98 /* Bases */,
@@ -757,7 +757,7 @@
 				ORGANIZATIONNAME = "Dmitry Ivanov";
 				TargetAttributes = {
 					C4BD880318705EE400128CD1 = {
-						DevelopmentTeam = 2Y2B5M2TAL;
+						DevelopmentTeam = QZ7R5628RB;
 					};
 					C4BD882318705EE400128CD1 = {
 						TestTargetID = C4BD880318705EE400128CD1;
@@ -834,6 +834,7 @@
 				C4FAD18418FEF69E007871B9 /* arrow.jpeg in Resources */,
 				C4956454191E1E3900612A00 /* spb5.jpg in Resources */,
 				C49564881925608400612A00 /* info_buttonbar_bottom_background@2x.png in Resources */,
+				C46D1E5C1938E1EA0063CFB4 /* rus_spb_10_18.sqlite in Resources */,
 				C499725A1896ED0500A8DA98 /* marker-red-withletter.png in Resources */,
 				C4BD881418705EE400128CD1 /* InfoPlist.strings in Resources */,
 				C43741E31902C8590095D51E /* rus_spb_10_15.sqlite in Resources */,

@@ -43,7 +43,7 @@
 
 - (UIImage *)imageForNavibar {
     
-    return [[UIImage imageNamed:@"list_buttonBar_background"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 10, 0)];
+    return [[UIImage imageNamed:@"list_buttonBar_background_128"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 10, 0)];
 }
 
 - (void)customizeNavibar {

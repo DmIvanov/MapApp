@@ -32,12 +32,15 @@
 		C43741FE190BAB020095D51E /* DISightCardVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C43741FC190BAB020095D51E /* DISightCardVC.xib */; };
 		C4374202190BAC440095D51E /* DISight.m in Sources */ = {isa = PBXBuildFile; fileRef = C4374201190BAC440095D51E /* DISight.m */; };
 		C43BA113189D8688009AC969 /* dbDescription.plist in Resources */ = {isa = PBXBuildFile; fileRef = C43BA112189D8688009AC969 /* dbDescription.plist */; };
+<<<<<<< HEAD
+=======
 		C46D1E5C1938E1EA0063CFB4 /* rus_spb_10_18.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C46D1E5B1938E1EA0063CFB4 /* rus_spb_10_18.sqlite */; };
 		C46D1E691942FAF10063CFB4 /* list_buttonBar_background_128@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C46D1E681942FAF10063CFB4 /* list_buttonBar_background_128@2x.png */; };
 		C46D1E6F19432BF20063CFB4 /* html-template.txt in Resources */ = {isa = PBXBuildFile; fileRef = C46D1E6B19432BF20063CFB4 /* html-template.txt */; };
 		C46D1E7019432BF20063CFB4 /* html.txt in Resources */ = {isa = PBXBuildFile; fileRef = C46D1E6C19432BF20063CFB4 /* html.txt */; };
 		C46D1E7119432BF20063CFB4 /* html2.txt in Resources */ = {isa = PBXBuildFile; fileRef = C46D1E6D19432BF20063CFB4 /* html2.txt */; };
 		C46D1E96194372310063CFB4 /* text.html in Resources */ = {isa = PBXBuildFile; fileRef = C46D1E95194372310063CFB4 /* text.html */; };
+>>>>>>> 7f139dcf71676ea4eddb0f266d395c1c1a983541
 		C4956450191E1E3900612A00 /* spb1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C495644B191E1E3900612A00 /* spb1.jpg */; };
 		C4956451191E1E3900612A00 /* spb2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C495644C191E1E3900612A00 /* spb2.jpg */; };
 		C4956452191E1E3900612A00 /* spb3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C495644D191E1E3900612A00 /* spb3.jpg */; };
@@ -159,6 +162,8 @@
 		C4374200190BAC440095D51E /* DISight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DISight.h; path = Classes/Objects/Sight/DISight.h; sourceTree = "<group>"; };
 		C4374201190BAC440095D51E /* DISight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DISight.m; path = Classes/Objects/Sight/DISight.m; sourceTree = "<group>"; };
 		C43BA112189D8688009AC969 /* dbDescription.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = dbDescription.plist; sourceTree = "<group>"; };
+<<<<<<< HEAD
+=======
 		C46D1E5B1938E1EA0063CFB4 /* rus_spb_10_18.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = rus_spb_10_18.sqlite; path = "../../../../../../Documents/MapApp/Tiles ver.1/rus_spb_10_18.sqlite"; sourceTree = "<group>"; };
 		C46D1E681942FAF10063CFB4 /* list_buttonBar_background_128@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "list_buttonBar_background_128@2x.png"; path = "Backgrounds/list_buttonBar_background_128@2x.png"; sourceTree = "<group>"; };
 		C46D1E6B19432BF20063CFB4 /* html-template.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "html-template.txt"; sourceTree = "<group>"; };
@@ -167,6 +172,7 @@
 		C46D1E7B194335A10063CFB4 /* DISightList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DISightList.h; path = Classes/Objects/Sight/DISightList.h; sourceTree = "<group>"; };
 		C46D1E7C1943391F0063CFB4 /* DIAppDefaults.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DIAppDefaults.h; sourceTree = "<group>"; };
 		C46D1E95194372310063CFB4 /* text.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = text.html; sourceTree = "<group>"; };
+>>>>>>> 7f139dcf71676ea4eddb0f266d395c1c1a983541
 		C495644B191E1E3900612A00 /* spb1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = spb1.jpg; sourceTree = "<group>"; };
 		C495644C191E1E3900612A00 /* spb2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = spb2.jpg; sourceTree = "<group>"; };
 		C495644D191E1E3900612A00 /* spb3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = spb3.jpg; sourceTree = "<group>"; };
@@ -580,8 +586,11 @@
 		C4BD881018705EE400128CD1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				C411E2631932359700C9A8EF /* html.txt */,
+=======
 				C46D1E6A19432BF20063CFB4 /* Files */,
+>>>>>>> 7f139dcf71676ea4eddb0f266d395c1c1a983541
 				C499724E1896E91200A8DA98 /* Images */,
 				C49972431896E31300A8DA98 /* Bases */,
 				C49972421896DFD400A8DA98 /* SomeStuff.h */,
