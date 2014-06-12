@@ -7,9 +7,10 @@
 //
 
 #import "DIBaseVC.h"
+#import "DIDoubleSwipeView.h"
 
 
-@interface DIListMapVC : DIBaseVC
+@interface DIListMapVC : DIBaseVC <DIDoubleSwipeViewDelegate>
 
 - (void)navibarPositionManagingWithOffset:(CGFloat)offset;
 

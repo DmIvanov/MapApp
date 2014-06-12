@@ -12,5 +12,6 @@
 
 @property (nonatomic) BOOL opened;
 @property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) UIWebView *webView;
 
 @end

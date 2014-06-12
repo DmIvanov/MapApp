@@ -8,7 +8,6 @@
 
 #import "DIListMapVC.h"
 
-#import "DIDoubleSwipeView.h"
 #import "ListVC.h"
 #import "DIMapController.h"
 #import "DIBarButton.h"
@@ -56,6 +55,7 @@
     _bigView = [[DIDoubleSwipeView alloc] initWithFrame:self.view.frame
                                               firstView:_firstController.view
                                              secondView:_secondController.view];
+    _bigView.delegate = self;
     self.view = _bigView;
     
     self.navigationItem.title = @"Awesome Title!!";
@@ -90,16 +90,8 @@
 
 - (void)barButtonLeftPressed {
 
-    [_bigView switchViewsWithComplition:^(BOOL finished) {
-        [self setStatusBarHiddenWithStaticFrames:YES];
-    }];
-    
-    CGRect frame = _naviBar.frame;
-    frame.origin.y = -NAVIBAR_DELTA;
-    [UIView animateWithDuration:SWITCH_ANIMATION_TIME
-                     animations:^{
-                         _naviBar.frame = frame;
-                     }];
+    [_bigView switchViewsWithComplition:nil];
+    [self setStatusbarNavibarHidden:YES];
 }
 
 
@@ -130,8 +122,16 @@
     _naviBar.frame = navibarFrame;
 }
 
+- (void)setStatusbarNavibarHidden:(BOOL)hidden {
+    
+    //[self setStatusBarHiddenWithStaticFrames:hidden];
+    [[UIApplication sharedApplication] setStatusBarHidden:hidden withAnimation:UIStatusBarAnimationFade];
+    [self.navigationController setNavigationBarHidden:hidden animated:YES];
+}
+
 - (void)navibarPositionManagingWithOffset:(CGFloat)offset {
     
+#if 0
     CGFloat navibarOffset = 0.;
     CGRect frame = _naviBar.frame;
     
@@ -140,6 +140,7 @@
         if (frame.origin.y <= 20. && _naviBar.frame.origin.y > -NAVIBAR_DELTA) {
             [self setStatusBarHiddenWithStaticFrames:YES];
             navibarOffset = (fabs(-NAVIBAR_DELTA - frame.origin.y) >= offset) ? offset : fabs(-NAVIBAR_DELTA - frame.origin.y);
+            //[self setStatusbarNavibarHidden:YES];
         }
         else
             return;
@@ -148,12 +149,30 @@
         if (frame.origin.y < 20.) {
             [self setStatusBarHiddenWithStaticFrames:NO];
             navibarOffset = (frame.origin.y - offset <= 20.) ? offset : (frame.origin.y - 20.);
+            //[self setStatusbarNavibarHidden:NO];
         }
         else
             return;
     }
     frame.origin.y -= navibarOffset;
     _naviBar.frame = frame;
+    
+#else
+    if (offset > 0) {
+        if (!self.navigationController.navigationBarHidden) {
+            [self setStatusbarNavibarHidden:YES];
+        }
+        else
+            return;
+    }
+    else {
+        if (self.navigationController.navigationBarHidden) {
+            [self setStatusbarNavibarHidden:NO];
+        }
+        else
+            return;
+    }
+#endif
 }
 
 - (void)navibarNewFrame:(CGRect)frame {
@@ -179,6 +198,20 @@
     }
     
     return nil;
+}
+
+
+#pragma mark - DIDoubleSwipeViewDelegate methods
+
+- (void)switchAnimationFinished:(DIDoubleSwipeView *)doubleSwipeView {
+    
+    BOOL setHidden;
+    if (doubleSwipeView.currentView == FirstViev)
+        setHidden = YES;
+    else
+        setHidden = NO;
+    
+    [self setStatusbarNavibarHidden:setHidden];
 }
 
 

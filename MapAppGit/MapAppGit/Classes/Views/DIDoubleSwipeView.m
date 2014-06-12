@@ -146,6 +146,8 @@
                              completion:^(BOOL finished) {
                                  _viewIsSwitching = NO;
                                  _currentView = rightView ? SecondView : FirstViev;
+                                 if ([_delegate respondsToSelector:@selector(switchAnimationFinished:)])
+                                     [_delegate switchAnimationFinished:self];
                              }
              ];
         }

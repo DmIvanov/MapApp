@@ -36,7 +36,7 @@ typedef NS_ENUM(NSUInteger, SightType) {
 @property (nonatomic, strong) NSString *metro;
 @property (nonatomic, strong) NSString *phones;
 
-@property (nonatomic, strong) DISightList *list;
+@property (nonatomic, strong) NSDictionary *list;
 
 @property (nonatomic, strong) NSData *avatarData;
 

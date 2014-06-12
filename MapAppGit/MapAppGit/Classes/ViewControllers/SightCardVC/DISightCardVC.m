@@ -24,7 +24,6 @@
 {
     NSMutableArray *_datasource;
     NSMutableDictionary *_tvDataDict;
-    UIWebView *_webView;
 }
 
 @property (nonatomic, strong) IBOutlet UIView *mainInfoView;
@@ -64,6 +63,10 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)dealloc {
+    
 }
 
 
@@ -142,7 +145,8 @@
             break;
             
         default: {
-            CGFloat ret = _webView ? _webView.frame.size.height : 400;
+            DICardTVItem *item = _datasource[section-1];
+            CGFloat ret = item.webView ? item.webView.frame.size.height : 1;
             return ret;
         }
             break;
@@ -161,36 +165,16 @@
         cell = [tableView dequeueReusableCellWithIdentifier:CELL_ID];
         if (!cell) {
             cell = [UITableViewCell new];
-            if (!_webView) {
-                _webView = [UIWebView new];
-                _webView.frame = CGRectMake(0, 0, 320, 1);
-                _webView.scrollView.scrollEnabled = NO;
-                NSString *htmlFile = [[NSBundle mainBundle] pathForResource:@"html" ofType:@"txt"];
-                NSError *error = nil;
-                NSString *string = [NSString stringWithContentsOfFile:htmlFile encoding:NSUTF8StringEncoding error:&error];
-                [_webView loadHTMLString:string baseURL:[[NSBundle mainBundle] bundleURL]];
-                _webView.delegate = self;
-            }
-            [cell.contentView addSubview:_webView];
-
-            cell.contentView.backgroundColor = [UIColor yellowColor];
         }
+
+        DICardTVItem *item = _datasource[section - 1];
+        if (!item.webView)
+            item.webView = [self webViewForIndex:section];
+        [cell.contentView addSubview:item.webView];
     }
     cell.userInteractionEnabled = NO;
     
     return cell;
-}
-
-- (void)webViewDidFinishLoad:(UIWebView *)webView {
-    
-    CGRect frame = webView.frame;
-    frame.size.height = 1;
-    webView.frame = frame;
-    CGSize fittingSize = [webView sizeThatFits:CGSizeZero];
-    frame.size = fittingSize;
-    webView.frame = frame;
-    
-    [_tableView reloadData];
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -211,9 +195,19 @@
 }
 
 
-#pragma mark - Other functions
+#pragma mark - UIWebViewDelegate methods
 
-
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+    
+    CGRect frame = webView.frame;
+    frame.size.height = 1;
+    webView.frame = frame;
+    CGSize fittingSize = [webView sizeThatFits:CGSizeZero];
+    frame.size = fittingSize;
+    webView.frame = frame;
+    
+    [_tableView reloadData];
+}
 
 
 #pragma mark - DIHeaderView delegate
@@ -236,6 +230,38 @@
     [_tableView endUpdates];
 }
 
+
+
+
+#pragma mark - Other functions
+
+- (UIWebView *)webViewForIndex:(NSUInteger)index {
+    
+    NSString *htmlFile;
+    switch (index%3) {
+        case 0:
+            htmlFile = [[NSBundle mainBundle] pathForResource:@"text" ofType:@"html"];
+            break;
+            
+        case 1:
+            htmlFile = [[NSBundle mainBundle] pathForResource:@"text" ofType:@"html"];
+            break;
+            
+        default:
+            htmlFile = [[NSBundle mainBundle] pathForResource:@"text" ofType:@"html"];
+            break;
+    }
+    
+    UIWebView *webView = [UIWebView new];
+    webView.scrollView.scrollEnabled = NO;
+    webView.frame = CGRectMake(0, 0, SCREEN_SIZE.width, 1);
+    NSError *error = nil;
+    NSString *string = [NSString stringWithContentsOfFile:htmlFile encoding:NSWindowsCP1251StringEncoding error:&error];
+    [webView loadHTMLString:string baseURL:[[NSBundle mainBundle] bundleURL]];
+    webView.delegate = self;
+    
+    return webView;
+}
 
 #pragma mark - Setters & getters
 

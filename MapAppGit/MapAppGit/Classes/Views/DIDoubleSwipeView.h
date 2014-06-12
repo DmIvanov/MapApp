@@ -11,10 +11,20 @@
 #define SWITCH_ANIMATION_TIME   0.3
 #define SWIPE_ZONE              40.
 
+@class DIDoubleSwipeView;
+
 typedef NS_ENUM(NSInteger, CurrentView) {
     FirstViev,
     SecondView
 };
+
+
+@protocol DIDoubleSwipeViewDelegate <NSObject>
+
+@optional
+- (void)switchAnimationFinished:(DIDoubleSwipeView *)doubleSwipeView;
+
+@end
 
 
 @interface DIDoubleSwipeView : UIView
@@ -22,6 +32,7 @@ typedef NS_ENUM(NSInteger, CurrentView) {
 
 @property (nonatomic, readonly) BOOL viewIsSwitching;
 @property (nonatomic, readonly) CurrentView currentView;
+@property (nonatomic, weak) id<DIDoubleSwipeViewDelegate> delegate;
 
 - (id)initWithFrame:(CGRect)frame firstView:(UIView *)first secondView:(UIView *)second;
 

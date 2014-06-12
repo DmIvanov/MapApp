@@ -20,14 +20,12 @@
 		0A1A04531929D1F100B81664 /* info_tittlebar_button_add_unpressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A1A044B1929D1F100B81664 /* info_tittlebar_button_add_unpressed@2x.png */; };
 		0A1A04541929D1F100B81664 /* info_tittlebar_button_add_pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A1A044C1929D1F100B81664 /* info_tittlebar_button_add_pressed@2x.png */; };
 		0A2C1B3D1923C66F0041CECF /* DIBaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A2C1B3C1923C66F0041CECF /* DIBaseVC.m */; };
-		0A2E63531933B54C00942BBF /* DISightList.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A2E63521933B54C00942BBF /* DISightList.m */; };
 		0A872A00190968C400552932 /* DIHintManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A8729FF190968C400552932 /* DIHintManager.m */; };
 		0A872A0419096D3D00552932 /* DIHint.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A872A0319096D3D00552932 /* DIHint.m */; };
 		C411E2581930F81F00C9A8EF /* DIHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C411E2571930F81F00C9A8EF /* DIHeaderView.m */; };
 		C411E25A1930F97D00C9A8EF /* DIHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C411E2591930F97D00C9A8EF /* DIHeaderView.xib */; };
 		C411E25C1930FC2500C9A8EF /* info_closure@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C411E25B1930FC2500C9A8EF /* info_closure@2x.png */; };
 		C411E25F19310AF800C9A8EF /* DICardTVItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C411E25E19310AF800C9A8EF /* DICardTVItem.m */; };
-		C411E2641932359700C9A8EF /* html.txt in Resources */ = {isa = PBXBuildFile; fileRef = C411E2631932359700C9A8EF /* html.txt */; };
 		C43741E31902C8590095D51E /* rus_spb_10_15.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C43741E21902C8590095D51E /* rus_spb_10_15.sqlite */; };
 		C43741F01906E81C0095D51E /* DILocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C43741EF1906E81C0095D51E /* DILocationManager.m */; };
 		C43741FD190BAB020095D51E /* DISightCardVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C43741FB190BAB020095D51E /* DISightCardVC.m */; };
@@ -35,7 +33,11 @@
 		C4374202190BAC440095D51E /* DISight.m in Sources */ = {isa = PBXBuildFile; fileRef = C4374201190BAC440095D51E /* DISight.m */; };
 		C43BA113189D8688009AC969 /* dbDescription.plist in Resources */ = {isa = PBXBuildFile; fileRef = C43BA112189D8688009AC969 /* dbDescription.plist */; };
 		C46D1E5C1938E1EA0063CFB4 /* rus_spb_10_18.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C46D1E5B1938E1EA0063CFB4 /* rus_spb_10_18.sqlite */; };
-		C46D1E67194047EE0063CFB4 /* html2.txt in Resources */ = {isa = PBXBuildFile; fileRef = C46D1E66194047EE0063CFB4 /* html2.txt */; };
+		C46D1E691942FAF10063CFB4 /* list_buttonBar_background_128@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C46D1E681942FAF10063CFB4 /* list_buttonBar_background_128@2x.png */; };
+		C46D1E6F19432BF20063CFB4 /* html-template.txt in Resources */ = {isa = PBXBuildFile; fileRef = C46D1E6B19432BF20063CFB4 /* html-template.txt */; };
+		C46D1E7019432BF20063CFB4 /* html.txt in Resources */ = {isa = PBXBuildFile; fileRef = C46D1E6C19432BF20063CFB4 /* html.txt */; };
+		C46D1E7119432BF20063CFB4 /* html2.txt in Resources */ = {isa = PBXBuildFile; fileRef = C46D1E6D19432BF20063CFB4 /* html2.txt */; };
+		C46D1E96194372310063CFB4 /* text.html in Resources */ = {isa = PBXBuildFile; fileRef = C46D1E95194372310063CFB4 /* text.html */; };
 		C4956450191E1E3900612A00 /* spb1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C495644B191E1E3900612A00 /* spb1.jpg */; };
 		C4956451191E1E3900612A00 /* spb2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C495644C191E1E3900612A00 /* spb2.jpg */; };
 		C4956452191E1E3900612A00 /* spb3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C495644D191E1E3900612A00 /* spb3.jpg */; };
@@ -138,8 +140,6 @@
 		0A1A044C1929D1F100B81664 /* info_tittlebar_button_add_pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info_tittlebar_button_add_pressed@2x.png"; sourceTree = "<group>"; };
 		0A2C1B3B1923C66F0041CECF /* DIBaseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DIBaseVC.h; path = Classes/ViewControllers/BaseVC/DIBaseVC.h; sourceTree = "<group>"; };
 		0A2C1B3C1923C66F0041CECF /* DIBaseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DIBaseVC.m; path = Classes/ViewControllers/BaseVC/DIBaseVC.m; sourceTree = "<group>"; };
-		0A2E63511933B54C00942BBF /* DISightList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DISightList.h; path = Classes/Objects/Sight/DISightList.h; sourceTree = "<group>"; };
-		0A2E63521933B54C00942BBF /* DISightList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DISightList.m; path = Classes/Objects/Sight/DISightList.m; sourceTree = "<group>"; };
 		0A8729FE190968C400552932 /* DIHintManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DIHintManager.h; path = Classes/Managers/HintManager/DIHintManager.h; sourceTree = "<group>"; };
 		0A8729FF190968C400552932 /* DIHintManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DIHintManager.m; path = Classes/Managers/HintManager/DIHintManager.m; sourceTree = "<group>"; };
 		0A872A0219096D3D00552932 /* DIHint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DIHint.h; path = Classes/Objects/Hint/DIHint.h; sourceTree = "<group>"; };
@@ -150,7 +150,6 @@
 		C411E25B1930FC2500C9A8EF /* info_closure@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "info_closure@2x.png"; path = "Backgrounds/info_closure@2x.png"; sourceTree = "<group>"; };
 		C411E25D19310AF800C9A8EF /* DICardTVItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DICardTVItem.h; path = Classes/ViewControllers/SightCardVC/CardTVItem/DICardTVItem.h; sourceTree = "<group>"; };
 		C411E25E19310AF800C9A8EF /* DICardTVItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DICardTVItem.m; path = Classes/ViewControllers/SightCardVC/CardTVItem/DICardTVItem.m; sourceTree = "<group>"; };
-		C411E2631932359700C9A8EF /* html.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = html.txt; path = ../../../../Documents/html.txt; sourceTree = "<group>"; };
 		C43741E21902C8590095D51E /* rus_spb_10_15.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = rus_spb_10_15.sqlite; path = MapAppGit/Bases/Maps/rus_spb_10_15.sqlite; sourceTree = SOURCE_ROOT; };
 		C43741EE1906E81C0095D51E /* DILocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DILocationManager.h; path = Classes/Managers/LocationManager/DILocationManager.h; sourceTree = "<group>"; };
 		C43741EF1906E81C0095D51E /* DILocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DILocationManager.m; path = Classes/Managers/LocationManager/DILocationManager.m; sourceTree = "<group>"; };
@@ -161,7 +160,13 @@
 		C4374201190BAC440095D51E /* DISight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DISight.m; path = Classes/Objects/Sight/DISight.m; sourceTree = "<group>"; };
 		C43BA112189D8688009AC969 /* dbDescription.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = dbDescription.plist; sourceTree = "<group>"; };
 		C46D1E5B1938E1EA0063CFB4 /* rus_spb_10_18.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = rus_spb_10_18.sqlite; path = "../../../../../../Documents/MapApp/Tiles ver.1/rus_spb_10_18.sqlite"; sourceTree = "<group>"; };
-		C46D1E66194047EE0063CFB4 /* html2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = html2.txt; path = ../../../../Documents/html2.txt; sourceTree = "<group>"; };
+		C46D1E681942FAF10063CFB4 /* list_buttonBar_background_128@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "list_buttonBar_background_128@2x.png"; path = "Backgrounds/list_buttonBar_background_128@2x.png"; sourceTree = "<group>"; };
+		C46D1E6B19432BF20063CFB4 /* html-template.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "html-template.txt"; sourceTree = "<group>"; };
+		C46D1E6C19432BF20063CFB4 /* html.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = html.txt; sourceTree = "<group>"; };
+		C46D1E6D19432BF20063CFB4 /* html2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = html2.txt; sourceTree = "<group>"; };
+		C46D1E7B194335A10063CFB4 /* DISightList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DISightList.h; path = Classes/Objects/Sight/DISightList.h; sourceTree = "<group>"; };
+		C46D1E7C1943391F0063CFB4 /* DIAppDefaults.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DIAppDefaults.h; sourceTree = "<group>"; };
+		C46D1E95194372310063CFB4 /* text.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = text.html; sourceTree = "<group>"; };
 		C495644B191E1E3900612A00 /* spb1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = spb1.jpg; sourceTree = "<group>"; };
 		C495644C191E1E3900612A00 /* spb2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = spb2.jpg; sourceTree = "<group>"; };
 		C495644D191E1E3900612A00 /* spb3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = spb3.jpg; sourceTree = "<group>"; };
@@ -286,6 +291,7 @@
 		0A2C1B3F1923C7170041CECF /* Backgrounds */ = {
 			isa = PBXGroup;
 			children = (
+				C46D1E681942FAF10063CFB4 /* list_buttonBar_background_128@2x.png */,
 				C411E25B1930FC2500C9A8EF /* info_closure@2x.png */,
 				C49564981928B78700612A00 /* list_cell_background@2x.png */,
 				C49564861925608400612A00 /* info_buttonbar_bottom_background@2x.png */,
@@ -380,10 +386,20 @@
 			children = (
 				C4374200190BAC440095D51E /* DISight.h */,
 				C4374201190BAC440095D51E /* DISight.m */,
-				0A2E63511933B54C00942BBF /* DISightList.h */,
-				0A2E63521933B54C00942BBF /* DISightList.m */,
+				C46D1E7B194335A10063CFB4 /* DISightList.h */,
 			);
 			name = Sight;
+			sourceTree = "<group>";
+		};
+		C46D1E6A19432BF20063CFB4 /* Files */ = {
+			isa = PBXGroup;
+			children = (
+				C46D1E95194372310063CFB4 /* text.html */,
+				C46D1E6B19432BF20063CFB4 /* html-template.txt */,
+				C46D1E6C19432BF20063CFB4 /* html.txt */,
+				C46D1E6D19432BF20063CFB4 /* html2.txt */,
+			);
+			path = Files;
 			sourceTree = "<group>";
 		};
 		C495644A191E1E3900612A00 /* RandomSpb */ = {
@@ -554,6 +570,7 @@
 				C4BD883C187060AD00128CD1 /* ViewControllers */,
 				C4BD881818705EE400128CD1 /* DIAppDelegate.h */,
 				C4BD881918705EE400128CD1 /* DIAppDelegate.m */,
+				C46D1E7C1943391F0063CFB4 /* DIAppDefaults.h */,
 				C4BD881E18705EE400128CD1 /* Images.xcassets */,
 				C4BD881B18705EE400128CD1 /* MapAppGit.xcdatamodeld */,
 				C4BD881018705EE400128CD1 /* Supporting Files */,
@@ -564,8 +581,7 @@
 		C4BD881018705EE400128CD1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				C46D1E66194047EE0063CFB4 /* html2.txt */,
-				C411E2631932359700C9A8EF /* html.txt */,
+				C46D1E6A19432BF20063CFB4 /* Files */,
 				C499724E1896E91200A8DA98 /* Images */,
 				C49972431896E31300A8DA98 /* Bases */,
 				C49972421896DFD400A8DA98 /* SomeStuff.h */,
@@ -802,10 +818,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C43BA113189D8688009AC969 /* dbDescription.plist in Resources */,
+				C46D1E6F19432BF20063CFB4 /* html-template.txt in Resources */,
 				C499725B1896ED0500A8DA98 /* marker-red.png in Resources */,
 				C4956451191E1E3900612A00 /* spb2.jpg in Resources */,
 				C4BD88421870612900128CD1 /* DIMapController.xib in Resources */,
+				C46D1E691942FAF10063CFB4 /* list_buttonBar_background_128@2x.png in Resources */,
 				C49564991928B78700612A00 /* list_cell_background@2x.png in Resources */,
+				C46D1E7119432BF20063CFB4 /* html2.txt in Resources */,
 				0A1A044E1929D1F100B81664 /* list_button_menu@2x.png in Resources */,
 				C411E25A1930F97D00C9A8EF /* DIHeaderView.xib in Resources */,
 				0A1A044D1929D1F100B81664 /* list_button_toMap@2x.png in Resources */,
@@ -826,13 +845,13 @@
 				C4956450191E1E3900612A00 /* spb1.jpg in Resources */,
 				C4956453191E1E3900612A00 /* spb4.jpg in Resources */,
 				0A1A04511929D1F100B81664 /* list_button_add_pressed@2x.png in Resources */,
-				C46D1E67194047EE0063CFB4 /* html2.txt in Resources */,
 				0A1A04431929D0EC00B81664 /* SightsBase.sqlite-shm in Resources */,
 				0A1A04421929D0EC00B81664 /* SightsBase.sqlite in Resources */,
 				C495649B1928EACF00612A00 /* DICell2.xib in Resources */,
 				C4A7144B191CFEED0056EB30 /* DICell.xib in Resources */,
+				C46D1E7019432BF20063CFB4 /* html.txt in Resources */,
+				C46D1E96194372310063CFB4 /* text.html in Resources */,
 				C43741FE190BAB020095D51E /* DISightCardVC.xib in Resources */,
-				C411E2641932359700C9A8EF /* html.txt in Resources */,
 				C4BD881F18705EE400128CD1 /* Images.xcassets in Resources */,
 				0A1A04531929D1F100B81664 /* info_tittlebar_button_add_unpressed@2x.png in Resources */,
 				0A1A04501929D1F100B81664 /* list_button_add_released@2x.png in Resources */,
@@ -874,7 +893,6 @@
 				C4956461191E260C00612A00 /* DIListMapVC.m in Sources */,
 				0A1A04341924BA2500B81664 /* DIBarButton.m in Sources */,
 				C4BD88411870612900128CD1 /* DIMapController.m in Sources */,
-				0A2E63531933B54C00942BBF /* DISightList.m in Sources */,
 				0A872A00190968C400552932 /* DIHintManager.m in Sources */,
 				C4A7144A191CFEED0056EB30 /* DICell.m in Sources */,
 				C4BD888A1870949700128CD1 /* DICloudeMadeManager.m in Sources */,
