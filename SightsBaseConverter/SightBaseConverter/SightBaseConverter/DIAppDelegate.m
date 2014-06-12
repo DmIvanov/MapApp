@@ -227,43 +227,15 @@
 
 - (void)fillSight:(DISight *)sight fromDictionary:(NSDictionary *)dict {
     
-    sight.name = dict[@"Name"] != nil ? dict[@"Name"] : @"";
-    sight.history = dict[@"History"] != nil ? dict[@"History"] : @"";
-    sight.latitudeNumber = @(30.0);//[self recognizeLatitudeFromCoordString:dict[@"Coordinates"]];
-    sight.longitudeNumber = @([self recognizeLongitudeFromCoordString:dict[@"Coordinates"]]);
-    sight.shortDescriptionString = dict[@"ShortDescription"] != nil ? dict[@"ShortDescription"] : @"";
-    sight.scheduleString = dict[@"ScheduleString"] != nil ? dict[@"ScheduleString"] : @"";
-    sight.scheduleArrayString = dict[@"Schedule"] != nil ? dict[@"Schedule"] : @"";
-    sight.priceNumber = @([dict[@"Price"] doubleValue]);
-    sight.sightType = [dict[@"SightType"] unsignedIntegerValue];
-    sight.priceCategories = dict[@"PriceCategories"] != nil ? dict[@"PriceCategories"] : @"";
-    sight.priceAdditional = dict[@"PriceAdditional"] != nil ? dict[@"PriceAdditional"] : @"";
-    sight.about = dict[@"About"] != nil ? dict[@"About"] : @"";
-    sight.now = dict[@"Now"] != nil ? dict[@"Now"] : @"";
-    sight.direction = dict[@"Direction"] != nil ? dict[@"Direction"] : @"";
-    sight.interesting = dict[@"Interesting"] != nil ? dict[@"Interesting"] : @"";
-    sight.mustSee = dict[@"MustSee"] != nil ? dict[@"MustSee"] : @"";
-    sight.address = dict[@"Address"] != nil ? dict[@"Address"] : @"";
-    sight.phones = dict[@"Phones"] != nil ? dict[@"Phones"] : @"";
-    sight.metro = dict[@"Metro"] != nil ? dict[@"Metro"] : @"";
-}
-
-- (double)recognizeLatitudeFromCoordString:(NSString *)string {
-    
-    NSArray *components = [string componentsSeparatedByString:@" "];
-    if (components.count > 1) {
-        double lat = [(NSString *)components[0] doubleValue];
-        return lat;
+    NSDictionary *mapping = [DISight propertyMapping];
+    for (NSString *key in dict.allKeys) {
+        NSString *objectKey = mapping[key];
+        if (objectKey) {
+            [sight setValue:dict[key] forKey:objectKey];
+        }
     }
-    return 0.;
 }
 
-- (double)recognizeLongitudeFromCoordString:(NSString *)string {
-    
-    NSArray *components = [string componentsSeparatedByString:@" "];
-    if (components.count > 1)
-        return [components[1] doubleValue];
-    return 0.;
-}
+
 
 @end

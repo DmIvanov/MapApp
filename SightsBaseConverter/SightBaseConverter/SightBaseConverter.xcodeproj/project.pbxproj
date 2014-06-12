@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0A21C2F3190EB1D600EEBCF3 /* DISight.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A21C2F2190EB1D600EEBCF3 /* DISight.m */; };
 		0A21C2F7190F75F800EEBCF3 /* DIHint.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A21C2F6190F75F800EEBCF3 /* DIHint.m */; };
+		0A6C295F1949F593004BECFE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4374214190D3C390095D51E /* Foundation.framework */; };
 		C4374210190D3C390095D51E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C437420F190D3C390095D51E /* Cocoa.framework */; };
 		C437421A190D3C390095D51E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C4374218190D3C390095D51E /* InfoPlist.strings */; };
 		C437421C190D3C390095D51E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C437421B190D3C390095D51E /* main.m */; };
@@ -40,6 +41,7 @@
 		0A21C2F2190EB1D600EEBCF3 /* DISight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DISight.m; sourceTree = "<group>"; };
 		0A21C2F5190F75F800EEBCF3 /* DIHint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DIHint.h; path = Objects/Hint/DIHint.h; sourceTree = "<group>"; };
 		0A21C2F6190F75F800EEBCF3 /* DIHint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DIHint.m; path = Objects/Hint/DIHint.m; sourceTree = "<group>"; };
+		0A6C295E1949E31C004BECFE /* Defaults.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Defaults.h; sourceTree = "<group>"; };
 		C437420C190D3C390095D51E /* SightBaseConverter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SightBaseConverter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C437420F190D3C390095D51E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		C4374212190D3C390095D51E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -70,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A6C295F1949F593004BECFE /* Foundation.framework in Frameworks */,
 				C4374210190D3C390095D51E /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -161,6 +164,7 @@
 				C4374221190D3C390095D51E /* DIAppDelegate.h */,
 				C4374222190D3C390095D51E /* DIAppDelegate.m */,
 				C4374224190D3C390095D51E /* MainMenu.xib */,
+				0A6C295E1949E31C004BECFE /* Defaults.h */,
 				C437422A190D3C390095D51E /* Images.xcassets */,
 				C4374227190D3C390095D51E /* SightBaseConverter.xcdatamodeld */,
 				C4374216190D3C390095D51E /* Supporting Files */,

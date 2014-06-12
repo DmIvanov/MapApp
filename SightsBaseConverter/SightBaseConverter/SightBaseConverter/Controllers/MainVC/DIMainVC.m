@@ -74,25 +74,48 @@
 }
 
 
-- (NSDictionary *)objectDictAtURL:(NSURL *)url {
+- (NSDictionary *)objectDictFromFiles:(NSArray *)objectFiles {
     
-    NSURL *infoPath = [url URLByAppendingPathComponent:@"info.txt"];
-    NSString *contentString = [NSString stringWithContentsOfURL:infoPath
-                                                       encoding:NSUTF8StringEncoding
-                                                          error:nil];
-    if (contentString) {
-        NSMutableDictionary *objectDict = [NSMutableDictionary new];
-        NSArray *components = [contentString componentsSeparatedByString:@"\n\n\n"];
-        for (NSString *compString in components) {
-            NSArray *keyValueArray = [compString componentsSeparatedByString:@"\n\n"];
-            if (keyValueArray.count > 1)
-                [objectDict setValue:keyValueArray[1] forKey:keyValueArray[0]];
+    NSMutableDictionary *objectDict = [NSMutableDictionary new];
+
+    for (NSURL *filePath in objectFiles) {
+        NSString *ext = [filePath pathExtension];
+        NSString *name = [filePath lastPathComponent];
+        NSString *contentString = [NSString stringWithContentsOfURL:filePath
+                                                           encoding:NSWindowsCP1251StringEncoding
+                                                              error:nil];
+        if ([ext isEqualToString:@"txt"]) {
+            NSRange range = [name rangeOfString:@"info"];
+            if (range.location != NSNotFound) {
+                NSArray *components = [contentString componentsSeparatedByString:@"\r\n\r\n\r\n"];
+                for (NSString *compString in components) {
+                    NSArray *keyValueArray = [compString componentsSeparatedByString:@"\r\n\r\n"];
+                    if (keyValueArray.count > 1)
+                        [objectDict setValue:keyValueArray[1] forKey:keyValueArray[0]];
+                }
+
+            }
+        }
+        
+        else if ([ext isEqualToString:@"png"] || [ext isEqualToString:@"jpg"] || [ext isEqualToString:@"jpeg"]) {
+            NSData *imageData = [NSData dataWithContentsOfURL:filePath];
+            NSRange range = [name rangeOfString:@"avatar"];
+            if (range.location != NSNotFound) {
+                [objectDict setObject:imageData forKey:@"avatarData"];
+            }
+        }
+        
+        else if ([ext isEqualToString:@"html"] || [ext isEqualToString:@"htm"]) {
+            NSArray *comp = [name componentsSeparatedByString:@"."];
+            if (comp.count == 2) {
+                NSString *key = comp[0];
+                [objectDict setObject:contentString forKey:key];
+            }
         }
         //NSLog(@"%@", objectDict);
-        return objectDict;
     }
-    else
-        return nil;
+
+    return objectDict;
 }
 
 
@@ -128,7 +151,7 @@
                                                                                             options:NSDirectoryEnumerationSkipsHiddenFiles
                                                                                               error:nil];
             if (objectFolderContent.count) {
-                NSDictionary *objectDict = [self objectDictAtURL:objectFolderPath];
+                NSDictionary *objectDict = [self objectDictFromFiles:objectFolderContent];
                 DISight *sight = [(DIAppDelegate *)[NSApplication sharedApplication].delegate createAndSaveItemFromDictionary:objectDict];
                 if (sight) {
                     [sights addObject:sight];

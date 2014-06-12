@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>2578BD9B-D70C-4B0B-847B-BD0237B6AD45</string>
+	<key>IDESourceControlProjectName</key>
+	<string>SightBaseConverter</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>FE507FE8-D8B9-4F8C-8141-6EF1757C1B47</key>
+		<string>https://github.com/DmIvanov/MapApp.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>SightsBaseConverter/SightBaseConverter/SightBaseConverter.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>FE507FE8-D8B9-4F8C-8141-6EF1757C1B47</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/DmIvanov/MapApp.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>FE507FE8-D8B9-4F8C-8141-6EF1757C1B47</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>FE507FE8-D8B9-4F8C-8141-6EF1757C1B47</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MapApp</string>
+		</dict>
+	</array>
+</dict>
+</plist>

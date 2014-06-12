@@ -1,29 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13C1021" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13D65" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="DISight" syncable="YES">
-        <attribute name="about" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="avatarData" optional="YES" attributeType="Binary" syncable="YES"/>
-        <attribute name="direction" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="history" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="interesting" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="latitudeNumber" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="listAbout" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="listContacts" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="listHistory" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="listInteresting" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="listNow" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="longitudeNumber" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="metro" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="mustSee" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="now" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="phones" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="priceAdditional" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="priceCategories" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="priceNumber" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="scheduleArrayString" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="scheduleString" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="shortDescriptionString" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="sightType" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="site" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="DISight" positionX="-63" positionY="-18" width="128" height="360"/>
+        <element name="DISight" positionX="-63" positionY="-18" width="128" height="240"/>
     </elements>
 </model>
