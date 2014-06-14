@@ -231,11 +231,31 @@
     for (NSString *key in dict.allKeys) {
         NSString *objectKey = mapping[key];
         if (objectKey) {
-            [sight setValue:dict[key] forKey:objectKey];
+            [self setRawValue:dict[key] forKey:objectKey forSight:sight];
         }
     }
 }
 
+- (void)setCoordinatesFromString:(NSString *)string forSight:(DISight *)sight {
+    
+    NSArray *components = [string componentsSeparatedByString:@" "];
+    if (components.count > 1) {
+        sight.latitudeNumber = @([(NSString *)components[0] doubleValue]);
+        sight.longitudeNumber = @([(NSString *)components[1] doubleValue]);
+    }
+}
 
+- (void)setRawValue:(id)value forKey:(NSString *)key forSight:(DISight *)sight {
+    
+    if ([key isEqualToString:@"latitudeNumber"]) {
+        [self setCoordinatesFromString:value forSight:sight];
+    }
+    
+    else if ([key isEqualToString:@"priceNumber"])
+        [sight setValue:@([(NSString *)value doubleValue]) forKey:key];
+        
+    else
+        [sight setValue:value forKey:key];
+}
 
 @end

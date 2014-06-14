@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13D65" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="DISight" syncable="YES">
+        <attribute name="avatarData" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="latitudeNumber" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="listAbout" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="listContacts" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="listHistory" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="listInteresting" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="listNow" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="longitudeNumber" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="priceNumber" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="scheduleArrayString" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="shortDescriptionString" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sightType" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="DISight" positionX="-63" positionY="-18" width="128" height="240"/>
+    </elements>
+</model>

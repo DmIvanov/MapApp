@@ -6,38 +6,37 @@
 //  Copyright (c) 2014 Dmitry Ivanov. All rights reserved.
 //
 
-#import "DISightList.h"
+#import <Foundation/Foundation.h>
 
 
 typedef NS_ENUM(NSUInteger, SightType) {
-    SightTypeOther,         //прочие
     SightTypeChosen,        //выбранные
     SightTypeInteresting,   //интересные
     SightTypeDone,          //посещённые
+    SightTypeOther,         //прочие
     SightTypeLocal          //локальные
 };
 
 
 @interface DISight : NSObject
 
-@property (nonatomic) SightType sightType;
+@property (nonatomic, strong) NSData *avatarData;
 
 @property (nonatomic) NSNumber *latitudeNumber;
 @property (nonatomic) NSNumber *longitudeNumber;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *shortDescriptionString;
-@property (nonatomic, strong) NSString *scheduleString;
-@property (nonatomic, strong) NSArray *scheduleArray;
-@property (nonatomic, strong) NSArray *scheduleArrayString;
+@property (nonatomic, strong) NSString *scheduleArrayString;
 @property (nonatomic) NSNumber *priceNumber;
-@property (nonatomic, strong) NSString *priceAdditional;
-@property (nonatomic, strong) NSString *priceCategories;
-@property (nonatomic, strong) NSString *address;
-@property (nonatomic, strong) NSString *metro;
-@property (nonatomic, strong) NSString *phones;
 
-@property (nonatomic, strong) NSDictionary *list;
+@property (nonatomic, strong) NSString *listAbout;
+@property (nonatomic, strong) NSString *listContacts;
+@property (nonatomic, strong) NSString *listHistory;
+@property (nonatomic, strong) NSString *listInteresting;
+@property (nonatomic, strong) NSString *listNow;
 
-@property (nonatomic, strong) NSData *avatarData;
+@property (nonatomic) SightType sightType;
+
++ (NSDictionary *)propertyMapping;
 
 @end

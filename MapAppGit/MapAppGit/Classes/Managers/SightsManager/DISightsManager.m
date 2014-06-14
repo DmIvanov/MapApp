@@ -8,7 +8,14 @@
 
 #import "DISightsManager.h"
 
-#import "DISight.h"
+#import "DISightExtended.h"
+
+@interface DISightsManager ()
+{
+    NSMutableDictionary *_avatars;
+}
+
+@end
 
 @implementation DISightsManager
 
@@ -31,7 +38,7 @@
     
     self = [super init];
     if (self) {
-        
+        _avatars = [NSMutableDictionary dictionaryWithCapacity:100];
     }
     return self;
 }
@@ -76,7 +83,7 @@
     if (_managedObjectModel != nil) {
         return _managedObjectModel;
     }
-    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"MapAppGit" withExtension:@"momd"];
+    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"SightBaseConverter" withExtension:@"momd"];
     _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     return _managedObjectModel;
 }
@@ -89,7 +96,7 @@
         return _persistentStoreCoordinator;
     }
     
-    //NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"MapAppGit.sqlite"];
+    //NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"SightsBase.sqlite"];
     NSURL *storeURL = [[NSBundle mainBundle] URLForResource:@"SightsBase" withExtension:@"sqlite"];
     
     NSError *error = nil;
@@ -139,11 +146,14 @@
         NSLog(@"AppDelegate: Failed to execute NFetchRequest. Error = %@", error);
     }
     
-    for (NSUInteger i=0; i<5; i++) {
-        items = [items arrayByAddingObjectsFromArray:items];
+    NSMutableArray *extItems = [NSMutableArray arrayWithCapacity:100];
+    for (DISight *sight in items) {
+        DISightExtended *extSight = [DISightExtended new];
+        extSight.originalSight = sight;
+        [extItems addObject:extSight];
     }
     
-    return items;
+    return extItems;
 }
 
 
@@ -164,5 +174,17 @@
     return tilesFolderPath;
 }
 
+//
+//- (UIImage *)avatarForSight:(DISight *)sight {
+//    
+//    NSString *hash = [NSString stringWithFormat:@"%ul", sight.hash];
+//    UIImage *image = _avatars[hash];
+//    if (!image) {
+//        image = [UIImage imageWithData:sight.avatarData];
+//        [_avatars setObject:image forKey:hash];
+//    }
+//    
+//    return image;
+//}
 
 @end

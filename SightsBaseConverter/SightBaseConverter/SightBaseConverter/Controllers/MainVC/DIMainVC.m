@@ -12,7 +12,12 @@
 #import "DISight.h"
 #import "DIHint.h"
 
+#define FOLDER_PATH_DEFAULTS_KEY        @"sightBaseConverter_folderPath"
+
 @interface DIMainVC ()
+{
+    NSString *_directoryString;
+}
 
 @property (nonatomic, strong) IBOutlet NSButton *buttonFolder;
 @property (nonatomic, strong) IBOutlet NSTextField *pathField;
@@ -29,6 +34,15 @@
         // Initialization code here.
     }
     return self;
+}
+
+- (void)loadView {
+    
+    [super loadView];
+    
+    _directoryString = [[NSUserDefaults standardUserDefaults] objectForKey:FOLDER_PATH_DEFAULTS_KEY];
+    if (_directoryString)
+        [_pathField setStringValue:_directoryString];
 }
 
 - (IBAction)buttonFolderPressed:(id)sender {
@@ -55,8 +69,10 @@
         return;
     }
     
-    [_pathField setStringValue:[url absoluteString]];
-    NSDictionary *contentDict = [self recognizeContentAtDirectory:url];
+    NSString *urlString = [url absoluteString];
+    [[NSUserDefaults standardUserDefaults] setObject:urlString forKey:FOLDER_PATH_DEFAULTS_KEY];
+    [_pathField setStringValue:urlString];
+    [self recognizeContentAtDirectory:url];
 }
 
 -(void)openDialog {
@@ -65,6 +81,8 @@
     [panel setAllowsMultipleSelection:NO];
     [panel setCanChooseDirectories:YES];
     [panel setCanChooseFiles:NO];
+    [panel setDirectoryURL:[NSURL URLWithString:_directoryString]];
+    
     [panel beginWithCompletionHandler:^(NSInteger result) {
         if (result == NSFileHandlingPanelOKButton) {
             NSURL *theDoc = [[panel URLs] objectAtIndex:0];
@@ -85,7 +103,7 @@
                                                            encoding:NSWindowsCP1251StringEncoding
                                                               error:nil];
         if ([ext isEqualToString:@"txt"]) {
-            NSRange range = [name rangeOfString:@"info"];
+            NSRange range = [name rangeOfString:@"Info"];
             if (range.location != NSNotFound) {
                 NSArray *components = [contentString componentsSeparatedByString:@"\r\n\r\n\r\n"];
                 for (NSString *compString in components) {

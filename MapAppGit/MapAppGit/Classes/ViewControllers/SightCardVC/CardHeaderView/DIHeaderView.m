@@ -8,6 +8,14 @@
 
 #import "DIHeaderView.h"
 
+#import "DICardTVItem.h"
+
+@interface DIHeaderView ()
+
+@property (nonatomic, strong) IBOutlet UILabel *label;
+
+@end
+
 @implementation DIHeaderView
 
 - (void)awakeFromNib {
@@ -21,6 +29,18 @@
 - (void)recognizerTapped:(id)sender {
     
     [_delegate headerTapped:self];
+}
+
+- (void)refreshContent {
+    
+    NSString *openCloseImageName = _item.opened ? @"info_button_expandClosure" : @"info_button_collapseClosure";
+    _openCloseImageView.image = [UIImage imageNamed:openCloseImageName];
+}
+
+- (void)setItem:(DICardTVItem *)item {
+    
+    _item = item;
+    _label.text = item.keyString;
 }
 
 @end

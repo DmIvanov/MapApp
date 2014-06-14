@@ -13,5 +13,6 @@
 @interface DIListMapVC : DIBaseVC <DIDoubleSwipeViewDelegate>
 
 - (void)navibarPositionManagingWithOffset:(CGFloat)offset;
+- (void)setStatusbarNavibarHidden:(BOOL)hidden;
 
 @end

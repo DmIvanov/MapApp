@@ -23,5 +23,6 @@
 - (id)copy __attribute__((unavailable("copy is not available, use class methods 'sharedInstance' instead!")));
 
 - (NSArray *)dataArray;
+//- (UIImage *)avatarForSight:(DISight *)sight;
 
 @end

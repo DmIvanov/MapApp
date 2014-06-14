@@ -18,6 +18,10 @@
 @property (nonatomic, weak) id <DIHeaderViewDelegate> delegate;
 @property (nonatomic, weak) DICardTVItem *item;
 
+@property (nonatomic, strong) IBOutlet UIImageView *openCloseImageView;
+
+- (void)refreshContent;
+
 @end
 
 

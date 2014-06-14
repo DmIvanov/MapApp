@@ -10,7 +10,7 @@
 
 #import <objc/runtime.h>
 
-#import "DISight.h"
+#import "DISightExtended.h"
 #import "DIBarButton.h"
 #import "DIHeaderView.h"
 #import "DICardTVItem.h"
@@ -23,14 +23,11 @@
 @interface DISightCardVC ()
 {
     NSMutableArray *_datasource;
-    NSMutableDictionary *_tvDataDict;
 }
 
 @property (nonatomic, strong) IBOutlet UIView *mainInfoView;
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) IBOutlet UIImageView *imageView;
-
-@property (nonatomic, strong) NSDictionary *tvProperties;
 
 @end
 
@@ -40,11 +37,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        _datasource = [NSMutableArray arrayWithCapacity:20];
-        for (NSUInteger i=0; i < 10; i++) {
-            DICardTVItem *item = [DICardTVItem new];
-            [_datasource addObject:item];
-        }
+        _datasource = [NSMutableArray arrayWithCapacity:10];
     }
     return self;
 }
@@ -53,7 +46,7 @@
 {
     [super viewDidLoad];
     
-    _imageView.image = _image;
+    _imageView.image = _sight.avatarImage;
     
     UINib *header = [UINib nibWithNibName:@"DIHeaderView" bundle:nil];
     [_tableView registerNib:header forHeaderFooterViewReuseIdentifier:HEADER_ID];
@@ -169,7 +162,7 @@
 
         DICardTVItem *item = _datasource[section - 1];
         if (!item.webView)
-            item.webView = [self webViewForIndex:section];
+            [self setWebViewForItem:item];
         [cell.contentView addSubview:item.webView];
     }
     cell.userInteractionEnabled = NO;
@@ -190,6 +183,7 @@
         header.section = section;
         DICardTVItem *item = _datasource[section-1];
         header.item = item;
+        [header refreshContent];
         return header;
     }
 }
@@ -221,13 +215,15 @@
     
     [_tableView beginUpdates];
     if (item.opened) {
-        [_tableView deleteRowsAtIndexPaths:indexes withRowAnimation:UITableViewRowAnimationTop];
+        [_tableView deleteRowsAtIndexPaths:indexes withRowAnimation:UITableViewRowAnimationFade];
     }
     else {
-        [_tableView insertRowsAtIndexPaths:indexes withRowAnimation:UITableViewRowAnimationTop];
+        [_tableView insertRowsAtIndexPaths:indexes withRowAnimation:UITableViewRowAnimationFade];
     }
     item.opened = !item.opened;
     [_tableView endUpdates];
+    
+    [header refreshContent];
 }
 
 
@@ -235,36 +231,46 @@
 
 #pragma mark - Other functions
 
-- (UIWebView *)webViewForIndex:(NSUInteger)index {
-    
-    NSString *htmlFile;
-    switch (index%3) {
-        case 0:
-            htmlFile = [[NSBundle mainBundle] pathForResource:@"text" ofType:@"html"];
-            break;
-            
-        case 1:
-            htmlFile = [[NSBundle mainBundle] pathForResource:@"text" ofType:@"html"];
-            break;
-            
-        default:
-            htmlFile = [[NSBundle mainBundle] pathForResource:@"text" ofType:@"html"];
-            break;
-    }
+- (void)setWebViewForItem:(DICardTVItem *)item {
     
     UIWebView *webView = [UIWebView new];
     webView.scrollView.scrollEnabled = NO;
     webView.frame = CGRectMake(0, 0, SCREEN_SIZE.width, 1);
-    NSError *error = nil;
-    NSString *string = [NSString stringWithContentsOfFile:htmlFile encoding:NSWindowsCP1251StringEncoding error:&error];
-    [webView loadHTMLString:string baseURL:[[NSBundle mainBundle] bundleURL]];
     webView.delegate = self;
-    
-    return webView;
+    [webView loadHTMLString:item.htmlString baseURL:[[NSBundle mainBundle] bundleURL]];
+    item.webView = webView;
 }
+
+- (void)createPropertyList {
+    
+    for (NSString *key in [self listProperties]) {
+        NSString *htmlValue = [_sight.originalSight valueForKey:key];
+        if (htmlValue) {
+            DICardTVItem *newItem = [DICardTVItem new];
+            newItem.keyString = key;
+            newItem.htmlString = htmlValue;
+            [_datasource addObject:newItem];
+        }
+    }
+}
+
 
 #pragma mark - Setters & getters
 
+- (NSArray *)listProperties {
+
+    return @[@"listAbout",
+             @"listHistory",
+             @"listNow",
+             @"listContacts",
+             @"listInteresting"];
+}
+
+- (void)setSight:(DISightExtended *)sight {
+    
+    _sight = sight;
+    [self createPropertyList];
+}
 
 
 @end

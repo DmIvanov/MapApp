@@ -63,10 +63,10 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
     _naviBar = self.navigationController.navigationBar;
-    [_naviBar addObserver:self
-               forKeyPath:@"frame"
-                  options:NSKeyValueObservingOptionNew
-                  context:nil];
+//    [_naviBar addObserver:self
+//               forKeyPath:@"frame"
+//                  options:NSKeyValueObservingOptionNew
+//                  context:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -75,11 +75,11 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)dealloc {
-    
-    [_naviBar removeObserver:self
-                  forKeyPath:@"frame"];
-}
+//- (void)dealloc {
+//    
+//    [_naviBar removeObserver:self
+//                  forKeyPath:@"frame"];
+//}
 
 
 #pragma mark - Actions
@@ -94,18 +94,18 @@
     [self setStatusbarNavibarHidden:YES];
 }
 
-
-#pragma mark - KVO
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    
-    if (object == _naviBar) {
-        if ([keyPath isEqualToString:@"frame"]) {
-            CGRect newFrame = [change[NSKeyValueChangeNewKey] CGRectValue];
-            [self navibarNewFrame:newFrame];
-        }
-    }
-}
+//
+//#pragma mark - KVO
+//
+//- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+//    
+//    if (object == _naviBar) {
+//        if ([keyPath isEqualToString:@"frame"]) {
+//            CGRect newFrame = [change[NSKeyValueChangeNewKey] CGRectValue];
+//            [self navibarNewFrame:newFrame];
+//        }
+//    }
+//}
 
 
 #pragma mark - Navibar/Statusbar cutomization
@@ -174,17 +174,17 @@
     }
 #endif
 }
-
-- (void)navibarNewFrame:(CGRect)frame {
-    
-    double scrollViewDelta = self.view.frame.origin.y - (_naviBar.frame.origin.y + _naviBar.frame.size.height);
-    if (scrollViewDelta) {
-        CGRect scrollFrame = self.view.frame;
-        scrollFrame.origin.y -= scrollViewDelta;
-        scrollFrame.size.height += scrollViewDelta;
-        self.view.frame = scrollFrame;
-    }
-}
+//
+//- (void)navibarNewFrame:(CGRect)frame {
+//    
+//    double scrollViewDelta = self.view.frame.origin.y - (_naviBar.frame.origin.y + _naviBar.frame.size.height);
+//    if (scrollViewDelta) {
+//        CGRect scrollFrame = self.view.frame;
+//        scrollFrame.origin.y -= scrollViewDelta;
+//        scrollFrame.size.height += scrollViewDelta;
+//        self.view.frame = scrollFrame;
+//    }
+//}
 
 - (DIBarButton *)customizeBarButton:(DIBarButton *)button {
     

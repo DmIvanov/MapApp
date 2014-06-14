@@ -11,7 +11,10 @@
 @interface DICardTVItem : NSObject
 
 @property (nonatomic) BOOL opened;
-@property (nonatomic, strong) NSString *title;
+
+@property (nonatomic, strong) NSString *keyString;
+@property (nonatomic, strong) NSString *htmlString;
+
 @property (nonatomic, strong) UIWebView *webView;
 
 @end

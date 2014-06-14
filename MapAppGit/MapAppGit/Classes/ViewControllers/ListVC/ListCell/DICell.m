@@ -8,8 +8,9 @@
 
 #import "DICell.h"
 
-#import "DISight.h"
+#import "DISightExtended.h"
 #import "ListVC.h"
+#import "DISightsManager.h"
 
 @interface DICell ()
 
@@ -37,16 +38,17 @@
 
 - (void)refreshContent {
     
-    _titleLabel.text = [NSString stringWithFormat:@"%ld - %@", (unsigned long)_index, _sight.name];
-    _imageView.image = _image;
-    //_bottomLabel.text = _sight.history;
+    _titleLabel.text = [NSString stringWithFormat:@"%ld - %@", (unsigned long)_index, _sight.originalSight.name];
+    _imageView.image = _sight.avatarImage;
+    _bottomLabel.text = _sight.originalSight.shortDescriptionString;
+    
     [self fillButtonAddImage];
 }
 
 - (void)fillButtonAddImage {
     
     NSString *imageName;
-    switch (_sight.sightType) {
+    switch (_sight.originalSight.sightType) {
         case SightTypeChosen:
             imageName = @"";
             break;

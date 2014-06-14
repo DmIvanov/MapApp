@@ -10,4 +10,23 @@
 
 @implementation DISight
 
++ (NSDictionary *)propertyMapping {
+    
+    return @{@"avatarData" :          @"avatarData",
+             @"Coordinates" :         @"latitudeNumber",
+             @"Name" :                @"name",
+             @"Price" :               @"priceNumber",
+             @"ScheduleTable" :       @"scheduleArrayString",
+             @"ShortDescription" :    @"shortDescriptionString",
+             @"SightType" :           @"sightType",
+             
+             @"About" :               @"listAbout",
+             @"Contacts" :            @"listContacts",
+             @"History" :             @"listHistory",
+             @"Interesting" :         @"listInteresting",
+             @"Now" :                 @"listNow"};
+}
+
+
+
 @end

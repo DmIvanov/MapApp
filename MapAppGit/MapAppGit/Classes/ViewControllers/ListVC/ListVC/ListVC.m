@@ -10,7 +10,7 @@
 
 #import "ListDefaults.h"
 #import "DISightsManager.h"
-#import "DISight.h"
+#import "DISightExtended.h"
 #import "DICell.h"
 #import "DILayout.h"
 #import "DIHelper.h"
@@ -78,10 +78,10 @@
     
     DICell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CELL_ID forIndexPath:indexPath];
     cell.listVC = self;
-    DISight *object = _dataArray[index];
+    DISightExtended *object = _dataArray[index];
     cell.sight = object;
     cell.index = index;
-    cell.image = [self randomSpbImage];
+    
     [cell refreshContent];
     
     return cell;
@@ -89,11 +89,11 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
+    [_listMapController setStatusbarNavibarHidden:NO];
     NSUInteger index = indexPath.item;
     DISight *object = _dataArray[index];
     DISightCardVC *sightCard = [DISightCardVC new];
     sightCard.sight = object;
-    sightCard.image = [self randomSpbImage];
     [self.listMapController.navigationController pushViewController:sightCard
                                                            animated:YES];
 }
@@ -212,10 +212,10 @@
     CGPoint offset = _tableView.contentOffset;
     static CGFloat delta;
     CGFloat velocity = [recognizer velocityInView:_tableView].y;
-    DLog(@"%f", velocity);
+    //DLog(@"%f", velocity);
     if (fabs(velocity) >= 500)
         coef = 1.0;
-    DLog(@"coef - %f", coef);
+    //DLog(@"coef - %f", coef);
     switch (recognizer.state) {
         case UIGestureRecognizerStateBegan:
             point = currentPoint;
