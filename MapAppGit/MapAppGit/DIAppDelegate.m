@@ -52,6 +52,7 @@
 #endif
     [self.window makeKeyAndVisible];
 
+    [[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];
     
     return YES;
 }

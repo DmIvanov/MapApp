@@ -14,14 +14,14 @@
 
 #pragma mark - Setters & getters
 
-- (UIImage *)avatarImage {
-    
-    if (!_avatarImage) {
-        _avatarImage = [UIImage imageWithData:_originalSight.avatarData];
-    }
-    
-    return _avatarImage;
-}
+//- (UIImage *)avatarImage {
+//    
+//    if (!_avatarImage) {
+//        _avatarImage = [UIImage imageWithData:_originalSight.avatarData];
+//    }
+//    
+//    return _avatarImage;
+//}
 
 //- (NSDictionary *)list {
 //    

@@ -11,7 +11,7 @@
 @interface DISightExtended : NSObject
 
 @property (nonatomic, strong) DISight *originalSight;
-@property (nonatomic, strong) UIImage *avatarImage;
+//@property (nonatomic, strong) UIImage *avatarImage;
 //@property (nonatomic, strong) NSDictionary *list;
 
 @end

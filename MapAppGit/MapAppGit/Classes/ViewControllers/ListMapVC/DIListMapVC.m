@@ -15,6 +15,10 @@
 #define VIEW_FRAME                  self.view.frame
 #define NAVIBAR_DELTA               44.
 
+#define TITLE_VIEW_FRAME            CGRectMake(0, 20, 280, 44)
+#define TITLE_LABEL_FRAME           CGRectMake(8, 10, 260, 20)
+#define TITLE_FONT                  [UIFont boldSystemFontOfSize:18.]
+
 
 @interface DIListMapVC ()
 {
@@ -58,7 +62,14 @@
     _bigView.delegate = self;
     self.view = _bigView;
     
-    self.navigationItem.title = @"Awesome Title!!";
+    //self.navigationItem.title = @"Awesome Title!!";
+    UIView *titleView = [[UIView alloc] initWithFrame:TITLE_VIEW_FRAME];
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:TITLE_LABEL_FRAME];
+    titleLabel.text = @"Around About";
+    titleLabel.textColor = [UIColor whiteColor];
+    titleLabel.font = TITLE_FONT;
+    [titleView addSubview:titleLabel];
+    self.navigationItem.titleView = titleView;
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
     

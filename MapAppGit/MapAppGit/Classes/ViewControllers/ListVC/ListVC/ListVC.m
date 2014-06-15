@@ -91,7 +91,7 @@
     
     [_listMapController setStatusbarNavibarHidden:NO];
     NSUInteger index = indexPath.item;
-    DISight *object = _dataArray[index];
+    DISightExtended *object = _dataArray[index];
     DISightCardVC *sightCard = [DISightCardVC new];
     sightCard.sight = object;
     [self.listMapController.navigationController pushViewController:sightCard
@@ -139,20 +139,14 @@
 #pragma mark - Other functions
 
 - (UICollectionViewLayout *)collectionViewLayout {
-#if 1
+
     DILayout *layout = [DILayout new];
     //UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
     [layout setScrollDirection:UICollectionViewScrollDirectionVertical];
     [layout setMinimumInteritemSpacing:0.];
     [layout setMinimumLineSpacing:0.];
     [layout setItemSize:CGSizeMake(SCREEN_SIZE.width, CELL_HEIGHT)];
-#else
-    DISlowLayout *layout = [DISlowLayout new];
-    [layout setScrollDirection:UICollectionViewScrollDirectionVertical];
-    [layout setMinimumInteritemSpacing:0.];
-    [layout setMinimumLineSpacing:0.];
-    [layout setItemSize:CGSizeMake(SCREEN_SIZE.width, CELL_HEIGHT)];
-#endif
+
     return layout;
 }
 
@@ -175,9 +169,8 @@
     [self.view addSubview:_tableView];
     
     //custom recognizer instead of native scrollView's one
-
-    _tableView.scrollEnabled = NO;
 #if 1
+    _tableView.scrollEnabled = NO;
     UIPanGestureRecognizer *recognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(recognized:)];
     recognizer.delegate = self;
     [_tableView addGestureRecognizer:recognizer];

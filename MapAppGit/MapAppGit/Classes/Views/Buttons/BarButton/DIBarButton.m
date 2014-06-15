@@ -14,7 +14,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
+        _insets = UIEdgeInsetsZero;
     }
     return self;
 }
@@ -30,14 +30,8 @@
 
 - (UIEdgeInsets)alignmentRectInsets {
     
-    UIEdgeInsets insets;
-    if (_sideMode == SideModeLeft) {
-        insets = UIEdgeInsetsMake(0, 16, 0, 0);
-    } else if (_sideMode == SideModeRight) { // IF_ITS_A_RIGHT_BUTTON
-        insets = UIEdgeInsetsMake(0, 0, 0, 16);
-    } else
-        insets = UIEdgeInsetsMake(0, 0, 0, 0);
-    return insets;
+    //define insets in customizeBarButton: of your VC
+    return _insets;
 }
 
 @end

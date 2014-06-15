@@ -39,10 +39,20 @@
 - (void)refreshContent {
     
     _titleLabel.text = [NSString stringWithFormat:@"%ld - %@", (unsigned long)_index, _sight.originalSight.name];
-    _imageView.image = _sight.avatarImage;
+    [self loadImage];
     _bottomLabel.text = _sight.originalSight.shortDescriptionString;
     
     [self fillButtonAddImage];
+}
+
+- (void)loadImage {
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        UIImage *image = [UIImage imageWithData:_sight.originalSight.avatarData];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            _imageView.image = image;
+        });
+    });
 }
 
 - (void)fillButtonAddImage {

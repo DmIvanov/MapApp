@@ -17,5 +17,6 @@ typedef NS_ENUM(NSUInteger, BarButtonSideMode) {
 @interface DIBarButton : UIButton
 
 @property (nonatomic) BarButtonSideMode sideMode;
+@property (nonatomic) UIEdgeInsets insets;
 
 @end

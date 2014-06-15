@@ -50,6 +50,7 @@
     
     DIBarButton *buttonLeft = [[DIBarButton alloc] initWithFrame:CGRectMake(0, 0, 44, 44)];
     buttonLeft.sideMode = SideModeLeft;
+    buttonLeft.insets = UIEdgeInsetsMake(0, 16, 0, 0);
     [buttonLeft addTarget:self
                     action:@selector(barButtonLeftPressed)
           forControlEvents:UIControlEventTouchUpInside];
@@ -61,6 +62,7 @@
     
     DIBarButton *buttonRight = [[DIBarButton alloc] initWithFrame:CGRectMake(SCREEN_SIZE.width - 44, 0, 44, 44)];
     buttonRight.sideMode = SideModeRight;
+    buttonRight.insets = UIEdgeInsetsMake(0, 0, 0, 16);
     [buttonRight addTarget:self
                     action:@selector(barButtonRightPressed)
           forControlEvents:UIControlEventTouchUpInside];
@@ -86,14 +88,3 @@
 }
 
 @end
-
-/*
-@implementation UINavigationBar (UINavigationBarCategory)
-
-- (void)drawRect:(CGRect)rect {
-    UIImage *image = ;
-    [image drawInRect:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
-}
-
-@end
-*/

@@ -8,7 +8,7 @@
 
 #import "DISightCardVC.h"
 
-#import <objc/runtime.h>
+//#import <objc/runtime.h>
 
 #import "DISightExtended.h"
 #import "DIBarButton.h"
@@ -20,6 +20,11 @@
 #define HEADER_HEIGHT       76.
 
 
+#define TITLE_VIEW_FRAME            CGRectMake(0, 20, 280, 44)
+#define TITLE_LABEL_FRAME           CGRectMake(8, 10, 260, 20)
+#define TITLE_FONT                  [UIFont boldSystemFontOfSize:18.]
+
+
 @interface DISightCardVC ()
 {
     NSMutableArray *_datasource;
@@ -28,6 +33,7 @@
 @property (nonatomic, strong) IBOutlet UIView *mainInfoView;
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) IBOutlet UIImageView *imageView;
+@property (nonatomic, strong) IBOutlet UILabel *firstLabel;
 
 @end
 
@@ -46,10 +52,24 @@
 {
     [super viewDidLoad];
     
-    _imageView.image = _sight.avatarImage;
+    _imageView.image = [UIImage imageWithData:_sight.originalSight.avatarData];
+    //self.navigationItem.title = _sight.originalSight.name;
+    
+    UIView *titleView = [[UIView alloc] initWithFrame:TITLE_VIEW_FRAME];
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:TITLE_LABEL_FRAME];
+    titleLabel.text = _sight.originalSight.name;
+    titleLabel.textColor = [UIColor colorWithRed:40./255
+                                           green:87./255
+                                            blue:149./255
+                                           alpha:1.];
+    titleLabel.font = TITLE_FONT;
+    [titleView addSubview:titleLabel];
+    self.navigationItem.titleView = titleView;
     
     UINib *header = [UINib nibWithNibName:@"DIHeaderView" bundle:nil];
     [_tableView registerNib:header forHeaderFooterViewReuseIdentifier:HEADER_ID];
+    
+    _firstLabel.text = _sight.originalSight.name;
 }
 
 - (void)didReceiveMemoryWarning
@@ -74,10 +94,12 @@
     
     if (button.sideMode == SideModeLeft) {
         [button setImage:[UIImage imageNamed:@"info_tittlebar_button_back"] forState:UIControlStateNormal];
+        button.insets = UIEdgeInsetsMake(0, 18, 0, 0);
         return button;
     }
     else if (button.sideMode == SideModeRight) {
         [button setImage:[UIImage imageNamed:@"info_tittlebar_button_add_unpressed"] forState:UIControlStateNormal];
+        button.insets = UIEdgeInsetsMake(0, 0, 0, 18);
         return button;
     }
     

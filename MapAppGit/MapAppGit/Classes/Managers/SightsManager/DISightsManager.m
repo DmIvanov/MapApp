@@ -12,7 +12,7 @@
 
 @interface DISightsManager ()
 {
-    NSMutableDictionary *_avatars;
+    NSMutableArray *_sights;
 }
 
 @end
@@ -38,7 +38,7 @@
     
     self = [super init];
     if (self) {
-        _avatars = [NSMutableDictionary dictionaryWithCapacity:100];
+        _sights = [NSMutableArray arrayWithCapacity:100];
     }
     return self;
 }
@@ -146,15 +146,30 @@
         NSLog(@"AppDelegate: Failed to execute NFetchRequest. Error = %@", error);
     }
     
-    NSMutableArray *extItems = [NSMutableArray arrayWithCapacity:100];
-    for (DISight *sight in items) {
-        DISightExtended *extSight = [DISightExtended new];
-        extSight.originalSight = sight;
-        [extItems addObject:extSight];
+    for (NSUInteger i=0; i<100; i++) {
+        for (DISight *sight in items) {
+            DISightExtended *extSight = [DISightExtended new];
+            extSight.originalSight = sight;
+            [_sights addObject:extSight];
+            DLog(@"size - %.3f", (CGFloat)sight.avatarData.length/1000);
+        }
     }
     
-    return extItems;
+    //caching all the images for fast list animation (till we have less than 100 objects)
+    //[self bgPhotoPprocessing];
+    
+    return _sights;
 }
+
+//- (void)bgPhotoPprocessing {
+//    
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//        for (DISightExtended *sight in _sights) {
+//            [sight avatarImage];
+//            //DLog(@"size - %.3f", (CGFloat)sight.originalSight.avatarData.length/1000);
+//        }
+//    });
+//}
 
 
 #pragma mark - Pathes and URLs
