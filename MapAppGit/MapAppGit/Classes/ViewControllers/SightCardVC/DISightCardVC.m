@@ -28,6 +28,7 @@
 @interface DISightCardVC ()
 {
     NSMutableArray *_datasource;
+    NSIndexPath *_loadingWebViewIndexPath;
 }
 
 @property (nonatomic, strong) IBOutlet UIView *mainInfoView;
@@ -183,8 +184,10 @@
         }
 
         DICardTVItem *item = _datasource[section - 1];
-        if (!item.webView)
+        if (!item.webView) {
             [self setWebViewForItem:item];
+            _loadingWebViewIndexPath = indexPath;
+        }
         [cell.contentView addSubview:item.webView];
     }
     cell.userInteractionEnabled = NO;
@@ -223,6 +226,9 @@
     webView.frame = frame;
     
     [_tableView reloadData];
+    
+    [_tableView scrollToRowAtIndexPath:_loadingWebViewIndexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    _loadingWebViewIndexPath = nil;
 }
 
 
@@ -244,6 +250,10 @@
     }
     item.opened = !item.opened;
     [_tableView endUpdates];
+    
+    if (item.opened && !_loadingWebViewIndexPath) {
+        [_tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    }
     
     [header refreshContent];
 }
