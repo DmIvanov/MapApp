@@ -24,6 +24,7 @@
 		C437423D190D3C390095D51E /* SightBaseConverterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C437423C190D3C390095D51E /* SightBaseConverterTests.m */; };
 		C437424E190D408C0095D51E /* DIMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C437424C190D408C0095D51E /* DIMainVC.m */; };
 		C437424F190D408C0095D51E /* DIMainVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C437424D190D408C0095D51E /* DIMainVC.xib */; };
+		C4ECD2841969951400D733B0 /* DIStringFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = C4ECD2831969951400D733B0 /* DIStringFormatter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,8 @@
 		C437424B190D408C0095D51E /* DIMainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DIMainVC.h; path = Controllers/MainVC/DIMainVC.h; sourceTree = "<group>"; };
 		C437424C190D408C0095D51E /* DIMainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DIMainVC.m; path = Controllers/MainVC/DIMainVC.m; sourceTree = "<group>"; };
 		C437424D190D408C0095D51E /* DIMainVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DIMainVC.xib; path = Controllers/MainVC/DIMainVC.xib; sourceTree = "<group>"; };
+		C4ECD2821969951400D733B0 /* DIStringFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DIStringFormatter.h; path = Utils/StringFormatter/DIStringFormatter.h; sourceTree = "<group>"; };
+		C4ECD2831969951400D733B0 /* DIStringFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DIStringFormatter.m; path = Utils/StringFormatter/DIStringFormatter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +162,7 @@
 		C4374215190D3C390095D51E /* SightBaseConverter */ = {
 			isa = PBXGroup;
 			children = (
+				C4ECD280196994D100D733B0 /* Utils */,
 				0A21C2EF190EB1BE00EEBCF3 /* Objects */,
 				C4374249190D402C0095D51E /* Controllers */,
 				C4374221190D3C390095D51E /* DIAppDelegate.h */,
@@ -218,6 +222,23 @@
 				C437424D190D408C0095D51E /* DIMainVC.xib */,
 			);
 			name = MainVC;
+			sourceTree = "<group>";
+		};
+		C4ECD280196994D100D733B0 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C4ECD281196994DA00D733B0 /* StringFormatter */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		C4ECD281196994DA00D733B0 /* StringFormatter */ = {
+			isa = PBXGroup;
+			children = (
+				C4ECD2821969951400D733B0 /* DIStringFormatter.h */,
+				C4ECD2831969951400D733B0 /* DIStringFormatter.m */,
+			);
+			name = StringFormatter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -323,6 +344,7 @@
 				C437424E190D408C0095D51E /* DIMainVC.m in Sources */,
 				C4374229190D3C390095D51E /* SightBaseConverter.xcdatamodeld in Sources */,
 				C437421C190D3C390095D51E /* main.m in Sources */,
+				C4ECD2841969951400D733B0 /* DIStringFormatter.m in Sources */,
 				0A21C2F3190EB1D600EEBCF3 /* DISight.m in Sources */,
 				C4374223190D3C390095D51E /* DIAppDelegate.m in Sources */,
 				0A21C2F7190F75F800EEBCF3 /* DIHint.m in Sources */,

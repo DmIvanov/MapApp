@@ -15,6 +15,8 @@
 #import "DICloudeMadeManager.h"
 #import "DINotificationNames.h"
 #import "DISettingsManager.h"
+#import "DISightsManager.h"
+#import "DISight.h"
 #import "DIHelper.h"
 
 
@@ -23,6 +25,7 @@
 @property (nonatomic, strong) DIMapSourceManager *mapSourceManager;
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, strong) RMMarker *currentLocationMarker;
+@property (nonatomic, strong) NSMutableArray  *dataArray;
 
 @end
 
@@ -36,6 +39,8 @@
         //_mapSourceManager = [[DICloudeMadeManager alloc] init];
         _locationManager = [CLLocationManager new];
         _locationManager.delegate = self;
+        
+        _dataArray = [NSMutableArray arrayWithArray:[[DISightsManager sharedInstance] dataArray]];
     }
     return self;
 }
@@ -56,6 +61,8 @@
                                                                  target:self
                                                                  action:@selector(buttonLocationPressed)];
     self.navigationItem.rightBarButtonItem = locButton;
+    
+    [self placeObjectsOnMap];
 }
 
 - (void)didReceiveMemoryWarning
@@ -138,5 +145,26 @@
     //DLog(@"zoom - %f", _mapView.contents.zoom);
 }
 
+
+#pragma mark - Other functions
+
+- (void)placeObjectsOnMap {
+    
+//    for (DISightExtended *sight in _dataArray) {
+//        [self placeOneObjectOnMap:sight];
+//    }
+    DISight *sight = _dataArray.firstObject;
+    [self placeOneObjectOnMap:sight];
+}
+
+- (void)placeOneObjectOnMap:(DISight *)sight {
+    
+#warning UpsideDown order
+    CLLocationCoordinate2D coord = CLLocationCoordinate2DMake([sight.longitudeNumber floatValue], [sight.latitudeNumber floatValue]);
+    DLog(@"%@ %@", sight.longitudeNumber, sight.latitudeNumber);
+    RMMarker *newMarker = [[RMMarker alloc] initWithUIImage:[UIImage imageNamed:@"marker-blue"]];
+    newMarker.anchorPoint = CGPointMake(0.5, 1.);
+    [_mapView.markerManager addMarker:newMarker AtLatLong:coord];
+}
 
 @end

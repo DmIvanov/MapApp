@@ -8,7 +8,7 @@
 
 #import "DISightsManager.h"
 
-#import "DISightExtended.h"
+#import "DISight.h"
 
 @interface DISightsManager ()
 {
@@ -38,7 +38,7 @@
     
     self = [super init];
     if (self) {
-        _sights = [NSMutableArray arrayWithCapacity:100];
+        
     }
     return self;
 }
@@ -135,28 +135,31 @@
 
 - (NSArray *)dataArray {
     
-    NSFetchRequest *request = [NSFetchRequest new];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"DISight"
-                                              inManagedObjectContext:self.managedObjectContext];
-    [request setEntity:entity];
-    NSError *error;
-    NSArray *items = [self.managedObjectContext executeFetchRequest:request
-                                                              error:&error];
-    if (error) {
-        NSLog(@"AppDelegate: Failed to execute NFetchRequest. Error = %@", error);
-    }
-    
-    for (NSUInteger i=0; i<100; i++) {
-        for (DISight *sight in items) {
-            DISightExtended *extSight = [DISightExtended new];
-            extSight.originalSight = sight;
-            [_sights addObject:extSight];
-            DLog(@"size - %.3f", (CGFloat)sight.avatarData.length/1000);
+    if (!_sights) {
+        _sights = [NSMutableArray arrayWithCapacity:100];
+        
+        NSFetchRequest *request = [NSFetchRequest new];
+        NSEntityDescription *entity = [NSEntityDescription entityForName:@"DISight"
+                                                  inManagedObjectContext:self.managedObjectContext];
+        [request setEntity:entity];
+        NSError *error;
+        NSArray *items = [self.managedObjectContext executeFetchRequest:request
+                                                                  error:&error];
+        if (error) {
+            NSLog(@"AppDelegate: Failed to execute NFetchRequest. Error = %@", error);
         }
+        
+        for (NSUInteger i=0; i<20; i++) {
+            for (NSManagedObject *sightObject in items) {
+                DISight *newSight = [[DISight alloc] initWithManagedObject:sightObject];
+                [_sights addObject:newSight];
+                //DLog(@"size - %.3f", (CGFloat)sight.avatarData.length/1000);
+            }
+        }
+        
+        //caching all the images for fast list animation (till we have less than 100 objects)
+        //[self bgPhotoPprocessing];
     }
-    
-    //caching all the images for fast list animation (till we have less than 100 objects)
-    //[self bgPhotoPprocessing];
     
     return _sights;
 }

@@ -10,7 +10,7 @@
 
 #import "ListDefaults.h"
 #import "DISightsManager.h"
-#import "DISightExtended.h"
+#import "DISight.h"
 #import "DICell.h"
 #import "DILayout.h"
 #import "DIHelper.h"
@@ -64,21 +64,25 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     
-    return _dataArray.count+1;
+    return _dataArray.count+2;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     NSUInteger index = indexPath.item;
     
-    if (index >= _dataArray.count) {
+    if (index == _dataArray.count) {
         DICell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CELL_ID_2 forIndexPath:indexPath];
+        return cell;
+    }
+    else if (index == _dataArray.count + 1) {
+        UICollectionViewCell *cell = [UICollectionViewCell new];
         return cell;
     }
     
     DICell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CELL_ID forIndexPath:indexPath];
     cell.listVC = self;
-    DISightExtended *object = _dataArray[index];
+    DISight *object = _dataArray[index];
     cell.sight = object;
     cell.index = index;
     
@@ -91,7 +95,7 @@
     
     [_listMapController setStatusbarNavibarHidden:NO];
     NSUInteger index = indexPath.item;
-    DISightExtended *object = _dataArray[index];
+    DISight *object = _dataArray[index];
     DISightCardVC *sightCard = [DISightCardVC new];
     sightCard.sight = object;
     [self.listMapController.navigationController pushViewController:sightCard
@@ -104,7 +108,7 @@
     static CGFloat lastOffset = 0.;
     CGFloat contentOffset = scrollView.contentOffset.y;
     _tableViewDeltaOffset = contentOffset - lastOffset;
-    
+    //DLog(@"last - %f, size - %f", contentOffset+SCREEN_SIZE.height, _tableView.contentSize.height);
     if (contentOffset > 0)
         [_listMapController navibarPositionManagingWithOffset:_tableViewDeltaOffset];
     
@@ -156,7 +160,7 @@
                                     collectionViewLayout:[self collectionViewLayout]];
     _tableView.delegate     = self;
     _tableView.dataSource   = self;
-    _tableView.contentInset = [self tableViewInset];
+    //_tableView.contentInset = [self tableViewInset];
     _tableView.backgroundColor = [UIColor whiteColor];
     _tableView.bounces = NO;
     
@@ -176,13 +180,13 @@
     [_tableView addGestureRecognizer:recognizer];
 #endif
 }
-
-- (UIImage *)randomSpbImage {
-    
-    NSString *name = [NSString stringWithFormat:@"spb%@.jpg", @([DIHelper randomValueBetween:1 and:5])];
-    UIImage *image = [UIImage imageNamed:name];
-    return image;
-}
+//
+//- (UIImage *)randomSpbImage {
+//    
+//    NSString *name = [NSString stringWithFormat:@"spb%@.jpg", @([DIHelper randomValueBetween:1 and:5])];
+//    UIImage *image = [UIImage imageNamed:name];
+//    return image;
+//}
 
 
 #pragma mark - UIGestureRecognizer delegate

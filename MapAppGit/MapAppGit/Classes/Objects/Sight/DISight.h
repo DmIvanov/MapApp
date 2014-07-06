@@ -22,12 +22,16 @@ typedef NS_ENUM(NSUInteger, SightType) {
 
 @property (nonatomic, strong) NSData *avatarData;
 
-@property (nonatomic) NSNumber *latitudeNumber;
-@property (nonatomic) NSNumber *longitudeNumber;
+@property (nonatomic, strong) NSNumber *latitudeNumber;
+@property (nonatomic, strong) NSNumber *longitudeNumber;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *shortDescriptionString;
-@property (nonatomic, strong) NSString *scheduleArrayString;
-@property (nonatomic) NSNumber *priceNumber;
+@property (nonatomic, strong) NSNumber *priceNumber;
+@property (nonatomic, strong) NSDictionary *workingHours;
+
+@property (nonatomic, strong) NSNumber *wifi;
+@property (nonatomic, strong) NSNumber *foto;
+@property (nonatomic, strong) NSNumber *audioguide;
 
 @property (nonatomic, strong) NSString *listAbout;
 @property (nonatomic, strong) NSString *listContacts;
@@ -37,6 +41,6 @@ typedef NS_ENUM(NSUInteger, SightType) {
 
 @property (nonatomic) SightType sightType;
 
-+ (NSDictionary *)propertyMapping;
+- (instancetype)initWithManagedObject:(NSManagedObject *)object;
 
 @end

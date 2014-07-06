@@ -24,9 +24,13 @@
              @"Contacts" :            @"listContacts",
              @"History" :             @"listHistory",
              @"Interesting" :         @"listInteresting",
-             @"Now" :                 @"listNow"};
+             @"Now" :                 @"listNow",
+             
+             @"Wifi" :                @"wifi",
+             @"Foto" :                @"foto",
+             @"Audioguide" :          @"audioguide",
+             
+             @"workingHours" :        @"workingHours"};
 }
-
-
 
 @end

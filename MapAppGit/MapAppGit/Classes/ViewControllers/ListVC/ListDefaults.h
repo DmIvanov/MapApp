@@ -15,6 +15,7 @@
 #define CELL_HEIGHT                 31.
 #define CELL_HEIGHT_BIG             280.
 #define CELL_HEIGHT_SECOND          64.
+#define CELL_HEIGHT_HELP            320.
 
 #define ratio(height)               ((height - CELL_HEIGHT)/(CELL_HEIGHT_BIG - CELL_HEIGHT))
 #define START_RATIO                 ratio(CELL_HEIGHT_SECOND)

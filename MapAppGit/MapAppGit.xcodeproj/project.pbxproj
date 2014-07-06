@@ -26,7 +26,6 @@
 		C42EE3A5194B05FC00B9FDEF /* SightsBase.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C42EE3A2194B05FC00B9FDEF /* SightsBase.sqlite */; };
 		C42EE3A6194B05FC00B9FDEF /* SightsBase.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = C42EE3A3194B05FC00B9FDEF /* SightsBase.sqlite-shm */; };
 		C42EE3A7194B05FC00B9FDEF /* SightsBase.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = C42EE3A4194B05FC00B9FDEF /* SightsBase.sqlite-wal */; };
-		C42EE3AE194B305500B9FDEF /* DISightExtended.m in Sources */ = {isa = PBXBuildFile; fileRef = C42EE3AD194B305500B9FDEF /* DISightExtended.m */; };
 		C42EE3B0194B49C400B9FDEF /* rus_spb_10_18.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C42EE3AF194B49C400B9FDEF /* rus_spb_10_18.sqlite */; };
 		C42EE3B3194B4CCC00B9FDEF /* info_button_collapseClosure@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C42EE3B1194B4CCC00B9FDEF /* info_button_collapseClosure@2x.png */; };
 		C42EE3B4194B4CCC00B9FDEF /* info_button_expandClosure@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C42EE3B2194B4CCC00B9FDEF /* info_button_expandClosure@2x.png */; };
@@ -36,7 +35,6 @@
 		C43741FD190BAB020095D51E /* DISightCardVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C43741FB190BAB020095D51E /* DISightCardVC.m */; };
 		C43741FE190BAB020095D51E /* DISightCardVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C43741FC190BAB020095D51E /* DISightCardVC.xib */; };
 		C4374202190BAC440095D51E /* DISight.m in Sources */ = {isa = PBXBuildFile; fileRef = C4374201190BAC440095D51E /* DISight.m */; };
-		C43BA113189D8688009AC969 /* dbDescription.plist in Resources */ = {isa = PBXBuildFile; fileRef = C43BA112189D8688009AC969 /* dbDescription.plist */; };
 		C46D1E691942FAF10063CFB4 /* list_buttonBar_background_128@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C46D1E681942FAF10063CFB4 /* list_buttonBar_background_128@2x.png */; };
 		C4956450191E1E3900612A00 /* spb1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C495644B191E1E3900612A00 /* spb1.jpg */; };
 		C4956451191E1E3900612A00 /* spb2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C495644C191E1E3900612A00 /* spb2.jpg */; };
@@ -82,6 +80,7 @@
 		C4BD88611870822900128CD1 /* DITilesDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = C4BD88601870822900128CD1 /* DITilesDownloader.m */; };
 		C4BD887218708C1D00128CD1 /* libMapView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C4BD887118708C1D00128CD1 /* libMapView.a */; };
 		C4BD888A1870949700128CD1 /* DICloudeMadeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C4BD88891870949700128CD1 /* DICloudeMadeManager.m */; };
+		C4ECD28A1969B55600D733B0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C4ECD28C1969B55600D733B0 /* Localizable.strings */; };
 		C4FAD17E18FD924F007871B9 /* DISightsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FAD17D18FD924F007871B9 /* DISightsManager.m */; };
 		C4FAD18418FEF69E007871B9 /* arrow.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C4FAD18318FEF69E007871B9 /* arrow.jpeg */; };
 /* End PBXBuildFile section */
@@ -150,8 +149,6 @@
 		C42EE3A2194B05FC00B9FDEF /* SightsBase.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = SightsBase.sqlite; sourceTree = "<group>"; };
 		C42EE3A3194B05FC00B9FDEF /* SightsBase.sqlite-shm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SightsBase.sqlite-shm"; sourceTree = "<group>"; };
 		C42EE3A4194B05FC00B9FDEF /* SightsBase.sqlite-wal */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SightsBase.sqlite-wal"; sourceTree = "<group>"; };
-		C42EE3AC194B305500B9FDEF /* DISightExtended.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DISightExtended.h; path = Classes/Objects/Sight/DISightExtended.h; sourceTree = "<group>"; };
-		C42EE3AD194B305500B9FDEF /* DISightExtended.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DISightExtended.m; path = Classes/Objects/Sight/DISightExtended.m; sourceTree = "<group>"; };
 		C42EE3AF194B49C400B9FDEF /* rus_spb_10_18.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = rus_spb_10_18.sqlite; path = MapAppGit/Bases/Maps/rus_spb_10_18.sqlite; sourceTree = SOURCE_ROOT; };
 		C42EE3B1194B4CCC00B9FDEF /* info_button_collapseClosure@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info_button_collapseClosure@2x.png"; sourceTree = "<group>"; };
 		C42EE3B2194B4CCC00B9FDEF /* info_button_expandClosure@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info_button_expandClosure@2x.png"; sourceTree = "<group>"; };
@@ -164,7 +161,6 @@
 		C43741FC190BAB020095D51E /* DISightCardVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DISightCardVC.xib; path = Classes/ViewControllers/SightCardVC/DISightCardVC.xib; sourceTree = "<group>"; };
 		C4374200190BAC440095D51E /* DISight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DISight.h; path = Classes/Objects/Sight/DISight.h; sourceTree = "<group>"; };
 		C4374201190BAC440095D51E /* DISight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DISight.m; path = Classes/Objects/Sight/DISight.m; sourceTree = "<group>"; };
-		C43BA112189D8688009AC969 /* dbDescription.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = dbDescription.plist; sourceTree = "<group>"; };
 		C46D1E681942FAF10063CFB4 /* list_buttonBar_background_128@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "list_buttonBar_background_128@2x.png"; path = "Backgrounds/list_buttonBar_background_128@2x.png"; sourceTree = "<group>"; };
 		C46D1E7C1943391F0063CFB4 /* DIAppDefaults.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DIAppDefaults.h; sourceTree = "<group>"; };
 		C495644B191E1E3900612A00 /* spb1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = spb1.jpg; sourceTree = "<group>"; };
@@ -180,7 +176,6 @@
 		C49564871925608400612A00 /* list_buttonBar_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "list_buttonBar_background@2x.png"; path = "Backgrounds/list_buttonBar_background@2x.png"; sourceTree = "<group>"; };
 		C49564981928B78700612A00 /* list_cell_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "list_cell_background@2x.png"; path = "Backgrounds/list_cell_background@2x.png"; sourceTree = "<group>"; };
 		C495649A1928EACF00612A00 /* DICell2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DICell2.xib; sourceTree = "<group>"; };
-		C49972421896DFD400A8DA98 /* SomeStuff.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SomeStuff.h; sourceTree = "<group>"; };
 		C49972541896ED0500A8DA98 /* marker-blue-withletter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "marker-blue-withletter.png"; sourceTree = "<group>"; };
 		C49972551896ED0500A8DA98 /* marker-blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "marker-blue.png"; sourceTree = "<group>"; };
 		C49972561896ED0500A8DA98 /* marker-red-withletter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "marker-red-withletter.png"; sourceTree = "<group>"; };
@@ -226,6 +221,10 @@
 		C4BD88891870949700128CD1 /* DICloudeMadeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DICloudeMadeManager.m; path = Classes/Managers/MapSourceManagers/DICloudeMadeManager.m; sourceTree = "<group>"; };
 		C4BD888B187094FA00128CD1 /* DIMapSourceManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DIMapSourceManager.h; path = Classes/Managers/MapSourceManagers/DIMapSourceManager.h; sourceTree = "<group>"; };
 		C4CAB3F9188C4E55003CB9CC /* ListDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListDefaults.h; path = Classes/ViewControllers/ListVC/ListDefaults.h; sourceTree = "<group>"; };
+		C4ECD2871969B49800D733B0 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C4ECD2881969B49800D733B0 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C4ECD28B1969B55600D733B0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C4ECD28D1969B58200D733B0 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C4FAD17C18FD924F007871B9 /* DISightsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DISightsManager.h; path = Classes/Managers/SightsManager/DISightsManager.h; sourceTree = "<group>"; };
 		C4FAD17D18FD924F007871B9 /* DISightsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DISightsManager.m; path = Classes/Managers/SightsManager/DISightsManager.m; sourceTree = "<group>"; };
 		C4FAD18318FEF69E007871B9 /* arrow.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = arrow.jpeg; sourceTree = "<group>"; };
@@ -396,8 +395,6 @@
 			children = (
 				C4374200190BAC440095D51E /* DISight.h */,
 				C4374201190BAC440095D51E /* DISight.m */,
-				C42EE3AC194B305500B9FDEF /* DISightExtended.h */,
-				C42EE3AD194B305500B9FDEF /* DISightExtended.m */,
 			);
 			name = Sight;
 			sourceTree = "<group>";
@@ -582,10 +579,9 @@
 		C4BD881018705EE400128CD1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C4ECD27919695B3700D733B0 /* Localization */,
 				C499724E1896E91200A8DA98 /* Images */,
 				C49972431896E31300A8DA98 /* Bases */,
-				C49972421896DFD400A8DA98 /* SomeStuff.h */,
-				C43BA112189D8688009AC969 /* dbDescription.plist */,
 				C4BD881118705EE400128CD1 /* MapAppGit-Info.plist */,
 				C4BD881218705EE400128CD1 /* InfoPlist.strings */,
 				C4BD881518705EE400128CD1 /* main.m */,
@@ -689,6 +685,14 @@
 			name = ListVC;
 			sourceTree = "<group>";
 		};
+		C4ECD27919695B3700D733B0 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				C4ECD28C1969B55600D733B0 /* Localizable.strings */,
+			);
+			name = Localization;
+			sourceTree = "<group>";
+		};
 		C4FAD16818F18A02007871B9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -757,7 +761,7 @@
 				ORGANIZATIONNAME = "Dmitry Ivanov";
 				TargetAttributes = {
 					C4BD880318705EE400128CD1 = {
-						DevelopmentTeam = 2Y2B5M2TAL;
+						DevelopmentTeam = QZ7R5628RB;
 					};
 					C4BD882318705EE400128CD1 = {
 						TestTargetID = C4BD880318705EE400128CD1;
@@ -770,6 +774,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				ru,
 			);
 			mainGroup = C4BD87FB18705EE400128CD1;
 			productRefGroup = C4BD880518705EE400128CD1 /* Products */;
@@ -817,11 +822,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C43BA113189D8688009AC969 /* dbDescription.plist in Resources */,
 				C499725B1896ED0500A8DA98 /* marker-red.png in Resources */,
 				C42EE3A7194B05FC00B9FDEF /* SightsBase.sqlite-wal in Resources */,
 				C4956451191E1E3900612A00 /* spb2.jpg in Resources */,
 				C42EE3B4194B4CCC00B9FDEF /* info_button_expandClosure@2x.png in Resources */,
+				C4ECD28A1969B55600D733B0 /* Localizable.strings in Resources */,
 				C4BD88421870612900128CD1 /* DIMapController.xib in Resources */,
 				C42EE3B7194C5E3100B9FDEF /* icon_metro_line5@2x.png in Resources */,
 				C42EE3B3194B4CCC00B9FDEF /* info_button_collapseClosure@2x.png in Resources */,
@@ -892,7 +897,6 @@
 				C4956461191E260C00612A00 /* DIListMapVC.m in Sources */,
 				0A1A04341924BA2500B81664 /* DIBarButton.m in Sources */,
 				C4BD88411870612900128CD1 /* DIMapController.m in Sources */,
-				C42EE3AE194B305500B9FDEF /* DISightExtended.m in Sources */,
 				0A872A00190968C400552932 /* DIHintManager.m in Sources */,
 				C4A7144A191CFEED0056EB30 /* DICell.m in Sources */,
 				C4BD888A1870949700128CD1 /* DICloudeMadeManager.m in Sources */,
@@ -928,6 +932,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				C4BD881318705EE400128CD1 /* en */,
+				C4ECD2871969B49800D733B0 /* ru */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -936,8 +941,19 @@
 			isa = PBXVariantGroup;
 			children = (
 				C4BD883018705EE400128CD1 /* en */,
+				C4ECD2881969B49800D733B0 /* ru */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		C4ECD28C1969B55600D733B0 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C4ECD28B1969B55600D733B0 /* en */,
+				C4ECD28D1969B58200D733B0 /* ru */,
+			);
+			name = Localizable.strings;
+			path = "Supporting Files/Localization";
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

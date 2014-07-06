@@ -33,7 +33,7 @@
 
 - (void)refreshContent {
     
-    NSString *openCloseImageName = _item.opened ? @"info_button_expandClosure" : @"info_button_collapseClosure";
+    NSString *openCloseImageName = _item.opened ? @"info_button_collapseClosure" : @"info_button_expandClosure";
     _openCloseImageView.image = [UIImage imageNamed:openCloseImageName];
 }
 

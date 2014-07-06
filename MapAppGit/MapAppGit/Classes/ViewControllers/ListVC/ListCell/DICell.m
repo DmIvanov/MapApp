@@ -8,7 +8,7 @@
 
 #import "DICell.h"
 
-#import "DISightExtended.h"
+#import "DISight.h"
 #import "ListVC.h"
 #import "DISightsManager.h"
 
@@ -38,9 +38,9 @@
 
 - (void)refreshContent {
     
-    _titleLabel.text = [NSString stringWithFormat:@"%ld - %@", (unsigned long)_index, _sight.originalSight.name];
+    _titleLabel.text = [NSString stringWithFormat:@"%ld - %@", (unsigned long)_index, _sight.name];
     [self loadImage];
-    _bottomLabel.text = _sight.originalSight.shortDescriptionString;
+    _bottomLabel.text = _sight.shortDescriptionString;
     
     [self fillButtonAddImage];
 }
@@ -48,7 +48,7 @@
 - (void)loadImage {
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        UIImage *image = [UIImage imageWithData:_sight.originalSight.avatarData];
+        UIImage *image = [UIImage imageWithData:_sight.avatarData];
         dispatch_async(dispatch_get_main_queue(), ^{
             _imageView.image = image;
         });
@@ -58,7 +58,7 @@
 - (void)fillButtonAddImage {
     
     NSString *imageName;
-    switch (_sight.originalSight.sightType) {
+    switch (_sight.sightType) {
         case SightTypeChosen:
             imageName = @"";
             break;

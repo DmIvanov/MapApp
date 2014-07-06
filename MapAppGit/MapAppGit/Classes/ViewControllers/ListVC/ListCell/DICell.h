@@ -10,13 +10,13 @@
 
 @class ListVC;
 
-@class DISightExtended;
+@class DISight;
 
 @interface DICell : UICollectionViewCell
 
 @property (nonatomic, weak) ListVC *listVC;
 
-@property (nonatomic, strong) DISightExtended *sight;
+@property (nonatomic, strong) DISight *sight;
 @property (nonatomic, strong) UIImage *image;
 @property (nonatomic) NSUInteger index;
 

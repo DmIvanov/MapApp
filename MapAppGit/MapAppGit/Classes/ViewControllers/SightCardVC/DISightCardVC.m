@@ -10,7 +10,7 @@
 
 //#import <objc/runtime.h>
 
-#import "DISightExtended.h"
+#import "DISight.h"
 #import "DIBarButton.h"
 #import "DIHeaderView.h"
 #import "DICardTVItem.h"
@@ -52,12 +52,12 @@
 {
     [super viewDidLoad];
     
-    _imageView.image = [UIImage imageWithData:_sight.originalSight.avatarData];
+    _imageView.image = [UIImage imageWithData:_sight.avatarData];
     //self.navigationItem.title = _sight.originalSight.name;
     
     UIView *titleView = [[UIView alloc] initWithFrame:TITLE_VIEW_FRAME];
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:TITLE_LABEL_FRAME];
-    titleLabel.text = _sight.originalSight.name;
+    titleLabel.text = NSLocalizedString(@"sightCardNavibarName", nil);
     titleLabel.textColor = [UIColor colorWithRed:40./255
                                            green:87./255
                                             blue:149./255
@@ -69,7 +69,7 @@
     UINib *header = [UINib nibWithNibName:@"DIHeaderView" bundle:nil];
     [_tableView registerNib:header forHeaderFooterViewReuseIdentifier:HEADER_ID];
     
-    _firstLabel.text = _sight.originalSight.name;
+    _firstLabel.text = _sight.name;
 }
 
 - (void)didReceiveMemoryWarning
@@ -266,7 +266,7 @@
 - (void)createPropertyList {
     
     for (NSString *key in [self listProperties]) {
-        NSString *htmlValue = [_sight.originalSight valueForKey:key];
+        NSString *htmlValue = [_sight valueForKey:key];
         if (htmlValue) {
             DICardTVItem *newItem = [DICardTVItem new];
             newItem.keyString = key;
@@ -288,7 +288,7 @@
              @"listInteresting"];
 }
 
-- (void)setSight:(DISightExtended *)sight {
+- (void)setSight:(DISight *)sight {
     
     _sight = sight;
     [self createPropertyList];

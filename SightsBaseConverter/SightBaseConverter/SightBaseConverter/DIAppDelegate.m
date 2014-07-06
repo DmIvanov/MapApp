@@ -253,7 +253,14 @@
     
     else if ([key isEqualToString:@"priceNumber"])
         [sight setValue:@([(NSString *)value doubleValue]) forKey:key];
-        
+    
+    else if ([key isEqualToString:@"wifi"] ||
+             [key isEqualToString:@"foto"] ||
+             [key isEqualToString:@"audioguide"]) {
+        NSUInteger intVal = [(NSString *)value integerValue];
+        [sight setValue:@(intVal) forKey:key];
+    }
+    
     else
         [sight setValue:value forKey:key];
 }

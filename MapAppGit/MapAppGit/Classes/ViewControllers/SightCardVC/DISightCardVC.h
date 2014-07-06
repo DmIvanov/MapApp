@@ -10,7 +10,7 @@
 
 #import "DIHeaderView.h"
 
-@class DISightExtended;
+@class DISight;
 
 @interface DISightCardVC : DIBaseVC
     <UITableViewDelegate,
@@ -18,6 +18,6 @@
     UIWebViewDelegate,
     DIHeaderViewDelegate>
 
-@property (nonatomic, strong) DISightExtended *sight;
+@property (nonatomic, strong) DISight *sight;
 
 @end

@@ -39,7 +39,10 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-    
+        _firstController = [DIMapController new];
+        _firstController.listMapController = self;
+        _secondController = [ListVC new];
+        _secondController.listMapController = self;
     }
     return self;
 }
@@ -48,12 +51,7 @@
 {
     [super viewDidLoad];
     
-    _firstController = [DIMapController new];
-    _firstController.listMapController = self;
     [[_firstController view] setFrame:[[self view] bounds]];
-    
-    _secondController = [ListVC new];
-    _secondController.listMapController = self;
     [[_secondController view] setFrame:[[self view] bounds]];
     
     _bigView = [[DIDoubleSwipeView alloc] initWithFrame:self.view.frame

@@ -9,6 +9,8 @@
 #import "DIMainVC.h"
 
 #import "DIAppDelegate.h"
+#import "DIStringFormatter.h"
+
 #import "DISight.h"
 #import "DIHint.h"
 
@@ -99,19 +101,26 @@
     for (NSURL *filePath in objectFiles) {
         NSString *ext = [filePath pathExtension];
         NSString *name = [filePath lastPathComponent];
-        NSString *contentString = [NSString stringWithContentsOfURL:filePath
-                                                           encoding:NSWindowsCP1251StringEncoding
-                                                              error:nil];
+        NSString *contentString;
+        
         if ([ext isEqualToString:@"txt"]) {
+            contentString = [DIStringFormatter unknownCodingStringFromUrl:filePath];
+            contentString = [DIStringFormatter stringByChangingNewLineSymbolsForString:contentString];
             NSRange range = [name rangeOfString:@"Info"];
             if (range.location != NSNotFound) {
-                NSArray *components = [contentString componentsSeparatedByString:@"\r\n\r\n\r\n"];
+                NSArray *components = [contentString componentsSeparatedByString:@"\n\n\n"];
                 for (NSString *compString in components) {
-                    NSArray *keyValueArray = [compString componentsSeparatedByString:@"\r\n\r\n"];
+                    NSArray *keyValueArray = [compString componentsSeparatedByString:@"\n\n"];
                     if (keyValueArray.count > 1)
                         [objectDict setValue:keyValueArray[1] forKey:keyValueArray[0]];
                 }
 
+            }
+            range = [name rangeOfString:@"Working hours"];
+            if (range.location != NSNotFound) {
+                NSDictionary *dict = [self workingHoursDictFromString:contentString];
+                NSData *data = [NSKeyedArchiver archivedDataWithRootObject:dict];
+                [objectDict setValue:data forKey:@"workingHours"];
             }
         }
         
@@ -124,6 +133,7 @@
         }
         
         else if ([ext isEqualToString:@"html"] || [ext isEqualToString:@"htm"]) {
+            contentString = [DIStringFormatter unknownCodingStringFromUrl:filePath];
             NSArray *comp = [name componentsSeparatedByString:@"."];
             if (comp.count == 2) {
                 NSString *key = comp[0];
@@ -180,7 +190,7 @@
         }
     }
     
-    NSArray *sightsFromCore = [(DIAppDelegate *)[NSApplication sharedApplication].delegate sightsArray];
+    //NSArray *sightsFromCore = [(DIAppDelegate *)[NSApplication sharedApplication].delegate sightsArray];
     
     return @{@"sights" : sights};
 }
@@ -192,11 +202,28 @@
 
 
 
-- (NSArray *)recognizeScheduleArray:(NSString *)string {
+- (NSDictionary *)workingHoursDictFromString:(NSString *)string {
     
-    NSMutableArray *array = [NSMutableArray arrayWithCapacity:7];
+    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithCapacity:366];
+    NSArray *days = [string componentsSeparatedByString:@"\n"];
+    for (NSString *day in days) {
+        if ([day isEqualToString:@""])
+            continue;
+        NSArray *fields = [day componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        NSAssert(fields.count >= 3, @"Wrong date format in Working Hours");
+        NSArray *time = [(NSString *)fields[1] componentsSeparatedByString:@"-"];
+        NSAssert(fields.count >= 2, @"Wrong date format in Working Hours");
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@"HH.mm"];
+        NSDate *date1 = [dateFormat dateFromString:(NSString *)time[0]];
+        NSDate *date2 = [dateFormat dateFromString:(NSString *)time[1]];
+        NSDictionary *dayDictInside = @{@"timeOpen"     : date1,
+                                        @"timeClose"    : date2,
+                                        @"free"         : (NSString *)fields[2]};
+        [dict setObject:dayDictInside forKey:(NSString *)fields[0]];
+    }
     
-    return array;
+    return dict;
 }
 
 @end

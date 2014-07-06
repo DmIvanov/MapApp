@@ -8,25 +8,38 @@
 
 #import "DISight.h"
 
+#import "DIHelper.h"
+
 @implementation DISight
 
-+ (NSDictionary *)propertyMapping {
+- (instancetype)initWithManagedObject:(NSManagedObject *)object {
     
-    return @{@"avatarData" :          @"avatarData",
-             @"Coordinates" :         @"latitudeNumber",
-             @"Name" :                @"name",
-             @"Price" :               @"priceNumber",
-             @"ScheduleTable" :       @"scheduleArrayString",
-             @"ShortDescription" :    @"shortDescriptionString",
-             @"SightType" :           @"sightType",
-             
-             @"About" :               @"listAbout",
-             @"Contacts" :            @"listContacts",
-             @"History" :             @"listHistory",
-             @"Interesting" :         @"listInteresting",
-             @"Now" :                 @"listNow"};
+    self = [super init];
+    if (!self)
+        return nil;
+    
+    NSArray *properties = [DIHelper propertiesForСlass:self.class];
+    for (NSString *propertyName in properties) {
+        id objectValue = [object valueForKey:propertyName];
+        if (objectValue) {
+            [self setValue:objectValue forKey:propertyName];
+        }
+    }
+    
+    return self;
 }
 
+- (void)setValue:(id)value forUndefinedKey:(NSString *)key {
+    
+    DLog(@"Error: setValue:%@ forUndefinedKey:%@", value, key);
+}
 
+- (void)setValue:(id)value forKey:(NSString *)key {
+    
+    if ([key isEqualToString:@"workingHours"]) {
+        value = (NSDictionary*)[NSKeyedUnarchiver unarchiveObjectWithData:value];
+    }
+    [super setValue:value forKey:key];
+}
 
 @end
