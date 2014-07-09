@@ -100,13 +100,14 @@
 
     for (NSURL *filePath in objectFiles) {
         NSString *ext = [filePath pathExtension];
+        ext = [ext lowercaseString];
         NSString *name = [filePath lastPathComponent];
         NSString *contentString;
         
         if ([ext isEqualToString:@"txt"]) {
             contentString = [DIStringFormatter unknownCodingStringFromUrl:filePath];
             contentString = [DIStringFormatter stringByChangingNewLineSymbolsForString:contentString];
-            NSRange range = [name rangeOfString:@"Info"];
+            NSRange range = [name rangeOfString:@"info"];
             if (range.location != NSNotFound) {
                 NSArray *components = [contentString componentsSeparatedByString:@"\n\n\n"];
                 for (NSString *compString in components) {
@@ -116,7 +117,7 @@
                 }
 
             }
-            range = [name rangeOfString:@"Working hours"];
+            range = [name rangeOfString:@"workingHours"];
             if (range.location != NSNotFound) {
                 NSDictionary *dict = [self workingHoursDictFromString:contentString];
                 NSData *data = [NSKeyedArchiver archivedDataWithRootObject:dict];
@@ -129,6 +130,10 @@
             NSRange range = [name rangeOfString:@"avatar"];
             if (range.location != NSNotFound) {
                 [objectDict setObject:imageData forKey:@"avatarData"];
+            }
+            range = [name rangeOfString:@"small"];
+            if (range.location != NSNotFound) {
+                [objectDict setObject:imageData forKey:@"smallAvatarData"];
             }
         }
         
@@ -214,7 +219,7 @@
         NSArray *time = [(NSString *)fields[1] componentsSeparatedByString:@"-"];
         NSAssert(fields.count >= 2, @"Wrong date format in Working Hours");
         NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-        [dateFormat setDateFormat:@"HH.mm"];
+        [dateFormat setDateFormat:@"HH:mm"];
         NSDate *date1 = [dateFormat dateFromString:(NSString *)time[0]];
         NSDate *date2 = [dateFormat dateFromString:(NSString *)time[1]];
         NSDictionary *dayDictInside = @{@"timeOpen"     : date1,

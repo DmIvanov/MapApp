@@ -1,33 +1,33 @@
-Coordinates
+coordinates
 
-30.317952 59.939119
+59.938936 30.315002
 
 
-Name
+name
 
 Дворцовая площадь
 
 
-ShortDescription
+shortDescr
 
 Главная площадь Санкт-Петербурга. Она является центром и сердцем Северной столицы. Место проведения главных мероприятий города.
 
 
-Price
+price
 
 0
 
 
-Foto
-
-2
-
-
-Wifi
-
-1
-
-
-Audioguide
+foto
 
 3
+
+
+wifi
+
+3
+
+
+audioguide
+
+0

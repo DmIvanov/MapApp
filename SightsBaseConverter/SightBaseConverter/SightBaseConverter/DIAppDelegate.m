@@ -227,12 +227,8 @@
 
 - (void)fillSight:(DISight *)sight fromDictionary:(NSDictionary *)dict {
     
-    NSDictionary *mapping = [DISight propertyMapping];
     for (NSString *key in dict.allKeys) {
-        NSString *objectKey = mapping[key];
-        if (objectKey) {
-            [self setRawValue:dict[key] forKey:objectKey forSight:sight];
-        }
+        [self setRawValue:dict[key] forKey:key forSight:sight];
     }
 }
 
@@ -247,11 +243,11 @@
 
 - (void)setRawValue:(id)value forKey:(NSString *)key forSight:(DISight *)sight {
     
-    if ([key isEqualToString:@"latitudeNumber"]) {
+    if ([key isEqualToString:@"coordinates"]) {
         [self setCoordinatesFromString:value forSight:sight];
     }
     
-    else if ([key isEqualToString:@"priceNumber"])
+    else if ([key isEqualToString:@"price"])
         [sight setValue:@([(NSString *)value doubleValue]) forKey:key];
     
     else if ([key isEqualToString:@"wifi"] ||
@@ -263,6 +259,16 @@
     
     else
         [sight setValue:value forKey:key];
+}
+
+@end
+
+
+@implementation NSManagedObject (SB)
+
+- (void)setValue:(id)value forUndefinedKey:(NSString *)key {
+    
+    NSLog(@"Trying to set value (%@) for undefined key (%@)", value, key);
 }
 
 @end

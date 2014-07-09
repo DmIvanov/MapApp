@@ -155,12 +155,14 @@
 //    }
     DISight *sight = _dataArray.firstObject;
     [self placeOneObjectOnMap:sight];
+    
+    sight = _dataArray[1];
+    [self placeOneObjectOnMap:sight];
 }
 
 - (void)placeOneObjectOnMap:(DISight *)sight {
     
-#warning UpsideDown order
-    CLLocationCoordinate2D coord = CLLocationCoordinate2DMake([sight.longitudeNumber floatValue], [sight.latitudeNumber floatValue]);
+    CLLocationCoordinate2D coord = CLLocationCoordinate2DMake([sight.latitudeNumber floatValue], [sight.longitudeNumber floatValue]);
     DLog(@"%@ %@", sight.longitudeNumber, sight.latitudeNumber);
     RMMarker *newMarker = [[RMMarker alloc] initWithUIImage:[UIImage imageNamed:@"marker-blue"]];
     newMarker.anchorPoint = CGPointMake(0.5, 1.);

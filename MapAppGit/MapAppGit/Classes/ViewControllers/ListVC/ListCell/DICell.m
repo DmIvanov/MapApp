@@ -40,7 +40,7 @@
     
     _titleLabel.text = [NSString stringWithFormat:@"%ld - %@", (unsigned long)_index, _sight.name];
     [self loadImage];
-    _bottomLabel.text = _sight.shortDescriptionString;
+    _bottomLabel.text = _sight.shortDescr;
     
     [self fillButtonAddImage];
 }
@@ -48,7 +48,7 @@
 - (void)loadImage {
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        UIImage *image = [UIImage imageWithData:_sight.avatarData];
+        UIImage *image = [UIImage imageWithData:_sight.smallAvatarData];
         dispatch_async(dispatch_get_main_queue(), ^{
             _imageView.image = image;
         });

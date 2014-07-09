@@ -291,11 +291,11 @@
 
 - (NSArray *)listProperties {
 
-    return @[@"listAbout",
-             @"listHistory",
-             @"listNow",
-             @"listContacts",
-             @"listInteresting"];
+    return @[@"about",
+             @"history",
+             @"now",
+             @"contacts",
+             @"interesting"];
 }
 
 - (void)setSight:(DISight *)sight {

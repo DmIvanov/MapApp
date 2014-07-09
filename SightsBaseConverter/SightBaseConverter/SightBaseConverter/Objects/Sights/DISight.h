@@ -21,27 +21,25 @@ typedef NS_ENUM(NSUInteger, SightType) {
 @interface DISight : NSObject
 
 @property (nonatomic, strong) NSData *avatarData;
+@property (nonatomic, strong) NSData *smallAvatarData;
 
-@property (nonatomic) NSNumber *latitudeNumber;
-@property (nonatomic) NSNumber *longitudeNumber;
+@property (nonatomic, strong) NSNumber *latitudeNumber;
+@property (nonatomic, strong) NSNumber *longitudeNumber;
 @property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) NSString *shortDescriptionString;
-@property (nonatomic, strong) NSString *scheduleArrayString;
-@property (nonatomic) NSNumber *priceNumber;
+@property (nonatomic, strong) NSString *shortDescr;
+@property (nonatomic, strong) NSNumber *price;
 @property (nonatomic, strong) NSData *workingHours;
 
 @property (nonatomic, strong) NSNumber *wifi;
 @property (nonatomic, strong) NSNumber *foto;
 @property (nonatomic, strong) NSNumber *audioguide;
 
-@property (nonatomic, strong) NSString *listAbout;
-@property (nonatomic, strong) NSString *listContacts;
-@property (nonatomic, strong) NSString *listHistory;
-@property (nonatomic, strong) NSString *listInteresting;
-@property (nonatomic, strong) NSString *listNow;
+@property (nonatomic, strong) NSString *about;
+@property (nonatomic, strong) NSString *contacts;
+@property (nonatomic, strong) NSString *history;
+@property (nonatomic, strong) NSString *interesting;
+@property (nonatomic, strong) NSString *now;
 
 @property (nonatomic) SightType sightType;
-
-+ (NSDictionary *)propertyMapping;
 
 @end
