@@ -25,4 +25,9 @@
 - (NSArray *)dataArray;
 //- (UIImage *)avatarForSight:(DISight *)sight;
 
+- (NSString *)timeStringFromDate:(NSDate *)date;
+- (NSString *)insideDateStringFromDate:(NSDate *)date;
+- (NSString *)outsideDateStringFromDate:(NSDate *)date;
+- (NSString *)openCloseStringFromDateOpen:(NSDate *)open dateClose:(NSDate *)close;
+
 @end

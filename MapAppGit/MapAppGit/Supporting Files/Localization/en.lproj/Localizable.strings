@@ -7,3 +7,6 @@
 */
 
 "sightCardNavibarName"              = "Details";
+"sightCardFree"                     = "free";
+"sightCardAllDayLong"               = "all day long";
+"sightCardClosedToday"              = "closed";

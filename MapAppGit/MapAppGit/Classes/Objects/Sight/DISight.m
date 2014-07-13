@@ -34,6 +34,12 @@
     DLog(@"Error: setValue:%@ forUndefinedKey:%@", value, key);
 }
 
+- (id)valueForUndefinedKey:(NSString *)key {
+    
+    DLog(@"Error: no such a key:%@ in DISight object", key);
+    return nil;
+}
+
 - (void)setValue:(id)value forKey:(NSString *)key {
     
     if ([key isEqualToString:@"workingHours"]) {

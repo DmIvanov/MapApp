@@ -28,7 +28,7 @@ typedef NS_ENUM(NSUInteger, SightType) {
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *shortDescr;
 @property (nonatomic, strong) NSNumber *price;
-@property (nonatomic, strong) NSDictionary *workingHours;
+@property (nonatomic, strong) NSArray *workingHours;
 
 @property (nonatomic, strong) NSNumber *wifi;
 @property (nonatomic, strong) NSNumber *foto;

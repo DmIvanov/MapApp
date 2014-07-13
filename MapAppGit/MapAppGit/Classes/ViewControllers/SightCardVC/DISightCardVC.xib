@@ -7,7 +7,12 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DISightCardVC">
             <connections>
                 <outlet property="firstLabel" destination="Hr7-K0-xK4" id="mm5-yp-dWF"/>
-                <outlet property="imageView" destination="j8k-HH-OjY" id="kLX-Ti-Ykf"/>
+                <outlet property="imageRubles" destination="VwM-FX-tLJ" id="GGg-hR-0ld"/>
+                <outlet property="imageViewPicture" destination="j8k-HH-OjY" id="AxP-Vq-Y7O"/>
+                <outlet property="imageViewPrice" destination="DqX-a9-vyl" id="eou-jn-aiH"/>
+                <outlet property="imageViewWorkHours" destination="aEo-0a-B3B" id="sIs-Ya-dDr"/>
+                <outlet property="labelPrice" destination="0mD-DV-5wg" id="ZH0-hc-rr0"/>
+                <outlet property="labelWorkHours" destination="oUx-L2-zVD" id="h9z-WV-3Xy"/>
                 <outlet property="mainInfoView" destination="cuo-Cp-era" id="dHh-W7-LJM"/>
                 <outlet property="tableView" destination="4d7-Y2-w3H" id="2QH-CO-yg1"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -35,7 +40,7 @@
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
         <view contentMode="scaleToFill" id="cuo-Cp-era" userLabel="MainInfo">
-            <rect key="frame" x="0.0" y="0.0" width="316" height="397"/>
+            <rect key="frame" x="0.0" y="0.0" width="316" height="361"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="j8k-HH-OjY">
@@ -49,9 +54,40 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="info_price.png" id="DqX-a9-vyl" userLabel="ImageView - price">
+                    <rect key="frame" x="22" y="291" width="21" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="list_status_worktime.png" id="aEo-0a-B3B" userLabel="ImageView - workHours">
+                    <rect key="frame" x="20" y="330" width="21" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0mD-DV-5wg" userLabel="Label - price">
+                    <rect key="frame" x="46" y="293" width="216" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oUx-L2-zVD" userLabel="Label - workHours">
+                    <rect key="frame" x="46" y="332" width="248" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="info_roubles.png" id="VwM-FX-tLJ">
+                    <rect key="frame" x="265" y="297" width="10" height="10"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
     </objects>
+    <resources>
+        <image name="info_price.png" width="21" height="21"/>
+        <image name="info_roubles.png" width="10" height="10"/>
+        <image name="list_status_worktime.png" width="21" height="21"/>
+    </resources>
 </document>

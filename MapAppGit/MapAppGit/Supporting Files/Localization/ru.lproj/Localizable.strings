@@ -7,3 +7,6 @@
 */
 
 "sightCardNavibarName"              = "Детали";
+"sightCardFree"                     = "бесплатно";
+"sightCardAllDayLong"               = "круглосуточно";
+"sightCardClosedToday"              = "закрыто";

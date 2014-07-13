@@ -8,8 +8,9 @@
 
 #import "DISightCardVC.h"
 
-//#import <objc/runtime.h>
+#import "NSString+RectForSize.h"
 
+#import "DISightsManager.h"
 #import "DISight.h"
 #import "DIBarButton.h"
 #import "DIHeaderView.h"
@@ -18,7 +19,7 @@
 #define CELL_ID             @"cellID"
 #define HEADER_ID           @"headerID"
 #define HEADER_HEIGHT       76.
-
+#define SCHEDULE_ROW_HEIGHT 30.
 
 #define TITLE_VIEW_FRAME            CGRectMake(0, 20, 280, 44)
 #define TITLE_LABEL_FRAME           CGRectMake(8, 10, 260, 20)
@@ -29,12 +30,23 @@
 {
     NSMutableArray *_datasource;
     NSIndexPath *_loadingWebViewIndexPath;
+    NSArray *_sevenDaysWH;
+    NSDictionary *_todayWH;
+    NSString *_displayedToday;
 }
 
-@property (nonatomic, strong) IBOutlet UIView *mainInfoView;
-@property (nonatomic, strong) IBOutlet UITableView *tableView;
-@property (nonatomic, strong) IBOutlet UIImageView *imageView;
-@property (nonatomic, strong) IBOutlet UILabel *firstLabel;
+@property (nonatomic, strong) IBOutlet UIView       *mainInfoView;
+@property (nonatomic, strong) IBOutlet UITableView  *tableView;
+@property (nonatomic, strong) IBOutlet UIImageView  *imageViewPicture;
+@property (nonatomic, strong) IBOutlet UILabel      *firstLabel;
+
+@property (nonatomic, strong) IBOutlet UIImageView  *imageViewPrice;
+@property (nonatomic, strong) IBOutlet UILabel      *labelPrice;
+@property (nonatomic, strong) IBOutlet UIImageView  *imageViewWorkHours;
+@property (nonatomic, strong) IBOutlet UILabel      *labelWorkHours;
+@property (nonatomic, strong) IBOutlet UIImageView  *imageRubles;
+
+@property (nonatomic, strong) UIView *scheduleListView;
 
 @end
 
@@ -52,10 +64,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    _imageView.image = [UIImage imageWithData:_sight.avatarData];
-    //self.navigationItem.title = _sight.originalSight.name;
-    
+        
     UIView *titleView = [[UIView alloc] initWithFrame:TITLE_VIEW_FRAME];
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:TITLE_LABEL_FRAME];
     titleLabel.text = NSLocalizedString(@"sightCardNavibarName", nil);
@@ -70,7 +79,12 @@
     UINib *header = [UINib nibWithNibName:@"DIHeaderView" bundle:nil];
     [_tableView registerNib:header forHeaderFooterViewReuseIdentifier:HEADER_ID];
     
-    _firstLabel.text = _sight.name;
+    [self adjustMainHeader];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(applicationWillEnterForeground:)
+                                                 name:UIApplicationWillEnterForegroundNotification
+                                               object:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -79,8 +93,148 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
+    [self workHoursConfig];
+}
+
+- (void)applicationWillEnterForeground:(UIApplication *)application {
+    
+    [self workHoursConfig];
+}
+
 - (void)dealloc {
     
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+
+#pragma mark -
+
+- (void)adjustMainHeader {
+    
+    _tableView.tableHeaderView = _mainInfoView;
+    _firstLabel.text = _sight.name;
+    _imageViewPicture.image = [UIImage imageWithData:_sight.avatarData];
+}
+
+- (void)adjustIconView:(UIView *)iconView {
+    
+    CGFloat imageSize = 24.;
+    CGFloat gap = 12.;
+    CGFloat iconOrig = 10.;
+    
+    UIImage *photoImage;
+    switch ([_sight.foto integerValue]) {
+        case 1:
+            photoImage = [UIImage imageNamed:@"ico_photo_free"];
+            break;
+        case 2:
+        default:
+            photoImage = [UIImage imageNamed:@"ico_photo"];
+    }
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:photoImage];
+    imageView.frame = CGRectMake(0, iconOrig, imageSize, imageSize);
+    [iconView addSubview:imageView];
+    
+    UIImage *wifiImage;
+    switch ([_sight.wifi integerValue]) {
+        case 1:
+            wifiImage = [UIImage imageNamed:@"ico_wifi_free"];
+            break;
+        case 2:
+        default:
+            wifiImage = [UIImage imageNamed:@"ico_wifi"];
+    }
+    imageView = [[UIImageView alloc] initWithImage:wifiImage];
+    imageView.frame = CGRectMake(imageSize+gap, iconOrig, imageSize, imageSize);
+    [iconView addSubview:imageView];
+    
+    UIImage *audioImage;
+    switch ([_sight.audioguide integerValue]) {
+        case 1:
+            audioImage = [UIImage imageNamed:@"ico_audioguide_free"];
+            break;
+        case 2:
+        default:
+            audioImage = [UIImage imageNamed:@"ico_audioguide"];
+    }
+    imageView = [[UIImageView alloc] initWithImage:audioImage];
+    imageView.frame = CGRectMake(imageSize*2+gap*2, iconOrig, imageSize, imageSize);
+    [iconView addSubview:imageView];
+}
+
+- (void)workHoursConfig {
+    
+    NSDate *today = [NSDate date];
+    NSString *todayString = [[DISightsManager sharedInstance] insideDateStringFromDate:today];
+    if (![todayString isEqualToString:_displayedToday]) {
+        NSUInteger idx = [self indexForTodayStringInWHTable:todayString];
+        if (idx != NSNotFound) {
+            NSDictionary *today = _sight.workingHours[idx];
+            _displayedToday = todayString;
+            _todayWH = today[_displayedToday];
+            NSRange range = NSMakeRange(idx, 7);
+            _sevenDaysWH = [_sight.workingHours subarrayWithRange:range];
+            
+            [self refreshDateTimeInfo];
+        }
+    }
+}
+
+- (NSUInteger)indexForTodayStringInWHTable:(NSString *)todayString {
+    
+    NSUInteger startYear = 14;
+    NSArray *components = [todayString componentsSeparatedByString:@"."];
+    if (components.count < 3)
+        return NSNotFound;
+    
+    NSUInteger currentYear = [components[2] integerValue];
+    NSUInteger idx = NSNotFound;
+    while (idx == NSNotFound && currentYear >= startYear) {
+        idx = [_sight.workingHours indexOfObjectPassingTest:^BOOL(NSDictionary *obj, NSUInteger idx, BOOL *stop) {
+            return [(NSString *)obj.allKeys.firstObject isEqualToString:todayString];
+        }];
+        currentYear--;
+        todayString = [NSString stringWithFormat:@"%@.%@.%@", components[0], components[1], @(currentYear)];
+    }
+    
+    return idx;
+}
+
+- (void)refreshDateTimeInfo {
+    
+    BOOL freeToday = [_todayWH[@"free"] boolValue];
+    NSString *price;
+    CGFloat priceFloat = [_sight.price floatValue];
+    if (!priceFloat || freeToday) {
+        price = NSLocalizedString(@"sightCardFree", nil);
+        _imageRubles.hidden = YES;
+    }
+    else {
+        price = [NSString stringWithFormat:@"%lu", (unsigned long)priceFloat];
+        _imageRubles.hidden = NO;
+    }
+    CGSize size = [price rectForSize:_labelPrice.frame.size
+                                font:_labelPrice.font
+                       lineBreakMode:NSLineBreakByWordWrapping].size;
+    _labelPrice.text = price;
+    CGRect frame = _labelPrice.frame;
+    frame.size = size;
+    _labelPrice.frame = frame;
+    CGFloat xMax = CGRectGetMaxX(frame);
+    frame = _imageRubles.frame;
+    frame.origin.x = xMax + 6;
+    _imageRubles.frame = frame;
+    
+    NSDate *timeOpen = _todayWH[@"timeOpen"];
+    NSDate *timeClose = _todayWH[@"timeClose"];
+    
+    NSString *displayedHours = [[DISightsManager sharedInstance] openCloseStringFromDateOpen:timeOpen
+                                                                                   dateClose:timeClose];
+
+    _labelWorkHours.text = displayedHours;
 }
 
 
@@ -121,75 +275,55 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
-    return _datasource.count + 1;
+    return _datasource.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    switch (section) {
-        case 0:
-            return 1;
-            break;
-            
-        default: {
-            DICardTVItem *item = _datasource[section-1];
-            return item.opened ? 1 : 0;
-        }
-            break;
-    }
+    DICardTVItem *item = _datasource[section];
+    return item.opened ? 1 : 0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     
-    switch (section) {
-        case 0:
-            return 0.1;
-            break;
-            
-        default:
-            return HEADER_HEIGHT;
-            break;
-    }
+    return HEADER_HEIGHT;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     NSUInteger section = indexPath.section;
-    switch (section) {
-        case 0:
-            return _mainInfoView.frame.size.height;
-            break;
-            
-        default: {
-            DICardTVItem *item = _datasource[section-1];
-            CGFloat ret = item.webView ? item.webView.frame.size.height : 1;
-            return ret;
-        }
-            break;
-    }
+    DICardTVItem *item = _datasource[section];
+    CGFloat ret;
+    if ([item.keyString isEqualToString:SIGHT_LIST_ITEM_SCHEDULE])
+        ret = self.scheduleListView.frame.size.height;
+    else
+        ret = item.webView ? item.webView.frame.size.height : 0;
+    
+    return ret;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     NSUInteger section = indexPath.section;
     UITableViewCell *cell;
-    if (section == 0) {
+
+    cell = [tableView dequeueReusableCellWithIdentifier:CELL_ID];
+    if (!cell) {
         cell = [UITableViewCell new];
-        [cell.contentView addSubview:_mainInfoView];
+    }
+    
+    DICardTVItem *item = _datasource[section];
+    if ([item.keyString isEqualToString:SIGHT_LIST_ITEM_SCHEDULE]) {
+        [cell.contentView addSubview:self.scheduleListView];
     }
     else {
-        cell = [tableView dequeueReusableCellWithIdentifier:CELL_ID];
-        if (!cell) {
-            cell = [UITableViewCell new];
-        }
-
-        DICardTVItem *item = _datasource[section - 1];
         if (!item.webView) {
             [self setWebViewForItem:item];
             _loadingWebViewIndexPath = indexPath;
         }
         [cell.contentView addSubview:item.webView];
     }
+
     cell.userInteractionEnabled = NO;
     
     return cell;
@@ -197,20 +331,13 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     
-    if (section == 0) {
-        UIView *header = [[UIView alloc] init];
-        return header;
-    }
-    
-    else {
-        DIHeaderView *header = [_tableView dequeueReusableHeaderFooterViewWithIdentifier:HEADER_ID];
-        header.delegate = self;
-        header.section = section;
-        DICardTVItem *item = _datasource[section-1];
-        header.item = item;
-        [header refreshContent];
-        return header;
-    }
+    DIHeaderView *header = [_tableView dequeueReusableHeaderFooterViewWithIdentifier:HEADER_ID];
+    header.delegate = self;
+    header.section = section;
+    DICardTVItem *item = _datasource[section];
+    header.item = item;
+    [header refreshContent];
+    return header;
 }
 
 
@@ -276,12 +403,19 @@
 - (void)createPropertyList {
     
     for (NSString *key in [self listProperties]) {
-        NSString *htmlValue = [_sight valueForKey:key];
-        if (htmlValue) {
+        if ([key isEqualToString:SIGHT_LIST_ITEM_SCHEDULE]) {
             DICardTVItem *newItem = [DICardTVItem new];
             newItem.keyString = key;
-            newItem.htmlString = htmlValue;
             [_datasource addObject:newItem];
+        }
+        else {
+            NSString *htmlValue = [_sight valueForKey:key];
+            if (htmlValue) {
+                DICardTVItem *newItem = [DICardTVItem new];
+                newItem.keyString = key;
+                newItem.htmlString = htmlValue;
+                [_datasource addObject:newItem];
+            }
         }
     }
 }
@@ -291,17 +425,79 @@
 
 - (NSArray *)listProperties {
 
-    return @[@"about",
-             @"history",
-             @"now",
-             @"contacts",
-             @"interesting"];
+    return @[SIGHT_LIST_ITEM_ABOUT,
+             SIGHT_LIST_ITEM_SCHEDULE,
+             SIGHT_LIST_ITEM_HISTORY,
+             SIGHT_LIST_ITEM_NOW,
+             SIGHT_LIST_ITEM_CONTACTS,
+             SIGHT_LIST_ITEM_INTERESTING,
+             SIGHT_LIST_ITEM_ADVICES];
 }
 
 - (void)setSight:(DISight *)sight {
     
     _sight = sight;
     [self createPropertyList];
+}
+
+- (UIView *)scheduleListView {
+    
+    CGFloat iconViewHeight = 48.;
+    CGFloat labelsYOrig = 14.;
+    CGFloat indent = 22.;
+    CGFloat widthWithoutIndents = SCREEN_SIZE.width-indent*2;
+    
+    if (!_scheduleListView) {
+        CGFloat height = _sevenDaysWH.count*SCHEDULE_ROW_HEIGHT + iconViewHeight;
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_SIZE.width, height)];
+        view.backgroundColor = [UIColor colorWithRed:243./255 green:243./255 blue:243./255 alpha:1.];
+        for (NSUInteger i=0; i<_sevenDaysWH.count; i++) {
+            NSDictionary *dayDict = _sevenDaysWH[i];
+            UIView *rowView = [[UIView alloc] initWithFrame:CGRectMake(0, i*SCHEDULE_ROW_HEIGHT, SCREEN_SIZE.width, SCHEDULE_ROW_HEIGHT)];
+            UIColor *bgColor;
+            if (i%2)
+                bgColor = [UIColor colorWithRed:222./255 green:222./255 blue:222./255 alpha:1.];
+            else
+                bgColor = [UIColor colorWithRed:233./255 green:233./255 blue:233./255 alpha:1.];
+            rowView.backgroundColor = bgColor;
+            [view addSubview:rowView];
+            
+            UIFont *font = [UIFont systemFontOfSize:14.];
+            NSString *dayString = dayDict.allKeys.firstObject;
+            CGRect frame = [dayString rectForSize:CGSizeMake(280, 17)
+                                             font:font
+                                    lineBreakMode:NSLineBreakByWordWrapping];
+            frame.origin = CGPointMake(indent, labelsYOrig);
+            UILabel *dayLabel = [[UILabel alloc] initWithFrame:frame];
+            dayLabel.text = dayString;
+            dayLabel.font = font;
+            [rowView addSubview:dayLabel];
+            
+            CGFloat secondLabelOrig = indent+CGRectGetMaxX(frame)+4;
+            frame = CGRectMake(secondLabelOrig, labelsYOrig, 280.-secondLabelOrig, 17);
+            UILabel *hoursLabel = [[UILabel alloc] initWithFrame:frame];
+            hoursLabel.textAlignment = NSTextAlignmentRight;
+            hoursLabel.font = font;
+            [rowView addSubview:hoursLabel];
+            
+            NSDictionary *insideDict = dayDict.allValues.firstObject;
+            if (insideDict.count < 2)
+                continue;
+            NSDate *openDate = insideDict[@"timeOpen"];
+            NSDate *closeDate = insideDict[@"timeClose"];
+            NSString *closeOpenStr = [[DISightsManager sharedInstance] openCloseStringFromDateOpen:openDate
+                                                                                         dateClose:closeDate];
+            hoursLabel.text = closeOpenStr;
+        }
+        
+        UIView *iconView = [[UIView alloc] initWithFrame:CGRectMake(indent, _sevenDaysWH.count*SCHEDULE_ROW_HEIGHT, widthWithoutIndents, iconViewHeight)];
+        [self adjustIconView:iconView];
+        [view addSubview:iconView];
+        
+        _scheduleListView = view;
+    }
+    
+    return _scheduleListView;
 }
 
 

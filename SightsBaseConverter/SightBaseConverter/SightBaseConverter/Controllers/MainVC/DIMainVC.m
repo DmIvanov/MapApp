@@ -119,8 +119,8 @@
             }
             range = [name rangeOfString:@"workingHours"];
             if (range.location != NSNotFound) {
-                NSDictionary *dict = [self workingHoursDictFromString:contentString];
-                NSData *data = [NSKeyedArchiver archivedDataWithRootObject:dict];
+                NSArray *array = [self workingHoursArrayFromString:contentString];
+                NSData *data = [NSKeyedArchiver archivedDataWithRootObject:array];
                 [objectDict setValue:data forKey:@"workingHours"];
             }
         }
@@ -207,9 +207,9 @@
 
 
 
-- (NSDictionary *)workingHoursDictFromString:(NSString *)string {
+- (NSArray *)workingHoursArrayFromString:(NSString *)string {
     
-    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithCapacity:366];
+    NSMutableArray *array = [NSMutableArray arrayWithCapacity:366];
     NSArray *days = [string componentsSeparatedByString:@"\n"];
     for (NSString *day in days) {
         if ([day isEqualToString:@""])
@@ -225,10 +225,11 @@
         NSDictionary *dayDictInside = @{@"timeOpen"     : date1,
                                         @"timeClose"    : date2,
                                         @"free"         : (NSString *)fields[2]};
-        [dict setObject:dayDictInside forKey:(NSString *)fields[0]];
+        NSDictionary *dict = @{(NSString *)fields[0]: dayDictInside};
+        [array addObject:dict];
     }
     
-    return dict;
+    return array;
 }
 
 @end

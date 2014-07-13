@@ -14,6 +14,9 @@
 {
     NSMutableArray *_sights;
 }
+@property (nonatomic, strong) NSDateFormatter *insideDateFormatter;
+@property (nonatomic, strong) NSDateFormatter *outsideDateFormatter;
+@property (nonatomic, strong) NSDateFormatter *timeFormatter;
 
 @end
 
@@ -192,17 +195,76 @@
     return tilesFolderPath;
 }
 
-//
-//- (UIImage *)avatarForSight:(DISight *)sight {
-//    
-//    NSString *hash = [NSString stringWithFormat:@"%ul", sight.hash];
-//    UIImage *image = _avatars[hash];
-//    if (!image) {
-//        image = [UIImage imageWithData:sight.avatarData];
-//        [_avatars setObject:image forKey:hash];
-//    }
-//    
-//    return image;
-//}
+
+#pragma mark - Setters & getters
+
+- (NSDateFormatter *)insideDateFormatter {
+    
+    if (!_insideDateFormatter) {
+        _insideDateFormatter = [[NSDateFormatter alloc] init];
+        [_insideDateFormatter setDateFormat:@"dd.MM.yy"];
+    }
+    
+    return _insideDateFormatter;
+}
+
+- (NSDateFormatter *)outsideDateFormatter {
+    
+    if (!_outsideDateFormatter) {
+        NSLocale *locale = [NSLocale currentLocale];
+        _outsideDateFormatter = [[NSDateFormatter alloc] init];
+        [_outsideDateFormatter setLocale:locale];
+        [_outsideDateFormatter setDateStyle:NSDateFormatterShortStyle];
+    }
+    
+    return _outsideDateFormatter;
+}
+
+- (NSDateFormatter *)timeFormatter {
+    
+    if (!_timeFormatter) {
+        NSLocale *locale = [NSLocale currentLocale];
+        _timeFormatter = [[NSDateFormatter alloc] init];
+        [_timeFormatter setLocale:locale];
+        [_timeFormatter setTimeStyle:NSDateFormatterShortStyle];
+    }
+    
+    return _timeFormatter;
+}
+
+
+#pragma mark - Other functions
+
+- (NSString *)timeStringFromDate:(NSDate *)date {
+    
+    return [self.timeFormatter stringFromDate:date];
+}
+
+- (NSString *)insideDateStringFromDate:(NSDate *)date {
+    
+    return [self.insideDateFormatter stringFromDate:date];
+}
+
+- (NSString *)outsideDateStringFromDate:(NSDate *)date {
+ 
+    return [self.outsideDateFormatter stringFromDate:date];
+}
+
+- (NSString *)openCloseStringFromDateOpen:(NSDate *)open dateClose:(NSDate *)close {
+
+    NSString *openString = [self timeStringFromDate:open];
+    NSString *closeString = [self timeStringFromDate:close];
+    if ([openString isEqualToString:closeString])
+        return NSLocalizedString(@"sightCardClosedToday", nil);
+        
+    close = [close dateByAddingTimeInterval:60];
+    closeString = [self timeStringFromDate:close];
+    
+    if ([openString isEqualToString:closeString]) {
+        return NSLocalizedString(@"sightCardAllDayLong", nil);
+    }
+    else
+        return [NSString stringWithFormat:@"%@ - %@", openString, closeString];
+}
 
 @end
