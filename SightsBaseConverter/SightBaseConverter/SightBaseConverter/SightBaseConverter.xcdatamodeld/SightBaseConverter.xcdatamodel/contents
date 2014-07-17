@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13D65" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13E28" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="DISight" syncable="YES">
         <attribute name="about" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="advices" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="audioguide" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="avatarData" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="contacts" optional="YES" attributeType="String" syncable="YES"/>
@@ -20,6 +21,6 @@
         <attribute name="workingHours" optional="YES" attributeType="Binary" syncable="YES"/>
     </entity>
     <elements>
-        <element name="DISight" positionX="-63" positionY="-18" width="128" height="300"/>
+        <element name="DISight" positionX="-63" positionY="-18" width="128" height="315"/>
     </elements>
 </model>

@@ -39,6 +39,7 @@ typedef NS_ENUM(NSUInteger, SightType) {
 @property (nonatomic, strong) NSString *history;
 @property (nonatomic, strong) NSString *interesting;
 @property (nonatomic, strong) NSString *now;
+@property (nonatomic, strong) NSString *advices;
 
 @property (nonatomic) SightType sightType;
 

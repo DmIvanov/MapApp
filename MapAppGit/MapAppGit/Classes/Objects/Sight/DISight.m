@@ -9,6 +9,7 @@
 #import "DISight.h"
 
 #import "DIHelper.h"
+#import "DISightsManager.h"
 
 @implementation DISight
 
@@ -46,6 +47,63 @@
         value = (NSDictionary*)[NSKeyedUnarchiver unarchiveObjectWithData:value];
     }
     [super setValue:value forKey:key];
+}
+
+
+
+
+- (NSUInteger)indexForTodayInWHTable {
+    
+    NSDate *today = [NSDate date];
+    NSString *todayString = [[DISightsManager sharedInstance] insideDateStringFromDate:today];
+    
+    return [self indexForDateStringInWHTable:todayString];
+}
+
+- (NSUInteger)indexForDateStringInWHTable:(NSString *)todayString {
+    
+    NSUInteger startYear = 14;
+    NSArray *components = [todayString componentsSeparatedByString:@"."];
+    if (components.count < 3)
+        return NSNotFound;
+    
+    NSUInteger currentYear = [components[2] integerValue];
+    NSUInteger idx = NSNotFound;
+    while (idx == NSNotFound && currentYear >= startYear) {
+        idx = [self.workingHours indexOfObjectPassingTest:^BOOL(NSDictionary *obj, NSUInteger idx, BOOL *stop) {
+            return [(NSString *)obj.allKeys.firstObject isEqualToString:todayString];
+        }];
+        currentYear--;
+        todayString = [NSString stringWithFormat:@"%@.%@.%@", components[0], components[1], @(currentYear)];
+    }
+    
+    return idx;
+}
+
+- (NSDictionary *)todayWHDict {
+    
+    NSDictionary *dict;
+    NSDate *today = [NSDate date];
+    NSString *todayString = [[DISightsManager sharedInstance] insideDateStringFromDate:today];
+    NSUInteger idx = [self indexForDateStringInWHTable:todayString];
+    if (idx != NSNotFound) {
+        NSDictionary *todayExtDict = _workingHours[idx];
+        dict = todayExtDict[todayString];
+    }
+
+    return dict;
+}
+
+- (NSArray *)sevenDaysWH {
+    
+    NSArray *arr;
+    NSUInteger idx = [self indexForTodayInWHTable];
+    if (idx != NSNotFound) {
+        NSRange range = NSMakeRange(idx, 7);
+        arr = [_workingHours subarrayWithRange:range];
+    }
+    
+    return arr;
 }
 
 @end

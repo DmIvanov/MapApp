@@ -170,37 +170,13 @@
     NSDate *today = [NSDate date];
     NSString *todayString = [[DISightsManager sharedInstance] insideDateStringFromDate:today];
     if (![todayString isEqualToString:_displayedToday]) {
-        NSUInteger idx = [self indexForTodayStringInWHTable:todayString];
-        if (idx != NSNotFound) {
-            NSDictionary *today = _sight.workingHours[idx];
+        _todayWH = [_sight todayWHDict];
+        if (_todayWH) {
             _displayedToday = todayString;
-            _todayWH = today[_displayedToday];
-            NSRange range = NSMakeRange(idx, 7);
-            _sevenDaysWH = [_sight.workingHours subarrayWithRange:range];
-            
+            _sevenDaysWH = [_sight sevenDaysWH];
             [self refreshDateTimeInfo];
         }
     }
-}
-
-- (NSUInteger)indexForTodayStringInWHTable:(NSString *)todayString {
-    
-    NSUInteger startYear = 14;
-    NSArray *components = [todayString componentsSeparatedByString:@"."];
-    if (components.count < 3)
-        return NSNotFound;
-    
-    NSUInteger currentYear = [components[2] integerValue];
-    NSUInteger idx = NSNotFound;
-    while (idx == NSNotFound && currentYear >= startYear) {
-        idx = [_sight.workingHours indexOfObjectPassingTest:^BOOL(NSDictionary *obj, NSUInteger idx, BOOL *stop) {
-            return [(NSString *)obj.allKeys.firstObject isEqualToString:todayString];
-        }];
-        currentYear--;
-        todayString = [NSString stringWithFormat:@"%@.%@.%@", components[0], components[1], @(currentYear)];
-    }
-    
-    return idx;
 }
 
 - (void)refreshDateTimeInfo {
@@ -395,7 +371,7 @@
     
     [header refreshContent];
     
-    if (item.opened && section == _datasource.count-1)
+    if (item.opened && section == _datasource.count-1)  //otherway last cell doesn't scroll to top when it is openning
         _tableView.contentOffset = CGPointMake(0, _tableView.contentOffset.y + 1.);
 }
 
