@@ -23,9 +23,7 @@
 		0ADC97FD1974500E00AE3499 /* ugLine2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0ADC97F81974500E00AE3499 /* ugLine2.png */; };
 		0ADC97FE1974500E00AE3499 /* ugLine3.png in Resources */ = {isa = PBXBuildFile; fileRef = 0ADC97F91974500E00AE3499 /* ugLine3.png */; };
 		0ADC97FF1974500E00AE3499 /* ugLine4.png in Resources */ = {isa = PBXBuildFile; fileRef = 0ADC97FA1974500E00AE3499 /* ugLine4.png */; };
-		0ADC9806197455D600AE3499 /* infoIconsPhone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0ADC9805197455D600AE3499 /* infoIconsPhone@2x.png */; };
 		0ADC98081974572800AE3499 /* ugLine5.png in Resources */ = {isa = PBXBuildFile; fileRef = 0ADC98071974572800AE3499 /* ugLine5.png */; };
-		0ADC981C1977A55600AE3499 /* infoClosureShadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0ADC981B1977A55600AE3499 /* infoClosureShadow@2x.png */; };
 		C411E2581930F81F00C9A8EF /* DIHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C411E2571930F81F00C9A8EF /* DIHeaderView.m */; };
 		C411E25A1930F97D00C9A8EF /* DIHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C411E2591930F97D00C9A8EF /* DIHeaderView.xib */; };
 		C411E25C1930FC2500C9A8EF /* info_closure@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C411E25B1930FC2500C9A8EF /* info_closure@2x.png */; };
@@ -47,6 +45,7 @@
 		C492EF821973014300CB88FA /* ico_photo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C492EF7C1973014300CB88FA /* ico_photo@2x.png */; };
 		C492EF831973014300CB88FA /* ico_wifi_free@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C492EF7D1973014300CB88FA /* ico_wifi_free@2x.png */; };
 		C492EF841973014300CB88FA /* ico_wifi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C492EF7E1973014300CB88FA /* ico_wifi@2x.png */; };
+		C494C85B1978581500A33498 /* infoIconsPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = C494C85A1978581500A33498 /* infoIconsPhone.png */; };
 		C4956450191E1E3900612A00 /* spb1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C495644B191E1E3900612A00 /* spb1.jpg */; };
 		C4956451191E1E3900612A00 /* spb2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C495644C191E1E3900612A00 /* spb2.jpg */; };
 		C4956452191E1E3900612A00 /* spb3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C495644D191E1E3900612A00 /* spb3.jpg */; };
@@ -159,9 +158,7 @@
 		0ADC97F81974500E00AE3499 /* ugLine2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ugLine2.png; path = MapAppGit/Images/Icons/Contacts/ugLine2.png; sourceTree = SOURCE_ROOT; };
 		0ADC97F91974500E00AE3499 /* ugLine3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ugLine3.png; path = MapAppGit/Images/Icons/Contacts/ugLine3.png; sourceTree = SOURCE_ROOT; };
 		0ADC97FA1974500E00AE3499 /* ugLine4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ugLine4.png; path = MapAppGit/Images/Icons/Contacts/ugLine4.png; sourceTree = SOURCE_ROOT; };
-		0ADC9805197455D600AE3499 /* infoIconsPhone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "infoIconsPhone@2x.png"; path = "MapAppGit/Images/Icons/Contacts/infoIconsPhone@2x.png"; sourceTree = SOURCE_ROOT; };
 		0ADC98071974572800AE3499 /* ugLine5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ugLine5.png; path = MapAppGit/Images/Icons/Contacts/ugLine5.png; sourceTree = SOURCE_ROOT; };
-		0ADC981B1977A55600AE3499 /* infoClosureShadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "infoClosureShadow@2x.png"; path = "MapAppGit/Images/Icons/Contacts/infoClosureShadow@2x.png"; sourceTree = SOURCE_ROOT; };
 		C411E2561930F81F00C9A8EF /* DIHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DIHeaderView.h; path = Classes/ViewControllers/SightCardVC/CardHeaderView/DIHeaderView.h; sourceTree = "<group>"; };
 		C411E2571930F81F00C9A8EF /* DIHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DIHeaderView.m; path = Classes/ViewControllers/SightCardVC/CardHeaderView/DIHeaderView.m; sourceTree = "<group>"; };
 		C411E2591930F97D00C9A8EF /* DIHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DIHeaderView.xib; path = Classes/ViewControllers/SightCardVC/CardHeaderView/DIHeaderView.xib; sourceTree = "<group>"; };
@@ -189,6 +186,7 @@
 		C492EF7C1973014300CB88FA /* ico_photo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ico_photo@2x.png"; sourceTree = "<group>"; };
 		C492EF7D1973014300CB88FA /* ico_wifi_free@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ico_wifi_free@2x.png"; sourceTree = "<group>"; };
 		C492EF7E1973014300CB88FA /* ico_wifi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ico_wifi@2x.png"; sourceTree = "<group>"; };
+		C494C85A1978581500A33498 /* infoIconsPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = infoIconsPhone.png; path = MapAppGit/Images/Icons/Contacts/infoIconsPhone.png; sourceTree = SOURCE_ROOT; };
 		C495644B191E1E3900612A00 /* spb1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = spb1.jpg; sourceTree = "<group>"; };
 		C495644C191E1E3900612A00 /* spb2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = spb2.jpg; sourceTree = "<group>"; };
 		C495644D191E1E3900612A00 /* spb3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = spb3.jpg; sourceTree = "<group>"; };
@@ -368,9 +366,8 @@
 		0ADC97E219744D4B00AE3499 /* Contacts */ = {
 			isa = PBXGroup;
 			children = (
-				0ADC981B1977A55600AE3499 /* infoClosureShadow@2x.png */,
+				C494C85A1978581500A33498 /* infoIconsPhone.png */,
 				0ADC98071974572800AE3499 /* ugLine5.png */,
-				0ADC9805197455D600AE3499 /* infoIconsPhone@2x.png */,
 				0ADC97F71974500E00AE3499 /* ugLine1.png */,
 				0ADC97F81974500E00AE3499 /* ugLine2.png */,
 				0ADC97F91974500E00AE3499 /* ugLine3.png */,
@@ -891,7 +888,6 @@
 				C4ECD2A51971405100D733B0 /* info_roubles@2x.png in Resources */,
 				C42EE3A7194B05FC00B9FDEF /* SightsBase.sqlite-wal in Resources */,
 				C4956451191E1E3900612A00 /* spb2.jpg in Resources */,
-				0ADC9806197455D600AE3499 /* infoIconsPhone@2x.png in Resources */,
 				0ADC97FD1974500E00AE3499 /* ugLine2.png in Resources */,
 				C42EE3B4194B4CCC00B9FDEF /* info_button_expandClosure@2x.png in Resources */,
 				C492EF841973014300CB88FA /* ico_wifi@2x.png in Resources */,
@@ -917,6 +913,7 @@
 				C499725A1896ED0500A8DA98 /* marker-red-withletter.png in Resources */,
 				C4BD881418705EE400128CD1 /* InfoPlist.strings in Resources */,
 				0ADC97FC1974500E00AE3499 /* ugLine1.png in Resources */,
+				C494C85B1978581500A33498 /* infoIconsPhone.png in Resources */,
 				C43741E31902C8590095D51E /* rus_spb_10_15.sqlite in Resources */,
 				C492EF7F1973014300CB88FA /* ico_audioguide_free@2x.png in Resources */,
 				C49564891925608400612A00 /* list_buttonBar_background@2x.png in Resources */,
@@ -927,7 +924,6 @@
 				C4956453191E1E3900612A00 /* spb4.jpg in Resources */,
 				C492EF831973014300CB88FA /* ico_wifi_free@2x.png in Resources */,
 				0A1A04511929D1F100B81664 /* list_button_add_pressed@2x.png in Resources */,
-				0ADC981C1977A55600AE3499 /* infoClosureShadow@2x.png in Resources */,
 				C495649B1928EACF00612A00 /* DICell2.xib in Resources */,
 				C4A7144B191CFEED0056EB30 /* DICell.xib in Resources */,
 				C43741FE190BAB020095D51E /* DISightCardVC.xib in Resources */,

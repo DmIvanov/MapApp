@@ -324,7 +324,7 @@
         [cell.contentView addSubview:item.webView];
     }
 
-    cell.userInteractionEnabled = NO;
+    //cell.userInteractionEnabled = NO;
     
     return cell;
 }
@@ -358,6 +358,17 @@
     _loadingWebViewIndexPath = nil;
 }
 
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+    
+    NSString *urlString = [request.URL absoluteString];
+    NSRange range = [urlString rangeOfString:@"http://www"];
+    if (range.location != NSNotFound) {
+        [[UIApplication sharedApplication] openURL:request.URL];
+        return NO;
+    }
+    return YES;
+}
+
 
 #pragma mark - DIHeaderView delegate
 
@@ -383,6 +394,9 @@
     }
     
     [header refreshContent];
+    
+    if (item.opened && section == _datasource.count-1)
+        _tableView.contentOffset = CGPointMake(0, _tableView.contentOffset.y + 1.);
 }
 
 
