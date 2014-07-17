@@ -25,6 +25,7 @@
 		0ADC97FF1974500E00AE3499 /* ugLine4.png in Resources */ = {isa = PBXBuildFile; fileRef = 0ADC97FA1974500E00AE3499 /* ugLine4.png */; };
 		0ADC9806197455D600AE3499 /* infoIconsPhone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0ADC9805197455D600AE3499 /* infoIconsPhone@2x.png */; };
 		0ADC98081974572800AE3499 /* ugLine5.png in Resources */ = {isa = PBXBuildFile; fileRef = 0ADC98071974572800AE3499 /* ugLine5.png */; };
+		0ADC981C1977A55600AE3499 /* infoClosureShadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0ADC981B1977A55600AE3499 /* infoClosureShadow@2x.png */; };
 		C411E2581930F81F00C9A8EF /* DIHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C411E2571930F81F00C9A8EF /* DIHeaderView.m */; };
 		C411E25A1930F97D00C9A8EF /* DIHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C411E2591930F97D00C9A8EF /* DIHeaderView.xib */; };
 		C411E25C1930FC2500C9A8EF /* info_closure@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C411E25B1930FC2500C9A8EF /* info_closure@2x.png */; };
@@ -160,6 +161,7 @@
 		0ADC97FA1974500E00AE3499 /* ugLine4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ugLine4.png; path = MapAppGit/Images/Icons/Contacts/ugLine4.png; sourceTree = SOURCE_ROOT; };
 		0ADC9805197455D600AE3499 /* infoIconsPhone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "infoIconsPhone@2x.png"; path = "MapAppGit/Images/Icons/Contacts/infoIconsPhone@2x.png"; sourceTree = SOURCE_ROOT; };
 		0ADC98071974572800AE3499 /* ugLine5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ugLine5.png; path = MapAppGit/Images/Icons/Contacts/ugLine5.png; sourceTree = SOURCE_ROOT; };
+		0ADC981B1977A55600AE3499 /* infoClosureShadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "infoClosureShadow@2x.png"; path = "MapAppGit/Images/Icons/Contacts/infoClosureShadow@2x.png"; sourceTree = SOURCE_ROOT; };
 		C411E2561930F81F00C9A8EF /* DIHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DIHeaderView.h; path = Classes/ViewControllers/SightCardVC/CardHeaderView/DIHeaderView.h; sourceTree = "<group>"; };
 		C411E2571930F81F00C9A8EF /* DIHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DIHeaderView.m; path = Classes/ViewControllers/SightCardVC/CardHeaderView/DIHeaderView.m; sourceTree = "<group>"; };
 		C411E2591930F97D00C9A8EF /* DIHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DIHeaderView.xib; path = Classes/ViewControllers/SightCardVC/CardHeaderView/DIHeaderView.xib; sourceTree = "<group>"; };
@@ -366,6 +368,7 @@
 		0ADC97E219744D4B00AE3499 /* Contacts */ = {
 			isa = PBXGroup;
 			children = (
+				0ADC981B1977A55600AE3499 /* infoClosureShadow@2x.png */,
 				0ADC98071974572800AE3499 /* ugLine5.png */,
 				0ADC9805197455D600AE3499 /* infoIconsPhone@2x.png */,
 				0ADC97F71974500E00AE3499 /* ugLine1.png */,
@@ -924,6 +927,7 @@
 				C4956453191E1E3900612A00 /* spb4.jpg in Resources */,
 				C492EF831973014300CB88FA /* ico_wifi_free@2x.png in Resources */,
 				0A1A04511929D1F100B81664 /* list_button_add_pressed@2x.png in Resources */,
+				0ADC981C1977A55600AE3499 /* infoClosureShadow@2x.png in Resources */,
 				C495649B1928EACF00612A00 /* DICell2.xib in Resources */,
 				C4A7144B191CFEED0056EB30 /* DICell.xib in Resources */,
 				C43741FE190BAB020095D51E /* DISightCardVC.xib in Resources */,

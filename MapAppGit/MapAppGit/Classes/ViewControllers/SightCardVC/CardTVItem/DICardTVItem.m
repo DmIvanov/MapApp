@@ -12,11 +12,9 @@
 
 - (void)setHtmlString:(NSString *)htmlString {
     
-    if ([self.keyString isEqualToString:SIGHT_LIST_ITEM_CONTACTS]) {
-        NSURL *url = [[NSBundle mainBundle] URLForResource:@"ugLine5@2x" withExtension:@"png"];
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"ugLine5" withExtension:@"png"];
+    if (url) {
         url = [url URLByDeletingLastPathComponent];
-        //htmlString = [htmlString stringByReplacingOccurrencesOfString:@"Contacts.files/image001.png"
-        //                                                   withString:path];
         htmlString = [htmlString stringByReplacingOccurrencesOfString:@"images/"
                                                            withString:[url absoluteString]];
     }
