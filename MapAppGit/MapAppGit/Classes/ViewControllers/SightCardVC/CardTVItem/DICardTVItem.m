@@ -12,12 +12,13 @@
 
 - (void)setHtmlString:(NSString *)htmlString {
     
-    if ([self.keyString isEqualToString:@"listContacts"]) {
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"icon_metro_line5@2x" ofType:@"png"];
+    if ([self.keyString isEqualToString:SIGHT_LIST_ITEM_CONTACTS]) {
+        NSURL *url = [[NSBundle mainBundle] URLForResource:@"ugLine5@2x" withExtension:@"png"];
+        url = [url URLByDeletingLastPathComponent];
         //htmlString = [htmlString stringByReplacingOccurrencesOfString:@"Contacts.files/image001.png"
         //                                                   withString:path];
-        htmlString = [htmlString stringByReplacingOccurrencesOfString:@"Contacts.files/image002.jpg"
-                                                           withString:path];
+        htmlString = [htmlString stringByReplacingOccurrencesOfString:@"images/"
+                                                           withString:[url absoluteString]];
     }
     
     _htmlString = htmlString;
