@@ -12,6 +12,8 @@
 #define SWAP_VELOCITY_LIMIT         500
 #define SLIDE_LIMIT                 SCREEN_SIZE.width/2
 
+#define SWITCHVIEW_CENTER           CGPointMake(SCREEN_SIZE.width-8, SCREEN_SIZE.height/2)
+
 
 @interface DIDoubleSwipeView ()
 {
@@ -21,6 +23,7 @@
 @property (nonatomic, strong) UIView *bigView;
 @property (nonatomic, strong) UIView *firstView;
 @property (nonatomic, strong) UIView *secondView;
+@property (nonatomic, strong) UIImageView *switchView;
 
 @property (nonatomic) BOOL viewIsSwitching;
 @property (nonatomic) CurrentView currentView;
@@ -56,9 +59,13 @@
     _firstView.frame = frame;
     _secondView = second;
     _secondView.frame = CGRectMake(frame.size.width, 0, frame.size.width, frame.size.height);
+    
     _panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self
                                                              action:@selector(panGestureRecognized:)];
     _panRecognizer.delegate = self;
+    
+    _switchView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"map-button-list"]];
+    _switchView.center = SWITCHVIEW_CENTER;
     
     return self;
 }
@@ -70,6 +77,8 @@
     [self addSubview:_bigView];
     [_bigView addSubview:_firstView];
     [_bigView addSubview:_secondView];
+    [_bigView addSubview:_switchView];
+    
     [_bigView addGestureRecognizer:_panRecognizer];
 }
 
@@ -77,8 +86,12 @@
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
     
     CGFloat xLoc = [touch locationInView:_bigView].x;
-    if (xLoc > SCREEN_SIZE.width - SWIPE_ZONE && xLoc < SCREEN_SIZE.width + SWIPE_ZONE)
+    CGPoint touchLocation = [touch locationInView:_switchView];
+    BOOL shouldReceiveFromLeftView = [_switchView pointInside:touchLocation withEvent:nil];
+    BOOL shouldReceiveFromRightView = xLoc < SCREEN_SIZE.width + SWIPE_ZONE && xLoc > SCREEN_SIZE.width;
+    if (shouldReceiveFromLeftView || shouldReceiveFromRightView) {
         return YES;
+    }
     else
         return NO;
 }
@@ -188,6 +201,20 @@
                      }
                      completion:newComplition
      ];
+}
+
+- (void)moveSwitchViewUp:(BOOL)up {
+    
+    CGPoint downPositionCenter = CGPointMake(SWITCHVIEW_CENTER.x, (SCREEN_SIZE.height-330.)/2+330.);
+    CGPoint newCenter = up ? SWITCHVIEW_CENTER : downPositionCenter;
+    [UIView animateWithDuration:0.6
+                          delay:0
+         usingSpringWithDamping:0.6
+          initialSpringVelocity:1.
+                        options:UIViewAnimationOptionCurveEaseOut
+                     animations:^{
+                         _switchView.center = newCenter;
+                     } completion:nil];
 }
 
 

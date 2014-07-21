@@ -8,13 +8,19 @@
 
 #import "RMMapView.h"
 
+#import "DISightShortView.h"
+
 @class DIListMapVC;
+@class DISimpleMarker;
 
 @interface DIMapController : UIViewController
     <RMMapViewDelegate,
-    CLLocationManagerDelegate>
+    CLLocationManagerDelegate,
+    DISightShortViewDelegate>
 
 @property (nonatomic, strong) IBOutlet RMMapView *mapView;
 @property (nonatomic, strong) DIListMapVC *listMapController;
+
+- (void)markerTapped:(DISimpleMarker *)marker withTouches:(NSSet *)touches event:(UIEvent *)event;
 
 @end

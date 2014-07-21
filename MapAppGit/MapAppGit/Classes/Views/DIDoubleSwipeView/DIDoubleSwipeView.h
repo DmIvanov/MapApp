@@ -37,5 +37,6 @@ typedef NS_ENUM(NSInteger, CurrentView) {
 - (id)initWithFrame:(CGRect)frame firstView:(UIView *)first secondView:(UIView *)second;
 
 - (void)switchViewsWithComplition:(void (^)(BOOL finished))completion;
+- (void)moveSwitchViewUp:(BOOL)up;
 
 @end

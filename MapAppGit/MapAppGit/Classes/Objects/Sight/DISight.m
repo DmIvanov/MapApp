@@ -50,7 +50,7 @@
 }
 
 
-
+#pragma mark
 
 - (NSUInteger)indexForTodayInWHTable {
     
@@ -104,6 +104,68 @@
     }
     
     return arr;
+}
+
+
+#pragma mark
+
+- (UIImage *)imageForBigButtonAdd {
+    
+    NSString *imageName;
+    switch (_sightType) {
+        case SightTypeChosen:
+            imageName = @"list_button_add_released";
+            break;
+        case SightTypeInteresting:
+            imageName = @"list_button_add_pressed";
+            break;
+        case SightTypeDone:
+            imageName = @"";
+            break;
+        case SightTypeOther:
+            imageName = @"";
+            break;
+        case SightTypeLocal:
+            imageName = @"";
+            break;
+            
+        default:
+            break;
+    }
+    UIImage *image = [UIImage imageNamed:imageName];
+    
+    return image;
+}
+
+- (UIImage *)imageForMapMarker {
+    
+    NSString *imageName;
+    switch (_sightType) {
+        case SightTypeChosen:
+            imageName = @"map-poi-secondary";
+            break;
+        case SightTypeInteresting:
+            imageName = @"map-poi-primary";
+            break;
+        case SightTypeDone:
+            imageName = @"";
+            break;
+        case SightTypeLiked:
+            imageName = @"map-poi-visited-like";
+            break;
+        case SightTypeOther:
+            imageName = @"list_button_add_released";
+            break;
+        case SightTypeLocal:
+            imageName = @"";
+            break;
+            
+        default:
+            break;
+    }
+    UIImage *image = [UIImage imageNamed:imageName];
+    
+    return image;
 }
 
 @end

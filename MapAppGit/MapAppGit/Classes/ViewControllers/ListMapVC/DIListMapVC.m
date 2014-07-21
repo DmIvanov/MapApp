@@ -90,6 +90,12 @@
 //                  forKeyPath:@"frame"];
 //}
 
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
+    [self checkStatusbarNavibar];
+}
+
 
 #pragma mark - Actions
 
@@ -136,6 +142,17 @@
     //[self setStatusBarHiddenWithStaticFrames:hidden];
     [[UIApplication sharedApplication] setStatusBarHidden:hidden withAnimation:UIStatusBarAnimationFade];
     [self.navigationController setNavigationBarHidden:hidden animated:YES];
+}
+
+- (void)checkStatusbarNavibar {
+    
+    BOOL setHidden;
+    if (_bigView.currentView == FirstViev)
+        setHidden = YES;
+    else
+        setHidden = NO;
+    
+    [self setStatusbarNavibarHidden:setHidden];
 }
 
 - (void)navibarPositionManagingWithOffset:(CGFloat)offset {
@@ -214,14 +231,16 @@
 
 - (void)switchAnimationFinished:(DIDoubleSwipeView *)doubleSwipeView {
     
-    BOOL setHidden;
-    if (doubleSwipeView.currentView == FirstViev)
-        setHidden = YES;
-    else
-        setHidden = NO;
-    
-    [self setStatusbarNavibarHidden:setHidden];
+    if (doubleSwipeView == _bigView)
+        [self checkStatusbarNavibar];
 }
 
+
+#pragma mark
+
+- (void)sightViewIsShowingOnMap:(BOOL)showing {
+    
+    [_bigView moveSwitchViewUp:!showing];
+}
 
 @end

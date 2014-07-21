@@ -14,5 +14,6 @@
 
 - (void)navibarPositionManagingWithOffset:(CGFloat)offset;
 - (void)setStatusbarNavibarHidden:(BOOL)hidden;
+- (void)sightViewIsShowingOnMap:(BOOL)showing;
 
 @end

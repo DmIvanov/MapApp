@@ -13,6 +13,7 @@ typedef NS_ENUM(NSUInteger, SightType) {
     SightTypeChosen,        //выбранные
     SightTypeInteresting,   //интересные
     SightTypeDone,          //посещённые
+    SightTypeLiked,         //понравившиеся
     SightTypeOther,         //прочие
     SightTypeLocal          //локальные
 };
@@ -46,8 +47,10 @@ typedef NS_ENUM(NSUInteger, SightType) {
 
 - (instancetype)initWithManagedObject:(NSManagedObject *)object;
 
-//- (NSUInteger)indexForDateStringInWHTable:(NSString *)todayString;
 - (NSDictionary *)todayWHDict;
 - (NSArray *)sevenDaysWH;
+
+- (UIImage *)imageForBigButtonAdd;
+- (UIImage *)imageForMapMarker;
 
 @end

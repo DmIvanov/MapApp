@@ -11,16 +11,25 @@
 #import <CoreLocation/CoreLocation.h>
 
 #import "RouteMe.h"
+#import "RMMercatorToScreenProjection.h"
 
 #import "DICloudeMadeManager.h"
-#import "DINotificationNames.h"
 #import "DISettingsManager.h"
 #import "DISightsManager.h"
+
+#import "DISightCardVC.h"
+#import "DIListMapVC.h"
+
 #import "DISight.h"
 #import "DIHelper.h"
+#import "DISimpleMarker.h"
+#import "DISightShortView.h"
 
 
 @interface DIMapController ()
+{
+    DISightShortView *_currentSightView;
+}
 
 @property (nonatomic, strong) DIMapSourceManager *mapSourceManager;
 @property (nonatomic, strong) CLLocationManager *locationManager;
@@ -88,19 +97,6 @@
         [_locationManager startUpdatingHeading];
 }
 
-- (IBAction)buttonZoomRoundingPressed:(id)sender {
-    
-    UIButton *button = (UIButton *)sender;
-    if (button.selected) {
-        [DIHelper sharedInstance].mapRoundingCeil = NO;
-        button.selected = NO;
-    }
-    else {
-        [DIHelper sharedInstance].mapRoundingCeil = YES;
-        button.selected = YES;
-    }
-}
-
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
     
     CLLocation *location = locations.lastObject;
@@ -125,9 +121,12 @@
 }
 
 
-#pragma mark - RMMapViewDelegate methods
+#pragma mark - RMMapView interactions
 
 - (void)singleTapOnMap:(RMMapView *)map At:(CGPoint)point {
+    
+    if (_currentSightView)
+        [self hideCurrentSightView];
 /*
     if (map != _mapView)
         return;
@@ -143,6 +142,29 @@
 - (void)afterMapZoom:(RMMapView *)map byFactor:(float)zoomFactor near:(CGPoint)center {
     
     //DLog(@"zoom - %f", _mapView.contents.zoom);
+}
+
+- (void)markerTapped:(DISimpleMarker *)marker withTouches:(NSSet *)touches event:(UIEvent *)event {
+    
+    if (_currentSightView)
+        [self hideCurrentSightView];
+    
+    //UITouch *touch = [[touches allObjects] objectAtIndex:0];
+    //CGPoint position = [touch locationInView:_mapView];
+    CGPoint position = [_mapView.contents.mercatorToScreenProjection projectXYPoint:marker.projectedLocation];
+    position = CGPointMake(position.x, position.y - marker.bounds.size.height/2);    //arrow points into the center of the marker
+    
+    NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"DISightShortView"
+                                                 owner:self
+                                               options:nil];
+    _currentSightView = arr.firstObject;
+    _currentSightView.frame     = self.view.frame;
+    _currentSightView.delegate  = self;
+    _currentSightView.sight     = marker.sight;
+    CGPoint newMarkerPosition = [_currentSightView markerPoint];
+    CGSize delta = CGSizeMake(newMarkerPosition.x-position.x, newMarkerPosition.y-position.y);
+    [_mapView moveBy:delta];
+    [self showSightView:_currentSightView];
 }
 
 
@@ -163,10 +185,59 @@
 - (void)placeOneObjectOnMap:(DISight *)sight {
     
     CLLocationCoordinate2D coord = CLLocationCoordinate2DMake([sight.latitudeNumber floatValue], [sight.longitudeNumber floatValue]);
-    DLog(@"%@ %@", sight.longitudeNumber, sight.latitudeNumber);
-    RMMarker *newMarker = [[RMMarker alloc] initWithUIImage:[UIImage imageNamed:@"marker-blue"]];
-    newMarker.anchorPoint = CGPointMake(0.5, 1.);
+    UIImage *imageForMarker = [sight imageForMapMarker];
+    DISimpleMarker *newMarker = [[DISimpleMarker alloc] initWithUIImage:imageForMarker
+                                                            anchorPoint:CGPointMake(0.5, 1.)];
+    newMarker.mapController = self;
+    newMarker.sight = sight;
     [_mapView.markerManager addMarker:newMarker AtLatLong:coord];
+}
+
+- (void)showSightView:(DISightShortView *)view {
+    
+    [_listMapController sightViewIsShowingOnMap:YES];
+    
+    view.alpha = 0.;
+    [self.view addSubview:view];
+    [UIView animateWithDuration:0.3
+                     animations:^{
+                         view.alpha = 1.;
+                     }];
+}
+
+- (void)hideCurrentSightView {
+    
+    [self hideSightView:_currentSightView];
+}
+
+- (void)hideSightView:(DISightShortView *)view {
+    
+    [_listMapController sightViewIsShowingOnMap:NO];
+    
+    [UIView animateWithDuration:0.3
+                     animations:^{
+                         view.alpha = 0.;
+                     } completion:^(BOOL finished) {
+                         [view removeFromSuperview];
+                         if (view == _currentSightView)
+                             _currentSightView = nil;
+                     }];
+}
+
+
+#pragma mark - DISightShortViewDelegate methods
+
+- (void)openSightCardFromView:(DISightShortView *)view {
+    
+    DISightCardVC *sightCard = [DISightCardVC new];
+    sightCard.sight = view.sight;
+    [self.listMapController.navigationController pushViewController:sightCard
+                                                           animated:YES];
+}
+
+- (void)dismissView:(DISightShortView *)view {
+    
+    [self hideSightView:view];
 }
 
 @end

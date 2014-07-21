@@ -83,15 +83,8 @@
                         </subviews>
                         <color key="backgroundColor" red="0.86274509803921573" green="0.86274509803921573" blue="0.86274509803921573" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="4vC-kH-nxP" userLabel="ButtonInfo">
-                        <rect key="frame" x="255" y="50" width="65" height="27"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                        <state key="normal" backgroundImage="list_button_info.png">
-                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                        </state>
-                    </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="y2U-B6-tWs" userLabel="ButtonAdd">
-                        <rect key="frame" x="253" y="90" width="44" height="48"/>
+                        <rect key="frame" x="253" y="75" width="44" height="48"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                         <state key="normal">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -109,7 +102,6 @@
                 <outlet property="bottomLabel" destination="uIp-iF-nbA" id="lGY-j3-DdK"/>
                 <outlet property="bottomView" destination="wtN-07-ghM" id="4Of-ue-yo8"/>
                 <outlet property="buttonAdd" destination="y2U-B6-tWs" id="YZY-QS-9WW"/>
-                <outlet property="buttonInfo" destination="4vC-kH-nxP" id="wap-BT-rdE"/>
                 <outlet property="cellTitleView" destination="tsM-QY-oo6" id="4rt-6a-Xak"/>
                 <outlet property="darkStripe" destination="jIb-x7-AqG" id="8hw-NF-5Iv"/>
                 <outlet property="imageView" destination="6QY-1T-jD3" id="R0k-kL-ndG"/>
@@ -119,7 +111,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="list_button_info.png" width="64" height="27"/>
         <image name="list_status_price.png" width="21" height="21"/>
         <image name="list_status_worktime.png" width="21" height="21"/>
     </resources>

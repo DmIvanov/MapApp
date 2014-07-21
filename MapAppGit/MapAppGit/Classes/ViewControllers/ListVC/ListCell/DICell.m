@@ -18,7 +18,6 @@
 @property (nonatomic, strong) IBOutlet UIImageView *titleIcon;
 @property (nonatomic, strong) IBOutlet UILabel *titleLabel;
 @property (nonatomic, strong) IBOutlet UIImageView *imageView;
-@property (nonatomic, strong) IBOutlet UIButton *buttonInfo;
 @property (nonatomic, strong) IBOutlet UIButton *buttonAdd;
 @property (nonatomic, strong) IBOutlet UIImageView *darkStripe;
 @property (nonatomic, strong) IBOutlet UIView *bottomView;
@@ -57,29 +56,8 @@
 
 - (void)fillButtonAddImage {
     
-    NSString *imageName;
-    switch (_sight.sightType) {
-        case SightTypeChosen:
-            imageName = @"";
-            break;
-        case SightTypeInteresting:
-            imageName = @"list_button_add_pressed";
-            break;
-        case SightTypeDone:
-            imageName = @"";
-            break;
-        case SightTypeOther:
-            imageName = @"list_button_add_released";
-            break;
-        case SightTypeLocal:
-            imageName = @"";
-            break;
-            
-        default:
-            break;
-    }
-    UIImage *buttonAddImage = [UIImage imageNamed:imageName];
-    [_buttonAdd setImage:buttonAddImage forState:UIControlStateNormal];
+    UIImage *image = [_sight imageForBigButtonAdd];
+    [_buttonAdd setImage:image forState:UIControlStateNormal];
 }
 
 
