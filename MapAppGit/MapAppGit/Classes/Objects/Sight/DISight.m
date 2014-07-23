@@ -8,6 +8,8 @@
 
 #import "DISight.h"
 
+#import <CoreData/CoreData.h>
+
 #import "DIHelper.h"
 #import "DISightsManager.h"
 
@@ -106,6 +108,49 @@
     return arr;
 }
 
+- (BOOL)isClosedNow {
+    
+    NSDictionary *todayDict = [self todayWHDict];
+    if ([self isDateDict:todayDict compriseDate:[NSDate date]])
+        return NO;
+    else
+        return YES;
+}
+
+- (BOOL)isDateDict:(NSDictionary *)dictionary compriseDate:(NSDate *)date {
+    
+    NSDate *timeOpen    = dictionary[@"timeOpen"];
+    NSDate *timeClose   = dictionary[@"timeClose"];
+    timeClose = [timeClose dateByAddingTimeInterval:59];
+    
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSHourCalendarUnit | NSMinuteCalendarUnit
+                                                                   fromDate:date];
+    NSString *timeString = [NSString stringWithFormat:@"%d:%d", 19, 22];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"HH:mm"];
+    NSDate *timeNow = [dateFormat dateFromString:timeString];
+    
+    NSTimeInterval absoluteOpen     = [timeOpen timeIntervalSince1970];
+    NSTimeInterval absoluteClose    = [timeClose timeIntervalSince1970];
+    NSTimeInterval absoluteNow      = [timeNow timeIntervalSince1970];
+    
+    if (absoluteNow <= absoluteClose && absoluteNow >= absoluteOpen)
+        return YES;
+    else
+        return NO;
+}
+
+- (BOOL)isFreeToday {
+    
+    NSDictionary *todayDict = [self todayWHDict];
+    BOOL totalyFreeToday = [todayDict[@"free"] boolValue];
+    CGFloat priceFloat = [_price floatValue];
+    if (!priceFloat || totalyFreeToday)
+        return YES;
+    else
+        return NO;
+}
+
 
 #pragma mark
 
@@ -140,28 +185,33 @@
 - (UIImage *)imageForMapMarker {
     
     NSString *imageName;
-    switch (_sightType) {
-        case SightTypeChosen:
-            imageName = @"map-poi-secondary";
-            break;
-        case SightTypeInteresting:
-            imageName = @"map-poi-primary";
-            break;
-        case SightTypeDone:
-            imageName = @"";
-            break;
-        case SightTypeLiked:
-            imageName = @"map-poi-visited-like";
-            break;
-        case SightTypeOther:
-            imageName = @"list_button_add_released";
-            break;
-        case SightTypeLocal:
-            imageName = @"";
-            break;
-            
-        default:
-            break;
+    if ([self isClosedNow]) {
+        imageName = @"map-poi-temp_unavi";
+    }
+    else {
+        switch (_sightType) {
+            case SightTypeChosen:
+                imageName = @"map-poi-secondary";
+                break;
+            case SightTypeInteresting:
+                imageName = @"map-poi-primary";
+                break;
+            case SightTypeDone:
+                imageName = @"";
+                break;
+            case SightTypeLiked:
+                imageName = @"map-poi-visited-like";
+                break;
+            case SightTypeOther:
+                imageName = @"list_button_add_released";
+                break;
+            case SightTypeLocal:
+                imageName = @"";
+                break;
+                
+            default:
+                break;
+        }
     }
     UIImage *image = [UIImage imageNamed:imageName];
     

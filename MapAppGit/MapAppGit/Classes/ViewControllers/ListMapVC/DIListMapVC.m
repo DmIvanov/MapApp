@@ -218,11 +218,11 @@
         [button setImage:[UIImage imageNamed:@"list_button_toMap"] forState:UIControlStateNormal];
         return button;
     }
-    else if (button.sideMode == SideModeRight) {
+/*    else if (button.sideMode == SideModeRight) {
         [button setImage:[UIImage imageNamed:@"list_button_menu"] forState:UIControlStateNormal];
         return button;
     }
-    
+*/    
     return nil;
 }
 

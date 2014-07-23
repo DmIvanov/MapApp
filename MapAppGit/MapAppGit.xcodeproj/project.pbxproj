@@ -38,6 +38,7 @@
 		C43741FD190BAB020095D51E /* DISightCardVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C43741FB190BAB020095D51E /* DISightCardVC.m */; };
 		C43741FE190BAB020095D51E /* DISightCardVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C43741FC190BAB020095D51E /* DISightCardVC.xib */; };
 		C4374202190BAC440095D51E /* DISight.m in Sources */ = {isa = PBXBuildFile; fileRef = C4374201190BAC440095D51E /* DISight.m */; };
+		C4677217197FFA27001CDD69 /* rus_spb_10_18.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C4677216197FFA27001CDD69 /* rus_spb_10_18.sqlite */; };
 		C46D1E691942FAF10063CFB4 /* list_buttonBar_background_128@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C46D1E681942FAF10063CFB4 /* list_buttonBar_background_128@2x.png */; };
 		C474B37319786C8400923CF3 /* list_status_price_free@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C474B37119786C8400923CF3 /* list_status_price_free@2x.png */; };
 		C474B37419786C8400923CF3 /* list_status_price@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C474B37219786C8400923CF3 /* list_status_price@2x.png */; };
@@ -62,6 +63,7 @@
 		C474B3E2197D262200923CF3 /* map-poi-secondary@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C474B3D1197D262200923CF3 /* map-poi-secondary@2x.png */; };
 		C474B3E3197D262200923CF3 /* map-poi-temp_unavi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C474B3D2197D262200923CF3 /* map-poi-temp_unavi@2x.png */; };
 		C474B3E4197D262200923CF3 /* map-poi-visited-like@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C474B3D3197D262200923CF3 /* map-poi-visited-like@2x.png */; };
+		C474B3EB197E799200923CF3 /* list_status_unavailable@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C474B3EA197E799200923CF3 /* list_status_unavailable@2x.png */; };
 		C492EF7F1973014300CB88FA /* ico_audioguide_free@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C492EF791973014300CB88FA /* ico_audioguide_free@2x.png */; };
 		C492EF801973014300CB88FA /* ico_audioguide@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C492EF7A1973014300CB88FA /* ico_audioguide@2x.png */; };
 		C492EF811973014300CB88FA /* ico_photo_free@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C492EF7B1973014300CB88FA /* ico_photo_free@2x.png */; };
@@ -201,6 +203,7 @@
 		C43741FC190BAB020095D51E /* DISightCardVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DISightCardVC.xib; path = Classes/ViewControllers/SightCardVC/DISightCardVC.xib; sourceTree = "<group>"; };
 		C4374200190BAC440095D51E /* DISight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DISight.h; path = Classes/Objects/Sight/DISight.h; sourceTree = "<group>"; };
 		C4374201190BAC440095D51E /* DISight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DISight.m; path = Classes/Objects/Sight/DISight.m; sourceTree = "<group>"; };
+		C4677216197FFA27001CDD69 /* rus_spb_10_18.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = rus_spb_10_18.sqlite; path = MapAppGit/Bases/Maps/rus_spb_10_18.sqlite; sourceTree = SOURCE_ROOT; };
 		C46D1E681942FAF10063CFB4 /* list_buttonBar_background_128@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "list_buttonBar_background_128@2x.png"; path = "Backgrounds/list_buttonBar_background_128@2x.png"; sourceTree = "<group>"; };
 		C46D1E7C1943391F0063CFB4 /* DIAppDefaults.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DIAppDefaults.h; sourceTree = "<group>"; };
 		C474B37119786C8400923CF3 /* list_status_price_free@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list_status_price_free@2x.png"; sourceTree = "<group>"; };
@@ -228,6 +231,8 @@
 		C474B3D1197D262200923CF3 /* map-poi-secondary@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map-poi-secondary@2x.png"; sourceTree = "<group>"; };
 		C474B3D2197D262200923CF3 /* map-poi-temp_unavi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map-poi-temp_unavi@2x.png"; sourceTree = "<group>"; };
 		C474B3D3197D262200923CF3 /* map-poi-visited-like@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map-poi-visited-like@2x.png"; sourceTree = "<group>"; };
+		C474B3E9197E70D300923CF3 /* DINotifications.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DINotifications.h; sourceTree = "<group>"; };
+		C474B3EA197E799200923CF3 /* list_status_unavailable@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list_status_unavailable@2x.png"; sourceTree = "<group>"; };
 		C492EF791973014300CB88FA /* ico_audioguide_free@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ico_audioguide_free@2x.png"; sourceTree = "<group>"; };
 		C492EF7A1973014300CB88FA /* ico_audioguide@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ico_audioguide@2x.png"; sourceTree = "<group>"; };
 		C492EF7B1973014300CB88FA /* ico_photo_free@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ico_photo_free@2x.png"; sourceTree = "<group>"; };
@@ -458,6 +463,7 @@
 			isa = PBXGroup;
 			children = (
 				0ADC97E219744D4B00AE3499 /* Contacts */,
+				C474B3EA197E799200923CF3 /* list_status_unavailable@2x.png */,
 				C474B37119786C8400923CF3 /* list_status_price_free@2x.png */,
 				C474B37219786C8400923CF3 /* list_status_price@2x.png */,
 				C492EF791973014300CB88FA /* ico_audioguide_free@2x.png */,
@@ -597,6 +603,7 @@
 		C49972481896E31300A8DA98 /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				C4677216197FFA27001CDD69 /* rus_spb_10_18.sqlite */,
 				C43741E21902C8590095D51E /* rus_spb_10_15.sqlite */,
 			);
 			path = Map;
@@ -733,6 +740,7 @@
 				C4BD881218705EE400128CD1 /* InfoPlist.strings */,
 				C4BD881518705EE400128CD1 /* main.m */,
 				C4BD881718705EE400128CD1 /* MapAppGit-Prefix.pch */,
+				C474B3E9197E70D300923CF3 /* DINotifications.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1030,6 +1038,7 @@
 				C4956450191E1E3900612A00 /* spb1.jpg in Resources */,
 				0ADC97FF1974500E00AE3499 /* ugLine4.png in Resources */,
 				C4956453191E1E3900612A00 /* spb4.jpg in Resources */,
+				C474B3EB197E799200923CF3 /* list_status_unavailable@2x.png in Resources */,
 				C492EF831973014300CB88FA /* ico_wifi_free@2x.png in Resources */,
 				C474B3E0197D262200923CF3 /* map-me-undirected@2x.png in Resources */,
 				0A1A04511929D1F100B81664 /* list_button_add_pressed@2x.png in Resources */,
@@ -1042,6 +1051,7 @@
 				C4A7144B191CFEED0056EB30 /* DICell.xib in Resources */,
 				C474B3DD197D262200923CF3 /* map-bytton-plus@2x.png in Resources */,
 				C43741FE190BAB020095D51E /* DISightCardVC.xib in Resources */,
+				C4677217197FFA27001CDD69 /* rus_spb_10_18.sqlite in Resources */,
 				C4BD881F18705EE400128CD1 /* Images.xcassets in Resources */,
 				C42EE3A6194B05FC00B9FDEF /* SightsBase.sqlite-shm in Resources */,
 				C474B3DC197D262200923CF3 /* map-bytton-plus-pressed@2x.png in Resources */,
@@ -1171,8 +1181,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1215,8 +1225,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_NS_ASSERTIONS = NO;

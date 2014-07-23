@@ -8,6 +8,8 @@
 
 #import "DISightsManager.h"
 
+#import <CoreData/CoreData.h>
+
 #import "DISight.h"
 
 @interface DISightsManager ()

@@ -186,14 +186,13 @@
 
 - (void)refreshDateTimeInfo {
     
-    BOOL freeToday = [_todayWH[@"free"] boolValue];
     NSString *price;
-    CGFloat priceFloat = [_sight.price floatValue];
-    if (!priceFloat || freeToday) {
+    if (_sight.isFreeToday) {
         price = NSLocalizedString(@"sightCardFree", nil);
         _imageRubles.hidden = YES;
     }
     else {
+        CGFloat priceFloat = [_sight.price floatValue];
         price = [NSString stringWithFormat:@"%lu", (unsigned long)priceFloat];
         _imageRubles.hidden = NO;
     }
@@ -209,13 +208,19 @@
     frame.origin.x = xMax + 6;
     _imageRubles.frame = frame;
     
-    NSDate *timeOpen = _todayWH[@"timeOpen"];
-    NSDate *timeClose = _todayWH[@"timeClose"];
+    if ([_sight isClosedNow]) {
+        _labelWorkHours.text = NSLocalizedString(@"sightCardClosedToday", nil);
+        _imageViewWorkHours.image = [UIImage imageNamed:@"list_status_unavailable"];
+    }
+    else {
+        NSDate *timeOpen = _todayWH[@"timeOpen"];
+        NSDate *timeClose = _todayWH[@"timeClose"];
     
-    NSString *displayedHours = [[DISightsManager sharedInstance] openCloseStringFromDateOpen:timeOpen
+        NSString *displayedHours = [[DISightsManager sharedInstance] openCloseStringFromDateOpen:timeOpen
                                                                                    dateClose:timeClose];
-
-    _labelWorkHours.text = displayedHours;
+        _labelWorkHours.text = displayedHours;
+        _imageViewWorkHours.image = [UIImage imageNamed:@"list_status_worktime"];
+    }
 }
 
 

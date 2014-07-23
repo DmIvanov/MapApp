@@ -6,8 +6,7 @@
 //  Copyright (c) 2014 Dmitry Ivanov. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
+@class NSManagedObject;
 
 typedef NS_ENUM(NSUInteger, SightType) {
     SightTypeChosen,        //выбранные
@@ -47,8 +46,11 @@ typedef NS_ENUM(NSUInteger, SightType) {
 
 - (instancetype)initWithManagedObject:(NSManagedObject *)object;
 
+- (BOOL)isClosedNow;
 - (NSDictionary *)todayWHDict;
 - (NSArray *)sevenDaysWH;
+
+- (BOOL)isFreeToday;
 
 - (UIImage *)imageForBigButtonAdd;
 - (UIImage *)imageForMapMarker;

@@ -42,15 +42,15 @@
                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Klm-3s-hlD">
-                                    <rect key="frame" x="35" y="12" width="160" height="21"/>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Klm-3s-hlD" userLabel="Label - workHours">
+                                    <rect key="frame" x="35" y="12" width="149" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5AB-6J-aO7">
-                                    <rect key="frame" x="232" y="12" width="55" height="21"/>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5AB-6J-aO7" userLabel="Label - price">
+                                    <rect key="frame" x="217" y="12" width="95" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -60,8 +60,8 @@
                                     <rect key="frame" x="6" y="12" width="21" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="list_status_price.png" id="aA3-PA-ezh">
-                                    <rect key="frame" x="203" y="12" width="21" height="21"/>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="info_price.png" id="aA3-PA-ezh">
+                                    <rect key="frame" x="188" y="12" width="21" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kjQ-kw-4cP">
@@ -71,6 +71,10 @@
                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="info_roubles.png" id="YVy-uA-VtI">
+                                    <rect key="frame" x="290" y="18" width="10" height="10"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </imageView>
                             </subviews>
                             <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
@@ -96,13 +100,18 @@
                 <outlet property="bottomArrowView" destination="I9J-fA-GOp" id="4r5-jk-d7r"/>
                 <outlet property="bottomLabel" destination="HYp-WK-JqF" id="6Ue-ES-3gj"/>
                 <outlet property="buttonAdd" destination="d7J-01-Eit" id="xKb-NT-1ga"/>
+                <outlet property="imageRubles" destination="YVy-uA-VtI" id="0P3-aY-8Iv"/>
                 <outlet property="imageView" destination="YhC-nV-zfL" id="JwZ-np-B1l"/>
+                <outlet property="imageViewWorkHours" destination="gaQ-s6-gWx" id="9li-HK-BcV"/>
+                <outlet property="labelPrice" destination="5AB-6J-aO7" id="QvQ-rB-ODa"/>
+                <outlet property="labelWorkHours" destination="Klm-3s-hlD" id="Jfc-uJ-fCt"/>
                 <outlet property="titleLabel" destination="kjQ-kw-4cP" id="0te-ZF-fpX"/>
             </connections>
         </view>
     </objects>
     <resources>
-        <image name="list_status_price.png" width="21" height="21"/>
+        <image name="info_price.png" width="21" height="21"/>
+        <image name="info_roubles.png" width="10" height="10"/>
         <image name="list_status_worktime.png" width="21" height="21"/>
         <image name="map-info-stem.png" width="320" height="74"/>
     </resources>

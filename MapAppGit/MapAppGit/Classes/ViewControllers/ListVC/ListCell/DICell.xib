@@ -59,14 +59,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AJt-ER-J3e">
-                                <rect key="frame" x="35" y="12" width="160" height="21"/>
+                                <rect key="frame" x="35" y="12" width="149" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lDj-BL-6So">
-                                <rect key="frame" x="232" y="12" width="55" height="21"/>
+                                <rect key="frame" x="209" y="12" width="101" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -76,8 +76,12 @@
                                 <rect key="frame" x="6" y="12" width="21" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="list_status_price.png" id="ntG-yf-Thu">
-                                <rect key="frame" x="203" y="12" width="21" height="21"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="info_price.png" id="ntG-yf-Thu">
+                                <rect key="frame" x="187" y="12" width="21" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="info_roubles.png" id="WIp-Ap-JfD">
+                                <rect key="frame" x="286" y="17" width="10" height="10"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -104,14 +108,19 @@
                 <outlet property="buttonAdd" destination="y2U-B6-tWs" id="YZY-QS-9WW"/>
                 <outlet property="cellTitleView" destination="tsM-QY-oo6" id="4rt-6a-Xak"/>
                 <outlet property="darkStripe" destination="jIb-x7-AqG" id="8hw-NF-5Iv"/>
+                <outlet property="imageRubles" destination="WIp-Ap-JfD" id="BMd-Im-KIj"/>
                 <outlet property="imageView" destination="6QY-1T-jD3" id="R0k-kL-ndG"/>
+                <outlet property="imageViewWorkHours" destination="qnn-oe-U8a" id="pZP-ME-HYa"/>
+                <outlet property="labelPrice" destination="lDj-BL-6So" id="6Ir-Vk-4PF"/>
+                <outlet property="labelWorkHours" destination="AJt-ER-J3e" id="gbK-E4-4Zf"/>
                 <outlet property="titleIcon" destination="v1K-HE-Bir" id="M11-rW-Xbk"/>
                 <outlet property="titleLabel" destination="HuT-yV-fqV" id="eKQ-yq-DTW"/>
             </connections>
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="list_status_price.png" width="21" height="21"/>
+        <image name="info_price.png" width="21" height="21"/>
+        <image name="info_roubles.png" width="10" height="10"/>
         <image name="list_status_worktime.png" width="21" height="21"/>
     </resources>
 </document>

@@ -29,6 +29,7 @@
 @interface DIMapController ()
 {
     DISightShortView *_currentSightView;
+    BOOL _positionSwitchedOn;
 }
 
 @property (nonatomic, strong) DIMapSourceManager *mapSourceManager;
@@ -167,6 +168,30 @@
     [self showSightView:_currentSightView];
 }
 
+
+#pragma mark - Actions
+
+- (IBAction)buttonPositionPressed:(UIButton *)sender {
+    
+    _positionSwitchedOn = !_positionSwitchedOn;
+    if (_positionSwitchedOn)
+        [sender setImage:[UIImage imageNamed:@"map-button-to_center-pressed.png"]
+                forState:UIControlStateNormal];
+    else
+        [sender setImage:[UIImage imageNamed:@"map-button-to_center.png"]
+                forState:UIControlStateNormal];
+    
+}
+
+- (IBAction)buttonMinusPressed:(id)sender {
+    
+    
+}
+
+- (IBAction)buttonPlusPressed:(id)sender {
+    
+    
+}
 
 #pragma mark - Other functions
 
