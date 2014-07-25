@@ -25,6 +25,7 @@
                             <state key="normal" backgroundImage="map-button-to_center.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <state key="highlighted" backgroundImage="map-button-to_center-pressed.png"/>
                             <connections>
                                 <action selector="buttonPositionPressed:" destination="-1" eventType="touchUpInside" id="BFb-HP-yvV"/>
                             </connections>
@@ -70,6 +71,7 @@
     <resources>
         <image name="map-altitude-blue.png" width="8" height="3"/>
         <image name="map-altitude.png" width="13" height="44"/>
+        <image name="map-button-to_center-pressed.png" width="44" height="44"/>
         <image name="map-button-to_center.png" width="44" height="44"/>
         <image name="map-bytton-minus.png" width="44" height="44"/>
         <image name="map-bytton-plus-pressed.png" width="44" height="44"/>

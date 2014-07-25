@@ -26,10 +26,16 @@
 #import "DISightShortView.h"
 
 
+#define LOCATION_MARKER_DIRECTED_IMAGE              [UIImage imageNamed:@"map-me-directed"]
+#define LOCATION_MARKER_UNDIRECTED_IMAGE          [UIImage imageNamed:@"map-me-undirected"]
+
+
 @interface DIMapController ()
 {
     DISightShortView *_currentSightView;
     BOOL _positionSwitchedOn;
+    BOOL _firstLocationDetection;
+    CLLocationCoordinate2D _currentCoordinates;
 }
 
 @property (nonatomic, strong) DIMapSourceManager *mapSourceManager;
@@ -66,12 +72,6 @@
         [_mapView setConstraintsSW:[DISettingsManager sharedInstance].SWBorderPoint
                                 NE:[DISettingsManager sharedInstance].NEBorderPoint];
     
-    UIBarButtonItem *locButton = [[UIBarButtonItem alloc] initWithTitle:@"location"
-                                                                  style:UIBarButtonItemStylePlain
-                                                                 target:self
-                                                                 action:@selector(buttonLocationPressed)];
-    self.navigationItem.rightBarButtonItem = locButton;
-    
     [self placeObjectsOnMap];
 }
 
@@ -90,7 +90,7 @@
 
 #pragma mark - Location Service
 
-- (void)buttonLocationPressed {
+- (void)locationMonitoringStart {
     
     if ([CLLocationManager significantLocationChangeMonitoringAvailable])
         [_locationManager startMonitoringSignificantLocationChanges];
@@ -98,19 +98,27 @@
         [_locationManager startUpdatingHeading];
 }
 
+- (void)locationMonitoringStop {
+    
+    [_locationManager stopMonitoringSignificantLocationChanges];
+    [_locationManager stopUpdatingHeading];
+}
+
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
     
     CLLocation *location = locations.lastObject;
-    CLLocationCoordinate2D coord = location.coordinate;
+    _currentCoordinates = location.coordinate;
     
-    if (!_currentLocationMarker) {
-        _currentLocationMarker = [[RMMarker alloc] initWithUIImage:[UIImage imageNamed:@"arrow.jpeg"]];
-        [_mapView.markerManager addMarker:_currentLocationMarker AtLatLong:coord];
-        [_mapView moveToLatLong:coord];
+    [_mapView.markerManager moveMarkerWithAnimation:self.currentLocationMarker AtLatLon:_currentCoordinates];
+    
+    if (_firstLocationDetection) {
+        [self locationDetectedFirstTime];
     }
-    else {
-        [_mapView.markerManager moveMarkerWithAnimation:_currentLocationMarker AtLatLon:coord];
-    }
+}
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+    
+    DLog(@"Location Manager Error: %@", error);
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateHeading:(CLHeading *)newHeading {
@@ -119,6 +127,10 @@
     CGFloat angle = 2*M_PI*(direction/360);
     
     _currentLocationMarker.transform = CATransform3DMakeRotation(angle, 0, 0, 1);
+    
+    if (_firstLocationDetection) {
+        [self locationDetectedFirstTime];
+    }
 }
 
 
@@ -174,32 +186,58 @@
 - (IBAction)buttonPositionPressed:(UIButton *)sender {
     
     _positionSwitchedOn = !_positionSwitchedOn;
-    if (_positionSwitchedOn)
+    if (_positionSwitchedOn) {
         [sender setImage:[UIImage imageNamed:@"map-button-to_center-pressed.png"]
                 forState:UIControlStateNormal];
-    else
+        [sender setImage:[UIImage imageNamed:@"map-button-to_center.png"]
+                forState:UIControlStateHighlighted];
+        [self switchLocationMonitoringOn];
+    }
+    else {
         [sender setImage:[UIImage imageNamed:@"map-button-to_center.png"]
                 forState:UIControlStateNormal];
+        [sender setImage:[UIImage imageNamed:@"map-button-to_center-pressed.png"]
+                forState:UIControlStateHighlighted];
+        [self switchLocationMonitoringOff];
+    }
     
 }
 
 - (IBAction)buttonMinusPressed:(id)sender {
     
-    
+    [_mapView zoomOutToNextNativeZoomAt:self.view.center];
 }
 
 - (IBAction)buttonPlusPressed:(id)sender {
     
-    
+    [_mapView zoomInToNextNativeZoomAt:self.view.center];
 }
+
+
+#pragma mark - DISightShortViewDelegate methods
+
+- (void)openSightCardFromView:(DISightShortView *)view {
+    
+    DISightCardVC *sightCard = [DISightCardVC new];
+    sightCard.sight = view.sight;
+    [self.listMapController.navigationController pushViewController:sightCard
+                                                           animated:YES];
+}
+
+- (void)dismissView:(DISightShortView *)view {
+    
+    [self hideSightView:view];
+}
+
+
 
 #pragma mark - Other functions
 
 - (void)placeObjectsOnMap {
     
-//    for (DISightExtended *sight in _dataArray) {
-//        [self placeOneObjectOnMap:sight];
-//    }
+    //    for (DISightExtended *sight in _dataArray) {
+    //        [self placeOneObjectOnMap:sight];
+    //    }
     DISight *sight = _dataArray.firstObject;
     [self placeOneObjectOnMap:sight];
     
@@ -249,20 +287,37 @@
                      }];
 }
 
-
-#pragma mark - DISightShortViewDelegate methods
-
-- (void)openSightCardFromView:(DISightShortView *)view {
+- (void)switchLocationMonitoringOn {
     
-    DISightCardVC *sightCard = [DISightCardVC new];
-    sightCard.sight = view.sight;
-    [self.listMapController.navigationController pushViewController:sightCard
-                                                           animated:YES];
+    _firstLocationDetection = YES;
+    
+    [self.currentLocationMarker replaceUIImage:LOCATION_MARKER_DIRECTED_IMAGE];
+    [self locationMonitoringStart];
 }
 
-- (void)dismissView:(DISightShortView *)view {
+- (void)switchLocationMonitoringOff {
+ 
+    [_currentLocationMarker replaceUIImage:LOCATION_MARKER_UNDIRECTED_IMAGE];
+    [self locationMonitoringStop];
+}
+
+- (void)locationDetectedFirstTime {
     
-    [self hideSightView:view];
+    [_mapView moveToLatLong:_currentCoordinates];
+    _firstLocationDetection = NO;
+}
+
+
+#pragma mark - Setters & getters
+
+- (RMMarker *)currentLocationMarker {
+    
+    if (!_currentLocationMarker) {
+        _currentLocationMarker = [[RMMarker alloc] initWithUIImage:LOCATION_MARKER_DIRECTED_IMAGE];
+        [_mapView.markerManager addMarker:_currentLocationMarker AtLatLong:_currentCoordinates];
+    }
+    
+    return _currentLocationMarker;
 }
 
 @end

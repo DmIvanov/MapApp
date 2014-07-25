@@ -38,7 +38,6 @@
 		C43741FD190BAB020095D51E /* DISightCardVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C43741FB190BAB020095D51E /* DISightCardVC.m */; };
 		C43741FE190BAB020095D51E /* DISightCardVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C43741FC190BAB020095D51E /* DISightCardVC.xib */; };
 		C4374202190BAC440095D51E /* DISight.m in Sources */ = {isa = PBXBuildFile; fileRef = C4374201190BAC440095D51E /* DISight.m */; };
-		C4677217197FFA27001CDD69 /* rus_spb_10_18.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C4677216197FFA27001CDD69 /* rus_spb_10_18.sqlite */; };
 		C46D1E691942FAF10063CFB4 /* list_buttonBar_background_128@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C46D1E681942FAF10063CFB4 /* list_buttonBar_background_128@2x.png */; };
 		C474B37319786C8400923CF3 /* list_status_price_free@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C474B37119786C8400923CF3 /* list_status_price_free@2x.png */; };
 		C474B37419786C8400923CF3 /* list_status_price@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C474B37219786C8400923CF3 /* list_status_price@2x.png */; };
@@ -203,7 +202,6 @@
 		C43741FC190BAB020095D51E /* DISightCardVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DISightCardVC.xib; path = Classes/ViewControllers/SightCardVC/DISightCardVC.xib; sourceTree = "<group>"; };
 		C4374200190BAC440095D51E /* DISight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DISight.h; path = Classes/Objects/Sight/DISight.h; sourceTree = "<group>"; };
 		C4374201190BAC440095D51E /* DISight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DISight.m; path = Classes/Objects/Sight/DISight.m; sourceTree = "<group>"; };
-		C4677216197FFA27001CDD69 /* rus_spb_10_18.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = rus_spb_10_18.sqlite; path = MapAppGit/Bases/Maps/rus_spb_10_18.sqlite; sourceTree = SOURCE_ROOT; };
 		C46D1E681942FAF10063CFB4 /* list_buttonBar_background_128@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "list_buttonBar_background_128@2x.png"; path = "Backgrounds/list_buttonBar_background_128@2x.png"; sourceTree = "<group>"; };
 		C46D1E7C1943391F0063CFB4 /* DIAppDefaults.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DIAppDefaults.h; sourceTree = "<group>"; };
 		C474B37119786C8400923CF3 /* list_status_price_free@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list_status_price_free@2x.png"; sourceTree = "<group>"; };
@@ -603,7 +601,6 @@
 		C49972481896E31300A8DA98 /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				C4677216197FFA27001CDD69 /* rus_spb_10_18.sqlite */,
 				C43741E21902C8590095D51E /* rus_spb_10_15.sqlite */,
 			);
 			path = Map;
@@ -928,7 +925,7 @@
 				ORGANIZATIONNAME = "Dmitry Ivanov";
 				TargetAttributes = {
 					C4BD880318705EE400128CD1 = {
-						DevelopmentTeam = QZ7R5628RB;
+						DevelopmentTeam = 2Y2B5M2TAL;
 					};
 					C4BD882318705EE400128CD1 = {
 						TestTargetID = C4BD880318705EE400128CD1;
@@ -1051,7 +1048,6 @@
 				C4A7144B191CFEED0056EB30 /* DICell.xib in Resources */,
 				C474B3DD197D262200923CF3 /* map-bytton-plus@2x.png in Resources */,
 				C43741FE190BAB020095D51E /* DISightCardVC.xib in Resources */,
-				C4677217197FFA27001CDD69 /* rus_spb_10_18.sqlite in Resources */,
 				C4BD881F18705EE400128CD1 /* Images.xcassets in Resources */,
 				C42EE3A6194B05FC00B9FDEF /* SightsBase.sqlite-shm in Resources */,
 				C474B3DC197D262200923CF3 /* map-bytton-plus-pressed@2x.png in Resources */,
