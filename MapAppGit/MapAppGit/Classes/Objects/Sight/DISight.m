@@ -125,7 +125,7 @@
     
     NSDateComponents *components = [[NSCalendar currentCalendar] components:NSHourCalendarUnit | NSMinuteCalendarUnit
                                                                    fromDate:date];
-    NSString *timeString = [NSString stringWithFormat:@"%d:%d", 19, 22];
+    NSString *timeString = [NSString stringWithFormat:@"%d:%d", components.hour, components.minute];
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"HH:mm"];
     NSDate *timeNow = [dateFormat dateFromString:timeString];

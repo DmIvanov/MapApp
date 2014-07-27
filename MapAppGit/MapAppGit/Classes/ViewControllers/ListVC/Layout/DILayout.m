@@ -71,14 +71,14 @@
     }
     [self whoIsGrowingWithAttributesAfter:layoutAttributesArray];
     
-    NSUInteger helpCellIndex = [self helpIndexItem];
-    UICollectionViewLayoutAttributes* lastAttributes = layoutAttributesArray.lastObject;
-    if (lastAttributes.indexPath.item == helpCellIndex) {
-        CGRect frame = lastAttributes.frame;
-        frame.size.height = CELL_HEIGHT_HELP;
-        lastAttributes.frame = frame;
-        DLog(@"growing - %d, help cell - %d, frame - %@", _growingItemAttributes.indexPath.item, lastAttributes.indexPath.item, NSStringFromCGRect(lastAttributes.frame));
-    }
+//    NSUInteger helpCellIndex = [self helpIndexItem];
+//    UICollectionViewLayoutAttributes* lastAttributes = layoutAttributesArray.lastObject;
+//    if (lastAttributes.indexPath.item == helpCellIndex) {
+//        CGRect frame = lastAttributes.frame;
+//        frame.size.height = CELL_HEIGHT_HELP;
+//        lastAttributes.frame = frame;
+//        //DLog(@"growing - %d, help cell - %d, frame - %@", _growingItemAttributes.indexPath.item, lastAttributes.indexPath.item, NSStringFromCGRect(lastAttributes.frame));
+//    }
     
     return layoutAttributesArray;
 }
@@ -108,7 +108,7 @@
             break;
     }
 
-    if (attributes && attributes.indexPath.item != [self helpIndexItem])
+    if (attributes)
         _growingItemAttributes = attributes;
     else
          DLog(@"No attributes for growing cell!");
@@ -201,10 +201,10 @@
     }
 }
 
-- (NSUInteger)helpIndexItem {
-    
-    return [self.collectionView.dataSource collectionView:self.collectionView numberOfItemsInSection:0] - 1;
-}
+//- (NSUInteger)helpIndexItem {
+//    
+//    return [self.collectionView.dataSource collectionView:self.collectionView numberOfItemsInSection:0] - 1;
+//}
 
 
 @end

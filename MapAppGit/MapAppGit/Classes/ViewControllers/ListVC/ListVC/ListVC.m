@@ -20,6 +20,9 @@
 #import "DIDoubleSwipeView.h"   //for SWIPE_ZONE only
 
 
+#define NATIVE_SCROLL       YES
+
+
 @interface ListVC ()
 {
     NSMutableArray *_dataArray;
@@ -27,6 +30,9 @@
 }
 
 @property (nonatomic, strong) UICollectionView *tableView;
+#if !NATIVE_SCROLL
+@property (nonatomic) CGFloat contentHeight;
+#endif
 
 @end
 
@@ -64,18 +70,18 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     
-    return _dataArray.count+2;
+    return _dataArray.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     NSUInteger index = indexPath.item;
     
-    if (index == _dataArray.count) {
+    /*if (index == _dataArray.count) {
         DICell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CELL_ID_2 forIndexPath:indexPath];
         return cell;
     }
-    else if (index == _dataArray.count + 1) {
+    else*/ if (index >= _dataArray.count) {
         UICollectionViewCell *cell = [UICollectionViewCell new];
         return cell;
     }
@@ -108,7 +114,7 @@
     static CGFloat lastOffset = 0.;
     CGFloat contentOffset = scrollView.contentOffset.y;
     _tableViewDeltaOffset = contentOffset - lastOffset;
-    //DLog(@"last - %f, size - %f", contentOffset+SCREEN_SIZE.height, _tableView.contentSize.height);
+    DLog(@"lastPoint - %f, firstPoint - %f", contentOffset+SCREEN_SIZE.height, contentOffset);
     if (contentOffset > 0)
         [_listMapController navibarPositionManagingWithOffset:_tableViewDeltaOffset];
     
@@ -118,7 +124,9 @@
 
 - (void)tableViewReload {
     
-    _tableView.contentInset = [self tableViewInset];
+    if (NATIVE_SCROLL)
+        _tableView.contentInset = [self tableViewInset];
+    
     [_tableView reloadData];
 }
 
@@ -126,6 +134,12 @@
     
     CGFloat yInset = (CELL_HEIGHT_BIG + CELL_HEIGHT_SECOND - 2*CELL_HEIGHT) + (SCREEN_SIZE.height - CELL_HEIGHT_BIG);
     return UIEdgeInsetsMake(0, 0, yInset, 0);
+}
+
+- (CGFloat)contentHeight {
+    
+    CGFloat height = _dataArray.count*CELL_HEIGHT + (CELL_HEIGHT_BIG-CELL_HEIGHT) + (CELL_HEIGHT_SECOND-CELL_HEIGHT);
+    return height;
 }
 
 
@@ -145,7 +159,6 @@
 - (UICollectionViewLayout *)collectionViewLayout {
 
     DILayout *layout = [DILayout new];
-    //UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
     [layout setScrollDirection:UICollectionViewScrollDirectionVertical];
     [layout setMinimumInteritemSpacing:0.];
     [layout setMinimumLineSpacing:0.];
@@ -160,7 +173,6 @@
                                     collectionViewLayout:[self collectionViewLayout]];
     _tableView.delegate     = self;
     _tableView.dataSource   = self;
-    //_tableView.contentInset = [self tableViewInset];
     _tableView.backgroundColor = [UIColor whiteColor];
     _tableView.bounces = NO;
     
@@ -172,21 +184,16 @@
     
     [self.view addSubview:_tableView];
     
-    //custom recognizer instead of native scrollView's one
-#if 1
-    _tableView.scrollEnabled = NO;
-    UIPanGestureRecognizer *recognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(recognized:)];
-    recognizer.delegate = self;
-    [_tableView addGestureRecognizer:recognizer];
-#endif
+    if (NATIVE_SCROLL) {
+        _tableView.contentInset = [self tableViewInset];
+    }
+    else {
+        _tableView.scrollEnabled = NO;
+        UIPanGestureRecognizer *recognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(recognized:)];
+        recognizer.delegate = self;
+        [_tableView addGestureRecognizer:recognizer];
+    }
 }
-//
-//- (UIImage *)randomSpbImage {
-//    
-//    NSString *name = [NSString stringWithFormat:@"spb%@.jpg", @([DIHelper randomValueBetween:1 and:5])];
-//    UIImage *image = [UIImage imageNamed:name];
-//    return image;
-//}
 
 
 #pragma mark - UIGestureRecognizer delegate
@@ -198,7 +205,6 @@
         return NO;
     else
         return YES;
-
 }
 
 - (void)recognized:(UIPanGestureRecognizer *)recognizer {
@@ -245,6 +251,5 @@
             break;
     }
 }
-
 
 @end
