@@ -77,11 +77,7 @@
     
     NSUInteger index = indexPath.item;
     
-    /*if (index == _dataArray.count) {
-        DICell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CELL_ID_2 forIndexPath:indexPath];
-        return cell;
-    }
-    else*/ if (index >= _dataArray.count) {
+    if (index >= _dataArray.count) {
         UICollectionViewCell *cell = [UICollectionViewCell new];
         return cell;
     }
@@ -179,8 +175,6 @@
     [_tableView registerClass:[DICell class] forCellWithReuseIdentifier:CELL_ID];
     UINib *nib = [UINib nibWithNibName:@"DICell" bundle:nil];
     [_tableView registerNib:nib forCellWithReuseIdentifier:CELL_ID];
-    nib = [UINib nibWithNibName:@"DICell2" bundle:nil];
-    [_tableView registerNib:nib forCellWithReuseIdentifier:CELL_ID_2];
     
     [self.view addSubview:_tableView];
     
@@ -239,14 +233,6 @@
             break;
             
         case UIGestureRecognizerStateEnded:
-        {
-            //CGFloat dist = 300;
-            //velocity = [recognizer velocityInView:_tableView].y;
-            
-            //offset.y += delta*10;
-            //DLog(@"velocity - %f", [recognizer velocityInView:_tableView].y);
-            //_tableView.contentOffset = offset;
-        }
         default:
             break;
     }
