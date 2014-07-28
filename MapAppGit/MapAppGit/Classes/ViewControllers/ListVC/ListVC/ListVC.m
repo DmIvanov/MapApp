@@ -70,7 +70,7 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     
-    return _dataArray.count;
+    return _dataArray.count+1;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -78,7 +78,7 @@
     NSUInteger index = indexPath.item;
     
     if (index >= _dataArray.count) {
-        UICollectionViewCell *cell = [UICollectionViewCell new];
+        DICell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CELL_ID_2 forIndexPath:indexPath];
         return cell;
     }
     
@@ -95,8 +95,11 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    [_listMapController setStatusbarNavibarHidden:NO];
     NSUInteger index = indexPath.item;
+    if (index >= _dataArray.count)
+        return;
+    
+    [_listMapController setStatusbarNavibarHidden:NO];
     DISight *object = _dataArray[index];
     DISightCardVC *sightCard = [DISightCardVC new];
     sightCard.sight = object;
@@ -175,6 +178,8 @@
     [_tableView registerClass:[DICell class] forCellWithReuseIdentifier:CELL_ID];
     UINib *nib = [UINib nibWithNibName:@"DICell" bundle:nil];
     [_tableView registerNib:nib forCellWithReuseIdentifier:CELL_ID];
+    nib = [UINib nibWithNibName:@"DICell2" bundle:nil];
+    [_tableView registerNib:nib forCellWithReuseIdentifier:CELL_ID_2];
     
     [self.view addSubview:_tableView];
     
