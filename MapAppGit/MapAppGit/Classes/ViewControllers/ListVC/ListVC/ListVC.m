@@ -20,7 +20,7 @@
 #import "DIDoubleSwipeView.h"   //for SWIPE_ZONE only
 
 
-#define NATIVE_SCROLL       YES
+#define NATIVE_SCROLL       NO
 
 
 @interface ListVC ()
