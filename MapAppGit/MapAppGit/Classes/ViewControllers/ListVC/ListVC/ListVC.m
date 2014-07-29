@@ -113,7 +113,7 @@
     static CGFloat lastOffset = 0.;
     CGFloat contentOffset = scrollView.contentOffset.y;
     _tableViewDeltaOffset = contentOffset - lastOffset;
-    DLog(@"lastPoint - %f, firstPoint - %f", contentOffset+SCREEN_SIZE.height, contentOffset);
+    DLog(@"lastPoint - %f, firstPoint - %f, frame - %@", contentOffset+SCREEN_SIZE.height, contentOffset, NSStringFromCGRect(_tableView.frame));
     if (contentOffset > 0)
         [_listMapController navibarPositionManagingWithOffset:_tableViewDeltaOffset];
     
@@ -174,6 +174,7 @@
     _tableView.dataSource   = self;
     _tableView.backgroundColor = [UIColor whiteColor];
     _tableView.bounces = NO;
+    _tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     
     [_tableView registerClass:[DICell class] forCellWithReuseIdentifier:CELL_ID];
     UINib *nib = [UINib nibWithNibName:@"DICell" bundle:nil];
