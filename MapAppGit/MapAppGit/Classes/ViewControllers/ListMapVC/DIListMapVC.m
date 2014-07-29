@@ -14,6 +14,7 @@
 
 #define VIEW_FRAME                  self.view.frame
 #define NAVIBAR_DELTA               44.
+#define NAVIBAR_MOVE_INTERACTIVE    YES
 
 #define TITLE_VIEW_FRAME            CGRectMake(0, 20, 280, 44)
 #define TITLE_LABEL_FRAME           CGRectMake(8, 10, 260, 20)
@@ -72,10 +73,12 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
     _naviBar = self.navigationController.navigationBar;
-//    [_naviBar addObserver:self
-//               forKeyPath:@"frame"
-//                  options:NSKeyValueObservingOptionNew
-//                  context:nil];
+    
+    if (NAVIBAR_MOVE_INTERACTIVE)
+        [_naviBar addObserver:self
+                   forKeyPath:@"frame"
+                      options:NSKeyValueObservingOptionNew
+                      context:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -84,11 +87,11 @@
     // Dispose of any resources that can be recreated.
 }
 
-//- (void)dealloc {
-//    
-//    [_naviBar removeObserver:self
-//                  forKeyPath:@"frame"];
-//}
+- (void)dealloc {
+    
+    [_naviBar removeObserver:self
+                  forKeyPath:@"frame"];
+}
 
 - (void)viewWillAppear:(BOOL)animated {
     
@@ -112,15 +115,17 @@
 //
 //#pragma mark - KVO
 //
-//- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-//    
-//    if (object == _naviBar) {
-//        if ([keyPath isEqualToString:@"frame"]) {
-//            CGRect newFrame = [change[NSKeyValueChangeNewKey] CGRectValue];
-//            [self navibarNewFrame:newFrame];
-//        }
-//    }
-//}
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    
+    if (NAVIBAR_MOVE_INTERACTIVE) {
+        if (object == _naviBar) {
+            if ([keyPath isEqualToString:@"frame"]) {
+                CGRect newFrame = [change[NSKeyValueChangeNewKey] CGRectValue];
+                [self navibarNewFrame:newFrame];
+            }
+        }
+    }
+}
 
 
 #pragma mark - Navibar/Statusbar cutomization
@@ -139,9 +144,13 @@
 
 - (void)setStatusbarNavibarHidden:(BOOL)hidden {
     
-    //[self setStatusBarHiddenWithStaticFrames:hidden];
-//    [[UIApplication sharedApplication] setStatusBarHidden:hidden withAnimation:UIStatusBarAnimationFade];
-//    [self.navigationController setNavigationBarHidden:hidden animated:YES];
+    if (NAVIBAR_MOVE_INTERACTIVE) {
+        [self setStatusBarHiddenWithStaticFrames:hidden];
+    }
+    else {
+        [[UIApplication sharedApplication] setStatusBarHidden:hidden withAnimation:UIStatusBarAnimationFade];
+        [self.navigationController setNavigationBarHidden:hidden animated:YES];
+    }
 }
 
 - (void)checkStatusbarNavibar {
@@ -157,60 +166,61 @@
 
 - (void)navibarPositionManagingWithOffset:(CGFloat)offset {
     
-#if 0
-    CGFloat navibarOffset = 0.;
-    CGRect frame = _naviBar.frame;
+    if (NAVIBAR_MOVE_INTERACTIVE) {
+        CGFloat navibarOffset = 0.;
+        CGRect frame = _naviBar.frame;
+        
+        //navibar frame changing
+        if (offset > 0) {
+            if (frame.origin.y <= 20. && _naviBar.frame.origin.y > -NAVIBAR_DELTA) {
+                [self setStatusBarHiddenWithStaticFrames:YES];
+                navibarOffset = (fabs(-NAVIBAR_DELTA - frame.origin.y) >= offset) ? offset : fabs(-NAVIBAR_DELTA - frame.origin.y);
+                //[self setStatusbarNavibarHidden:YES];
+            }
+            else
+                return;
+        }
+        else {
+            if (frame.origin.y < 20.) {
+                [self setStatusBarHiddenWithStaticFrames:NO];
+                navibarOffset = (frame.origin.y - offset <= 20.) ? offset : (frame.origin.y - 20.);
+                //[self setStatusbarNavibarHidden:NO];
+            }
+            else
+                return;
+        }
+        frame.origin.y -= navibarOffset;
+        _naviBar.frame = frame;
+    }
     
-    //navibar frame changing
-    if (offset > 0) {
-        if (frame.origin.y <= 20. && _naviBar.frame.origin.y > -NAVIBAR_DELTA) {
-            [self setStatusBarHiddenWithStaticFrames:YES];
-            navibarOffset = (fabs(-NAVIBAR_DELTA - frame.origin.y) >= offset) ? offset : fabs(-NAVIBAR_DELTA - frame.origin.y);
-            //[self setStatusbarNavibarHidden:YES];
+    else {  //not NAVIBAR_MOVE_INTERACTIVE
+        if (offset > 0) {
+            if (!self.navigationController.navigationBarHidden) {
+                [self setStatusbarNavibarHidden:YES];
+            }
+            else
+                return;
         }
-        else
-            return;
-    }
-    else {
-        if (frame.origin.y < 20.) {
-            [self setStatusBarHiddenWithStaticFrames:NO];
-            navibarOffset = (frame.origin.y - offset <= 20.) ? offset : (frame.origin.y - 20.);
-            //[self setStatusbarNavibarHidden:NO];
+        else {
+            if (self.navigationController.navigationBarHidden) {
+                [self setStatusbarNavibarHidden:NO];
+            }
+            else
+                return;
         }
-        else
-            return;
     }
-    frame.origin.y -= navibarOffset;
-    _naviBar.frame = frame;
-    
-#else
-    if (offset > 0) {
-        if (!self.navigationController.navigationBarHidden) {
-            [self setStatusbarNavibarHidden:YES];
-        }
-        else
-            return;
-    }
-    else {
-        if (self.navigationController.navigationBarHidden) {
-            [self setStatusbarNavibarHidden:NO];
-        }
-        else
-            return;
-    }
-#endif
 }
-//
-//- (void)navibarNewFrame:(CGRect)frame {
-//    
-//    double scrollViewDelta = self.view.frame.origin.y - (_naviBar.frame.origin.y + _naviBar.frame.size.height);
-//    if (scrollViewDelta) {
-//        CGRect scrollFrame = self.view.frame;
-//        scrollFrame.origin.y -= scrollViewDelta;
-//        scrollFrame.size.height += scrollViewDelta;
-//        self.view.frame = scrollFrame;
-//    }
-//}
+
+- (void)navibarNewFrame:(CGRect)frame {
+    
+    double scrollViewDelta = self.view.frame.origin.y - (_naviBar.frame.origin.y + _naviBar.frame.size.height);
+    if (scrollViewDelta) {
+        CGRect scrollFrame = self.view.frame;
+        scrollFrame.origin.y -= scrollViewDelta;
+        scrollFrame.size.height += scrollViewDelta;
+        self.view.frame = scrollFrame;
+    }
+}
 
 - (DIBarButton *)customizeBarButton:(DIBarButton *)button {
     
