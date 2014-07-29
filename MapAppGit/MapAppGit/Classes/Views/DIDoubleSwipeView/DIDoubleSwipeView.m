@@ -55,10 +55,15 @@
     CGRect bigRect = CGRectMake(xOrigBigFrame, 0, frame.size.width*2, frame.size.height);
     
     _bigView = [[UIView alloc] initWithFrame:bigRect];
+    _bigView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    
     _firstView = first;
     _firstView.frame = frame;
+    _firstView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    
     _secondView = second;
     _secondView.frame = CGRectMake(frame.size.width, 0, frame.size.width, frame.size.height);
+    _secondView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     
     _panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self
                                                              action:@selector(panGestureRecognized:)];
@@ -67,19 +72,27 @@
     _switchView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"map-button-list"]];
     _switchView.center = SWITCHVIEW_CENTER;
     
-    return self;
-}
-
-- (void)drawRect:(CGRect)rect
-{
-    [super drawRect:rect];
-    
     [self addSubview:_bigView];
     [_bigView addSubview:_firstView];
     [_bigView addSubview:_secondView];
     [_bigView addSubview:_switchView];
     
     [_bigView addGestureRecognizer:_panRecognizer];
+    
+    return self;
+}
+
+- (void)drawRect:(CGRect)rect
+{
+    [super drawRect:rect];
+}
+
+- (void)layoutSubviews {
+    
+    [super layoutSubviews];
+    DLog(@"%@", self);
+    DLog(@"%@", _bigView);
+    DLog(@"%@", _secondView);
 }
 
 

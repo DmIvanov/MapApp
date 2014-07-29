@@ -140,8 +140,8 @@
 - (void)setStatusbarNavibarHidden:(BOOL)hidden {
     
     //[self setStatusBarHiddenWithStaticFrames:hidden];
-    [[UIApplication sharedApplication] setStatusBarHidden:hidden withAnimation:UIStatusBarAnimationFade];
-    [self.navigationController setNavigationBarHidden:hidden animated:YES];
+//    [[UIApplication sharedApplication] setStatusBarHidden:hidden withAnimation:UIStatusBarAnimationFade];
+//    [self.navigationController setNavigationBarHidden:hidden animated:YES];
 }
 
 - (void)checkStatusbarNavibar {
