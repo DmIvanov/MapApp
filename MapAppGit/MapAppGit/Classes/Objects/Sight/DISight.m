@@ -218,4 +218,40 @@
     return image;
 }
 
+- (UIImage *)imageForListCell {
+    
+    NSString *imageName;
+    if ([self isClosedNow]) {
+        imageName = @"list_tittle_status_closed";
+    }
+    else {
+        switch (_sightType) {
+            case SightTypeChosen:
+                imageName = @"";
+                break;
+            case SightTypeInteresting:
+                imageName = @"list_tittle_status_selected";
+                break;
+            case SightTypeDone:
+                imageName = @"";
+                break;
+            case SightTypeLiked:
+                imageName = @"";
+                break;
+            case SightTypeOther:
+                imageName = @"";
+                break;
+            case SightTypeLocal:
+                imageName = @"";
+                break;
+                
+            default:
+                break;
+        }
+    }
+    UIImage *image = [UIImage imageNamed:imageName];
+    
+    return image;
+}
+
 @end

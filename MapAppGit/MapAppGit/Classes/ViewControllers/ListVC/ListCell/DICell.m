@@ -48,7 +48,8 @@
 
 - (void)refreshContent {
     
-    _titleLabel.text = [NSString stringWithFormat:@"%ld - %@", (unsigned long)_index, _sight.name];
+    _titleLabel.text = _sight.name;
+    [self fillSmallIconImage];
     [self loadImage];
     _bottomLabel.text = _sight.shortDescr;
     [self refreshDateTimeInfo];
@@ -114,6 +115,12 @@
     
     UIImage *image = [_sight imageForBigButtonAdd];
     [_buttonAdd setImage:image forState:UIControlStateNormal];
+}
+
+- (void)fillSmallIconImage {
+    
+    UIImage *image = [_sight imageForListCell];
+    _titleIcon.image = image;
 }
 
 

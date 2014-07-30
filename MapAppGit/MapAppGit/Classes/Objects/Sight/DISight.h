@@ -54,5 +54,6 @@ typedef NS_ENUM(NSUInteger, SightType) {
 
 - (UIImage *)imageForBigButtonAdd;
 - (UIImage *)imageForMapMarker;
+- (UIImage *)imageForListCell;
 
 @end

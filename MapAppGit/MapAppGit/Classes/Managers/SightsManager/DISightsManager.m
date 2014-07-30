@@ -154,7 +154,7 @@
             NSLog(@"AppDelegate: Failed to execute NFetchRequest. Error = %@", error);
         }
         
-        for (NSUInteger i=0; i<13; i++) {
+        for (NSUInteger i=0; i<43; i++) {
             for (NSManagedObject *sightObject in items) {
                 DISight *newSight = [[DISight alloc] initWithManagedObject:sightObject];
                 [_sights addObject:newSight];

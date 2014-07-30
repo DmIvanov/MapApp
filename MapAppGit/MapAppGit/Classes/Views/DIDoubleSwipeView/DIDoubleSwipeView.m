@@ -55,15 +55,15 @@
     CGRect bigRect = CGRectMake(xOrigBigFrame, 0, frame.size.width*2, frame.size.height);
     
     _bigView = [[UIView alloc] initWithFrame:bigRect];
-    _bigView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    //_bigView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     
     _firstView = first;
     _firstView.frame = frame;
-    _firstView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    //_firstView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     
     _secondView = second;
     _secondView.frame = CGRectMake(frame.size.width, 0, frame.size.width, frame.size.height);
-    _secondView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    //_secondView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     
     _panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self
                                                              action:@selector(panGestureRecognized:)];
@@ -90,9 +90,9 @@
 - (void)layoutSubviews {
     
     [super layoutSubviews];
-    DLog(@"%@", self);
-    DLog(@"%@", _bigView);
-    DLog(@"%@", _secondView);
+//    DLog(@"%@", self);
+//    DLog(@"%@", _bigView);
+//    DLog(@"%@", _secondView);
 }
 
 
@@ -147,6 +147,7 @@
                 slideTime = 0.1;
             }
             else {
+                DLog(@"%f", SLIDE_LIMIT);
                 if (rightViewX <= SLIDE_LIMIT) {
                     rightView = YES;
                 }

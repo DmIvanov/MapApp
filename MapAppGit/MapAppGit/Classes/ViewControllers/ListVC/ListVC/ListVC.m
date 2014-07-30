@@ -30,9 +30,7 @@
 }
 
 @property (nonatomic, strong) UICollectionView *tableView;
-#if !NATIVE_SCROLL
 @property (nonatomic) CGFloat contentHeight;
-#endif
 
 @end
 
@@ -125,6 +123,8 @@
     
     if (NATIVE_SCROLL)
         _tableView.contentInset = [self tableViewInset];
+    else
+        _contentHeight = self.contentHeight;
     
     [_tableView reloadData];
 }
@@ -137,7 +137,7 @@
 
 - (CGFloat)contentHeight {
     
-    CGFloat height = _dataArray.count*CELL_HEIGHT + (CELL_HEIGHT_BIG-CELL_HEIGHT) + (CELL_HEIGHT_SECOND-CELL_HEIGHT);
+    CGFloat height = (_dataArray.count-1)*CELL_HEIGHT;
     return height;
 }
 
@@ -172,9 +172,12 @@
                                     collectionViewLayout:[self collectionViewLayout]];
     _tableView.delegate     = self;
     _tableView.dataSource   = self;
-    _tableView.backgroundColor = [UIColor whiteColor];
+    _tableView.backgroundColor = [UIColor colorWithRed:240./255 green:240./255 blue:240./255 alpha:1.]; //grey
+    //_tableView.backgroundColor = [UIColor colorWithRed:40./255 green:87./255 blue:149./255 alpha:1.];   //blue
     _tableView.bounces = NO;
     _tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+   
+    _contentHeight = self.contentHeight;
     
     [_tableView registerClass:[DICell class] forCellWithReuseIdentifier:CELL_ID];
     UINib *nib = [UINib nibWithNibName:@"DICell" bundle:nil];
@@ -213,6 +216,7 @@
     CGFloat coef = 0.2;
     CGPoint currentPoint = [recognizer translationInView:self.view];
     CGPoint offset = _tableView.contentOffset;
+    //DLog(@"offset - %f, height - %f", offset.y, _contentHeight);
     static CGFloat delta;
     CGFloat velocity = [recognizer velocityInView:_tableView].y;
     //DLog(@"%f", velocity);
@@ -233,6 +237,8 @@
                 offset.y -= delta;
                 if (offset.y < 0)
                     offset.y = 0;
+                if (offset.y > _contentHeight)
+                    offset.y = _contentHeight;
                 _tableView.contentOffset = offset;
                 point = currentPoint;
             //}

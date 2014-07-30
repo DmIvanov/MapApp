@@ -14,7 +14,7 @@
 
 #define VIEW_FRAME                  self.view.frame
 #define NAVIBAR_DELTA               44.
-#define NAVIBAR_MOVE_INTERACTIVE    YES
+#define NAVIBAR_MOVE_INTERACTIVE    NO
 
 #define TITLE_VIEW_FRAME            CGRectMake(0, 20, 280, 44)
 #define TITLE_LABEL_FRAME           CGRectMake(8, 10, 260, 20)
