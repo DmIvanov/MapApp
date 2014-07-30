@@ -48,27 +48,27 @@
 
 - (void)customizeNavibar {
     
-    DIBarButton *buttonLeft = [[DIBarButton alloc] initWithFrame:CGRectMake(0, 0, 44, 44)];
-    buttonLeft.sideMode = SideModeLeft;
-    buttonLeft.insets = UIEdgeInsetsMake(0, 16, 0, 0);
-    [buttonLeft addTarget:self
+    _leftBarButton = [[DIBarButton alloc] initWithFrame:CGRectMake(0, 0, 44, 44)];
+    _leftBarButton.sideMode = SideModeLeft;
+    _leftBarButton.insets = UIEdgeInsetsMake(0, 16, 0, 0);
+    [_leftBarButton addTarget:self
                     action:@selector(barButtonLeftPressed)
           forControlEvents:UIControlEventTouchUpInside];
-    buttonLeft = [self customizeBarButton:buttonLeft];
-    if (buttonLeft) {
-        UIBarButtonItem *barButtonLeft = [[UIBarButtonItem alloc] initWithCustomView:buttonLeft];
+    _leftBarButton = [self customizeBarButton:_leftBarButton];
+    if (_leftBarButton) {
+        UIBarButtonItem *barButtonLeft = [[UIBarButtonItem alloc] initWithCustomView:_leftBarButton];
         [self.navigationItem setLeftBarButtonItem:barButtonLeft];
     }
     
-    DIBarButton *buttonRight = [[DIBarButton alloc] initWithFrame:CGRectMake(SCREEN_SIZE.width - 44, 0, 44, 44)];
-    buttonRight.sideMode = SideModeRight;
-    buttonRight.insets = UIEdgeInsetsMake(0, 0, 0, 16);
-    [buttonRight addTarget:self
+    _rightBarButton = [[DIBarButton alloc] initWithFrame:CGRectMake(SCREEN_SIZE.width - 44, 0, 44, 44)];
+    _rightBarButton.sideMode = SideModeRight;
+    _rightBarButton.insets = UIEdgeInsetsMake(0, 0, 0, 16);
+    [_rightBarButton addTarget:self
                     action:@selector(barButtonRightPressed)
           forControlEvents:UIControlEventTouchUpInside];
-    buttonRight = [self customizeBarButton:buttonRight];
-    if (buttonRight) {
-        UIBarButtonItem *barButtonRight = [[UIBarButtonItem alloc] initWithCustomView:buttonRight];
+    _rightBarButton = [self customizeBarButton:_rightBarButton];
+    if (_rightBarButton) {
+        UIBarButtonItem *barButtonRight = [[UIBarButtonItem alloc] initWithCustomView:_rightBarButton];
         [self.navigationItem setRightBarButtonItem:barButtonRight];
     }
 }

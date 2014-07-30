@@ -128,7 +128,7 @@
 
 - (IBAction)buttonAddPressed:(id)sender {
     
-    //[_listVC cellButtonAddPressed:self];
+    [_listVC cellButtonAddPressed:self];
 }
 
 

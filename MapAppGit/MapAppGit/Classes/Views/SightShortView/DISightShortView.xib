@@ -30,6 +30,9 @@
                             <state key="normal">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="buttonAddPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="QDs-GA-9fA"/>
+                            </connections>
                         </button>
                         <view contentMode="scaleToFill" id="2T5-Rf-8gq" userLabel="BottomView">
                             <rect key="frame" x="0.0" y="134" width="320" height="196"/>

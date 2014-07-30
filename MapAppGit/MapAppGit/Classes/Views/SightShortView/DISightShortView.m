@@ -34,9 +34,32 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
+        [self initialization];
     }
     return self;
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    
+    self = [super initWithCoder:aDecoder];
+    if (!self)
+        return nil;
+    [self initialization];
+    
+    return self;
+}
+
+- (void)initialization {
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(sightStateChanged:)
+                                                 name:DINOTIFICATION_SIGHT_STATE_CHANGED
+                                               object:nil];
+}
+
+- (void)dealloc {
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 
@@ -119,8 +142,16 @@
     }
 }
 
+- (void)sightStateChanged:(NSNotification *)notification {
+    
+    DISight *notifSight = notification.userInfo[@"sight"];
+    if (_sight == notifSight) {
+        [self fillButtonAddImage];
+    }
+}
 
-#pragma mark - Touch events
+
+#pragma mark - Actions
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     
@@ -131,6 +162,21 @@
     }
     else
         [_delegate openSightCardFromView:self];
+}
+
+- (IBAction)buttonAddPressed:(id)sender {
+
+    switch (_sight.sightType) {
+        case SightTypeChosen:
+            _sight.sightType = SightTypeInteresting;
+            break;
+        case SightTypeInteresting:
+            _sight.sightType = SightTypeChosen;
+            break;
+        default:
+            break;
+    }
+    [self fillButtonAddImage];
 }
 
 

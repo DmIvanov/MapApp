@@ -12,6 +12,9 @@
 
 @interface DIBaseVC : UIViewController
 
+@property (nonatomic, strong) DIBarButton *leftBarButton;
+@property (nonatomic, strong) DIBarButton *rightBarButton;
+
 //redefine in children
 - (DIBarButton *)customizeBarButton:(DIBarButton *)button;
 - (void)barButtonLeftPressed;

@@ -254,4 +254,49 @@
     return image;
 }
 
+- (UIImage *)imageForNavibarButton {
+    
+    NSString *imageName;
+        switch (_sightType) {
+            case SightTypeChosen:
+                imageName = @"info_tittlebar_button_add_unpressed";
+                break;
+            case SightTypeInteresting:
+                imageName = @"info_tittlebar_button_add_pressed";
+                break;
+            case SightTypeDone:
+                imageName = @"";
+                break;
+            case SightTypeLiked:
+                imageName = @"";
+                break;
+            case SightTypeOther:
+                imageName = @"";
+                break;
+            case SightTypeLocal:
+                imageName = @"";
+                break;
+                
+            default:
+                break;
+        }
+    UIImage *image = [UIImage imageNamed:imageName];
+    
+    return image;
+}
+
+
+#pragma mark - Setters & getters
+
+- (void)setSightType:(SightType)sightType {
+    
+    if (_sightType != sightType) {
+        _sightType = sightType;
+        NSDictionary *info = @{@"sight" : self};
+        [[NSNotificationCenter defaultCenter] postNotificationName:DINOTIFICATION_SIGHT_STATE_CHANGED
+                                                            object:nil
+                                                          userInfo:info];
+    }
+}
+
 @end

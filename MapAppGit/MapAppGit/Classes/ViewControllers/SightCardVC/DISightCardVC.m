@@ -239,7 +239,7 @@
         return button;
     }
     else if (button.sideMode == SideModeRight) {
-        [button setImage:[UIImage imageNamed:@"info_tittlebar_button_add_unpressed"] forState:UIControlStateNormal];
+        [button setImage:[_sight imageForNavibarButton] forState:UIControlStateNormal];
         button.insets = UIEdgeInsetsMake(0, 0, 0, 18);
         return button;
     }
@@ -253,7 +253,18 @@
 }
 
 - (void)barButtonRightPressed {
-    
+ 
+    switch (_sight.sightType) {
+        case SightTypeChosen:
+            _sight.sightType = SightTypeInteresting;
+            break;
+        case SightTypeInteresting:
+            _sight.sightType = SightTypeChosen;
+            break;
+        default:
+            break;
+    }
+    [self customizeBarButton:self.rightBarButton];
 }
 
 

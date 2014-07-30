@@ -8,6 +8,8 @@
 
 @class NSManagedObject;
 
+#define DINOTIFICATION_SIGHT_STATE_CHANGED      @"sightStateChanged"
+
 typedef NS_ENUM(NSUInteger, SightType) {
     SightTypeChosen,        //выбранные
     SightTypeInteresting,   //интересные
@@ -55,5 +57,6 @@ typedef NS_ENUM(NSUInteger, SightType) {
 - (UIImage *)imageForBigButtonAdd;
 - (UIImage *)imageForMapMarker;
 - (UIImage *)imageForListCell;
+- (UIImage *)imageForNavibarButton;
 
 @end

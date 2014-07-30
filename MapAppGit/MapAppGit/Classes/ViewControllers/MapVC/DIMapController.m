@@ -36,6 +36,7 @@
     BOOL _positionSwitchedOn;
     BOOL _firstLocationDetection;
     CLLocationCoordinate2D _currentCoordinates;
+    NSMutableArray *_sightMarkers;
 }
 
 @property (nonatomic, strong) DIMapSourceManager *mapSourceManager;
@@ -55,8 +56,12 @@
         //_mapSourceManager = [[DICloudeMadeManager alloc] init];
         _locationManager = [CLLocationManager new];
         _locationManager.delegate = self;
-        
+        _sightMarkers = [NSMutableArray arrayWithCapacity:100];
         _dataArray = [NSMutableArray arrayWithArray:[[DISightsManager sharedInstance] dataArray]];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(sightStateChanged:)
+                                                     name:DINOTIFICATION_SIGHT_STATE_CHANGED
+                                                   object:nil];
     }
     return self;
 }
@@ -85,6 +90,7 @@
     
     [_locationManager stopMonitoringSignificantLocationChanges];
     [_locationManager stopUpdatingHeading];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 
@@ -253,6 +259,7 @@
                                                             anchorPoint:CGPointMake(0.5, 1.)];
     newMarker.mapController = self;
     newMarker.sight = sight;
+    [_sightMarkers addObject:newMarker];
     [_mapView.markerManager addMarker:newMarker AtLatLong:coord];
 }
 
@@ -305,6 +312,18 @@
     
     [_mapView moveToLatLong:_currentCoordinates];
     _firstLocationDetection = NO;
+}
+
+- (void)sightStateChanged:(NSNotification *)notification {
+    
+    DISight *notifSight = notification.userInfo[@"sight"];
+    for (DISimpleMarker *marker in _sightMarkers) {
+        if (marker.sight == notifSight) {
+            UIImage *newImage = [notifSight imageForMapMarker];
+            [marker replaceUIImage:newImage];
+            break;
+        }
+    }
 }
 
 

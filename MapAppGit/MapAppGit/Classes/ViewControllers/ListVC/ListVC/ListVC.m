@@ -44,6 +44,10 @@
     self = [super init];
     if (self) {
         _dataArray = [NSMutableArray arrayWithArray:[[DISightsManager sharedInstance] dataArray]];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(sightStateChanged:)
+                                                     name:DINOTIFICATION_SIGHT_STATE_CHANGED
+                                                   object:nil];
     }
     return self;
 }
@@ -61,7 +65,10 @@
     // Dispose of any resources that can be recreated.
 }
 
-
+- (void)dealloc {
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 
 #pragma mark - UICollectionView interaction
@@ -146,9 +153,18 @@
 
 - (void)cellButtonAddPressed:(DICell *)cell {
     
-    NSUInteger index = [_tableView indexPathForCell:cell].item;
-    DISight *sight = _dataArray[index];
-    sight.sightType = SightTypeChosen;
+    DISight *sight = cell.sight;
+    switch (sight.sightType) {
+        case SightTypeChosen:
+            sight.sightType = SightTypeInteresting;
+            break;
+        case SightTypeInteresting:
+            sight.sightType = SightTypeChosen;
+            break;
+        default:
+            break;
+    }
+    
     [cell refreshContent];
 }
 
@@ -195,6 +211,20 @@
         UIPanGestureRecognizer *recognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(recognized:)];
         recognizer.delegate = self;
         [_tableView addGestureRecognizer:recognizer];
+    }
+}
+
+- (void)sightStateChanged:(NSNotification *)notification {
+    
+    DISight *notifSight = notification.userInfo[@"sight"];
+    if (notifSight) {
+        NSArray *cells = [_tableView visibleCells];
+        for (DICell *cell in cells) {
+            if (cell.sight == notifSight) {
+                [cell refreshContent];
+                break;
+            }
+        }
     }
 }
 
