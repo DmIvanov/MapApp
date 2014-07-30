@@ -10,6 +10,7 @@
 
 
 @class DISight;
+//@class NSManagedObjectID;
 
 
 @interface DISightsManager : NSObject
@@ -29,5 +30,10 @@
 - (NSString *)insideDateStringFromDate:(NSDate *)date;
 - (NSString *)outsideDateStringFromDate:(NSDate *)date;
 - (NSString *)openCloseStringFromDateOpen:(NSDate *)open dateClose:(NSDate *)close;
+
+//no idea how to make coreData saving works with this stuff...
+//- (void)setValue:(id)value forKey:(NSString *)key forObjectWithId:(NSManagedObjectID *)objId;
+//temporary dirty way without coreData instead
+- (void)setSightType:(NSNumber *)typeValue forSight:(DISight *)sight;
 
 @end

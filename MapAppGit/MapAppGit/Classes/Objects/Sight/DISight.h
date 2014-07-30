@@ -7,6 +7,7 @@
 //
 
 @class NSManagedObject;
+//@class NSManagedObjectID;
 
 #define DINOTIFICATION_SIGHT_STATE_CHANGED      @"sightStateChanged"
 
@@ -45,6 +46,8 @@ typedef NS_ENUM(NSUInteger, SightType) {
 @property (nonatomic, strong) NSString *advices;
 
 @property (nonatomic) SightType sightType;
+
+//@property (nonatomic, strong) NSManagedObjectID *dbId;
 
 - (instancetype)initWithManagedObject:(NSManagedObject *)object;
 

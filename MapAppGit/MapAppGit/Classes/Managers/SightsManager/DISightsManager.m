@@ -15,6 +15,7 @@
 @interface DISightsManager ()
 {
     NSMutableArray *_sights;
+    NSMutableDictionary *_types;
 }
 @property (nonatomic, strong) NSDateFormatter *insideDateFormatter;
 @property (nonatomic, strong) NSDateFormatter *outsideDateFormatter;
@@ -43,24 +44,58 @@
     
     self = [super init];
     if (self) {
-        
+//        [[NSNotificationCenter defaultCenter] addObserver:self
+//                                                 selector:@selector(applicationDidEnterBackground:)
+//                                                     name:UIApplicationDidEnterBackgroundNotification
+//                                                   object:nil];
     }
     return self;
 }
 
+//- (void)applicationDidEnterBackground:(NSNotification *)notification {
+//    
+//    [self saveContext];
+//}
 
 - (void)saveContext
 {
     NSError *error = nil;
     NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
     if (managedObjectContext != nil) {
-        if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
+        if (/*[managedObjectContext hasChanges] &&*/ ![managedObjectContext save:&error]) {
             // Replace this implementation with code to handle the error appropriately.
             // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
             NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
             abort();
         }
     }
+}
+
+- (void)setValue:(id)value forKey:(NSString *)key forObjectWithId:(NSManagedObjectID *)objId {
+    
+//    NSManagedObject *object = [self.managedObjectContext objectWithID:objId];
+//    [object setValue:value forKey:key];
+//    DLog(@"%@", [object valueForKey:key]);
+//    DLog(@"%@", [object valueForKey:@"name"]);
+//    [self saveContext];
+    
+//    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+//    [request setEntity:[NSEntityDescription entityForName:@"DISight" inManagedObjectContext:self.managedObjectContext]];
+//    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name == %@", @"Дворцовая площадь"];
+//    [request setPredicate:predicate];
+//    
+//    NSError *error = nil;
+//    NSArray *results = [self.managedObjectContext executeFetchRequest:request error:&error];
+//    NSManagedObject *object = results.firstObject;
+//    [object setValue:value forKey:key];
+//    [self saveContext];
+}
+
+- (void)setSightType:(NSNumber *)typeValue forSight:(DISight *)sight {
+    
+    [_types setValue:typeValue forKey:sight.name];
+    [[NSUserDefaults standardUserDefaults] setObject:_types forKey:@"typesDictionary"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 #pragma mark - Core Data stack
@@ -106,8 +141,8 @@
     
     NSError *error = nil;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-    NSDictionary *options = @{NSReadOnlyPersistentStoreOption: @(YES)};
-    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:options error:&error]) {
+    //NSDictionary *options = @{NSReadOnlyPersistentStoreOption: @(NO)};
+    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
         /*
          Replace this implementation with code to handle the error appropriately.
          
@@ -154,12 +189,21 @@
             NSLog(@"AppDelegate: Failed to execute NFetchRequest. Error = %@", error);
         }
         
+        NSDictionary *typesFromDef = [[NSUserDefaults standardUserDefaults] objectForKey:@"typesDictionary"];
+        _types = [[NSMutableDictionary alloc] initWithCapacity:100];
+        
         for (NSUInteger i=0; i<13; i++) {
             for (NSManagedObject *sightObject in items) {
                 DISight *newSight = [[DISight alloc] initWithManagedObject:sightObject];
                 [_sights addObject:newSight];
-                //DLog(@"size - %.3f", (CGFloat)sight.avatarData.length/1000);
+                if (typesFromDef && typesFromDef[newSight.name])
+                    newSight.sightType = [typesFromDef[newSight.name] integerValue];
+                else
+                    [_types setValue:@(newSight.sightType) forKey:newSight.name];
             }
+        }
+        if (typesFromDef) {
+            _types = [NSMutableDictionary dictionaryWithDictionary:typesFromDef];
         }
         
         //caching all the images for fast list animation (till we have less than 100 objects)

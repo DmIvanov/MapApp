@@ -21,8 +21,11 @@
     if (!self)
         return nil;
     
+    //_dbId = object.objectID;
     NSArray *properties = [DIHelper propertiesForСlass:self.class];
     for (NSString *propertyName in properties) {
+        //if ([propertyName isEqualToString:@"dbId"])
+        //    continue;
         id objectValue = [object valueForKey:propertyName];
         if (objectValue) {
             [self setValue:objectValue forKey:propertyName];
@@ -296,6 +299,11 @@
         [[NSNotificationCenter defaultCenter] postNotificationName:DINOTIFICATION_SIGHT_STATE_CHANGED
                                                             object:nil
                                                           userInfo:info];
+//        [[DISightsManager sharedInstance] setValue:@(_sightType)
+//                                            forKey:@"sightType"
+//                                   forObjectWithId:_dbId];
+        [[DISightsManager sharedInstance] setSightType:@(_sightType)
+                                              forSight:self];
     }
 }
 
