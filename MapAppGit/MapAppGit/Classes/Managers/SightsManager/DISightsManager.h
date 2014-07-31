@@ -30,6 +30,7 @@
 - (NSString *)insideDateStringFromDate:(NSDate *)date;
 - (NSString *)outsideDateStringFromDate:(NSDate *)date;
 - (NSString *)openCloseStringFromDateOpen:(NSDate *)open dateClose:(NSDate *)close;
+- (NSString *)weekDayFromDateString:(NSString *)dateString;
 
 //no idea how to make coreData saving works with this stuff...
 //- (void)setValue:(id)value forKey:(NSString *)key forObjectWithId:(NSManagedObjectID *)objId;

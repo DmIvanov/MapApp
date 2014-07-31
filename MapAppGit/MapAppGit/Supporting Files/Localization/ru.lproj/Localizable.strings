@@ -7,6 +7,19 @@
 */
 
 "sightCardNavibarName"              = "Детали";
+
 "sightCardFree"                     = "бесплатно";
 "sightCardAllDayLong"               = "круглосуточно";
 "sightCardClosedToday"              = "закрыто";
+
+"sightScheduleDaysToday"            = "сегодня";
+"sightScheduleDaysTomorrow"         = "завтра";
+"sightScheduleDaysAfterTomorrow"    = "послезавтра";
+
+"weekdayMon"                        = "Пн";
+"weekdayTue"                        = "Вт";
+"weekdayWed"                        = "Ср";
+"weekdayThu"                        = "Чт";
+"weekdayFri"                        = "Пт";
+"weekdaySat"                        = "Сб";
+"weekdaySun"                        = "Вс";

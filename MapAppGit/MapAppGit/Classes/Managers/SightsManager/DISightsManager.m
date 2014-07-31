@@ -313,4 +313,41 @@
         return [NSString stringWithFormat:@"%@ - %@", openString, closeString];
 }
 
+- (NSString *)weekDayFromDateString:(NSString *)dateString {
+    
+    NSDate *date = [self.insideDateFormatter dateFromString:dateString];
+    NSCalendar* cal = [NSCalendar currentCalendar];
+    NSDateComponents* comp = [cal components:NSWeekdayCalendarUnit fromDate:date];
+    NSUInteger dayNumber = [comp weekday];
+    NSString *weekdayStr;
+    switch (dayNumber) {
+        case 1:
+            weekdayStr = NSLocalizedString(@"weekdaySun", nil);
+            break;
+        case 2:
+            weekdayStr = NSLocalizedString(@"weekdayMon", nil);
+            break;
+        case 3:
+            weekdayStr = NSLocalizedString(@"weekdayTue", nil);
+            break;
+        case 4:
+            weekdayStr = NSLocalizedString(@"weekdayWed", nil);
+            break;
+        case 5:
+            weekdayStr = NSLocalizedString(@"weekdayThu", nil);
+            break;
+        case 6:
+            weekdayStr = NSLocalizedString(@"weekdayFri", nil);
+            break;
+        case 7:
+            weekdayStr = NSLocalizedString(@"weekdaySat", nil);
+            break;
+        default:
+            weekdayStr = @"";
+            break;
+    }
+    
+    return weekdayStr;
+}
+
 @end

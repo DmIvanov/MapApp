@@ -12,7 +12,7 @@
 #define SWAP_VELOCITY_LIMIT         500
 #define SLIDE_LIMIT                 SCREEN_SIZE.width/2
 
-#define SWITCHVIEW_CENTER           CGPointMake(SCREEN_SIZE.width-8, SCREEN_SIZE.height/2)
+#define SWITCHVIEW_CENTER           CGPointMake(SCREEN_SIZE.width-7, SCREEN_SIZE.height/4)
 
 
 @interface DIDoubleSwipeView ()

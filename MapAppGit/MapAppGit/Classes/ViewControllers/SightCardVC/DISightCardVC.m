@@ -474,7 +474,24 @@
             [view addSubview:rowView];
             
             UIFont *font = [UIFont systemFontOfSize:14.];
-            NSString *dayString = dayDict.allKeys.firstObject;
+            NSString *dayString;
+            switch (i) {
+                case 0:
+                    dayString = NSLocalizedString(@"sightScheduleDaysToday", nil);
+                    break;
+                case 1:
+                    dayString = NSLocalizedString(@"sightScheduleDaysTomorrow", nil);
+                    break;
+                case 2:
+                    dayString = NSLocalizedString(@"sightScheduleDaysAfterTomorrow", nil);
+                    break;
+                default:
+                    dayString = dayDict.allKeys.firstObject;
+                    break;
+            }
+            NSString *weekDay = [[DISightsManager sharedInstance] weekDayFromDateString:dayDict.allKeys.firstObject];
+            dayString = [NSString stringWithFormat:@"%@  %@", weekDay, dayString];
+            
             CGRect frame = [dayString rectForSize:CGSizeMake(280, 17)
                                              font:font
                                     lineBreakMode:NSLineBreakByWordWrapping];
