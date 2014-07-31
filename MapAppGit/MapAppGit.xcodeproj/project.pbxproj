@@ -30,12 +30,12 @@
 		C411E25A1930F97D00C9A8EF /* DIHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C411E2591930F97D00C9A8EF /* DIHeaderView.xib */; };
 		C411E25C1930FC2500C9A8EF /* info_closure@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C411E25B1930FC2500C9A8EF /* info_closure@2x.png */; };
 		C411E25F19310AF800C9A8EF /* DICardTVItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C411E25E19310AF800C9A8EF /* DICardTVItem.m */; };
+		C41CB821198AC30400A7A8B2 /* rus_spb_13_17.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C41CB820198AC30400A7A8B2 /* rus_spb_13_17.sqlite */; };
 		C42EE3A5194B05FC00B9FDEF /* SightsBase.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C42EE3A2194B05FC00B9FDEF /* SightsBase.sqlite */; };
 		C42EE3A6194B05FC00B9FDEF /* SightsBase.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = C42EE3A3194B05FC00B9FDEF /* SightsBase.sqlite-shm */; };
 		C42EE3A7194B05FC00B9FDEF /* SightsBase.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = C42EE3A4194B05FC00B9FDEF /* SightsBase.sqlite-wal */; };
 		C42EE3B3194B4CCC00B9FDEF /* info_button_collapseClosure@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C42EE3B1194B4CCC00B9FDEF /* info_button_collapseClosure@2x.png */; };
 		C42EE3B4194B4CCC00B9FDEF /* info_button_expandClosure@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C42EE3B2194B4CCC00B9FDEF /* info_button_expandClosure@2x.png */; };
-		C43741E31902C8590095D51E /* rus_spb_10_15.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C43741E21902C8590095D51E /* rus_spb_10_15.sqlite */; };
 		C43741F01906E81C0095D51E /* DILocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C43741EF1906E81C0095D51E /* DILocationManager.m */; };
 		C43741FD190BAB020095D51E /* DISightCardVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C43741FB190BAB020095D51E /* DISightCardVC.m */; };
 		C43741FE190BAB020095D51E /* DISightCardVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C43741FC190BAB020095D51E /* DISightCardVC.xib */; };
@@ -188,12 +188,12 @@
 		C411E25B1930FC2500C9A8EF /* info_closure@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "info_closure@2x.png"; path = "Backgrounds/info_closure@2x.png"; sourceTree = "<group>"; };
 		C411E25D19310AF800C9A8EF /* DICardTVItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DICardTVItem.h; path = Classes/ViewControllers/SightCardVC/CardTVItem/DICardTVItem.h; sourceTree = "<group>"; };
 		C411E25E19310AF800C9A8EF /* DICardTVItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DICardTVItem.m; path = Classes/ViewControllers/SightCardVC/CardTVItem/DICardTVItem.m; sourceTree = "<group>"; };
+		C41CB820198AC30400A7A8B2 /* rus_spb_13_17.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = rus_spb_13_17.sqlite; path = MapAppGit/Bases/Maps/rus_spb_13_17.sqlite; sourceTree = SOURCE_ROOT; };
 		C42EE3A2194B05FC00B9FDEF /* SightsBase.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = SightsBase.sqlite; sourceTree = "<group>"; };
 		C42EE3A3194B05FC00B9FDEF /* SightsBase.sqlite-shm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SightsBase.sqlite-shm"; sourceTree = "<group>"; };
 		C42EE3A4194B05FC00B9FDEF /* SightsBase.sqlite-wal */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SightsBase.sqlite-wal"; sourceTree = "<group>"; };
 		C42EE3B1194B4CCC00B9FDEF /* info_button_collapseClosure@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info_button_collapseClosure@2x.png"; sourceTree = "<group>"; };
 		C42EE3B2194B4CCC00B9FDEF /* info_button_expandClosure@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info_button_expandClosure@2x.png"; sourceTree = "<group>"; };
-		C43741E21902C8590095D51E /* rus_spb_10_15.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = rus_spb_10_15.sqlite; path = MapAppGit/Bases/Maps/rus_spb_10_15.sqlite; sourceTree = SOURCE_ROOT; };
 		C43741EE1906E81C0095D51E /* DILocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DILocationManager.h; path = Classes/Managers/LocationManager/DILocationManager.h; sourceTree = "<group>"; };
 		C43741EF1906E81C0095D51E /* DILocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DILocationManager.m; path = Classes/Managers/LocationManager/DILocationManager.m; sourceTree = "<group>"; };
 		C43741FA190BAB020095D51E /* DISightCardVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DISightCardVC.h; path = Classes/ViewControllers/SightCardVC/DISightCardVC.h; sourceTree = "<group>"; };
@@ -585,7 +585,7 @@
 		C49972481896E31300A8DA98 /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				C43741E21902C8590095D51E /* rus_spb_10_15.sqlite */,
+				C41CB820198AC30400A7A8B2 /* rus_spb_13_17.sqlite */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -1008,7 +1008,6 @@
 				C4BD881418705EE400128CD1 /* InfoPlist.strings in Resources */,
 				0ADC97FC1974500E00AE3499 /* ugLine1.png in Resources */,
 				C494C85B1978581500A33498 /* infoIconsPhone.png in Resources */,
-				C43741E31902C8590095D51E /* rus_spb_10_15.sqlite in Resources */,
 				C492EF7F1973014300CB88FA /* ico_audioguide_free@2x.png in Resources */,
 				C49564891925608400612A00 /* list_buttonBar_background@2x.png in Resources */,
 				C49972581896ED0500A8DA98 /* marker-blue-withletter.png in Resources */,
@@ -1023,6 +1022,7 @@
 				C474B393197AA91B00923CF3 /* DISightShortView.xib in Resources */,
 				C495649B1928EACF00612A00 /* DICell2.xib in Resources */,
 				C474B3D7197D262200923CF3 /* map-altitude@2x.png in Resources */,
+				C41CB821198AC30400A7A8B2 /* rus_spb_13_17.sqlite in Resources */,
 				C474B3DF197D262200923CF3 /* map-me-directed@2x.png in Resources */,
 				C4A7144B191CFEED0056EB30 /* DICell.xib in Resources */,
 				C474B3DD197D262200923CF3 /* map-bytton-plus@2x.png in Resources */,
