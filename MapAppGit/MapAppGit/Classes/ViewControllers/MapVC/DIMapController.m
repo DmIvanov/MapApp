@@ -39,6 +39,9 @@
     NSMutableArray *_sightMarkers;
 }
 
+@property (nonatomic, strong) IBOutlet UIImageView *scaleRoller;
+@property (nonatomic, strong) IBOutlet UIView *scaleRollerBg;
+
 @property (nonatomic, strong) DIMapSourceManager *mapSourceManager;
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, strong) RMMarker *currentLocationMarker;
@@ -78,6 +81,7 @@
                                 NE:[DISettingsManager sharedInstance].NEBorderPoint];
     
     [self placeObjectsOnMap];
+    [self setScaleRollerPosition];
 }
 
 - (void)didReceiveMemoryWarning
@@ -160,7 +164,7 @@
 
 - (void)afterMapZoom:(RMMapView *)map byFactor:(float)zoomFactor near:(CGPoint)center {
     
-    //DLog(@"zoom - %f", _mapView.contents.zoom);
+    [self setScaleRollerPosition];
 }
 
 - (void)markerTapped:(DISimpleMarker *)marker withTouches:(NSSet *)touches event:(UIEvent *)event {
@@ -212,11 +216,13 @@
 - (IBAction)buttonMinusPressed:(id)sender {
     
     [_mapView zoomOutToNextNativeZoomAt:self.view.center];
+    [self setScaleRollerPosition];
 }
 
 - (IBAction)buttonPlusPressed:(id)sender {
     
     [_mapView zoomInToNextNativeZoomAt:self.view.center];
+    [self setScaleRollerPosition];
 }
 
 
@@ -324,6 +330,22 @@
             break;
         }
     }
+}
+
+- (void)setScaleRollerPosition {
+ 
+    NSUInteger yIndent = 2;
+    
+    NSUInteger curZoom = floor(_mapView.contents.zoom);
+    NSUInteger minZoom = _mapView.contents.minZoom;
+    NSUInteger maxZoom = _mapView.contents.maxZoom;
+    
+    CGFloat rollerArea = _scaleRollerBg.frame.size.height - yIndent*2 - _scaleRoller.frame.size.height;
+    CGFloat oneDegree = rollerArea/(maxZoom - minZoom);
+    CGRect rollerFrame = _scaleRoller.frame;
+    rollerFrame.origin.y = yIndent + oneDegree*(maxZoom - curZoom);
+    
+    _scaleRoller.frame = rollerFrame;
 }
 
 

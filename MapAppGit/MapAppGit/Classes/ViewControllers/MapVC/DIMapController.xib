@@ -7,6 +7,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DIMapController">
             <connections>
                 <outlet property="mapView" destination="LSf-3l-ljh" id="gjm-zI-iRP"/>
+                <outlet property="scaleRoller" destination="UHA-Zy-1jJ" id="cFv-1x-4Mv"/>
+                <outlet property="scaleRollerBg" destination="Vp0-Gb-6hS" id="6Go-2v-UOl"/>
                 <outlet property="view" destination="1" id="464-MN-ejf"/>
             </connections>
         </placeholder>
@@ -52,14 +54,21 @@
                                 <action selector="buttonMinusPressed:" destination="-1" eventType="touchUpInside" id="oc1-Hb-lSH"/>
                             </connections>
                         </button>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map-altitude.png" id="Em8-q6-Vn0">
+                        <view contentMode="scaleToFill" id="Vp0-Gb-6hS" userLabel="View - ScaleRoller">
                             <rect key="frame" x="233" y="502" width="13" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                        </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map-altitude-blue.png" id="UHA-Zy-1jJ">
-                            <rect key="frame" x="235" y="505" width="8" height="3"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                        </imageView>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map-altitude.png" id="Em8-q6-Vn0">
+                                    <rect key="frame" x="0.0" y="0.0" width="13" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </imageView>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map-altitude-blue.png" id="UHA-Zy-1jJ">
+                                    <rect key="frame" x="2" y="21" width="8" height="3"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                 </view>
