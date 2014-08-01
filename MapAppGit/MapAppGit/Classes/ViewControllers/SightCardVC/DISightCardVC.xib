@@ -12,6 +12,7 @@
                 <outlet property="imageViewPrice" destination="DqX-a9-vyl" id="eou-jn-aiH"/>
                 <outlet property="imageViewWorkHours" destination="aEo-0a-B3B" id="sIs-Ya-dDr"/>
                 <outlet property="labelPrice" destination="0mD-DV-5wg" id="ZH0-hc-rr0"/>
+                <outlet property="labelShortDescr" destination="Fz3-rj-ff0" id="3Tc-Sh-s0c"/>
                 <outlet property="labelWorkHours" destination="oUx-L2-zVD" id="h9z-WV-3Xy"/>
                 <outlet property="mainInfoView" destination="cuo-Cp-era" id="dHh-W7-LJM"/>
                 <outlet property="tableView" destination="4d7-Y2-w3H" id="2QH-CO-yg1"/>
@@ -39,7 +40,7 @@
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
         <view contentMode="scaleToFill" id="cuo-Cp-era" userLabel="MainInfo">
-            <rect key="frame" x="0.0" y="0.0" width="316" height="361"/>
+            <rect key="frame" x="0.0" y="0.0" width="316" height="490"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="j8k-HH-OjY">
@@ -79,6 +80,13 @@
                     <rect key="frame" x="265" y="297" width="10" height="10"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Fz3-rj-ff0" userLabel="Label - shortDescr">
+                    <rect key="frame" x="20" y="359" width="276" height="131"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

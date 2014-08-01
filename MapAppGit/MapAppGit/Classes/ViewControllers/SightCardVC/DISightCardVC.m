@@ -16,10 +16,10 @@
 #import "DIHeaderView.h"
 #import "DICardTVItem.h"
 
-#define CELL_ID             @"cellID"
-#define HEADER_ID           @"headerID"
-#define HEADER_HEIGHT       76.
-#define SCHEDULE_ROW_HEIGHT 30.
+#define CELL_ID                         @"cellID"
+#define HEADER_ID                       @"headerID"
+#define HEADER_HEIGHT                   76.
+#define SCHEDULE_ROW_HEIGHT             30.
 
 #define TITLE_VIEW_FRAME            CGRectMake(0, 20, 280, 44)
 #define TITLE_LABEL_FRAME           CGRectMake(8, 10, 260, 20)
@@ -45,6 +45,8 @@
 @property (nonatomic, strong) IBOutlet UIImageView  *imageViewWorkHours;
 @property (nonatomic, strong) IBOutlet UILabel      *labelWorkHours;
 @property (nonatomic, strong) IBOutlet UIImageView  *imageRubles;
+
+@property (nonatomic, strong) IBOutlet UILabel      *labelShortDescr;
 
 @property (nonatomic, strong) UIView *scheduleListView;
 
@@ -119,6 +121,8 @@
 
 - (void)adjustMainHeader {
     
+    NSString *shortDescr = _sight.shortDescr;
+    _labelShortDescr.text = shortDescr;
     _tableView.tableHeaderView = _mainInfoView;
     _firstLabel.text = _sight.name;
     _imageViewPicture.image = [UIImage imageWithData:_sight.avatarData];

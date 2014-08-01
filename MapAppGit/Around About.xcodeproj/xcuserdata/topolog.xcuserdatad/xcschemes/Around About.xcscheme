@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C4BD880318705EE400128CD1"
-               BuildableName = "MapAppGit.app"
-               BlueprintName = "MapAppGit"
-               ReferencedContainer = "container:MapAppGit.xcodeproj">
+               BuildableName = "Around About.app"
+               BlueprintName = "Around About"
+               ReferencedContainer = "container:Around About.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C4BD882318705EE400128CD1"
-               BuildableName = "MapAppGitTests.xctest"
-               BlueprintName = "MapAppGitTests"
-               ReferencedContainer = "container:MapAppGit.xcodeproj">
+               BuildableName = "Around AboutTests.xctest"
+               BlueprintName = "Around AboutTests"
+               ReferencedContainer = "container:Around About.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C4BD880318705EE400128CD1"
-            BuildableName = "MapAppGit.app"
-            BlueprintName = "MapAppGit"
-            ReferencedContainer = "container:MapAppGit.xcodeproj">
+            BuildableName = "Around About.app"
+            BlueprintName = "Around About"
+            ReferencedContainer = "container:Around About.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C4BD880318705EE400128CD1"
-            BuildableName = "MapAppGit.app"
-            BlueprintName = "MapAppGit"
-            ReferencedContainer = "container:MapAppGit.xcodeproj">
+            BuildableName = "Around About.app"
+            BlueprintName = "Around About"
+            ReferencedContainer = "container:Around About.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <CommandLineArguments>
@@ -86,9 +86,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C4BD880318705EE400128CD1"
-            BuildableName = "MapAppGit.app"
-            BlueprintName = "MapAppGit"
-            ReferencedContainer = "container:MapAppGit.xcodeproj">
+            BuildableName = "Around About.app"
+            BlueprintName = "Around About"
+            ReferencedContainer = "container:Around About.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -30,6 +30,9 @@
 		C411E25A1930F97D00C9A8EF /* DIHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C411E2591930F97D00C9A8EF /* DIHeaderView.xib */; };
 		C411E25C1930FC2500C9A8EF /* info_closure@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C411E25B1930FC2500C9A8EF /* info_closure@2x.png */; };
 		C411E25F19310AF800C9A8EF /* DICardTVItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C411E25E19310AF800C9A8EF /* DICardTVItem.m */; };
+		C412FDCC198BA8730057B4A6 /* map-bytton-minus-pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C412FDCB198BA8730057B4A6 /* map-bytton-minus-pressed@2x.png */; };
+		C412FDD5198BBE880057B4A6 /* 57.png in Resources */ = {isa = PBXBuildFile; fileRef = C412FDD3198BBE880057B4A6 /* 57.png */; };
+		C412FDD6198BBE880057B4A6 /* 114.png in Resources */ = {isa = PBXBuildFile; fileRef = C412FDD4198BBE880057B4A6 /* 114.png */; };
 		C41CB821198AC30400A7A8B2 /* rus_spb_13_17.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C41CB820198AC30400A7A8B2 /* rus_spb_13_17.sqlite */; };
 		C42EE3A5194B05FC00B9FDEF /* SightsBase.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C42EE3A2194B05FC00B9FDEF /* SightsBase.sqlite */; };
 		C42EE3A6194B05FC00B9FDEF /* SightsBase.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = C42EE3A3194B05FC00B9FDEF /* SightsBase.sqlite-shm */; };
@@ -46,7 +49,6 @@
 		C474B393197AA91B00923CF3 /* DISightShortView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C474B392197AA91B00923CF3 /* DISightShortView.xib */; };
 		C474B396197AAB5F00923CF3 /* DISightShortView.m in Sources */ = {isa = PBXBuildFile; fileRef = C474B395197AAB5F00923CF3 /* DISightShortView.m */; };
 		C474B39A197AAEE100923CF3 /* DISimpleMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = C474B399197AAEE100923CF3 /* DISimpleMarker.m */; };
-		C474B3B8197D257500923CF3 /* map-bytton-minus-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = C474B3A6197D257500923CF3 /* map-bytton-minus-pressed.png */; };
 		C474B3D4197D262200923CF3 /* map-altitude-blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C474B3C3197D262200923CF3 /* map-altitude-blue@2x.png */; };
 		C474B3D5197D262200923CF3 /* map-altitude-green@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C474B3C4197D262200923CF3 /* map-altitude-green@2x.png */; };
 		C474B3D6197D262200923CF3 /* map-altitude-red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C474B3C5197D262200923CF3 /* map-altitude-red@2x.png */; };
@@ -188,6 +190,12 @@
 		C411E25B1930FC2500C9A8EF /* info_closure@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "info_closure@2x.png"; path = "Backgrounds/info_closure@2x.png"; sourceTree = "<group>"; };
 		C411E25D19310AF800C9A8EF /* DICardTVItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DICardTVItem.h; path = Classes/ViewControllers/SightCardVC/CardTVItem/DICardTVItem.h; sourceTree = "<group>"; };
 		C411E25E19310AF800C9A8EF /* DICardTVItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DICardTVItem.m; path = Classes/ViewControllers/SightCardVC/CardTVItem/DICardTVItem.m; sourceTree = "<group>"; };
+		C412FDCB198BA8730057B4A6 /* map-bytton-minus-pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map-bytton-minus-pressed@2x.png"; sourceTree = "<group>"; };
+		C412FDCD198BBBEA0057B4A6 /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-60@2x.png"; path = "Images.xcassets/AppIcon.appiconset/Icon-60@2x.png"; sourceTree = "<group>"; };
+		C412FDCE198BBC1D0057B4A6 /* Icon-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-40@2x.png"; path = "Images.xcassets/AppIcon.appiconset/Icon-40@2x.png"; sourceTree = "<group>"; };
+		C412FDCF198BBC560057B4A6 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small@2x.png"; path = "Images.xcassets/AppIcon.appiconset/Icon-Small@2x.png"; sourceTree = "<group>"; };
+		C412FDD3198BBE880057B4A6 /* 57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 57.png; path = Images.xcassets/AppIcon.appiconset/57.png; sourceTree = "<group>"; };
+		C412FDD4198BBE880057B4A6 /* 114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 114.png; path = Images.xcassets/AppIcon.appiconset/114.png; sourceTree = "<group>"; };
 		C41CB820198AC30400A7A8B2 /* rus_spb_13_17.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = rus_spb_13_17.sqlite; path = MapAppGit/Bases/Maps/rus_spb_13_17.sqlite; sourceTree = SOURCE_ROOT; };
 		C42EE3A2194B05FC00B9FDEF /* SightsBase.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = SightsBase.sqlite; sourceTree = "<group>"; };
 		C42EE3A3194B05FC00B9FDEF /* SightsBase.sqlite-shm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SightsBase.sqlite-shm"; sourceTree = "<group>"; };
@@ -210,7 +218,6 @@
 		C474B395197AAB5F00923CF3 /* DISightShortView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DISightShortView.m; path = Classes/Views/SightShortView/DISightShortView.m; sourceTree = "<group>"; };
 		C474B398197AAEE100923CF3 /* DISimpleMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DISimpleMarker.h; path = Classes/Views/SimpleMarker/DISimpleMarker.h; sourceTree = "<group>"; };
 		C474B399197AAEE100923CF3 /* DISimpleMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DISimpleMarker.m; path = Classes/Views/SimpleMarker/DISimpleMarker.m; sourceTree = "<group>"; };
-		C474B3A6197D257500923CF3 /* map-bytton-minus-pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map-bytton-minus-pressed.png"; sourceTree = "<group>"; };
 		C474B3C3197D262200923CF3 /* map-altitude-blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map-altitude-blue@2x.png"; sourceTree = "<group>"; };
 		C474B3C4197D262200923CF3 /* map-altitude-green@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map-altitude-green@2x.png"; sourceTree = "<group>"; };
 		C474B3C5197D262200923CF3 /* map-altitude-red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map-altitude-red@2x.png"; sourceTree = "<group>"; };
@@ -257,22 +264,22 @@
 		C4A71447191CFEED0056EB30 /* ListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListVC.h; sourceTree = "<group>"; };
 		C4A71448191CFEED0056EB30 /* ListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListVC.m; sourceTree = "<group>"; };
 		C4BB1A38187AF9910067C041 /* DIMapSourceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DIMapSourceManager.m; path = Classes/Managers/MapSourceManagers/DIMapSourceManager.m; sourceTree = "<group>"; };
-		C4BD880418705EE400128CD1 /* MapAppGit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapAppGit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4BD880418705EE400128CD1 /* Around About.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Around About.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4BD880718705EE400128CD1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C4BD880918705EE400128CD1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		C4BD880B18705EE400128CD1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C4BD880D18705EE400128CD1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		C4BD881118705EE400128CD1 /* MapAppGit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MapAppGit-Info.plist"; sourceTree = "<group>"; };
+		C4BD881118705EE400128CD1 /* Around About-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Around About-Info.plist"; sourceTree = "<group>"; };
 		C4BD881318705EE400128CD1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C4BD881518705EE400128CD1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		C4BD881718705EE400128CD1 /* MapAppGit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MapAppGit-Prefix.pch"; sourceTree = "<group>"; };
+		C4BD881718705EE400128CD1 /* Around About-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Around About-Prefix.pch"; sourceTree = "<group>"; };
 		C4BD881818705EE400128CD1 /* DIAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DIAppDelegate.h; sourceTree = "<group>"; };
 		C4BD881918705EE400128CD1 /* DIAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DIAppDelegate.m; sourceTree = "<group>"; };
 		C4BD881C18705EE400128CD1 /* SightBaseConverter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SightBaseConverter.xcdatamodel; sourceTree = "<group>"; };
 		C4BD881E18705EE400128CD1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		C4BD882418705EE400128CD1 /* MapAppGitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapAppGitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4BD882418705EE400128CD1 /* Around AboutTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Around AboutTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4BD882518705EE400128CD1 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		C4BD882E18705EE400128CD1 /* MapAppGitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MapAppGitTests-Info.plist"; sourceTree = "<group>"; };
+		C4BD882E18705EE400128CD1 /* Around AboutTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Around AboutTests-Info.plist"; sourceTree = "<group>"; };
 		C4BD883018705EE400128CD1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C4BD883218705EE400128CD1 /* MapAppGitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapAppGitTests.m; sourceTree = "<group>"; };
 		C4BD883E1870612900128CD1 /* DIMapController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIMapController.h; sourceTree = "<group>"; };
@@ -451,6 +458,18 @@
 			name = CardTVItem;
 			sourceTree = "<group>";
 		};
+		C412FDD2198BBD680057B4A6 /* AppIcons */ = {
+			isa = PBXGroup;
+			children = (
+				C412FDD3198BBE880057B4A6 /* 57.png */,
+				C412FDD4198BBE880057B4A6 /* 114.png */,
+				C412FDCF198BBC560057B4A6 /* Icon-Small@2x.png */,
+				C412FDCE198BBC1D0057B4A6 /* Icon-40@2x.png */,
+				C412FDCD198BBBEA0057B4A6 /* Icon-60@2x.png */,
+			);
+			name = AppIcons;
+			sourceTree = "<group>";
+		};
 		C42EE3B5194C5E3100B9FDEF /* Icons */ = {
 			isa = PBXGroup;
 			children = (
@@ -530,6 +549,7 @@
 				C474B3C7197D262200923CF3 /* map-button-list@2x.png */,
 				C474B3C8197D262200923CF3 /* map-button-to_center-pressed@2x.png */,
 				C474B3C9197D262200923CF3 /* map-button-to_center@2x.png */,
+				C412FDCB198BA8730057B4A6 /* map-bytton-minus-pressed@2x.png */,
 				C474B3CA197D262200923CF3 /* map-bytton-minus@2x.png */,
 				C474B3CB197D262200923CF3 /* map-bytton-plus-pressed@2x.png */,
 				C474B3CC197D262200923CF3 /* map-bytton-plus@2x.png */,
@@ -540,7 +560,6 @@
 				C474B3D1197D262200923CF3 /* map-poi-secondary@2x.png */,
 				C474B3D2197D262200923CF3 /* map-poi-temp_unavi@2x.png */,
 				C474B3D3197D262200923CF3 /* map-poi-visited-like@2x.png */,
-				C474B3A6197D257500923CF3 /* map-bytton-minus-pressed.png */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -668,8 +687,8 @@
 		C4BD880518705EE400128CD1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C4BD880418705EE400128CD1 /* MapAppGit.app */,
-				C4BD882418705EE400128CD1 /* MapAppGitTests.xctest */,
+				C4BD880418705EE400128CD1 /* Around About.app */,
+				C4BD882418705EE400128CD1 /* Around AboutTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -713,13 +732,14 @@
 		C4BD881018705EE400128CD1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C412FDD2198BBD680057B4A6 /* AppIcons */,
 				C4ECD27919695B3700D733B0 /* Localization */,
 				C499724E1896E91200A8DA98 /* Images */,
 				C49972431896E31300A8DA98 /* Bases */,
-				C4BD881118705EE400128CD1 /* MapAppGit-Info.plist */,
+				C4BD881118705EE400128CD1 /* Around About-Info.plist */,
 				C4BD881218705EE400128CD1 /* InfoPlist.strings */,
 				C4BD881518705EE400128CD1 /* main.m */,
-				C4BD881718705EE400128CD1 /* MapAppGit-Prefix.pch */,
+				C4BD881718705EE400128CD1 /* Around About-Prefix.pch */,
 				C474B3E9197E70D300923CF3 /* DINotifications.h */,
 			);
 			name = "Supporting Files";
@@ -737,7 +757,7 @@
 		C4BD882D18705EE400128CD1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				C4BD882E18705EE400128CD1 /* MapAppGitTests-Info.plist */,
+				C4BD882E18705EE400128CD1 /* Around AboutTests-Info.plist */,
 				C4BD882F18705EE400128CD1 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -861,9 +881,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C4BD880318705EE400128CD1 /* MapAppGit */ = {
+		C4BD880318705EE400128CD1 /* Around About */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C4BD883618705EE400128CD1 /* Build configuration list for PBXNativeTarget "MapAppGit" */;
+			buildConfigurationList = C4BD883618705EE400128CD1 /* Build configuration list for PBXNativeTarget "Around About" */;
 			buildPhases = (
 				C4BD880018705EE400128CD1 /* Sources */,
 				C4BD880118705EE400128CD1 /* Frameworks */,
@@ -874,14 +894,14 @@
 			dependencies = (
 				C4BD888218708C8C00128CD1 /* PBXTargetDependency */,
 			);
-			name = MapAppGit;
+			name = "Around About";
 			productName = MapAppGit;
-			productReference = C4BD880418705EE400128CD1 /* MapAppGit.app */;
+			productReference = C4BD880418705EE400128CD1 /* Around About.app */;
 			productType = "com.apple.product-type.application";
 		};
-		C4BD882318705EE400128CD1 /* MapAppGitTests */ = {
+		C4BD882318705EE400128CD1 /* Around AboutTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C4BD883918705EE400128CD1 /* Build configuration list for PBXNativeTarget "MapAppGitTests" */;
+			buildConfigurationList = C4BD883918705EE400128CD1 /* Build configuration list for PBXNativeTarget "Around AboutTests" */;
 			buildPhases = (
 				C4BD882018705EE400128CD1 /* Sources */,
 				C4BD882118705EE400128CD1 /* Frameworks */,
@@ -892,9 +912,9 @@
 			dependencies = (
 				C4BD882B18705EE400128CD1 /* PBXTargetDependency */,
 			);
-			name = MapAppGitTests;
+			name = "Around AboutTests";
 			productName = MapAppGitTests;
-			productReference = C4BD882418705EE400128CD1 /* MapAppGitTests.xctest */;
+			productReference = C4BD882418705EE400128CD1 /* Around AboutTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -915,7 +935,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C4BD87FF18705EE400128CD1 /* Build configuration list for PBXProject "MapAppGit" */;
+			buildConfigurationList = C4BD87FF18705EE400128CD1 /* Build configuration list for PBXProject "Around About" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -934,8 +954,8 @@
 			);
 			projectRoot = "";
 			targets = (
-				C4BD880318705EE400128CD1 /* MapAppGit */,
-				C4BD882318705EE400128CD1 /* MapAppGitTests */,
+				C4BD880318705EE400128CD1 /* Around About */,
+				C4BD882318705EE400128CD1 /* Around AboutTests */,
 			);
 		};
 /* End PBXProject section */
@@ -972,8 +992,10 @@
 				C499725B1896ED0500A8DA98 /* marker-red.png in Resources */,
 				C4ECD2A51971405100D733B0 /* info_roubles@2x.png in Resources */,
 				C42EE3A7194B05FC00B9FDEF /* SightsBase.sqlite-wal in Resources */,
+				C412FDD6198BBE880057B4A6 /* 114.png in Resources */,
 				0ADC97FD1974500E00AE3499 /* ugLine2.png in Resources */,
 				C42EE3B4194B4CCC00B9FDEF /* info_button_expandClosure@2x.png in Resources */,
+				C412FDD5198BBE880057B4A6 /* 57.png in Resources */,
 				C492EF841973014300CB88FA /* ico_wifi@2x.png in Resources */,
 				C474B3E1197D262200923CF3 /* map-poi-primary@2x.png in Resources */,
 				C474B3DE197D262200923CF3 /* map-info-stem@2x.png in Resources */,
@@ -1000,6 +1022,7 @@
 				C492EF821973014300CB88FA /* ico_photo@2x.png in Resources */,
 				C49972591896ED0500A8DA98 /* marker-blue.png in Resources */,
 				0ADC98081974572800AE3499 /* ugLine5.png in Resources */,
+				C412FDCC198BA8730057B4A6 /* map-bytton-minus-pressed@2x.png in Resources */,
 				C4FAD18418FEF69E007871B9 /* arrow.jpeg in Resources */,
 				C474B3DA197D262200923CF3 /* map-button-to_center@2x.png in Resources */,
 				C49564881925608400612A00 /* info_buttonbar_bottom_background@2x.png in Resources */,
@@ -1037,7 +1060,6 @@
 				C4ECD29619712E5A00D733B0 /* info_price@2x.png in Resources */,
 				0A1A04501929D1F100B81664 /* list_button_add_released@2x.png in Resources */,
 				C411E25C1930FC2500C9A8EF /* info_closure@2x.png in Resources */,
-				C474B3B8197D257500923CF3 /* map-bytton-minus-pressed.png in Resources */,
 				0A1A04521929D1F100B81664 /* info_tittlebar_button_back@2x.png in Resources */,
 				0ADC97FE1974500E00AE3499 /* ugLine3.png in Resources */,
 			);
@@ -1099,7 +1121,7 @@
 /* Begin PBXTargetDependency section */
 		C4BD882B18705EE400128CD1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C4BD880318705EE400128CD1 /* MapAppGit */;
+			target = C4BD880318705EE400128CD1 /* Around About */;
 			targetProxy = C4BD882A18705EE400128CD1 /* PBXContainerItemProxy */;
 		};
 		C4BD888218708C8C00128CD1 /* PBXTargetDependency */ = {
@@ -1233,12 +1255,12 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MapAppGit/MapAppGit-Prefix.pch";
+				GCC_PREFIX_HEADER = "MapAppGit/Around About-Prefix.pch";
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/..\"/**";
-				INFOPLIST_FILE = "MapAppGit/MapAppGit-Info.plist";
+				INFOPLIST_FILE = "MapAppGit/Around About-Info.plist";
 				LIBRARY_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Around About";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1253,12 +1275,12 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MapAppGit/MapAppGit-Prefix.pch";
+				GCC_PREFIX_HEADER = "MapAppGit/Around About-Prefix.pch";
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/..\"/**";
-				INFOPLIST_FILE = "MapAppGit/MapAppGit-Info.plist";
+				INFOPLIST_FILE = "MapAppGit/Around About-Info.plist";
 				LIBRARY_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Around About";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1279,8 +1301,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "MapAppGitTests/MapAppGitTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "MapAppGitTests/Around AboutTests-Info.plist";
+				PRODUCT_NAME = "Around AboutTests";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -1297,8 +1319,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MapAppGit/MapAppGit-Prefix.pch";
-				INFOPLIST_FILE = "MapAppGitTests/MapAppGitTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "MapAppGitTests/Around AboutTests-Info.plist";
+				PRODUCT_NAME = "Around AboutTests";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -1307,7 +1329,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C4BD87FF18705EE400128CD1 /* Build configuration list for PBXProject "MapAppGit" */ = {
+		C4BD87FF18705EE400128CD1 /* Build configuration list for PBXProject "Around About" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C4BD883418705EE400128CD1 /* Debug */,
@@ -1316,7 +1338,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C4BD883618705EE400128CD1 /* Build configuration list for PBXNativeTarget "MapAppGit" */ = {
+		C4BD883618705EE400128CD1 /* Build configuration list for PBXNativeTarget "Around About" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C4BD883718705EE400128CD1 /* Debug */,
@@ -1325,7 +1347,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C4BD883918705EE400128CD1 /* Build configuration list for PBXNativeTarget "MapAppGitTests" */ = {
+		C4BD883918705EE400128CD1 /* Build configuration list for PBXNativeTarget "Around AboutTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C4BD883A18705EE400128CD1 /* Debug */,
