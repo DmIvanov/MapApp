@@ -126,7 +126,8 @@
     NSDate *timeOpen    = dictionary[@"timeOpen"];
     NSDate *timeClose   = dictionary[@"timeClose"];
     
-    if (timeClose < timeOpen) { //night workhours
+    NSComparisonResult compRes = [timeOpen compare:timeClose];
+    if (compRes == NSOrderedDescending) { //timeOpen > timeClose
         timeClose = [timeClose dateByAddingTimeInterval:60*60*24];
         dictionary[@"timeClose"] = timeClose;
     }
