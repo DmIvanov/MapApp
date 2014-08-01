@@ -113,11 +113,23 @@
 
 - (BOOL)isClosedNow {
     
-    NSDictionary *todayDict = [self todayWHDict];
+    NSMutableDictionary *todayDict = [NSMutableDictionary dictionaryWithDictionary:[self todayWHDict]];
+    [self reorgonizedDictForDayNightSight:todayDict];
     if ([self isDateDict:todayDict compriseDate:[NSDate date]])
         return NO;
     else
         return YES;
+}
+
+- (void)reorgonizedDictForDayNightSight:(NSMutableDictionary *)dictionary {
+    
+    NSDate *timeOpen    = dictionary[@"timeOpen"];
+    NSDate *timeClose   = dictionary[@"timeClose"];
+    
+    if (timeClose < timeOpen) { //night workhours
+        timeClose = [timeClose dateByAddingTimeInterval:60*60*24];
+        dictionary[@"timeClose"] = timeClose;
+    }
 }
 
 - (BOOL)isDateDict:(NSDictionary *)dictionary compriseDate:(NSDate *)date {
