@@ -63,7 +63,7 @@
     
     NSString *price;
     if (_sight.isFreeToday) {
-        price = NSLocalizedString(@"sightCardFree", nil);
+        price = DILocalizedString(@"sightCardFree");
         _imageRubles.hidden = YES;
     }
     else {
@@ -85,7 +85,7 @@
     _imageRubles.frame = frame;
     
     if ([_sight isClosedNow]) {
-        _labelWorkHours.text = NSLocalizedString(@"sightCardClosedToday", nil);
+        _labelWorkHours.text = DILocalizedString(@"sightCardClosedToday");
         _imageViewWorkHours.image = [UIImage imageNamed:@"list_status_unavailable"];
     }
     else {

@@ -118,7 +118,6 @@
     static CGFloat lastOffset = 0.;
     CGFloat contentOffset = scrollView.contentOffset.y;
     _tableViewDeltaOffset = contentOffset - lastOffset;
-    DLog(@"lastPoint - %f, firstPoint - %f, frame - %@", contentOffset+SCREEN_SIZE.height, contentOffset, NSStringFromCGRect(_tableView.frame));
     if (contentOffset > 0)
         [_listMapController navibarPositionManagingWithOffset:_tableViewDeltaOffset];
     

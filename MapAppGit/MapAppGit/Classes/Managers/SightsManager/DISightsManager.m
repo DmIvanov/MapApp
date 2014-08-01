@@ -301,13 +301,13 @@
     NSString *openString = [self timeStringFromDate:open];
     NSString *closeString = [self timeStringFromDate:close];
     if ([openString isEqualToString:closeString])
-        return NSLocalizedString(@"sightCardClosedToday", nil);
+        return DILocalizedString(@"sightCardClosedToday");
         
     close = [close dateByAddingTimeInterval:60];
     closeString = [self timeStringFromDate:close];
     
     if ([openString isEqualToString:closeString]) {
-        return NSLocalizedString(@"sightCardAllDayLong", nil);
+        return DILocalizedString(@"sightCardAllDayLong");
     }
     else
         return [NSString stringWithFormat:@"%@ - %@", openString, closeString];
@@ -322,25 +322,25 @@
     NSString *weekdayStr;
     switch (dayNumber) {
         case 1:
-            weekdayStr = NSLocalizedString(@"weekdaySun", nil);
+            weekdayStr = DILocalizedString(@"weekdaySun");
             break;
         case 2:
-            weekdayStr = NSLocalizedString(@"weekdayMon", nil);
+            weekdayStr = DILocalizedString(@"weekdayMon");
             break;
         case 3:
-            weekdayStr = NSLocalizedString(@"weekdayTue", nil);
+            weekdayStr = DILocalizedString(@"weekdayTue");
             break;
         case 4:
-            weekdayStr = NSLocalizedString(@"weekdayWed", nil);
+            weekdayStr = DILocalizedString(@"weekdayWed");
             break;
         case 5:
-            weekdayStr = NSLocalizedString(@"weekdayThu", nil);
+            weekdayStr = DILocalizedString(@"weekdayThu");
             break;
         case 6:
-            weekdayStr = NSLocalizedString(@"weekdayFri", nil);
+            weekdayStr = DILocalizedString(@"weekdayFri");
             break;
         case 7:
-            weekdayStr = NSLocalizedString(@"weekdaySat", nil);
+            weekdayStr = DILocalizedString(@"weekdaySat");
             break;
         default:
             weekdayStr = @"";

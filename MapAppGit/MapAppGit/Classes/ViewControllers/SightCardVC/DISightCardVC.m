@@ -69,7 +69,7 @@
         
     UIView *titleView = [[UIView alloc] initWithFrame:TITLE_VIEW_FRAME];
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:TITLE_LABEL_FRAME];
-    titleLabel.text = NSLocalizedString(@"sightCardNavibarName", nil);
+    titleLabel.text = DILocalizedString(@"sightCardNavibarName");
     titleLabel.textColor = [UIColor colorWithRed:40./255
                                            green:87./255
                                             blue:149./255
@@ -192,7 +192,7 @@
     
     NSString *price;
     if (_sight.isFreeToday) {
-        price = NSLocalizedString(@"sightCardFree", nil);
+        price = DILocalizedString(@"sightCardFree");
         _imageRubles.hidden = YES;
     }
     else {
@@ -213,7 +213,7 @@
     _imageRubles.frame = frame;
     
     if ([_sight isClosedNow]) {
-        _labelWorkHours.text = NSLocalizedString(@"sightCardClosedToday", nil);
+        _labelWorkHours.text = DILocalizedString(@"sightCardClosedToday");
         _imageViewWorkHours.image = [UIImage imageNamed:@"list_status_unavailable"];
     }
     else {
@@ -481,13 +481,13 @@
             NSString *dayString;
             switch (i) {
                 case 0:
-                    dayString = NSLocalizedString(@"sightScheduleDaysToday", nil);
+                    dayString = DILocalizedString(@"sightScheduleDaysToday");
                     break;
                 case 1:
-                    dayString = NSLocalizedString(@"sightScheduleDaysTomorrow", nil);
+                    dayString = DILocalizedString(@"sightScheduleDaysTomorrow");
                     break;
                 case 2:
-                    dayString = NSLocalizedString(@"sightScheduleDaysAfterTomorrow", nil);
+                    dayString = DILocalizedString(@"sightScheduleDaysAfterTomorrow");
                     break;
                 default:
                     dayString = dayDict.allKeys.firstObject;
