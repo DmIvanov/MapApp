@@ -45,7 +45,7 @@
     if (!self)
         return nil;
     
-    _currentView = SecondView;
+    _currentView = FirstViev;
     CGFloat xOrigBigFrame;
     if (_currentView == FirstViev)
         xOrigBigFrame = 0.;
@@ -201,10 +201,10 @@
     }
     
     void (^newComplition)(BOOL finished) = ^(BOOL finished){
-        if (completion)
-            completion(finished);
         _viewIsSwitching = NO;
         _currentView = newView;
+        if (completion)
+            completion(finished);
     };
     
     [UIView animateWithDuration:SWITCH_ANIMATION_TIME

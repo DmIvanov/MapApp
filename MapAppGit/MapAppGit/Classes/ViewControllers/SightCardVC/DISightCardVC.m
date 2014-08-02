@@ -494,7 +494,7 @@
                     break;
             }
             NSString *weekDay = [[DISightsManager sharedInstance] weekDayFromDateString:dayDict.allKeys.firstObject];
-            dayString = [NSString stringWithFormat:@"%@ \t\t%@", weekDay, dayString];
+            dayString = [NSString stringWithFormat:@"%@  \t%@", weekDay, dayString];
             
             CGRect frame = [dayString rectForSize:CGSizeMake(280, 17)
                                              font:font
@@ -505,7 +505,7 @@
             dayLabel.font = font;
             [rowView addSubview:dayLabel];
             
-            CGFloat secondLabelOrig = indent+CGRectGetMaxX(frame)+4;
+            CGFloat secondLabelOrig = indent+CGRectGetMaxX(frame)+2;
             frame = CGRectMake(secondLabelOrig, labelsYOrig, 280.-secondLabelOrig, 17);
             UILabel *hoursLabel = [[UILabel alloc] initWithFrame:frame];
             hoursLabel.textAlignment = NSTextAlignmentRight;

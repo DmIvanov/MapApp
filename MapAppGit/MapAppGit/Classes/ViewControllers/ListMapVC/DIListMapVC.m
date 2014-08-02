@@ -24,6 +24,7 @@
 @interface DIListMapVC ()
 {
     UINavigationBar *_naviBar;
+    BOOL _startAnimationHasShown;
 }
 
 @property (nonatomic, strong) DIMapController *firstController;
@@ -101,28 +102,10 @@
 - (void)viewDidAppear:(BOOL)animated {
     
     [super viewDidAppear:animated];
-#if 0
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [UIView animateWithDuration:1
-                                  delay:0
-                 usingSpringWithDamping:0.6
-                  initialSpringVelocity:1
-                                options:UIViewAnimationOptionCurveEaseInOut
-                             animations:^{
-                                 [_bigView switchViewsWithComplition:nil];
-                             }
-                             completion:nil];
-        });
-    });
-#elif 0
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [_bigView showMapAnimation];
-        });
-    });
-#endif
-    
+    if (!_startAnimationHasShown) {
+        [self startAnimation];
+        _startAnimationHasShown = YES;
+    }
 }
 
 
@@ -278,5 +261,35 @@
     
     [_bigView moveSwitchViewUp:!showing];
 }
+
+
+#pragma mark - Other functions
+
+- (void)startAnimation {
+#if 1
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [UIView animateWithDuration:1.4
+                                  delay:0
+                 usingSpringWithDamping:0.6
+                  initialSpringVelocity:1
+                                options:UIViewAnimationOptionCurveEaseOut
+                             animations:^{
+                                 [_bigView switchViewsWithComplition:^(BOOL finished) {
+                                     [self checkStatusbarNavibar];
+                                 }];
+                             }
+                             completion:nil];
+        });
+    });
+#elif 0
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [_bigView showMapAnimation];
+        });
+    });
+#endif
+}
+
 
 @end
