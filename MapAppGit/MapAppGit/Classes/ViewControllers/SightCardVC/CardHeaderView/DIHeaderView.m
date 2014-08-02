@@ -40,7 +40,9 @@
 - (void)setItem:(DICardTVItem *)item {
     
     _item = item;
-    _label.text = item.keyString;
+    _label.text = DILocalizedString(item.keyString);
 }
+
+
 
 @end

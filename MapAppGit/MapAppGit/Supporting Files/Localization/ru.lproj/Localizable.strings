@@ -23,3 +23,11 @@
 "weekdayFri"                        = "Пт";
 "weekdaySat"                        = "Сб";
 "weekdaySun"                        = "Вс";
+
+"about"                             = "об объекте";
+"schedule"                          = "режим работы";
+"history"                           = "история";
+"now"                               = "сейчас";
+"contacts"                          = "контакты";
+"interesting"                       = "интересное";
+"advices"                           = "советы";

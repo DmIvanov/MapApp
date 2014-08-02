@@ -247,14 +247,9 @@
 
 - (void)placeObjectsOnMap {
     
-    //    for (DISightExtended *sight in _dataArray) {
-    //        [self placeOneObjectOnMap:sight];
-    //    }
-    DISight *sight = _dataArray.firstObject;
-    [self placeOneObjectOnMap:sight];
-    
-    sight = _dataArray[1];
-    [self placeOneObjectOnMap:sight];
+    for (DISight *sight in _dataArray) {
+        [self placeOneObjectOnMap:sight];
+    }
 }
 
 - (void)placeOneObjectOnMap:(DISight *)sight {

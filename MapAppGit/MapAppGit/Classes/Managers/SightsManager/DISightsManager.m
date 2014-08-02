@@ -192,7 +192,7 @@
         NSDictionary *typesFromDef = [[NSUserDefaults standardUserDefaults] objectForKey:@"typesDictionary"];
         _types = [[NSMutableDictionary alloc] initWithCapacity:100];
         
-        for (NSUInteger i=0; i<13; i++) {
+        //for (NSUInteger i=0; i<13; i++) {
             for (NSManagedObject *sightObject in items) {
                 DISight *newSight = [[DISight alloc] initWithManagedObject:sightObject];
                 [_sights addObject:newSight];
@@ -201,7 +201,7 @@
                 else
                     [_types setValue:@(newSight.sightType) forKey:newSight.name];
             }
-        }
+        //}
         if (typesFromDef) {
             _types = [NSMutableDictionary dictionaryWithDictionary:typesFromDef];
         }

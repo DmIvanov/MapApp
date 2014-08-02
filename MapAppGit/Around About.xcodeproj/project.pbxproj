@@ -33,10 +33,10 @@
 		C412FDCC198BA8730057B4A6 /* map-bytton-minus-pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C412FDCB198BA8730057B4A6 /* map-bytton-minus-pressed@2x.png */; };
 		C412FDD5198BBE880057B4A6 /* 57.png in Resources */ = {isa = PBXBuildFile; fileRef = C412FDD3198BBE880057B4A6 /* 57.png */; };
 		C412FDD6198BBE880057B4A6 /* 114.png in Resources */ = {isa = PBXBuildFile; fileRef = C412FDD4198BBE880057B4A6 /* 114.png */; };
+		C412FDDF198CC1D40057B4A6 /* SightsBase.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = C412FDDD198CC1D40057B4A6 /* SightsBase.sqlite-shm */; };
+		C412FDE0198CC1D40057B4A6 /* SightsBase.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = C412FDDE198CC1D40057B4A6 /* SightsBase.sqlite-wal */; };
 		C41CB821198AC30400A7A8B2 /* rus_spb_13_17.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C41CB820198AC30400A7A8B2 /* rus_spb_13_17.sqlite */; };
 		C42EE3A5194B05FC00B9FDEF /* SightsBase.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C42EE3A2194B05FC00B9FDEF /* SightsBase.sqlite */; };
-		C42EE3A6194B05FC00B9FDEF /* SightsBase.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = C42EE3A3194B05FC00B9FDEF /* SightsBase.sqlite-shm */; };
-		C42EE3A7194B05FC00B9FDEF /* SightsBase.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = C42EE3A4194B05FC00B9FDEF /* SightsBase.sqlite-wal */; };
 		C42EE3B3194B4CCC00B9FDEF /* info_button_collapseClosure@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C42EE3B1194B4CCC00B9FDEF /* info_button_collapseClosure@2x.png */; };
 		C42EE3B4194B4CCC00B9FDEF /* info_button_expandClosure@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C42EE3B2194B4CCC00B9FDEF /* info_button_expandClosure@2x.png */; };
 		C43741F01906E81C0095D51E /* DILocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C43741EF1906E81C0095D51E /* DILocationManager.m */; };
@@ -196,10 +196,10 @@
 		C412FDCF198BBC560057B4A6 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small@2x.png"; path = "Images.xcassets/AppIcon.appiconset/Icon-Small@2x.png"; sourceTree = "<group>"; };
 		C412FDD3198BBE880057B4A6 /* 57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 57.png; path = Images.xcassets/AppIcon.appiconset/57.png; sourceTree = "<group>"; };
 		C412FDD4198BBE880057B4A6 /* 114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 114.png; path = Images.xcassets/AppIcon.appiconset/114.png; sourceTree = "<group>"; };
+		C412FDDD198CC1D40057B4A6 /* SightsBase.sqlite-shm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SightsBase.sqlite-shm"; sourceTree = "<group>"; };
+		C412FDDE198CC1D40057B4A6 /* SightsBase.sqlite-wal */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SightsBase.sqlite-wal"; sourceTree = "<group>"; };
 		C41CB820198AC30400A7A8B2 /* rus_spb_13_17.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = rus_spb_13_17.sqlite; path = MapAppGit/Bases/Maps/rus_spb_13_17.sqlite; sourceTree = SOURCE_ROOT; };
 		C42EE3A2194B05FC00B9FDEF /* SightsBase.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = SightsBase.sqlite; sourceTree = "<group>"; };
-		C42EE3A3194B05FC00B9FDEF /* SightsBase.sqlite-shm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SightsBase.sqlite-shm"; sourceTree = "<group>"; };
-		C42EE3A4194B05FC00B9FDEF /* SightsBase.sqlite-wal */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SightsBase.sqlite-wal"; sourceTree = "<group>"; };
 		C42EE3B1194B4CCC00B9FDEF /* info_button_collapseClosure@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info_button_collapseClosure@2x.png"; sourceTree = "<group>"; };
 		C42EE3B2194B4CCC00B9FDEF /* info_button_expandClosure@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info_button_expandClosure@2x.png"; sourceTree = "<group>"; };
 		C43741EE1906E81C0095D51E /* DILocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DILocationManager.h; path = Classes/Managers/LocationManager/DILocationManager.h; sourceTree = "<group>"; };
@@ -594,9 +594,9 @@
 		C49972441896E31300A8DA98 /* Items */ = {
 			isa = PBXGroup;
 			children = (
+				C412FDDD198CC1D40057B4A6 /* SightsBase.sqlite-shm */,
+				C412FDDE198CC1D40057B4A6 /* SightsBase.sqlite-wal */,
 				C42EE3A2194B05FC00B9FDEF /* SightsBase.sqlite */,
-				C42EE3A3194B05FC00B9FDEF /* SightsBase.sqlite-shm */,
-				C42EE3A4194B05FC00B9FDEF /* SightsBase.sqlite-wal */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -991,7 +991,6 @@
 			files = (
 				C499725B1896ED0500A8DA98 /* marker-red.png in Resources */,
 				C4ECD2A51971405100D733B0 /* info_roubles@2x.png in Resources */,
-				C42EE3A7194B05FC00B9FDEF /* SightsBase.sqlite-wal in Resources */,
 				C412FDD6198BBE880057B4A6 /* 114.png in Resources */,
 				0ADC97FD1974500E00AE3499 /* ugLine2.png in Resources */,
 				C42EE3B4194B4CCC00B9FDEF /* info_button_expandClosure@2x.png in Resources */,
@@ -1035,6 +1034,7 @@
 				C49564891925608400612A00 /* list_buttonBar_background@2x.png in Resources */,
 				C49972581896ED0500A8DA98 /* marker-blue-withletter.png in Resources */,
 				0A1A04541929D1F100B81664 /* info_tittlebar_button_add_pressed@2x.png in Resources */,
+				C412FDE0198CC1D40057B4A6 /* SightsBase.sqlite-wal in Resources */,
 				0ADC97FF1974500E00AE3499 /* ugLine4.png in Resources */,
 				C474B3EB197E799200923CF3 /* list_status_unavailable@2x.png in Resources */,
 				C492EF831973014300CB88FA /* ico_wifi_free@2x.png in Resources */,
@@ -1052,8 +1052,8 @@
 				C43741FE190BAB020095D51E /* DISightCardVC.xib in Resources */,
 				C4BD881F18705EE400128CD1 /* Images.xcassets in Resources */,
 				0A46CD831988DE1B00D2F795 /* list_tittle_status_closed@2x.png in Resources */,
-				C42EE3A6194B05FC00B9FDEF /* SightsBase.sqlite-shm in Resources */,
 				C474B3DC197D262200923CF3 /* map-bytton-plus-pressed@2x.png in Resources */,
+				C412FDDF198CC1D40057B4A6 /* SightsBase.sqlite-shm in Resources */,
 				C492EF811973014300CB88FA /* ico_photo_free@2x.png in Resources */,
 				C474B3E4197D262200923CF3 /* map-poi-visited-like@2x.png in Resources */,
 				0A1A04531929D1F100B81664 /* info_tittlebar_button_add_unpressed@2x.png in Resources */,
