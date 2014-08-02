@@ -38,5 +38,6 @@ typedef NS_ENUM(NSInteger, CurrentView) {
 
 - (void)switchViewsWithComplition:(void (^)(BOOL finished))completion;
 - (void)moveSwitchViewUp:(BOOL)up;
+- (void)showMapAnimation;
 
 @end

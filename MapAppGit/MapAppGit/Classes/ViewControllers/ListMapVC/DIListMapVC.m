@@ -61,7 +61,6 @@
     _bigView.delegate = self;
     self.view = _bigView;
     
-    //self.navigationItem.title = @"Awesome Title!!";
     UIView *titleView = [[UIView alloc] initWithFrame:TITLE_VIEW_FRAME];
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:TITLE_LABEL_FRAME];
     titleLabel.text = @"Around About";
@@ -97,6 +96,33 @@
     
     [super viewWillAppear:animated];
     [self checkStatusbarNavibar];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    
+    [super viewDidAppear:animated];
+#if 0
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [UIView animateWithDuration:1
+                                  delay:0
+                 usingSpringWithDamping:0.6
+                  initialSpringVelocity:1
+                                options:UIViewAnimationOptionCurveEaseInOut
+                             animations:^{
+                                 [_bigView switchViewsWithComplition:nil];
+                             }
+                             completion:nil];
+        });
+    });
+#elif 0
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [_bigView showMapAnimation];
+        });
+    });
+#endif
+    
 }
 
 

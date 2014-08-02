@@ -8,7 +8,6 @@
 
 #import "DIDoubleSwipeView.h"
 
-#define FIRST_VIEW_ON_SCREEN        SecondView
 #define SWAP_VELOCITY_LIMIT         500
 #define SLIDE_LIMIT                 SCREEN_SIZE.width/2
 
@@ -46,12 +45,13 @@
     if (!self)
         return nil;
     
+    _currentView = SecondView;
     CGFloat xOrigBigFrame;
-    if (FIRST_VIEW_ON_SCREEN == FirstViev)
+    if (_currentView == FirstViev)
         xOrigBigFrame = 0.;
     else    //FIRST_VIEW_ON_SCREEN == SecondView
         xOrigBigFrame = -SCREEN_SIZE.width;
-    _currentView = FIRST_VIEW_ON_SCREEN;
+    
     CGRect bigRect = CGRectMake(xOrigBigFrame, 0, frame.size.width*2, frame.size.height);
     
     _bigView = [[UIView alloc] initWithFrame:bigRect];
@@ -215,6 +215,28 @@
                      }
                      completion:newComplition
      ];
+}
+
+- (void)showMapAnimation {
+    
+    CGRect newFrame1 = _bigView.frame;
+    CGRect newFrame2 = _bigView.frame;
+    newFrame1.origin.x += 50;
+    [UIView animateWithDuration:0.3
+                          delay:0
+                        options:UIViewAnimationOptionCurveEaseOut
+                     animations:^{
+                         _bigView.frame = newFrame1;
+                     }
+                     completion:^(BOOL finished) {
+                         [UIView animateWithDuration:0.3
+                                               delay:0.4
+                                             options:UIViewAnimationOptionCurveEaseIn
+                                          animations:^{
+                                              _bigView.frame = newFrame2;
+                                          }
+                                          completion:nil];
+                     }];
 }
 
 - (void)moveSwitchViewUp:(BOOL)up {

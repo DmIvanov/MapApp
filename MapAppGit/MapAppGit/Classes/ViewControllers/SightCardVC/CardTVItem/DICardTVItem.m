@@ -12,7 +12,7 @@
 
 - (void)setHtmlString:(NSString *)htmlString {
     
-    NSURL *url = [[NSBundle mainBundle] URLForResource:@"ugLine5" withExtension:@"png"];
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"ugLine5" withExtension:@"png"];//random picture from that folder
     if (url) {
         url = [url URLByDeletingLastPathComponent];
         htmlString = [htmlString stringByReplacingOccurrencesOfString:@"images/"

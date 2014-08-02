@@ -494,7 +494,7 @@
                     break;
             }
             NSString *weekDay = [[DISightsManager sharedInstance] weekDayFromDateString:dayDict.allKeys.firstObject];
-            dayString = [NSString stringWithFormat:@"%@  %@", weekDay, dayString];
+            dayString = [NSString stringWithFormat:@"%@ \t\t%@", weekDay, dayString];
             
             CGRect frame = [dayString rectForSize:CGSizeMake(280, 17)
                                              font:font
