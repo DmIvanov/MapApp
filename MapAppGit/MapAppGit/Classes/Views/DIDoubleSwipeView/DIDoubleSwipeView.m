@@ -45,7 +45,7 @@
     if (!self)
         return nil;
     
-    _currentView = FirstViev;
+    _currentView = SecondView;
     CGFloat xOrigBigFrame;
     if (_currentView == FirstViev)
         xOrigBigFrame = 0.;

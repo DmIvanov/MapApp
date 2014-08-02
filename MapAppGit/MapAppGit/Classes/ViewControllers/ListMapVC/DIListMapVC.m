@@ -15,6 +15,7 @@
 #define VIEW_FRAME                  self.view.frame
 #define NAVIBAR_DELTA               44.
 #define NAVIBAR_MOVE_INTERACTIVE    NO
+#define MAX_START_ANIMATION_COUNT   10
 
 #define TITLE_VIEW_FRAME            CGRectMake(0, 20, 280, 44)
 #define TITLE_LABEL_FRAME           CGRectMake(8, 10, 260, 20)
@@ -266,7 +267,19 @@
 #pragma mark - Other functions
 
 - (void)startAnimation {
-#if 1
+    
+    NSString *keyString = @"animationCounter";
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSUInteger animationCounter = [defaults integerForKey:keyString];
+    if (animationCounter >= MAX_START_ANIMATION_COUNT)
+        return;
+    animationCounter ++;
+    [[NSUserDefaults standardUserDefaults] setInteger:animationCounter
+                                               forKey:keyString];
+    [defaults synchronize];
+    
+#if 0
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         dispatch_async(dispatch_get_main_queue(), ^{
             [UIView animateWithDuration:1.4
@@ -282,7 +295,7 @@
                              completion:nil];
         });
     });
-#elif 0
+#elif 1
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         dispatch_async(dispatch_get_main_queue(), ^{
             [_bigView showMapAnimation];
