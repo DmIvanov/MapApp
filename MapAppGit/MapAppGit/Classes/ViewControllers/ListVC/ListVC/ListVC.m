@@ -17,6 +17,7 @@
 
 #import "DIListMapVC.h"
 #import "DISightCardVC.h"
+#import "DICollectionView.h"
 #import "DIDoubleSwipeView.h"   //for SWIPE_ZONE only
 
 
@@ -29,7 +30,7 @@
     CGFloat _tableViewDeltaOffset;
 }
 
-@property (nonatomic, strong) UICollectionView *tableView;
+@property (nonatomic, strong) DICollectionView *tableView;
 @property (nonatomic) CGFloat contentHeight;
 
 @end
@@ -56,7 +57,20 @@
 {
     [super viewDidLoad];
     
+    self.automaticallyAdjustsScrollViewInsets = NO;
     [self tableViewAdd];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    
+    [super viewWillDisappear:animated];
+    _tableView.noOffsetChanging = YES;
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    
+    _tableView.noOffsetChanging = NO;
+    [super viewDidDisappear:animated];
 }
 
 - (void)didReceiveMemoryWarning
@@ -105,9 +119,11 @@
         return;
     
     [_listMapController setStatusbarNavibarHidden:NO];
+    
     DISight *object = _dataArray[index];
     DISightCardVC *sightCard = [DISightCardVC new];
     sightCard.sight = object;
+    
     [self.listMapController.navigationController pushViewController:sightCard
                                                            animated:YES];
 }
@@ -116,6 +132,7 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     
     static CGFloat lastOffset = 0.;
+
     CGFloat contentOffset = scrollView.contentOffset.y;
     _tableViewDeltaOffset = contentOffset - lastOffset;
     if (contentOffset > 0)
@@ -183,7 +200,7 @@
 
 - (void)tableViewAdd {
     
-    _tableView = [[UICollectionView alloc] initWithFrame:self.view.frame
+    _tableView = [[DICollectionView alloc] initWithFrame:self.view.frame
                                     collectionViewLayout:[self collectionViewLayout]];
     _tableView.delegate     = self;
     _tableView.dataSource   = self;

@@ -35,6 +35,7 @@
 		C412FDD6198BBE880057B4A6 /* 114.png in Resources */ = {isa = PBXBuildFile; fileRef = C412FDD4198BBE880057B4A6 /* 114.png */; };
 		C412FDDF198CC1D40057B4A6 /* SightsBase.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = C412FDDD198CC1D40057B4A6 /* SightsBase.sqlite-shm */; };
 		C412FDE0198CC1D40057B4A6 /* SightsBase.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = C412FDDE198CC1D40057B4A6 /* SightsBase.sqlite-wal */; };
+		C412FDEE198CD8030057B4A6 /* DICollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = C412FDED198CD8030057B4A6 /* DICollectionView.m */; };
 		C41CB821198AC30400A7A8B2 /* rus_spb_13_17.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C41CB820198AC30400A7A8B2 /* rus_spb_13_17.sqlite */; };
 		C42EE3A5194B05FC00B9FDEF /* SightsBase.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C42EE3A2194B05FC00B9FDEF /* SightsBase.sqlite */; };
 		C42EE3B3194B4CCC00B9FDEF /* info_button_collapseClosure@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C42EE3B1194B4CCC00B9FDEF /* info_button_collapseClosure@2x.png */; };
@@ -198,6 +199,8 @@
 		C412FDD4198BBE880057B4A6 /* 114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 114.png; path = Images.xcassets/AppIcon.appiconset/114.png; sourceTree = "<group>"; };
 		C412FDDD198CC1D40057B4A6 /* SightsBase.sqlite-shm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SightsBase.sqlite-shm"; sourceTree = "<group>"; };
 		C412FDDE198CC1D40057B4A6 /* SightsBase.sqlite-wal */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SightsBase.sqlite-wal"; sourceTree = "<group>"; };
+		C412FDEC198CD8030057B4A6 /* DICollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DICollectionView.h; path = Classes/ViewControllers/ListVC/CollectionView/DICollectionView.h; sourceTree = "<group>"; };
+		C412FDED198CD8030057B4A6 /* DICollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DICollectionView.m; path = Classes/ViewControllers/ListVC/CollectionView/DICollectionView.m; sourceTree = "<group>"; };
 		C41CB820198AC30400A7A8B2 /* rus_spb_13_17.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = rus_spb_13_17.sqlite; path = MapAppGit/Bases/Maps/rus_spb_13_17.sqlite; sourceTree = SOURCE_ROOT; };
 		C42EE3A2194B05FC00B9FDEF /* SightsBase.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = SightsBase.sqlite; sourceTree = "<group>"; };
 		C42EE3B1194B4CCC00B9FDEF /* info_button_collapseClosure@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info_button_collapseClosure@2x.png"; sourceTree = "<group>"; };
@@ -468,6 +471,15 @@
 				C412FDCD198BBBEA0057B4A6 /* Icon-60@2x.png */,
 			);
 			name = AppIcons;
+			sourceTree = "<group>";
+		};
+		C412FDE7198CD7CF0057B4A6 /* DICollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				C412FDEC198CD8030057B4A6 /* DICollectionView.h */,
+				C412FDED198CD8030057B4A6 /* DICollectionView.m */,
+			);
+			name = DICollectionView;
 			sourceTree = "<group>";
 		};
 		C42EE3B5194C5E3100B9FDEF /* Icons */ = {
@@ -832,6 +844,7 @@
 		C4CAB3F6188C4E1D003CB9CC /* ListVC */ = {
 			isa = PBXGroup;
 			children = (
+				C412FDE7198CD7CF0057B4A6 /* DICollectionView */,
 				C4A7143F191CFEED0056EB30 /* Layout */,
 				C4A71442191CFEED0056EB30 /* ListCell */,
 				C4A71446191CFEED0056EB30 /* ListVC */,
@@ -1103,6 +1116,7 @@
 				C4A7144A191CFEED0056EB30 /* DICell.m in Sources */,
 				C4ECD2A11971320F00D733B0 /* NSString+RectForSize.m in Sources */,
 				C4BD888A1870949700128CD1 /* DICloudeMadeManager.m in Sources */,
+				C412FDEE198CD8030057B4A6 /* DICollectionView.m in Sources */,
 				C474B39A197AAEE100923CF3 /* DISimpleMarker.m in Sources */,
 				0A872A0419096D3D00552932 /* DIHint.m in Sources */,
 			);
