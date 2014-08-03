@@ -27,7 +27,9 @@
 
 
 #define LOCATION_MARKER_DIRECTED_IMAGE              [UIImage imageNamed:@"map-me-directed"]
-#define LOCATION_MARKER_UNDIRECTED_IMAGE          [UIImage imageNamed:@"map-me-undirected"]
+#define LOCATION_MARKER_UNDIRECTED_IMAGE            [UIImage imageNamed:@"map-me-undirected"]
+
+#define MARKER_ANCHOR_POINT                         CGPointMake(0.5, 1.)
 
 
 @interface DIMapController ()
@@ -260,7 +262,7 @@
     CLLocationCoordinate2D coord = CLLocationCoordinate2DMake([sight.latitudeNumber floatValue], [sight.longitudeNumber floatValue]);
     UIImage *imageForMarker = [sight imageForMapMarker];
     DISimpleMarker *newMarker = [[DISimpleMarker alloc] initWithUIImage:imageForMarker
-                                                            anchorPoint:CGPointMake(0.5, 1.)];
+                                                            anchorPoint:MARKER_ANCHOR_POINT];
     newMarker.mapController = self;
     newMarker.sight = sight;
     [_sightMarkers addObject:newMarker];
@@ -324,7 +326,7 @@
     for (DISimpleMarker *marker in _sightMarkers) {
         if (marker.sight == notifSight) {
             UIImage *newImage = [notifSight imageForMapMarker];
-            [marker replaceUIImage:newImage];
+            [marker replaceUIImage:newImage anchorPoint:MARKER_ANCHOR_POINT];
             break;
         }
     }
