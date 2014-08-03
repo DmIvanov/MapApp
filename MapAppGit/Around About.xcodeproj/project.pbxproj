@@ -36,6 +36,18 @@
 		C412FDDF198CC1D40057B4A6 /* SightsBase.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = C412FDDD198CC1D40057B4A6 /* SightsBase.sqlite-shm */; };
 		C412FDE0198CC1D40057B4A6 /* SightsBase.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = C412FDDE198CC1D40057B4A6 /* SightsBase.sqlite-wal */; };
 		C412FDEE198CD8030057B4A6 /* DICollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = C412FDED198CD8030057B4A6 /* DICollectionView.m */; };
+		C412FDFC198E33650057B4A6 /* list_tittle_status_liked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C412FDEF198E33650057B4A6 /* list_tittle_status_liked@2x.png */; };
+		C412FDFD198E33650057B4A6 /* list_tittle_status_visited@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C412FDF0198E33650057B4A6 /* list_tittle_status_visited@2x.png */; };
+		C412FE13198E34C20057B4A6 /* ico_audioguide@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C412FE09198E34C20057B4A6 /* ico_audioguide@2x.png */; };
+		C412FE14198E34C20057B4A6 /* ico_audioguide_free@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C412FE0A198E34C20057B4A6 /* ico_audioguide_free@2x.png */; };
+		C412FE15198E34C20057B4A6 /* ico_audioguide_pay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C412FE0B198E34C20057B4A6 /* ico_audioguide_pay@2x.png */; };
+		C412FE16198E34C20057B4A6 /* ico_photo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C412FE0C198E34C20057B4A6 /* ico_photo@2x.png */; };
+		C412FE17198E34C20057B4A6 /* ico_photo_free@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C412FE0D198E34C20057B4A6 /* ico_photo_free@2x.png */; };
+		C412FE18198E34C20057B4A6 /* ico_photo_no@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C412FE0E198E34C20057B4A6 /* ico_photo_no@2x.png */; };
+		C412FE19198E34C20057B4A6 /* ico_photo_pay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C412FE0F198E34C20057B4A6 /* ico_photo_pay@2x.png */; };
+		C412FE1A198E34C20057B4A6 /* ico_wifi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C412FE10198E34C20057B4A6 /* ico_wifi@2x.png */; };
+		C412FE1B198E34C20057B4A6 /* ico_wifi_free@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C412FE11198E34C20057B4A6 /* ico_wifi_free@2x.png */; };
+		C412FE1C198E34C20057B4A6 /* ico_wifi_pay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C412FE12198E34C20057B4A6 /* ico_wifi_pay@2x.png */; };
 		C41CB821198AC30400A7A8B2 /* rus_spb_13_17.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C41CB820198AC30400A7A8B2 /* rus_spb_13_17.sqlite */; };
 		C42EE3A5194B05FC00B9FDEF /* SightsBase.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C42EE3A2194B05FC00B9FDEF /* SightsBase.sqlite */; };
 		C42EE3B3194B4CCC00B9FDEF /* info_button_collapseClosure@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C42EE3B1194B4CCC00B9FDEF /* info_button_collapseClosure@2x.png */; };
@@ -68,12 +80,6 @@
 		C474B3E3197D262200923CF3 /* map-poi-temp_unavi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C474B3D2197D262200923CF3 /* map-poi-temp_unavi@2x.png */; };
 		C474B3E4197D262200923CF3 /* map-poi-visited-like@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C474B3D3197D262200923CF3 /* map-poi-visited-like@2x.png */; };
 		C474B3EB197E799200923CF3 /* list_status_unavailable@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C474B3EA197E799200923CF3 /* list_status_unavailable@2x.png */; };
-		C492EF7F1973014300CB88FA /* ico_audioguide_free@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C492EF791973014300CB88FA /* ico_audioguide_free@2x.png */; };
-		C492EF801973014300CB88FA /* ico_audioguide@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C492EF7A1973014300CB88FA /* ico_audioguide@2x.png */; };
-		C492EF811973014300CB88FA /* ico_photo_free@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C492EF7B1973014300CB88FA /* ico_photo_free@2x.png */; };
-		C492EF821973014300CB88FA /* ico_photo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C492EF7C1973014300CB88FA /* ico_photo@2x.png */; };
-		C492EF831973014300CB88FA /* ico_wifi_free@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C492EF7D1973014300CB88FA /* ico_wifi_free@2x.png */; };
-		C492EF841973014300CB88FA /* ico_wifi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C492EF7E1973014300CB88FA /* ico_wifi@2x.png */; };
 		C494C85B1978581500A33498 /* infoIconsPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = C494C85A1978581500A33498 /* infoIconsPhone.png */; };
 		C4956461191E260C00612A00 /* DIListMapVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C495645F191E260C00612A00 /* DIListMapVC.m */; };
 		C495646A191EB6DF00612A00 /* DIDoubleSwipeView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4956469191EB6DF00612A00 /* DIDoubleSwipeView.m */; };
@@ -201,6 +207,18 @@
 		C412FDDE198CC1D40057B4A6 /* SightsBase.sqlite-wal */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SightsBase.sqlite-wal"; sourceTree = "<group>"; };
 		C412FDEC198CD8030057B4A6 /* DICollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DICollectionView.h; path = Classes/ViewControllers/ListVC/CollectionView/DICollectionView.h; sourceTree = "<group>"; };
 		C412FDED198CD8030057B4A6 /* DICollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DICollectionView.m; path = Classes/ViewControllers/ListVC/CollectionView/DICollectionView.m; sourceTree = "<group>"; };
+		C412FDEF198E33650057B4A6 /* list_tittle_status_liked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list_tittle_status_liked@2x.png"; sourceTree = "<group>"; };
+		C412FDF0198E33650057B4A6 /* list_tittle_status_visited@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list_tittle_status_visited@2x.png"; sourceTree = "<group>"; };
+		C412FE09198E34C20057B4A6 /* ico_audioguide@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ico_audioguide@2x.png"; sourceTree = "<group>"; };
+		C412FE0A198E34C20057B4A6 /* ico_audioguide_free@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ico_audioguide_free@2x.png"; sourceTree = "<group>"; };
+		C412FE0B198E34C20057B4A6 /* ico_audioguide_pay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ico_audioguide_pay@2x.png"; sourceTree = "<group>"; };
+		C412FE0C198E34C20057B4A6 /* ico_photo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ico_photo@2x.png"; sourceTree = "<group>"; };
+		C412FE0D198E34C20057B4A6 /* ico_photo_free@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ico_photo_free@2x.png"; sourceTree = "<group>"; };
+		C412FE0E198E34C20057B4A6 /* ico_photo_no@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ico_photo_no@2x.png"; sourceTree = "<group>"; };
+		C412FE0F198E34C20057B4A6 /* ico_photo_pay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ico_photo_pay@2x.png"; sourceTree = "<group>"; };
+		C412FE10198E34C20057B4A6 /* ico_wifi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ico_wifi@2x.png"; sourceTree = "<group>"; };
+		C412FE11198E34C20057B4A6 /* ico_wifi_free@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ico_wifi_free@2x.png"; sourceTree = "<group>"; };
+		C412FE12198E34C20057B4A6 /* ico_wifi_pay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ico_wifi_pay@2x.png"; sourceTree = "<group>"; };
 		C41CB820198AC30400A7A8B2 /* rus_spb_13_17.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = rus_spb_13_17.sqlite; path = MapAppGit/Bases/Maps/rus_spb_13_17.sqlite; sourceTree = SOURCE_ROOT; };
 		C42EE3A2194B05FC00B9FDEF /* SightsBase.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = SightsBase.sqlite; sourceTree = "<group>"; };
 		C42EE3B1194B4CCC00B9FDEF /* info_button_collapseClosure@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info_button_collapseClosure@2x.png"; sourceTree = "<group>"; };
@@ -240,12 +258,6 @@
 		C474B3D3197D262200923CF3 /* map-poi-visited-like@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map-poi-visited-like@2x.png"; sourceTree = "<group>"; };
 		C474B3E9197E70D300923CF3 /* DINotifications.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DINotifications.h; sourceTree = "<group>"; };
 		C474B3EA197E799200923CF3 /* list_status_unavailable@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list_status_unavailable@2x.png"; sourceTree = "<group>"; };
-		C492EF791973014300CB88FA /* ico_audioguide_free@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ico_audioguide_free@2x.png"; sourceTree = "<group>"; };
-		C492EF7A1973014300CB88FA /* ico_audioguide@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ico_audioguide@2x.png"; sourceTree = "<group>"; };
-		C492EF7B1973014300CB88FA /* ico_photo_free@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ico_photo_free@2x.png"; sourceTree = "<group>"; };
-		C492EF7C1973014300CB88FA /* ico_photo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ico_photo@2x.png"; sourceTree = "<group>"; };
-		C492EF7D1973014300CB88FA /* ico_wifi_free@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ico_wifi_free@2x.png"; sourceTree = "<group>"; };
-		C492EF7E1973014300CB88FA /* ico_wifi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ico_wifi@2x.png"; sourceTree = "<group>"; };
 		C494C85A1978581500A33498 /* infoIconsPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = infoIconsPhone.png; path = MapAppGit/Images/Icons/Contacts/infoIconsPhone.png; sourceTree = SOURCE_ROOT; };
 		C495645E191E260C00612A00 /* DIListMapVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DIListMapVC.h; path = Classes/ViewControllers/ListMapVC/DIListMapVC.h; sourceTree = "<group>"; };
 		C495645F191E260C00612A00 /* DIListMapVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DIListMapVC.m; path = Classes/ViewControllers/ListMapVC/DIListMapVC.m; sourceTree = "<group>"; };
@@ -482,24 +494,38 @@
 			name = DICollectionView;
 			sourceTree = "<group>";
 		};
+		C412FE08198E34C20057B4A6 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				C412FE09198E34C20057B4A6 /* ico_audioguide@2x.png */,
+				C412FE0A198E34C20057B4A6 /* ico_audioguide_free@2x.png */,
+				C412FE0B198E34C20057B4A6 /* ico_audioguide_pay@2x.png */,
+				C412FE0C198E34C20057B4A6 /* ico_photo@2x.png */,
+				C412FE0D198E34C20057B4A6 /* ico_photo_free@2x.png */,
+				C412FE0E198E34C20057B4A6 /* ico_photo_no@2x.png */,
+				C412FE0F198E34C20057B4A6 /* ico_photo_pay@2x.png */,
+				C412FE10198E34C20057B4A6 /* ico_wifi@2x.png */,
+				C412FE11198E34C20057B4A6 /* ico_wifi_free@2x.png */,
+				C412FE12198E34C20057B4A6 /* ico_wifi_pay@2x.png */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		C42EE3B5194C5E3100B9FDEF /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				C412FE08198E34C20057B4A6 /* Services */,
 				0ADC97E219744D4B00AE3499 /* Contacts */,
-				0A46CD801988DE1B00D2F795 /* list_tittle_status_selected@2x.png */,
-				0A46CD811988DE1B00D2F795 /* list_tittle_status_closed@2x.png */,
-				C474B3EA197E799200923CF3 /* list_status_unavailable@2x.png */,
-				C474B37119786C8400923CF3 /* list_status_price_free@2x.png */,
-				C474B37219786C8400923CF3 /* list_status_price@2x.png */,
-				C492EF791973014300CB88FA /* ico_audioguide_free@2x.png */,
-				C492EF7A1973014300CB88FA /* ico_audioguide@2x.png */,
-				C492EF7B1973014300CB88FA /* ico_photo_free@2x.png */,
-				C492EF7C1973014300CB88FA /* ico_photo@2x.png */,
-				C492EF7D1973014300CB88FA /* ico_wifi_free@2x.png */,
-				C492EF7E1973014300CB88FA /* ico_wifi@2x.png */,
-				C4ECD2A41971405100D733B0 /* info_roubles@2x.png */,
 				C4ECD29419712E5A00D733B0 /* info_price@2x.png */,
+				C4ECD2A41971405100D733B0 /* info_roubles@2x.png */,
+				C474B37219786C8400923CF3 /* list_status_price@2x.png */,
+				C474B37119786C8400923CF3 /* list_status_price_free@2x.png */,
+				C474B3EA197E799200923CF3 /* list_status_unavailable@2x.png */,
 				C4ECD29519712E5A00D733B0 /* list_status_worktime@2x.png */,
+				0A46CD811988DE1B00D2F795 /* list_tittle_status_closed@2x.png */,
+				C412FDEF198E33650057B4A6 /* list_tittle_status_liked@2x.png */,
+				0A46CD801988DE1B00D2F795 /* list_tittle_status_selected@2x.png */,
+				C412FDF0198E33650057B4A6 /* list_tittle_status_visited@2x.png */,
 			);
 			path = Icons;
 			sourceTree = "<group>";
@@ -1008,21 +1034,25 @@
 				0ADC97FD1974500E00AE3499 /* ugLine2.png in Resources */,
 				C42EE3B4194B4CCC00B9FDEF /* info_button_expandClosure@2x.png in Resources */,
 				C412FDD5198BBE880057B4A6 /* 57.png in Resources */,
-				C492EF841973014300CB88FA /* ico_wifi@2x.png in Resources */,
 				C474B3E1197D262200923CF3 /* map-poi-primary@2x.png in Resources */,
 				C474B3DE197D262200923CF3 /* map-info-stem@2x.png in Resources */,
 				C4ECD28A1969B55600D733B0 /* Localizable.strings in Resources */,
 				C474B3D4197D262200923CF3 /* map-altitude-blue@2x.png in Resources */,
 				C4BD88421870612900128CD1 /* DIMapController.xib in Resources */,
-				C492EF801973014300CB88FA /* ico_audioguide@2x.png in Resources */,
 				C42EE3B3194B4CCC00B9FDEF /* info_button_collapseClosure@2x.png in Resources */,
 				C46D1E691942FAF10063CFB4 /* list_buttonBar_background_128@2x.png in Resources */,
+				C412FE17198E34C20057B4A6 /* ico_photo_free@2x.png in Resources */,
 				C474B37419786C8400923CF3 /* list_status_price@2x.png in Resources */,
 				C474B3D9197D262200923CF3 /* map-button-to_center-pressed@2x.png in Resources */,
 				C49564991928B78700612A00 /* list_cell_background@2x.png in Resources */,
+				C412FDFC198E33650057B4A6 /* list_tittle_status_liked@2x.png in Resources */,
 				0A1A044E1929D1F100B81664 /* list_button_menu@2x.png in Resources */,
+				C412FE14198E34C20057B4A6 /* ico_audioguide_free@2x.png in Resources */,
 				C474B3D8197D262200923CF3 /* map-button-list@2x.png in Resources */,
 				C411E25A1930F97D00C9A8EF /* DIHeaderView.xib in Resources */,
+				C412FDFD198E33650057B4A6 /* list_tittle_status_visited@2x.png in Resources */,
+				C412FE1B198E34C20057B4A6 /* ico_wifi_free@2x.png in Resources */,
+				C412FE1C198E34C20057B4A6 /* ico_wifi_pay@2x.png in Resources */,
 				C42EE3A5194B05FC00B9FDEF /* SightsBase.sqlite in Resources */,
 				C474B3E3197D262200923CF3 /* map-poi-temp_unavi@2x.png in Resources */,
 				C474B3E2197D262200923CF3 /* map-poi-secondary@2x.png in Resources */,
@@ -1031,28 +1061,30 @@
 				0A46CD821988DE1B00D2F795 /* list_tittle_status_selected@2x.png in Resources */,
 				C4ECD29719712E5A00D733B0 /* list_status_worktime@2x.png in Resources */,
 				C474B3DB197D262200923CF3 /* map-bytton-minus@2x.png in Resources */,
-				C492EF821973014300CB88FA /* ico_photo@2x.png in Resources */,
 				C49972591896ED0500A8DA98 /* marker-blue.png in Resources */,
 				0ADC98081974572800AE3499 /* ugLine5.png in Resources */,
 				C412FDCC198BA8730057B4A6 /* map-bytton-minus-pressed@2x.png in Resources */,
+				C412FE15198E34C20057B4A6 /* ico_audioguide_pay@2x.png in Resources */,
 				C4FAD18418FEF69E007871B9 /* arrow.jpeg in Resources */,
 				C474B3DA197D262200923CF3 /* map-button-to_center@2x.png in Resources */,
 				C49564881925608400612A00 /* info_buttonbar_bottom_background@2x.png in Resources */,
 				C499725A1896ED0500A8DA98 /* marker-red-withletter.png in Resources */,
 				C474B37319786C8400923CF3 /* list_status_price_free@2x.png in Resources */,
 				C4BD881418705EE400128CD1 /* InfoPlist.strings in Resources */,
+				C412FE18198E34C20057B4A6 /* ico_photo_no@2x.png in Resources */,
 				0ADC97FC1974500E00AE3499 /* ugLine1.png in Resources */,
+				C412FE16198E34C20057B4A6 /* ico_photo@2x.png in Resources */,
 				C494C85B1978581500A33498 /* infoIconsPhone.png in Resources */,
-				C492EF7F1973014300CB88FA /* ico_audioguide_free@2x.png in Resources */,
+				C412FE1A198E34C20057B4A6 /* ico_wifi@2x.png in Resources */,
 				C49564891925608400612A00 /* list_buttonBar_background@2x.png in Resources */,
 				C49972581896ED0500A8DA98 /* marker-blue-withletter.png in Resources */,
 				0A1A04541929D1F100B81664 /* info_tittlebar_button_add_pressed@2x.png in Resources */,
 				C412FDE0198CC1D40057B4A6 /* SightsBase.sqlite-wal in Resources */,
 				0ADC97FF1974500E00AE3499 /* ugLine4.png in Resources */,
 				C474B3EB197E799200923CF3 /* list_status_unavailable@2x.png in Resources */,
-				C492EF831973014300CB88FA /* ico_wifi_free@2x.png in Resources */,
 				C474B3E0197D262200923CF3 /* map-me-undirected@2x.png in Resources */,
 				0A1A04511929D1F100B81664 /* list_button_add_pressed@2x.png in Resources */,
+				C412FE13198E34C20057B4A6 /* ico_audioguide@2x.png in Resources */,
 				C474B3D5197D262200923CF3 /* map-altitude-green@2x.png in Resources */,
 				C474B3D6197D262200923CF3 /* map-altitude-red@2x.png in Resources */,
 				C474B393197AA91B00923CF3 /* DISightShortView.xib in Resources */,
@@ -1061,13 +1093,13 @@
 				C41CB821198AC30400A7A8B2 /* rus_spb_13_17.sqlite in Resources */,
 				C474B3DF197D262200923CF3 /* map-me-directed@2x.png in Resources */,
 				C4A7144B191CFEED0056EB30 /* DICell.xib in Resources */,
+				C412FE19198E34C20057B4A6 /* ico_photo_pay@2x.png in Resources */,
 				C474B3DD197D262200923CF3 /* map-bytton-plus@2x.png in Resources */,
 				C43741FE190BAB020095D51E /* DISightCardVC.xib in Resources */,
 				C4BD881F18705EE400128CD1 /* Images.xcassets in Resources */,
 				0A46CD831988DE1B00D2F795 /* list_tittle_status_closed@2x.png in Resources */,
 				C474B3DC197D262200923CF3 /* map-bytton-plus-pressed@2x.png in Resources */,
 				C412FDDF198CC1D40057B4A6 /* SightsBase.sqlite-shm in Resources */,
-				C492EF811973014300CB88FA /* ico_photo_free@2x.png in Resources */,
 				C474B3E4197D262200923CF3 /* map-poi-visited-like@2x.png in Resources */,
 				0A1A04531929D1F100B81664 /* info_tittlebar_button_add_unpressed@2x.png in Resources */,
 				C4ECD29619712E5A00D733B0 /* info_price@2x.png in Resources */,

@@ -133,45 +133,81 @@
     CGFloat imageSize = 24.;
     CGFloat gap = 12.;
     CGFloat iconOrig = 10.;
+    CGFloat xCoord = 0;
     
     UIImage *photoImage;
     switch ([_sight.foto integerValue]) {
+        case 0:
+            photoImage = [UIImage imageNamed:@"ico_photo_no"];
+            break;
         case 1:
-            photoImage = [UIImage imageNamed:@"ico_photo_free"];
+            photoImage = [UIImage imageNamed:@"ico_photo"];
             break;
         case 2:
+            photoImage = [UIImage imageNamed:@"ico_photo_pay"];
+            break;
+        case 3:
+            photoImage = [UIImage imageNamed:@"ico_photo_free"];
+            break;
         default:
             photoImage = [UIImage imageNamed:@"ico_photo"];
     }
     UIImageView *imageView = [[UIImageView alloc] initWithImage:photoImage];
-    imageView.frame = CGRectMake(0, iconOrig, imageSize, imageSize);
+    imageView.frame = CGRectMake(xCoord, iconOrig, imageSize, imageSize);
     [iconView addSubview:imageView];
+    xCoord += (imageSize + gap);
     
     UIImage *wifiImage;
+    BOOL noImage = NO;
     switch ([_sight.wifi integerValue]) {
+        case 0:
+            photoImage = [UIImage imageNamed:@""];
+            noImage = YES;
+            break;
         case 1:
-            wifiImage = [UIImage imageNamed:@"ico_wifi_free"];
+            wifiImage = [UIImage imageNamed:@"ico_wifi"];
             break;
         case 2:
+            photoImage = [UIImage imageNamed:@"ico_wifi_pay"];
+            break;
+        case 3:
+            photoImage = [UIImage imageNamed:@"ico_wifi_free"];
+            break;
         default:
             wifiImage = [UIImage imageNamed:@"ico_wifi"];
     }
-    imageView = [[UIImageView alloc] initWithImage:wifiImage];
-    imageView.frame = CGRectMake(imageSize+gap, iconOrig, imageSize, imageSize);
-    [iconView addSubview:imageView];
+    if (!noImage) {
+        imageView = [[UIImageView alloc] initWithImage:wifiImage];
+        imageView.frame = CGRectMake(xCoord, iconOrig, imageSize, imageSize);
+        [iconView addSubview:imageView];
+        xCoord += (imageSize + gap);
+    }
     
     UIImage *audioImage;
+    noImage = NO;
     switch ([_sight.audioguide integerValue]) {
+        case 0:
+            photoImage = [UIImage imageNamed:@""];
+            noImage = YES;
+            break;
         case 1:
-            audioImage = [UIImage imageNamed:@"ico_audioguide_free"];
+            audioImage = [UIImage imageNamed:@"ico_audioguide"];
             break;
         case 2:
+            photoImage = [UIImage imageNamed:@"ico_audioguide_pay"];
+            break;
+        case 3:
+            photoImage = [UIImage imageNamed:@"ico_audioguide_free"];
+            break;
         default:
             audioImage = [UIImage imageNamed:@"ico_audioguide"];
     }
-    imageView = [[UIImageView alloc] initWithImage:audioImage];
-    imageView.frame = CGRectMake(imageSize*2+gap*2, iconOrig, imageSize, imageSize);
-    [iconView addSubview:imageView];
+    if (!noImage) {
+        imageView = [[UIImageView alloc] initWithImage:audioImage];
+        imageView.frame = CGRectMake(xCoord, iconOrig, imageSize, imageSize);
+        [iconView addSubview:imageView];
+        xCoord += (imageSize + gap);
+    }
 }
 
 - (void)workHoursConfig {
