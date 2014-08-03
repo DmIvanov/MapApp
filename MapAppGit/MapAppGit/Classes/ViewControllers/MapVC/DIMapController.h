@@ -16,7 +16,8 @@
 @interface DIMapController : UIViewController
     <RMMapViewDelegate,
     CLLocationManagerDelegate,
-    DISightShortViewDelegate>
+    DISightShortViewDelegate,
+    UIAlertViewDelegate>
 
 @property (nonatomic, strong) IBOutlet RMMapView *mapView;
 @property (nonatomic, strong) DIListMapVC *listMapController;
