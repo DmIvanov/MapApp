@@ -10,8 +10,6 @@
 
 
 @class DISight;
-//@class NSManagedObjectID;
-
 
 @interface DISightsManager : NSObject
 
@@ -24,7 +22,6 @@
 - (id)copy __attribute__((unavailable("copy is not available, use class methods 'sharedInstance' instead!")));
 
 - (NSArray *)dataArray;
-//- (UIImage *)avatarForSight:(DISight *)sight;
 
 - (NSString *)timeStringFromDate:(NSDate *)date;
 - (NSString *)insideDateStringFromDate:(NSDate *)date;
