@@ -96,8 +96,7 @@
 
 - (void)dealloc {
     
-    [_locationManager stopMonitoringSignificantLocationChanges];
-    [_locationManager stopUpdatingHeading];
+    [self locationMonitoringStop];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
@@ -107,14 +106,14 @@
 - (void)locationMonitoringStart {
     
     if ([CLLocationManager significantLocationChangeMonitoringAvailable])
-        [_locationManager startMonitoringSignificantLocationChanges];
+        [_locationManager startUpdatingLocation];
     if ([CLLocationManager headingAvailable])
         [_locationManager startUpdatingHeading];
 }
 
 - (void)locationMonitoringStop {
     
-    [_locationManager stopMonitoringSignificantLocationChanges];
+    [_locationManager stopUpdatingLocation];
     [_locationManager stopUpdatingHeading];
 }
 
@@ -364,9 +363,9 @@
     
     if (!_locationAlert) {
         _locationAlert = [[UIAlertView alloc] initWithTitle:nil
-                                                    message:@"Вы находитесь за пределами карты!"
+                                                    message:DILocalizedString(@"messageOutOfMap")
                                                    delegate:self
-                                          cancelButtonTitle:@"Я исправлюсь.."
+                                          cancelButtonTitle:DILocalizedString(@"answerOutOfMap")
                                           otherButtonTitles:nil];
         [_locationAlert show];
     }
