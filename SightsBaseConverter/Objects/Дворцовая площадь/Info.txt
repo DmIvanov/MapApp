@@ -1,4 +1,4 @@
-coordinates
+﻿coordinates
 
 59.938936 30.315002
 
@@ -31,3 +31,4 @@ wifi
 audioguide
 
 0
+

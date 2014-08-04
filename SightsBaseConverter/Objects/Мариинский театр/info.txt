@@ -20,7 +20,7 @@ price
 
 foto
 
-2
+0
 
 
 wifi
@@ -31,3 +31,4 @@ wifi
 audioguide
 
 0
+
