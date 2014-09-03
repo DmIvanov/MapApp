@@ -27,7 +27,9 @@
 
 
 #define LOCATION_MARKER_DIRECTED_IMAGE              [UIImage imageNamed:@"map-me-directed"]
-#define LOCATION_MARKER_UNDIRECTED_IMAGE          [UIImage imageNamed:@"map-me-undirected"]
+#define LOCATION_MARKER_UNDIRECTED_IMAGE            [UIImage imageNamed:@"map-me-undirected"]
+
+#define MARKER_ANCHOR_POINT                         CGPointMake(0.5, 1.)
 
 
 @interface DIMapController ()
@@ -37,10 +39,12 @@
     BOOL _firstLocationDetection;
     CLLocationCoordinate2D _currentCoordinates;
     NSMutableArray *_sightMarkers;
+    UIAlertView *_locationAlert;
 }
 
 @property (nonatomic, strong) IBOutlet UIImageView *scaleRoller;
 @property (nonatomic, strong) IBOutlet UIView *scaleRollerBg;
+@property (nonatomic, strong) IBOutlet UIButton *buttonLocation;
 
 @property (nonatomic, strong) DIMapSourceManager *mapSourceManager;
 @property (nonatomic, strong) CLLocationManager *locationManager;
@@ -92,8 +96,7 @@
 
 - (void)dealloc {
     
-    [_locationManager stopMonitoringSignificantLocationChanges];
-    [_locationManager stopUpdatingHeading];
+    [self locationMonitoringStop];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
@@ -103,14 +106,14 @@
 - (void)locationMonitoringStart {
     
     if ([CLLocationManager significantLocationChangeMonitoringAvailable])
-        [_locationManager startMonitoringSignificantLocationChanges];
+        [_locationManager startUpdatingLocation];
     if ([CLLocationManager headingAvailable])
         [_locationManager startUpdatingHeading];
 }
 
 - (void)locationMonitoringStop {
     
-    [_locationManager stopMonitoringSignificantLocationChanges];
+    [_locationManager stopUpdatingLocation];
     [_locationManager stopUpdatingHeading];
 }
 
@@ -118,6 +121,11 @@
     
     CLLocation *location = locations.lastObject;
     _currentCoordinates = location.coordinate;
+    
+    if (![self coordinatesAreOnTheMap:_currentCoordinates]) {
+        [self showLocationAlert];
+        return;
+    }
     
     [_mapView.markerManager moveMarkerWithAnimation:self.currentLocationMarker AtLatLon:_currentCoordinates];
     
@@ -138,9 +146,10 @@
     
     _currentLocationMarker.transform = CATransform3DMakeRotation(angle, 0, 0, 1);
     
-    if (_firstLocationDetection) {
-        [self locationDetectedFirstTime];
-    }
+    //commented because of situation when you are out of the map
+//    if (_firstLocationDetection) {
+//        [self locationDetectedFirstTime];
+//    }
 }
 
 
@@ -196,21 +205,7 @@
 - (IBAction)buttonPositionPressed:(UIButton *)sender {
     
     _positionSwitchedOn = !_positionSwitchedOn;
-    if (_positionSwitchedOn) {
-        [sender setImage:[UIImage imageNamed:@"map-button-to_center-pressed.png"]
-                forState:UIControlStateNormal];
-        [sender setImage:[UIImage imageNamed:@"map-button-to_center.png"]
-                forState:UIControlStateHighlighted];
-        [self switchLocationMonitoringOn];
-    }
-    else {
-        [sender setImage:[UIImage imageNamed:@"map-button-to_center.png"]
-                forState:UIControlStateNormal];
-        [sender setImage:[UIImage imageNamed:@"map-button-to_center-pressed.png"]
-                forState:UIControlStateHighlighted];
-        [self switchLocationMonitoringOff];
-    }
-    
+    [self updateLocationMonitoringState];
 }
 
 - (IBAction)buttonMinusPressed:(id)sender {
@@ -242,6 +237,15 @@
 }
 
 
+#pragma mark - UIAlertView delegate method
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    _positionSwitchedOn = NO;
+    [self updateLocationMonitoringState];
+    _locationAlert = nil;
+}
+
 
 #pragma mark - Other functions
 
@@ -257,7 +261,7 @@
     CLLocationCoordinate2D coord = CLLocationCoordinate2DMake([sight.latitudeNumber floatValue], [sight.longitudeNumber floatValue]);
     UIImage *imageForMarker = [sight imageForMapMarker];
     DISimpleMarker *newMarker = [[DISimpleMarker alloc] initWithUIImage:imageForMarker
-                                                            anchorPoint:CGPointMake(0.5, 1.)];
+                                                            anchorPoint:MARKER_ANCHOR_POINT];
     newMarker.mapController = self;
     newMarker.sight = sight;
     [_sightMarkers addObject:newMarker];
@@ -321,7 +325,7 @@
     for (DISimpleMarker *marker in _sightMarkers) {
         if (marker.sight == notifSight) {
             UIImage *newImage = [notifSight imageForMapMarker];
-            [marker replaceUIImage:newImage];
+            [marker replaceUIImage:newImage anchorPoint:MARKER_ANCHOR_POINT];
             break;
         }
     }
@@ -341,6 +345,48 @@
     rollerFrame.origin.y = yIndent + oneDegree*(maxZoom - curZoom);
     
     _scaleRoller.frame = rollerFrame;
+}
+
+- (BOOL)coordinatesAreOnTheMap:(CLLocationCoordinate2D)coordinate {
+    
+    if (coordinate.latitude > [DISettingsManager sharedInstance].SWBorderPoint.latitude &&
+        coordinate.latitude < [DISettingsManager sharedInstance].NEBorderPoint.latitude &&
+        coordinate.longitude > [DISettingsManager sharedInstance].SWBorderPoint.longitude &&
+        coordinate.longitude < [DISettingsManager sharedInstance].NEBorderPoint.longitude) {
+        return YES;
+    }
+    else
+        return NO;
+}
+
+- (void)showLocationAlert {
+    
+    if (!_locationAlert) {
+        _locationAlert = [[UIAlertView alloc] initWithTitle:nil
+                                                    message:DILocalizedString(@"messageOutOfMap")
+                                                   delegate:self
+                                          cancelButtonTitle:DILocalizedString(@"answerOutOfMap")
+                                          otherButtonTitles:nil];
+        [_locationAlert show];
+    }
+}
+
+- (void)updateLocationMonitoringState {
+    
+    if (_positionSwitchedOn) {
+        [_buttonLocation setImage:[UIImage imageNamed:@"map-button-to_center-pressed.png"]
+                         forState:UIControlStateNormal];
+        [_buttonLocation setImage:[UIImage imageNamed:@"map-button-to_center.png"]
+                         forState:UIControlStateHighlighted];
+        [self switchLocationMonitoringOn];
+    }
+    else {
+        [_buttonLocation setImage:[UIImage imageNamed:@"map-button-to_center.png"]
+                         forState:UIControlStateNormal];
+        [_buttonLocation setImage:[UIImage imageNamed:@"map-button-to_center-pressed.png"]
+                         forState:UIControlStateHighlighted];
+        [self switchLocationMonitoringOff];
+    }
 }
 
 

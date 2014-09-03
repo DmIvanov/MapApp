@@ -12,7 +12,7 @@
 #define CELL_ID_2                   @"cellId2"
 
 #define DEFAULT_GROWING_INDEX       1
-#define CELL_HEIGHT                 43.
+#define CELL_HEIGHT                 44.
 #define CELL_HEIGHT_BIG             290.
 #define CELL_HEIGHT_SECOND          64.
 #define CELL_HEIGHT_HELP            320.

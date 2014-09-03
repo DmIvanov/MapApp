@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DIMapController">
             <connections>
+                <outlet property="buttonLocation" destination="Qi4-ge-VDO" id="YzB-IB-067"/>
                 <outlet property="mapView" destination="LSf-3l-ljh" id="gjm-zI-iRP"/>
                 <outlet property="scaleRoller" destination="UHA-Zy-1jJ" id="cFv-1x-4Mv"/>
                 <outlet property="scaleRollerBg" destination="Vp0-Gb-6hS" id="6Go-2v-UOl"/>

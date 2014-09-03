@@ -25,9 +25,10 @@ foto
 
 wifi
 
-1
+0
 
 
 audioguide
 
 2
+

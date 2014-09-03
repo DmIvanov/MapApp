@@ -161,17 +161,17 @@
     BOOL noImage = NO;
     switch ([_sight.wifi integerValue]) {
         case 0:
-            photoImage = [UIImage imageNamed:@""];
+            wifiImage = [UIImage imageNamed:@""];
             noImage = YES;
             break;
         case 1:
             wifiImage = [UIImage imageNamed:@"ico_wifi"];
             break;
         case 2:
-            photoImage = [UIImage imageNamed:@"ico_wifi_pay"];
+            wifiImage = [UIImage imageNamed:@"ico_wifi_pay"];
             break;
         case 3:
-            photoImage = [UIImage imageNamed:@"ico_wifi_free"];
+            wifiImage = [UIImage imageNamed:@"ico_wifi_free"];
             break;
         default:
             wifiImage = [UIImage imageNamed:@"ico_wifi"];
@@ -187,17 +187,17 @@
     noImage = NO;
     switch ([_sight.audioguide integerValue]) {
         case 0:
-            photoImage = [UIImage imageNamed:@""];
+            audioImage = [UIImage imageNamed:@""];
             noImage = YES;
             break;
         case 1:
             audioImage = [UIImage imageNamed:@"ico_audioguide"];
             break;
         case 2:
-            photoImage = [UIImage imageNamed:@"ico_audioguide_pay"];
+            audioImage = [UIImage imageNamed:@"ico_audioguide_pay"];
             break;
         case 3:
-            photoImage = [UIImage imageNamed:@"ico_audioguide_free"];
+            audioImage = [UIImage imageNamed:@"ico_audioguide_free"];
             break;
         default:
             audioImage = [UIImage imageNamed:@"ico_audioguide"];

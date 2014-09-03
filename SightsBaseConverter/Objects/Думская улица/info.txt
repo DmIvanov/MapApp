@@ -13,7 +13,6 @@ shortDescr
 Самая известная барная улица в Санкт-Петербурге.
 
 
-
 price
 
 0
@@ -21,14 +20,15 @@ price
 
 foto
 
-1
+3
 
 
 wifi
 
-1
+3
 
 
 audioguide
 
 0
+
