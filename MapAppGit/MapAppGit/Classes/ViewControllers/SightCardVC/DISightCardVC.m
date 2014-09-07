@@ -20,6 +20,8 @@
 #define HEADER_ID                       @"headerID"
 #define HEADER_HEIGHT                   76.
 #define SCHEDULE_ROW_HEIGHT             30.
+#define X_GAP                           22
+#define SHORT_DESCR_SIZE                CGSizeMake(SCREEN_SIZE.width-X_GAP*2, SCREEN_SIZE.height)
 
 #define TITLE_VIEW_FRAME            CGRectMake(0, 20, 280, 44)
 #define TITLE_LABEL_FRAME           CGRectMake(8, 10, 260, 20)
@@ -46,7 +48,7 @@
 @property (nonatomic, strong) IBOutlet UILabel      *labelWorkHours;
 @property (nonatomic, strong) IBOutlet UIImageView  *imageRubles;
 
-@property (nonatomic, strong) IBOutlet UILabel      *labelShortDescr;
+@property (nonatomic, strong) UILabel      *labelShortDescr;
 
 @property (nonatomic, strong) UIView *scheduleListView;
 
@@ -121,7 +123,21 @@
 - (void)adjustMainHeader {
     
     NSString *shortDescr = _sight.shortDescr;
+    UIFont *labelFont = [UIFont fontWithName:@"HelveticaNeue-Light" size:14];
+    CGRect descrRect = [shortDescr rectForSize:SHORT_DESCR_SIZE
+                                          font:labelFont
+                                 lineBreakMode:NSLineBreakByWordWrapping];
+    descrRect.origin.x = X_GAP;
+    descrRect.origin.y = _mainInfoView.frame.size.height;
+    _labelShortDescr = [[UILabel alloc] initWithFrame:descrRect];
+    _labelShortDescr.numberOfLines = 0;
     _labelShortDescr.text = shortDescr;
+    _labelShortDescr.font = labelFont;
+    CGRect frame = _mainInfoView.frame;
+    frame.size.height += descrRect.size.height;
+    _mainInfoView.frame = frame;
+    [_mainInfoView addSubview:_labelShortDescr];
+    
     _tableView.tableHeaderView = _mainInfoView;
     _firstLabel.text = _sight.name;
     _imageViewPicture.image = [UIImage imageWithData:_sight.avatarData];
