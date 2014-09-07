@@ -398,11 +398,24 @@
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
     
     NSString *urlString = [request.URL absoluteString];
-    NSRange range = [urlString rangeOfString:@"http://www"];
+    NSRange range;
+    
+    //recognize http-link
+    range = [urlString rangeOfString:@"http://www"];
     if (range.location != NSNotFound) {
         [[UIApplication sharedApplication] openURL:request.URL];
         return NO;
     }
+    
+    //recognize a telephon number
+    range = [urlString rangeOfString:@"tel:"];
+    if (range.location != NSNotFound) {
+//        NSString *cleanedString = [[phoneNumber componentsSeparatedByCharactersInSet:[[NSCharacterSet characterSetWithCharactersInString:@"0123456789-+()"] invertedSet]] componentsJoinedByString:@""];
+//        NSURL *telURL = [NSURL URLWithString:[NSString stringWithFormat:@"tel:%@", cleanedString]];
+        [[UIApplication sharedApplication] openURL:request.URL];
+        return NO;
+    }
+    
     return YES;
 }
 
