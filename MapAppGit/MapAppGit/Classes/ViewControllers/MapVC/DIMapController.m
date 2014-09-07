@@ -69,6 +69,10 @@
                                                  selector:@selector(sightStateChanged:)
                                                      name:DINOTIFICATION_SIGHT_STATE_CHANGED
                                                    object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(appWillEnterForeground:)
+                                                     name:UIApplicationWillEnterForegroundNotification
+                                                   object:nil];
     }
     return self;
 }
@@ -98,6 +102,11 @@
     
     [self locationMonitoringStop];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)appWillEnterForeground:(NSNotification *)notification {
+    
+    [self refreshMapMarkers];
 }
 
 
@@ -324,11 +333,23 @@
     DISight *notifSight = notification.userInfo[@"sight"];
     for (DISimpleMarker *marker in _sightMarkers) {
         if (marker.sight == notifSight) {
-            UIImage *newImage = [notifSight imageForMapMarker];
-            [marker replaceUIImage:newImage anchorPoint:MARKER_ANCHOR_POINT];
+            [self replaceImageForMarker:marker];
             break;
         }
     }
+}
+
+- (void)refreshMapMarkers {
+    
+    for (DISimpleMarker *marker in _sightMarkers) {
+        [self replaceImageForMarker:marker];
+    }
+}
+
+- (void)replaceImageForMarker:(DISimpleMarker *)marker {
+    
+    UIImage *newImage = [marker.sight imageForMapMarker];
+    [marker replaceUIImage:newImage anchorPoint:MARKER_ANCHOR_POINT];
 }
 
 - (void)setScaleRollerPosition {

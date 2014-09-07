@@ -38,6 +38,41 @@
 
 @implementation DICell
 
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    
+    self = [super initWithCoder:aDecoder];
+    if (!self)
+        return nil;
+    
+    [self initialization];
+    
+    return  self;
+}
+
+- (id)initWithFrame:(CGRect)frame {
+    
+    self = [super initWithFrame:frame];
+    if (!self)
+        return nil;
+    
+    [self initialization];
+    
+    return  self;
+}
+
+- (void)initialization {
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(appWillEnterForeground:)
+                                                 name:UIApplicationWillEnterForegroundNotification
+                                               object:nil];
+}
+
+- (void)appWillEnterForeground:(NSNotification *)notification {
+    
+    [self refreshContent];
+}
+
 - (void)drawRect:(CGRect)rect {
     
     [super drawRect:rect];

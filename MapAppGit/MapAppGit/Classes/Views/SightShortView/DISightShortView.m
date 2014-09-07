@@ -55,6 +55,10 @@
                                              selector:@selector(sightStateChanged:)
                                                  name:DINOTIFICATION_SIGHT_STATE_CHANGED
                                                object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(appWillEnterForeground:)
+                                                 name:UIApplicationWillEnterForegroundNotification
+                                               object:nil];
 }
 
 - (void)dealloc {
@@ -148,6 +152,11 @@
     if (_sight == notifSight) {
         [self fillButtonAddImage];
     }
+}
+
+- (void)appWillEnterForeground:(NSNotification *)notification {
+    
+    [self refreshDateTimeInfo];
 }
 
 
