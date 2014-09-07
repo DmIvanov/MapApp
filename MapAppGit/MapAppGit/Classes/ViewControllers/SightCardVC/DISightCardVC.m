@@ -59,6 +59,10 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         _datasource = [NSMutableArray arrayWithCapacity:10];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(applicationWillEnterForeground:)
+                                                     name:UIApplicationWillEnterForegroundNotification
+                                                   object:nil];
     }
     return self;
 }
@@ -82,11 +86,6 @@
     [_tableView registerNib:header forHeaderFooterViewReuseIdentifier:HEADER_ID];
     
     [self adjustMainHeader];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(applicationWillEnterForeground:)
-                                                 name:UIApplicationWillEnterForegroundNotification
-                                               object:nil];
 }
 
 - (void)didReceiveMemoryWarning

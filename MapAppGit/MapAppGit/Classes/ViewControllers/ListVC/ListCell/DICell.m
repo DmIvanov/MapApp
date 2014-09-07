@@ -68,6 +68,11 @@
                                                object:nil];
 }
 
+- (void)dealloc {
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)appWillEnterForeground:(NSNotification *)notification {
     
     [self refreshContent];
