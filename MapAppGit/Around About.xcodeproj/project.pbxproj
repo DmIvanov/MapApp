@@ -80,6 +80,7 @@
 		C474B3E3197D262200923CF3 /* map-poi-temp_unavi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C474B3D2197D262200923CF3 /* map-poi-temp_unavi@2x.png */; };
 		C474B3E4197D262200923CF3 /* map-poi-visited-like@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C474B3D3197D262200923CF3 /* map-poi-visited-like@2x.png */; };
 		C474B3EB197E799200923CF3 /* list_status_unavailable@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C474B3EA197E799200923CF3 /* list_status_unavailable@2x.png */; };
+		C49240C119C44A99005857F8 /* DIPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = C49240C019C44A99005857F8 /* DIPhotoView.m */; };
 		C494C85B1978581500A33498 /* infoIconsPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = C494C85A1978581500A33498 /* infoIconsPhone.png */; };
 		C4956461191E260C00612A00 /* DIListMapVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C495645F191E260C00612A00 /* DIListMapVC.m */; };
 		C495646A191EB6DF00612A00 /* DIDoubleSwipeView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4956469191EB6DF00612A00 /* DIDoubleSwipeView.m */; };
@@ -258,6 +259,8 @@
 		C474B3D3197D262200923CF3 /* map-poi-visited-like@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map-poi-visited-like@2x.png"; sourceTree = "<group>"; };
 		C474B3E9197E70D300923CF3 /* DINotifications.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DINotifications.h; sourceTree = "<group>"; };
 		C474B3EA197E799200923CF3 /* list_status_unavailable@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list_status_unavailable@2x.png"; sourceTree = "<group>"; };
+		C49240BF19C44A99005857F8 /* DIPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DIPhotoView.h; path = Classes/Views/PhotoView/DIPhotoView.h; sourceTree = "<group>"; };
+		C49240C019C44A99005857F8 /* DIPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DIPhotoView.m; path = Classes/Views/PhotoView/DIPhotoView.m; sourceTree = "<group>"; };
 		C494C85A1978581500A33498 /* infoIconsPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = infoIconsPhone.png; path = MapAppGit/Images/Icons/Contacts/infoIconsPhone.png; sourceTree = SOURCE_ROOT; };
 		C495645E191E260C00612A00 /* DIListMapVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DIListMapVC.h; path = Classes/ViewControllers/ListMapVC/DIListMapVC.h; sourceTree = "<group>"; };
 		C495645F191E260C00612A00 /* DIListMapVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DIListMapVC.m; path = Classes/ViewControllers/ListMapVC/DIListMapVC.m; sourceTree = "<group>"; };
@@ -602,6 +605,15 @@
 			path = Map;
 			sourceTree = "<group>";
 		};
+		C49240BE19C44A65005857F8 /* PhotoView */ = {
+			isa = PBXGroup;
+			children = (
+				C49240BF19C44A99005857F8 /* DIPhotoView.h */,
+				C49240C019C44A99005857F8 /* DIPhotoView.m */,
+			);
+			name = PhotoView;
+			sourceTree = "<group>";
+		};
 		C4956458191E253100612A00 /* ListMapVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -900,6 +912,7 @@
 		C4FAD16818F18A02007871B9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C49240BE19C44A65005857F8 /* PhotoView */,
 				C474B397197AAE9B00923CF3 /* SimpleMarker */,
 				C474B38D197AA8CB00923CF3 /* SightShortView */,
 				0A1A042C1924B98500B81664 /* Buttons */,
@@ -1135,6 +1148,7 @@
 				C4BD881618705EE400128CD1 /* main.m in Sources */,
 				0A2C1B3D1923C66F0041CECF /* DIBaseVC.m in Sources */,
 				C43741FD190BAB020095D51E /* DISightCardVC.m in Sources */,
+				C49240C119C44A99005857F8 /* DIPhotoView.m in Sources */,
 				C4BD881A18705EE400128CD1 /* DIAppDelegate.m in Sources */,
 				C411E25F19310AF800C9A8EF /* DICardTVItem.m in Sources */,
 				C474B396197AAB5F00923CF3 /* DISightShortView.m in Sources */,

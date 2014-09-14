@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 Dmitry Ivanov. All rights reserved.
 //
 
+#import "DIAppDelegate.h"
+
 #define SIGHT_LIST_ITEM_ABOUT               @"about"
 #define SIGHT_LIST_ITEM_SCHEDULE            @"schedule"
 #define SIGHT_LIST_ITEM_HISTORY             @"history"
@@ -14,8 +16,10 @@
 #define SIGHT_LIST_ITEM_INTERESTING         @"interesting"
 #define SIGHT_LIST_ITEM_ADVICES             @"advices"
 
+#define MAIN_WINDOW         [UIApplication sharedApplication].delegate.window
 
 static BOOL OSVersionIsAtLeastiOS7() {
     return (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1);
 }
+
 

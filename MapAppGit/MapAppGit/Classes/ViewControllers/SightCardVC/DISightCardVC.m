@@ -15,6 +15,7 @@
 #import "DIBarButton.h"
 #import "DIHeaderView.h"
 #import "DICardTVItem.h"
+#import "DIPhotoView.h"
 
 #define CELL_ID                         @"cellID"
 #define HEADER_ID                       @"headerID"
@@ -28,7 +29,7 @@
 #define TITLE_FONT                  [UIFont boldSystemFontOfSize:18.]
 
 
-@interface DISightCardVC ()
+@interface DISightCardVC() <DIPhotoViewDelegate>
 {
     NSMutableArray *_datasource;
     NSIndexPath *_loadingWebViewIndexPath;
@@ -500,6 +501,18 @@
 }
 
 
+#pragma mark - Actions
+
+- (IBAction)imageButtonPressed:(id)sender {
+    
+    DIPhotoView *photoView = [[DIPhotoView alloc] initWithFrame:SCREEN_RECT];
+    photoView.image = _imageViewPicture.image;
+    photoView.delegate = self;
+    
+    [self showPhotoView:photoView];
+}
+
+
 #pragma mark - Setters & getters
 
 - (NSArray *)listProperties {
@@ -594,6 +607,47 @@
     }
     
     return _scheduleListView;
+}
+
+
+#pragma mark - PhotoView affairs
+
+- (void)showPhotoView:(DIPhotoView *)photoView {
+    
+    photoView.alpha = 0;
+    [MAIN_WINDOW addSubview:photoView];
+    [UIView animateWithDuration:0.3
+                     animations:^{
+                         photoView.alpha = 1;
+                         _imageViewPicture.alpha = 0;
+                     }
+                     completion:^(BOOL finished) {
+                         
+                     }];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent
+                                                animated:YES];
+}
+
+- (void)hidePhotoView:(DIPhotoView *)photoView {
+    
+    [UIView animateWithDuration:0.3
+                     animations:^{
+                         photoView.alpha = 0;
+                         _imageViewPicture.alpha = 1;
+                     }
+                     completion:^(BOOL finished) {
+                         [photoView removeFromSuperview];
+                     }];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault
+                                                animated:YES];
+}
+
+
+#pragma mark - DIPhotoViewDelegate methods
+
+- (void)closeButtonPressed:(DIPhotoView *)photoView {
+    
+    [self hidePhotoView:photoView];
 }
 
 
