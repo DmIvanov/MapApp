@@ -9,6 +9,7 @@
 #import "DIBaseVC.h"
 #import "DIDoubleSwipeView.h"
 
+@class DISight;
 
 @interface DIListMapVC : DIBaseVC <DIDoubleSwipeViewDelegate>
 

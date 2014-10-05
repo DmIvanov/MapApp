@@ -46,6 +46,11 @@
         _firstController.listMapController = self;
         _secondController = [ListVC new];
         _secondController.listMapController = self;
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(showSightNotificationRecaived:)
+                                                     name:NOTIFICATION_SHOW_SIGHT_ON_MAP
+                                                   object:nil];
     }
     return self;
 }
@@ -75,7 +80,7 @@
     
     _naviBar = self.navigationController.navigationBar;
     
-    if (NAVIBAR_MOVE_INTERACTIVE)
+    //if (NAVIBAR_MOVE_INTERACTIVE)
         [_naviBar addObserver:self
                    forKeyPath:@"frame"
                       options:NSKeyValueObservingOptionNew
@@ -92,6 +97,7 @@
     
     [_naviBar removeObserver:self
                   forKeyPath:@"frame"];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -118,8 +124,7 @@
 
 - (void)barButtonLeftPressed {
 
-    [_bigView switchViewsWithComplition:nil];
-    [self setStatusbarNavibarHidden:YES];
+    [self switchToFirstViewAnimated:YES];
 }
 
 //
@@ -127,14 +132,14 @@
 //
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     
-    if (NAVIBAR_MOVE_INTERACTIVE) {
+    //if (NAVIBAR_MOVE_INTERACTIVE) {
         if (object == _naviBar) {
             if ([keyPath isEqualToString:@"frame"]) {
                 CGRect newFrame = [change[NSKeyValueChangeNewKey] CGRectValue];
                 [self navibarNewFrame:newFrame];
             }
         }
-    }
+    //}
 }
 
 
@@ -223,13 +228,13 @@
 
 - (void)navibarNewFrame:(CGRect)frame {
     
-    double scrollViewDelta = self.view.frame.origin.y - (_naviBar.frame.origin.y + _naviBar.frame.size.height);
-    if (scrollViewDelta) {
-        CGRect scrollFrame = self.view.frame;
-        scrollFrame.origin.y -= scrollViewDelta;
-        scrollFrame.size.height += scrollViewDelta;
-        self.view.frame = scrollFrame;
-    }
+//    double scrollViewDelta = self.view.frame.origin.y - (_naviBar.frame.origin.y + _naviBar.frame.size.height);
+//    if (scrollViewDelta) {
+//        CGRect scrollFrame = self.view.frame;
+//        scrollFrame.origin.y -= scrollViewDelta;
+//        scrollFrame.size.height += scrollViewDelta;
+//        self.view.frame = scrollFrame;
+//    }
 }
 
 - (DIBarButton *)customizeBarButton:(DIBarButton *)button {
@@ -302,6 +307,26 @@
         });
     });
 #endif
+}
+
+- (void)showSightNotificationRecaived:(NSNotification *)notification {
+    
+    DISight *sight = notification.userInfo[@"sight"];
+    BOOL animated = [notification.userInfo[@"animated"] boolValue];
+    [self showSightOnMap:sight animated:animated];
+}
+
+- (void)showSightOnMap:(DISight *)sight animated:(BOOL)animated {
+    
+    [self switchToFirstViewAnimated:animated];
+    [_firstController moveToSight:sight];
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+- (void)switchToFirstViewAnimated:(BOOL)animated {
+    
+    [_bigView switchToFirstViewAnimated:animated];
+    [self setStatusbarNavibarHidden:YES];
 }
 
 

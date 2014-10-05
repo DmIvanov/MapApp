@@ -21,8 +21,10 @@
 #define HEADER_ID                       @"headerID"
 #define HEADER_HEIGHT                   76.
 #define SCHEDULE_ROW_HEIGHT             30.
+
+//short description config
 #define X_GAP                           22
-#define SHORT_DESCR_SIZE                CGSizeMake(SCREEN_SIZE.width-X_GAP*2, SCREEN_SIZE.height)
+#define SHORT_DESCR_MAX_SIZE            CGSizeMake(SCREEN_SIZE.width-X_GAP*2, SCREEN_SIZE.height)
 
 #define TITLE_VIEW_FRAME            CGRectMake(0, 20, 280, 44)
 #define TITLE_LABEL_FRAME           CGRectMake(8, 10, 260, 20)
@@ -49,7 +51,7 @@
 @property (nonatomic, strong) IBOutlet UILabel      *labelWorkHours;
 @property (nonatomic, strong) IBOutlet UIImageView  *imageRubles;
 
-@property (nonatomic, strong) UILabel      *labelShortDescr;
+@property (nonatomic, strong) UILabel *labelShortDescr;
 
 @property (nonatomic, strong) UIView *scheduleListView;
 
@@ -125,7 +127,7 @@
     
     NSString *shortDescr = _sight.shortDescr;
     UIFont *labelFont = [UIFont fontWithName:@"HelveticaNeue-Light" size:14];
-    CGRect descrRect = [shortDescr rectForSize:SHORT_DESCR_SIZE
+    CGRect descrRect = [shortDescr rectForSize:SHORT_DESCR_MAX_SIZE
                                           font:labelFont
                                  lineBreakMode:NSLineBreakByWordWrapping];
     descrRect.origin.x = X_GAP;
@@ -310,6 +312,13 @@
 
 - (void)barButtonRightPressed {
  
+    NSDictionary *userInfo = @{@"sight" : _sight,
+                               @"animated" : @(YES)};
+    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_SHOW_SIGHT_ON_MAP
+                                                        object:self
+                                                      userInfo:userInfo];
+    return;
+    
     switch (_sight.sightType) {
         case SightTypeChosen:
             _sight.sightType = SightTypeInteresting;
@@ -417,7 +426,7 @@
     NSRange range;
     
     //recognize http-link
-    range = [urlString rangeOfString:@"http://www"];
+    range = [urlString rangeOfString:@"http"];
     if (range.location != NSNotFound) {
         [[UIApplication sharedApplication] openURL:request.URL];
         return NO;

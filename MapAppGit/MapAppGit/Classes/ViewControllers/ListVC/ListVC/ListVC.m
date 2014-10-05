@@ -169,6 +169,13 @@
 
 - (void)cellButtonAddPressed:(DICell *)cell {
     
+    NSDictionary *userInfo = @{@"sight" : cell.sight,
+                               @"animated" : @(YES)};
+    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_SHOW_SIGHT_ON_MAP
+                                                        object:self
+                                                      userInfo:userInfo];
+    return;
+    
     DISight *sight = cell.sight;
     switch (sight.sightType) {
         case SightTypeChosen:

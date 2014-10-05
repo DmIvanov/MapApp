@@ -46,6 +46,7 @@
         return nil;
     
     _currentView = SecondView;
+    
     CGFloat xOrigBigFrame;
     if (_currentView == FirstViev)
         xOrigBigFrame = 0.;
@@ -185,7 +186,16 @@
     }
 }
 
-- (void)switchViewsWithComplition:(void (^)(BOOL finished))completion {
+- (void)switchToFirstViewAnimated:(BOOL)animated {
+    
+    if (_currentView == FirstViev)
+        return;
+    
+    [self switchViewsWithComplition:nil
+                           animated:animated];
+}
+
+- (void)switchViewsWithComplition:(void (^)(BOOL finished))completion animated:(BOOL)animated {
     
     _viewIsSwitching = YES;
     
@@ -203,18 +213,25 @@
     void (^newComplition)(BOOL finished) = ^(BOOL finished){
         _viewIsSwitching = NO;
         _currentView = newView;
+        if ([_delegate respondsToSelector:@selector(switchAnimationFinished:)])
+            [_delegate switchAnimationFinished:self];
         if (completion)
             completion(finished);
     };
     
-    [UIView animateWithDuration:SWITCH_ANIMATION_TIME
-                          delay:0
-                        options:UIViewAnimationOptionCurveEaseOut
-                     animations:^ {
-                         _bigView.frame = newFrame;
-                     }
-                     completion:newComplition
-     ];
+    if (animated)
+        [UIView animateWithDuration:SWITCH_ANIMATION_TIME
+                              delay:0
+                            options:UIViewAnimationOptionCurveEaseOut
+                         animations:^ {
+                             _bigView.frame = newFrame;
+                         }
+                         completion:newComplition
+         ];
+    else {
+        _bigView.frame = newFrame;
+        newComplition(YES);
+    }
 }
 
 - (void)showMapAnimation {

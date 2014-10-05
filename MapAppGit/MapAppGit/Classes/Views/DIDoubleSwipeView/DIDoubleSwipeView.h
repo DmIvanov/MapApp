@@ -36,7 +36,8 @@ typedef NS_ENUM(NSInteger, CurrentView) {
 
 - (id)initWithFrame:(CGRect)frame firstView:(UIView *)first secondView:(UIView *)second;
 
-- (void)switchViewsWithComplition:(void (^)(BOOL finished))completion;
+- (void)switchViewsWithComplition:(void (^)(BOOL finished))completion animated:(BOOL)animated;
+- (void)switchToFirstViewAnimated:(BOOL)animated;
 - (void)moveSwitchViewUp:(BOOL)up;
 - (void)showMapAnimation;
 

@@ -7,3 +7,4 @@
 //
 
 #define NOTIFICATION_TIME_TO_CHECK_STATE        @"timeToCheckState"
+#define NOTIFICATION_SHOW_SIGHT_ON_MAP          @"showSightOnMap"

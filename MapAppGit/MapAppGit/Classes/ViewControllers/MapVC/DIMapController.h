@@ -10,6 +10,7 @@
 
 #import "DISightShortView.h"
 
+@class DISight;
 @class DIListMapVC;
 @class DISimpleMarker;
 
@@ -23,5 +24,6 @@
 @property (nonatomic, strong) DIListMapVC *listMapController;
 
 - (void)markerTapped:(DISimpleMarker *)marker withTouches:(NSSet *)touches event:(UIEvent *)event;
+- (void)moveToSight:(DISight *)sight;
 
 @end

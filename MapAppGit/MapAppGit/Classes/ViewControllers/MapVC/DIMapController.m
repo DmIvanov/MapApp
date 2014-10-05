@@ -30,6 +30,7 @@
 #define LOCATION_MARKER_UNDIRECTED_IMAGE            [UIImage imageNamed:@"map-me-undirected"]
 
 #define MARKER_ANCHOR_POINT                         CGPointMake(0.5, 1.)
+#define OBJECT_ZOOM                                 16. //map zoom when going to the object coordinates from other VC's
 
 
 @interface DIMapController ()
@@ -408,6 +409,15 @@
                          forState:UIControlStateHighlighted];
         [self switchLocationMonitoringOff];
     }
+}
+
+- (void)moveToSight:(DISight *)sight {
+    
+    CLLocationCoordinate2D coord = CLLocationCoordinate2DMake([sight.latitudeNumber doubleValue],
+                                                              [sight.longitudeNumber doubleValue]);
+    [_mapView moveToLatLong:coord];
+    float factor = exp2f(16. - [_mapView.contents zoom]);
+    [_mapView zoomByFactor:factor near:_mapView.center];
 }
 
 

@@ -980,7 +980,7 @@
 				ORGANIZATIONNAME = "Dmitry Ivanov";
 				TargetAttributes = {
 					C4BD880318705EE400128CD1 = {
-						DevelopmentTeam = QZ7R5628RB;
+						DevelopmentTeam = 2Y2B5M2TAL;
 					};
 					C4BD882318705EE400128CD1 = {
 						TestTargetID = C4BD880318705EE400128CD1;

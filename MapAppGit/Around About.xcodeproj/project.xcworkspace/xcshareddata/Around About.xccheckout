@@ -14,8 +14,6 @@
 		<string>https://github.com/DmIvanov/MapApp.git</string>
 		<key>CACF89F1-5984-4733-B577-165381D78C57</key>
 		<string>https://github.com/DmIvanov/MapApp.git</string>
-		<key>CC1D6DB3-5683-4AFA-9CE3-E23E241E0BC3</key>
-		<string>ssh://github.com/DmIvanov/route-me.git</string>
 		<key>D2343A3007C64EB665FE967B12B8E23F14C116CD</key>
 		<string>github.com:DmIvanov/route-me.git</string>
 	</dict>
@@ -26,11 +24,9 @@
 		<key>B5953BD3E5A31BA398DF51EE82C0A8CCB2D79F9D</key>
 		<string>../../..</string>
 		<key>CACF89F1-5984-4733-B577-165381D78C57</key>
-		<string>../../../../MapAppGit</string>
-		<key>CC1D6DB3-5683-4AFA-9CE3-E23E241E0BC3</key>
-		<string>../../../../MapAppGit/RouteMeLib</string>
+		<string>../../..Git</string>
 		<key>D2343A3007C64EB665FE967B12B8E23F14C116CD</key>
-		<string>../../..RouteMeLib/</string>
+		<string>../../..RouteMeLib</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/DmIvanov/MapApp.git</string>
@@ -60,9 +56,9 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>CC1D6DB3-5683-4AFA-9CE3-E23E241E0BC3</string>
+			<string>D2343A3007C64EB665FE967B12B8E23F14C116CD</string>
 			<key>IDESourceControlWCCName</key>
-			<string>RouteMeLib</string>
+			<string>MapAppRouteMeLib</string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
@@ -70,7 +66,7 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>D2343A3007C64EB665FE967B12B8E23F14C116CD</string>
 			<key>IDESourceControlWCCName</key>
-			<string>RouteMeLib</string>
+			<string>MapAppRouteMeLib</string>
 		</dict>
 	</array>
 </dict>

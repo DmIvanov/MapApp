@@ -38,7 +38,7 @@
     
     [self.navigationController.navigationBar setBackgroundImage:[self imageForNavibar]
                                                   forBarMetrics:UIBarMetricsDefault];
-    self.navigationController.navigationBar.frame = NAVIBAR_FRAME;
+    //self.navigationController.navigationBar.frame = NAVIBAR_FRAME;
 }
 
 - (UIImage *)imageForNavibar {
