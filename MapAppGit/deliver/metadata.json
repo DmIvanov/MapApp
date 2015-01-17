@@ -1,0 +1,47 @@
+{
+  "en-US": {
+    "title": "Around About",
+    "description": "Free guide to St. Petersburg. Great for hiking. Completely off-line, including a map. \n\nNOTE: Continued use of GPS running in the background can dramatically decrease battery life.",
+    "version_whats_new": "",
+    "software_url": "",
+    "support_url": "http://aroundabout.ru",
+    "privacy_url": "",
+    "keywords": [
+      "Sankt",
+      "Petersburg",
+      "free",
+      "map",
+      "guide",
+      "sight",
+      "tourist",
+      "landmark",
+      "hike",
+      "promenade",
+      "travel",
+      "tour",
+      "point",
+      "interest"
+    ]
+  },
+  "ru-RU": {
+    "title": "Around About",
+    "description": "Бесплатный путеводитель по Санкт-Петербургу. Помогает туристу быстро познакомиться с основными достопримечательностями города. Отлично подходит для пеших прогулок. Полностью оффлайновый, включая карту.\n\nПОМНИТЕ: продолжительное использование GPS  в фоновом режиме может быстро разрядить батарею вашего устройства.",
+    "version_whats_new": "",
+    "software_url": "",
+    "support_url": "http://aroundabout.ru",
+    "privacy_url": "",
+    "keywords": [
+      "Петербург",
+      "Питер",
+      "карта",
+      "бесплатный",
+      "гид",
+      "Санкт",
+      "путеводитель",
+      "достопримечательности",
+      "тур",
+      "прогулка",
+      "пеший"
+    ]
+  }
+}
